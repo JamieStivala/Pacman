@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Blob{
     private boolean visible;
     private BufferedImage resourceName;
-    private Rectangle area;
+    Rectangle area;
 
     public Blob(String resourceName, String format, boolean visible, int x, int y, int width, int height){
         try {
@@ -37,11 +37,19 @@ public class Blob{
         this.resourceName = resourceName;
     }
 
-    public Rectangle getArea() {
-        return area;
+    public int getX(){
+        return area.x;
     }
 
-    public void setArea(Rectangle area) {
-        this.area = area;
+    public int getY(){
+        return area.y;
+    }
+
+    public int getWidth(){
+        return area.width;
+    }
+
+    public int getHeight(){
+        return area.height;
     }
 }

@@ -8,48 +8,55 @@ import java.io.IOException;
 
 public class Blob{
     private boolean visible;
-    private BufferedImage resourceName;
+    private BufferedImage resource;
     Rectangle area;
 
     public Blob(String resourceName, String format, boolean visible, int x, int y, int width, int height){
         try {
-            this.resourceName = ImageIO.read(new File(resourceName + "." + format));
+            this.resource = ImageIO.read(new File(resourceName + "." + format));
         }catch (IOException ex){
             System.err.println("Unable to find resource"); //-- To be changed to a graphical error.
         }
-        area = new Rectangle(x, y, width, height);
+
+        this.area = new Rectangle(x, y, width, height);
         this.visible = visible;
     }
 
     public boolean isVisible() {
-        return visible;
+        return this.visible;
     }
 
     public void setVisible(boolean visible) {
         this.visible = visible;
     }
 
-    public BufferedImage getResourceName() {
-        return resourceName;
+    public BufferedImage getResource() {
+        return this.resource;
     }
 
-    public void setResourceName(BufferedImage resourceName) {
-        this.resourceName = resourceName;
+    public void setResource(BufferedImage resource) {
+        this.resource = resource;
     }
 
     public int getX(){
-        return area.x;
+        return this.area.x;
     }
 
     public int getY(){
-        return area.y;
+        return this.area.y;
     }
 
     public int getWidth(){
-        return area.width;
+        return this.area.width;
     }
 
     public int getHeight(){
-        return area.height;
+        return this.area.height;
+    }
+
+    public void paint (Graphics g){
+        if (isVisible()){
+            g.drawImage (resource, this.getX(), this.getY(), this.getWidth(), this.getHeight(), null);
+        }
     }
 }

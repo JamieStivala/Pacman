@@ -28,6 +28,7 @@ public class Sprite extends Blob{
     public void moveRight(int pixels){
         area.setLocation(getX() + pixels, getY());
     }
+
     public void moveUp(int pixels){
         area.setLocation(getX(), getY() + pixels);
     }

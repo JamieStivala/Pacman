@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Blob{
     private boolean visible;
-    private BufferedImage resource;
+    protected BufferedImage resource;
     Rectangle area;
 
     public Blob(String resourceName, String format, boolean visible, int x, int y, int width, int height){

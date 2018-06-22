@@ -8,7 +8,7 @@ public class Seed {
 
     public Seed(long seed){
         this.seed = seed;
-        this.split = new int[18];
+        this.split = new int[20];
         System.out.println(seed);
 
         String temp = Long.toString(this.seed);
@@ -19,6 +19,11 @@ public class Seed {
         temp = Long.toString(this.seed * 2);
         for(int i = 8; i != temp.length() + 8; i++){
             split[i] = temp.charAt(i - 8) - '0';
+        }
+
+        temp = Long.toString(this.seed * 3);
+        for(int i = 17; i != 20; i++){
+            split[i] = temp.charAt(i - 17) - '0';
         }
     }
 

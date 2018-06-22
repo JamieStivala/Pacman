@@ -2,7 +2,7 @@ package generator;
 
 public class BinaryOperations {
     private static boolean[] oneDecimalToBoolean(int number){
-        String binary = fixLenght(Integer.toBinaryString(number));
+        String binary = fixLength(Integer.toBinaryString(number));
         char splitBinary[] = binary.toCharArray();
         boolean toBoolean[] = new boolean[splitBinary.length];
 
@@ -13,7 +13,7 @@ public class BinaryOperations {
         return toBoolean;
     }
 
-    private static String fixLenght(String fixing){
+    private static String fixLength(String fixing){
         StringBuilder buffer = new StringBuilder(fixing);
         if (fixing.length() == 6) return fixing;
         for(int i = 0; i != 6 - fixing.length(); i++){

@@ -1,3 +1,5 @@
+package generator;
+
 public class Seed {
     private long seed;
     private int split[];

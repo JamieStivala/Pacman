@@ -1,5 +1,6 @@
 package generator;
 
+
 public class BinaryOperations {
     private static boolean[] oneDecimalToBoolean(int number){
         String binary = fixLength(Integer.toBinaryString(number));
@@ -21,5 +22,31 @@ public class BinaryOperations {
         }
 
         return buffer.toString();
+    }
+
+    private static boolean[] addArrays(boolean array[], boolean array2[]){
+        //ArrayList<Boolean> booleans = new ArrayList<>();
+        boolean addedArray[] = new boolean[array.length + array2.length];
+        for (int i = 0; i != array.length; i++) {
+            addedArray[i] = array[i];
+        }
+
+        for (int i = 0; i != array2.length; i++) {
+            addedArray[i + array.length] = array2[i];
+        }
+
+        return addedArray;
+    }
+
+    public static boolean[] decimalToBinary(int number){
+        number = number * 6;
+        boolean finalBoolean[];
+        finalBoolean = oneDecimalToBoolean(number);
+
+        for (int i = 1; i != 6 ; i++) {
+            System.out.println(number + i);
+            finalBoolean = addArrays(finalBoolean, oneDecimalToBoolean(number + i));
+        }
+        return finalBoolean;
     }
 }

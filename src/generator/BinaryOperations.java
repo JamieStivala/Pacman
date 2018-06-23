@@ -44,7 +44,6 @@ public class BinaryOperations {
         finalBoolean = oneDecimalToBoolean(number);
 
         for (int i = 1; i != 6 ; i++) {
-            System.out.println(number + i);
             finalBoolean = addArrays(finalBoolean, oneDecimalToBoolean(number + i));
         }
         return finalBoolean;

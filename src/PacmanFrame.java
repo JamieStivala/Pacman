@@ -21,7 +21,7 @@ class PacmanFrame extends Frame {
         for(int i = 0, rowCounter = -1, resetRow = 0; i != 800; i++){
             if(i % 40 == 0) {
                 rowCounter++;
-                current = BinaryOperations.binaryToBoolean (BinaryOperations.oneDecimalToMultipleBinary(seed.getSeed()[rowCounter]));
+                current = seed.getSeed(rowCounter);
                 resetRow = 0;
             }else{
                 resetRow++;

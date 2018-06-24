@@ -1,7 +1,6 @@
 package generator;
 
 public class BinaryOperations {
-
     private static String fixLength(String fixing){
         StringBuilder buffer = new StringBuilder(fixing);
         if (fixing.length() == 8) return fixing;
@@ -10,5 +9,9 @@ public class BinaryOperations {
         }
 
         return buffer.toString();
+    }
+
+    private static char[] oneDecimalToBinary(int number){
+        return fixLength(Integer.toBinaryString(number)).toCharArray();
     }
 }

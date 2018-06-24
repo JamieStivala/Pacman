@@ -28,5 +28,12 @@ public class BinaryOperations {
         return addedArray;
     }
 
+    private static char[] oneDecimalToMultipleBinary(int number){
+        char addedArrays[] = oneDecimalToBinary(number);
+        for (int i = 1; i != 5 ; i++) {
+            addedArrays = addArrays(addedArrays, oneDecimalToBinary(number + i));
+        }
 
+        return addedArrays;
+    }
 }

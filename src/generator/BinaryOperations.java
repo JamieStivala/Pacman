@@ -29,11 +29,21 @@ public class BinaryOperations {
     }
 
     private static char[] oneDecimalToMultipleBinary(int number){
+        number = number * 9;
         char addedArrays[] = oneDecimalToBinary(number);
         for (int i = 1; i != 5 ; i++) {
             addedArrays = addArrays(addedArrays, oneDecimalToBinary(number + i));
         }
 
         return addedArrays;
+    }
+
+    public static void main(String args[]){
+        System.out.println(oneDecimalToMultipleBinary(0).length);
+        for (char x:
+             oneDecimalToMultipleBinary(1)) {
+            System.out.print(x + "\t");
+        }
+
     }
 }

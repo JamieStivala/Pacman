@@ -8,8 +8,8 @@ public class BinaryOperations {
         boolean toBoolean[] = new boolean[splitBinary.length];
 
         for(int i = 0; i != splitBinary.length; i++){
-            if(splitBinary[i] == '0') toBoolean[i] = true;
-            else if (splitBinary[i] == '1') toBoolean[i] = false;
+            if(splitBinary[i] == '0') toBoolean[i] = false;
+            else if (splitBinary[i] == '1') toBoolean[i] = true;
         }
         return toBoolean;
     }
@@ -25,7 +25,6 @@ public class BinaryOperations {
     }
 
     private static boolean[] addArrays(boolean array[], boolean array2[]){
-        //ArrayList<Boolean> booleans = new ArrayList<>();
         boolean addedArray[] = new boolean[array.length + array2.length];
         for (int i = 0; i != array.length; i++) {
             addedArray[i] = array[i];

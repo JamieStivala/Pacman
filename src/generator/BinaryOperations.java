@@ -28,7 +28,7 @@ public class BinaryOperations {
         return addedArray;
     }
 
-    public static char[] oneDecimalToMultipleBinary(int number){
+    static char[] oneDecimalToMultipleBinary(int number){
         number = number * 9;
         char addedArrays[] = oneDecimalToBinary(number);
         for (int i = 1; i != 5 ; i++) {
@@ -38,7 +38,7 @@ public class BinaryOperations {
         return addedArrays;
     }
 
-    public static boolean[] binaryToBoolean(char[] binary){
+    static boolean[] binaryToBoolean(char[] binary){
         boolean finalArray[] = new boolean[binary.length];
         for(int i = 0; i != binary.length; i++){
             if(binary[i] == '0') finalArray[i] = true;

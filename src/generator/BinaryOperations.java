@@ -14,4 +14,19 @@ public class BinaryOperations {
     private static char[] oneDecimalToBinary(int number){
         return fixLength(Integer.toBinaryString(number)).toCharArray();
     }
+
+    private static char[] addArrays(char[] array1, char[] array2){
+        char addedArray[] = new char[array1.length + array2.length];
+        for (int i = 0; i != array1.length; i++) {
+            addedArray[i] = array1[i];
+        }
+
+        for (int i = 0; i != array2.length; i++) {
+            addedArray[i + array1.length] = array2[i];
+        }
+
+        return addedArray;
+    }
+
+
 }

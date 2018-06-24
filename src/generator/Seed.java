@@ -32,4 +32,8 @@ public class Seed {
     public int[] getSeed() {
         return split;
     }
+
+    public boolean[] getSeed(int index){
+        return BinaryOperations.binaryToBoolean(BinaryOperations.oneDecimalToMultipleBinary(getSeed()[index]));
+    }
 }

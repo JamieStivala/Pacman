@@ -1,7 +1,6 @@
 package generator;
 
 public class Seed {
-    private int split[];
     private boolean seed[][];
 
     public Seed() {
@@ -9,7 +8,8 @@ public class Seed {
     }
 
     public Seed(long seed){
-        this.split = new int[20];
+        int split[] = new int[20];
+        this.seed = new boolean[20][40];
         System.out.println(seed);
 
         String temp = Long.toString(seed);
@@ -26,13 +26,13 @@ public class Seed {
         for(int i = 17; i != 20; i++){
             split[i] = temp.charAt(i - 17) - '0';
         }
-    }
 
-    private int[] getSeed() {
-        return split;
+        for (int i = 0; i != split.length ; i++) {
+            this.seed[i] = BinaryOperations.binaryToBoolean(BinaryOperations.oneDecimalToMultipleBinary(split[i]));
+        }
     }
 
     public boolean[] getSeed(int index){
-        return BinaryOperations.binaryToBoolean(BinaryOperations.oneDecimalToMultipleBinary(getSeed()[index]));
+        return this.seed[index];
     }
 }

@@ -29,7 +29,7 @@ public class Seed {
         }
     }
 
-    public int[] getSeed() {
+    private int[] getSeed() {
         return split;
     }
 

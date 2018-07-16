@@ -1,6 +1,6 @@
 package generator;
 
-public class BinaryOperations {
+class BinaryOperations {
     private static String fixLength(String fixing){
         StringBuilder buffer = new StringBuilder(fixing);
         if (fixing.length() == 8) return fixing;

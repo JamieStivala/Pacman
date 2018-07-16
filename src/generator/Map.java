@@ -1,6 +1,6 @@
 package generator;
 
-class WorldOperations {
+class Map {
     static void drawMiddleBox(Seed seed){
         boolean currentSeed[] = seed.getSeed(1);
 

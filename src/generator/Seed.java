@@ -12,19 +12,21 @@ public class Seed {
         this.seed = new boolean[20][40];
         System.out.println(seed);
 
+        int currentCounter = 0;
         String temp = Long.toString(seed);
-        for(int i = 0; i != temp.length(); i++) {
-            split[i] = temp.charAt(i) - '0';
+
+        for(; currentCounter != temp.length(); currentCounter++){
+            split[currentCounter] = temp.charAt(currentCounter) - '0';
         }
 
         temp = Long.toString(seed * 2);
-        for(int i = 9; i != temp.length() + 8; i++){
-            split[i] = temp.charAt(i - 8) - '0';
+        for(int i = 0; i != temp.length(); i++, currentCounter++){
+            split[currentCounter] = temp.charAt(i) - '0';
         }
 
         temp = Long.toString(seed * 3);
-        for(int i = 18; i != 20; i++){
-            split[i] = temp.charAt(i - 17) - '0';
+        for(int i = 0; currentCounter != split.length; i++, currentCounter++){
+            split[currentCounter] = temp.charAt(i) - '0';
         }
 
         for (int i = 0; i != split.length ; i++) {

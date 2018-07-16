@@ -14,7 +14,7 @@ class PacmanFrame extends Frame {
         super.setBackground(Color.BLACK);
         super.setLayout(gridLayout);
 
-        seed = new Seed(732989719);
+        map = new PacmanMap();
 
         boolean current[] = new boolean[0];
         for(int amountOfBlocks = 0, verticalPosition = 0, horizontalPosition = 0; amountOfBlocks != 800; amountOfBlocks++){
@@ -23,6 +23,7 @@ class PacmanFrame extends Frame {
                 verticalPosition++;
                 horizontalPosition = 0;
             }
+
             if(current[horizontalPosition]){
                 Button button = new Button();
                 button.setVisible(false);

@@ -1,4 +1,3 @@
-import generator.BinaryOperations;
 import generator.Seed;
 
 import javax.swing.*;

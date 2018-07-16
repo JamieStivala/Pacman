@@ -17,14 +17,14 @@ class PacmanFrame extends Frame {
         seed = new Seed(732989719);
 
         boolean current[] = new boolean[0];
-        for(int i = 0, rowCounter = -1, resetRow = 0; i != 800; i++){
-            if(i % 40 == 0) {
-                rowCounter++;
-                current = seed.getSeed(rowCounter);
-                resetRow = 0;
+        for(int amountOfBlocks = 0, verticalPosition = -1, horizontalPosition = 0; amountOfBlocks != 800; amountOfBlocks++){
+            if(amountOfBlocks % 40 == 0){
+                verticalPosition++;
+                current = seed.getSeed(verticalPosition);
+                horizontalPosition = 0;
             }else{
-                resetRow++;
-                if(current[resetRow]){
+                horizontalPosition++;
+                if(current[horizontalPosition]){
                     Button button = new Button();
                     button.setVisible(false);
                     super.add(button);
@@ -33,6 +33,7 @@ class PacmanFrame extends Frame {
                 }
             }
         }
+
         super.paint(super.getGraphics());
 
     }

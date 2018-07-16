@@ -3,7 +3,6 @@ package generator;
 class BinaryOperations {
     private static String fixLength(String fixing){
         StringBuilder buffer = new StringBuilder(fixing);
-        if (fixing.length() == 8) return fixing;
         for(int i = 0; i != 8 - fixing.length(); i++){
             buffer.insert(0, 0);
         }
@@ -29,7 +28,7 @@ class BinaryOperations {
     }
 
     static char[] oneDecimalToMultipleBinary(int number){
-        number = number * 9;
+        number = number * 27;
         char addedArrays[] = oneDecimalToBinary(number);
         for (int i = 1; i != 5 ; i++) {
             addedArrays = addArrays(addedArrays, oneDecimalToBinary(number + i));

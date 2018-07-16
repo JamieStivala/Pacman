@@ -14,7 +14,7 @@ class PacmanFrame extends Frame {
         super.setBackground(Color.BLACK);
         super.setLayout(gridLayout);
 
-        seed = new Seed();
+        seed = new Seed(732989719);
 
         boolean current[] = new boolean[0];
         for(int i = 0, rowCounter = -1, resetRow = 0; i != 800; i++){

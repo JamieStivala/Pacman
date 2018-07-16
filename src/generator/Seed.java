@@ -18,12 +18,12 @@ public class Seed {
         }
 
         temp = Long.toString(seed * 2);
-        for(int i = 8; i != temp.length() + 8; i++){
+        for(int i = 9; i != temp.length() + 8; i++){
             split[i] = temp.charAt(i - 8) - '0';
         }
 
         temp = Long.toString(seed * 3);
-        for(int i = 17; i != 20; i++){
+        for(int i = 18; i != 20; i++){
             split[i] = temp.charAt(i - 17) - '0';
         }
 

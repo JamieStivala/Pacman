@@ -1,6 +1,12 @@
 package generator;
 
-public class WorldOperations {
-    //Todo write an algorithm that checks if a block is surrounded.  If surrounded fill it in
-    
+class WorldOperations {
+    static void drawMiddleBox(Seed seed){
+        boolean currentSeed[] = seed.getSeed(1);
+
+        for (boolean x:
+             currentSeed) {
+            System.out.print(x + " ");
+        }
+    }
 }

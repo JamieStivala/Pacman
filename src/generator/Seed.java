@@ -1,13 +1,9 @@
 package generator;
 
-public class Seed {
+class Seed {
     private boolean seed[][];
 
-    public Seed() {
-        this((long) (Math.random() * 1000000000));
-    }
-
-    public Seed(long seed){
+    Seed(long seed){
         int split[] = new int[20];
         this.seed = new boolean[20][40];
         System.out.println(seed);
@@ -29,7 +25,7 @@ public class Seed {
             split[currentCounter] = temp.charAt(i) - '0';
         }
 
-        for (int i = 0; i != split.length ; i++) {
+        for (int i = 0; i != split.length; i++) {
             this.seed[i] = BinaryOperations.binaryToBoolean(BinaryOperations.oneDecimalToMultipleBinary(split[i]));
         }
     }

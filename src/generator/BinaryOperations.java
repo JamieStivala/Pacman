@@ -2,6 +2,7 @@ package generator;
 
 class BinaryOperations {
     private static String fixLength(String fixing){
+        if(fixing.length() == 8) return fixing;
         StringBuilder buffer = new StringBuilder(fixing);
         for(int i = 0; i != 8 - fixing.length(); i++){
             buffer.insert(0, 0);
@@ -40,8 +41,8 @@ class BinaryOperations {
     static boolean[] binaryToBoolean(char[] binary){
         boolean finalArray[] = new boolean[binary.length];
         for(int i = 0; i != binary.length; i++){
-            if(binary[i] == '0') finalArray[i] = true;
-            else if(binary[i] == '1') finalArray[i] = false;
+            if(binary[i] == '0') finalArray[i] = false;
+            else if(binary[i] == '1') finalArray[i] = true;
         }
 
         return finalArray;

@@ -2,11 +2,11 @@ package generator;
 
 import java.util.Random;
 
-class Seed {
+public class Seed {
     private Random random;
     private BlockType seed[][];
 
-    Seed() {
+    public Seed() {
         this((long) (Math.random() * 1000000000));
     }
 

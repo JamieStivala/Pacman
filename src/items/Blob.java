@@ -13,9 +13,9 @@ public class Blob{
 
     public Blob(String resourceName, String format, boolean visible, int x, int y, int width, int height){
         try {
-            this.resource = ImageIO.read(new File(resourceName + "." + format));
+            this.resource = ImageIO.read(new File("resources/" + resourceName + "." + format));
         }catch (IOException ex){
-            System.err.println("Unable to find resource"); //-- To be changed to a graphical error.
+            System.err.println("Unable to find resource: " + resourceName); //-- To be changed to a graphical error.
         }
 
         this.area = new Rectangle(x, y, width, height);

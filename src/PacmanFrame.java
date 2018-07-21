@@ -15,7 +15,7 @@ class PacmanFrame extends Frame {
         super.setBackground(Color.BLACK);
         super.setLayout(gridLayout);
 
-        map = new Seed();
+        map = new Seed(549321308);
 
         BlockType current[] = new BlockType[0];
         for(int amountOfBlocks = 0, verticalPosition = 0, horizontalPosition = 0; amountOfBlocks != 800; amountOfBlocks++){

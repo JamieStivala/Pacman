@@ -10,7 +10,8 @@ public class Seed {
         this((long) (Math.random() * 1000000000));
     }
 
-    Seed(long seed) {
+    public Seed(long seed) {
+        System.out.println(seed);
         this.seed = new BlockType[20][40];
         this.random = new Random(seed);
 

@@ -1,11 +1,9 @@
-import generator.PacmanMap;
-
 import javax.swing.*;
 import java.awt.*;
 
 class PacmanFrame extends Frame {
     private GridLayout gridLayout = new GridLayout(20, 400);
-    private PacmanMap map;
+    //private PacmanMap map;
     PacmanFrame(){
         super("PacmanRunner");
         super.setSize(640, 480);
@@ -13,7 +11,7 @@ class PacmanFrame extends Frame {
         super.setVisible(true);
         super.setBackground(Color.BLACK);
         super.setLayout(gridLayout);
-
+        /*
         map = new PacmanMap();
 
         boolean current[] = new boolean[0];
@@ -23,6 +21,8 @@ class PacmanFrame extends Frame {
                 verticalPosition++;
                 horizontalPosition = 0;
             }
+            if(map.getAmountFalse() > map.getAmountTrue())
+                current[horizontalPosition] = !current[horizontalPosition];
 
             if(current[horizontalPosition]){
                 Button button = new Button();
@@ -35,6 +35,7 @@ class PacmanFrame extends Frame {
         }
 
         super.paint(super.getGraphics());
+        */
 
     }
 }

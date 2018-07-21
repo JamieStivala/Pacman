@@ -16,7 +16,7 @@ public class BinaryOperations {
         return buffer.toString();
     }
 
-    static BlockType[] binaryToEnum(int firstNumber, int secondNumber, int thirdNumber){
+    static BlockType[] numberToEnum(int firstNumber, int secondNumber, int thirdNumber){
         String binaryString = fixLength(Integer.toBinaryString(firstNumber), 30)
                 + fixLength(Integer.toBinaryString(secondNumber), 30)
                 + fixLength(Integer.toBinaryString(thirdNumber), 20);

@@ -2,17 +2,17 @@ package generator;
 
 public class BinaryOperations {
     private static String fixLength(String fixing, int length) {
-        if (fixing.length() == length) return fixing;
         StringBuilder buffer = new StringBuilder(fixing);
 
         if (fixing.length() < length) {
             for (int i = 0; i != length - fixing.length(); i++) {
                 buffer.insert(0, 0);
             }
-        } else {
+        } else if (fixing.length() > length) {
             buffer.delete(0, fixing.length() - length);
+        }else{
+            return fixing;
         }
-
         return buffer.toString();
     }
 }

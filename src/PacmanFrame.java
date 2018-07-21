@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 
 class PacmanFrame extends Frame {
-    private GridLayout gridLayout = new GridLayout(20, 400);
+    private GridLayout gridLayout = new GridLayout(20, 40);
     private Seed map;
     PacmanFrame(){
         super("PacmanRunner");

@@ -45,7 +45,6 @@ class BinaryOperations {
 
 
         if(amountWall > amountEmpty){
-            System.out.println("less empty");
             for (int i = 0; i != blockType.length ; i++) {
                 if(blockType[i] == BlockType.EMPTY) blockType[i] = BlockType.WALL;
                 else if(blockType[i] == BlockType.WALL) blockType[i] = BlockType.EMPTY;

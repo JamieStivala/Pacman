@@ -34,3 +34,9 @@ class Seed {
         return this.seed[index];
     }
 }
+
+enum BlockType{
+    EMPTY,
+    COIN,
+    WALL
+}

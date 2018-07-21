@@ -30,9 +30,7 @@ public class BinaryOperations {
 
             if(defaultI == '0' && incrementedI == '0'){
                 blockType[counter] = BlockType.EMPTY;
-            }else if(defaultI == '0' && incrementedI == '1'){
-                blockType[counter] = BlockType.COIN;
-            }else if(defaultI == '1' && incrementedI == '0'){
+            }else if(defaultI == '0' && incrementedI == '1' || defaultI == '1' && incrementedI == '0'){
                 blockType[counter] = BlockType.COIN;
             }else if(defaultI == '1' && incrementedI == '1'){
                 blockType[counter] = BlockType.WALL;

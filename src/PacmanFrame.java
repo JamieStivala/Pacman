@@ -19,23 +19,19 @@ class PacmanFrame extends JFrame{
         super.setLayout(gridLayout);
         super.setVisible(true);
 
-        map = new PacmanMap();
+        map = new PacmanMap(937870171);
 
-        BlockType current[] = null;
 
-        for(int verticalPosition = 0, horizontalPosition = 40; verticalPosition != 20; horizontalPosition++) {
-            if(horizontalPosition == 40){
-                current = map.getSeed(verticalPosition);
-                verticalPosition++;
-                horizontalPosition = 0;
-            }
-
-            if(current[horizontalPosition] == BlockType.COIN || current[horizontalPosition] == BlockType.EMPTY){
-                Button button = new Button();
-                button.setVisible(false);
-                super.add(button);
-            }else{
-                super.add(new Button());
+        for(int vertical = 0; vertical != map.getSeed().length; vertical++){
+            BlockType current[] = map.getSeed(vertical);
+            for (int horizontal = 0; horizontal != current.length; horizontal++){
+                if(current[horizontal] == BlockType.WALL){
+                    super.add(new JButton());
+                }else{
+                    JButton button = new JButton();
+                    button.setVisible(false);
+                    super.add(button);
+                }
             }
 
         }

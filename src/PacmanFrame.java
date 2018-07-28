@@ -21,7 +21,6 @@ class PacmanFrame extends JFrame{
 
         map = new PacmanMap(937870171);
 
-
         for(int vertical = 0; vertical != map.getSeed().length; vertical++){
             BlockType current[] = map.getSeed(vertical);
             for (int horizontal = 0; horizontal != current.length; horizontal++){
@@ -33,7 +32,7 @@ class PacmanFrame extends JFrame{
                     super.add(button);
                 }
             }
-
         }
+        super.repaint();
     }
 }

@@ -1,27 +1,30 @@
 import generator.BlockType;
+import generator.PacmanMap;
 import generator.Seed;
 import listener.PacmanWindowListener;
 
 import javax.swing.*;
 import java.awt.*;
 
-class PacmanFrame extends Frame {
+class PacmanFrame extends JFrame{
     private GridLayout gridLayout = new GridLayout(20, 40);
     private Seed map;
+
     PacmanFrame(){
-        super("PacmanRunner");
+        super.setTitle("Pacman");
         super.setSize(640, 480);
         super.setExtendedState(JFrame.MAXIMIZED_BOTH);
         super.addWindowListener(new PacmanWindowListener());
-        super.setVisible(true);
-        super.setBackground(Color.BLACK);
+        super.getContentPane().setBackground(Color.BLACK);
         super.setLayout(gridLayout);
+        super.setVisible(true);
 
-        map = new Seed(549321308);
+        map = new PacmanMap();
 
-        BlockType current[] = new BlockType[0];
-        for(int amountOfBlocks = 0, verticalPosition = 0, horizontalPosition = 0; amountOfBlocks != 800; amountOfBlocks++){
-            if(amountOfBlocks % 40 == 0){
+        BlockType current[] = null;
+
+        for(int verticalPosition = 0, horizontalPosition = 40; verticalPosition != 20; horizontalPosition++) {
+            if(horizontalPosition == 40){
                 current = map.getSeed(verticalPosition);
                 verticalPosition++;
                 horizontalPosition = 0;
@@ -34,11 +37,7 @@ class PacmanFrame extends Frame {
             }else{
                 super.add(new Button());
             }
-            horizontalPosition++;
+
         }
-
-        super.paint(super.getGraphics());
-
-
     }
 }

@@ -1,6 +1,7 @@
 import generator.BlockType;
 import generator.PacmanMap;
 import generator.Seed;
+import listener.PacmanKeyListener;
 import listener.PacmanWindowListener;
 
 import javax.swing.*;
@@ -15,6 +16,7 @@ class PacmanFrame extends JFrame{
         super.setSize(640, 480);
         super.setExtendedState(JFrame.MAXIMIZED_BOTH);
         super.addWindowListener(new PacmanWindowListener());
+        super.addKeyListener(new PacmanKeyListener());
         super.getContentPane().setBackground(Color.BLACK);
         super.setLayout(gridLayout);
         super.setVisible(true);

@@ -11,7 +11,7 @@ public class PacmanMap extends Seed {
     }
 
     private void addSpawnBox(){
-        //Side walls
+        //Top & Bottom walls
         super.getSeed(7)[19] = BlockType.WALL;
         super.getSeed(7)[20] = BlockType.WALL;
         super.getSeed(7)[21] = BlockType.WALL;
@@ -19,9 +19,9 @@ public class PacmanMap extends Seed {
         super.getSeed(11)[19] = BlockType.WALL;
         super.getSeed(11)[20] = BlockType.WALL;
         super.getSeed(11)[21] = BlockType.WALL;
-        //Side walls
-
         //Top & Bottom walls
+
+        //Side walls
         super.getSeed(8)[22] = BlockType.WALL;
         super.getSeed(9)[22] = BlockType.WALL;
         super.getSeed(10)[22] = BlockType.WALL;
@@ -29,7 +29,7 @@ public class PacmanMap extends Seed {
         super.getSeed(8)[18] = BlockType.WALL;
         super.getSeed(9)[18] = BlockType.WALL;
         super.getSeed(10)[18] = BlockType.WALL;
-        //Top & Bottom walls
+        //Side walls
 
         //Empty the outside box
         super.getSeed(11)[18] = BlockType.EMPTY;

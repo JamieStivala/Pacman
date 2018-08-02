@@ -17,7 +17,7 @@ class PacmanFrame extends JFrame{
         super.setResizable(true);
         super.addWindowListener(new PacmanWindowListener());
         super.addKeyListener(new PacmanKeyListener());
-        super.getContentPane().setBackground(Color.BLACK);
+        super.setBackground(new Color(5, 19, 28));
         super.setLayout(null);
         super.setVisible(true);
     }

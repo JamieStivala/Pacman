@@ -22,10 +22,16 @@ public class PacmanFrame extends JFrame{
         this.map = new PacmanMap(937870171);
         this.pacman = new Pacman(2, 24);
         this.screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
+        this.setStopped(false);
 
         this.pacmanMap = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
         map.paint(pacmanMap.getGraphics());
 
+        setFrameSettings();
+        startThreads();
+    }
+
+    private void setFrameSettings(){
         super.setTitle("Pacman");
         super.setSize(1440, 799);
         super.setResizable(true);
@@ -34,14 +40,11 @@ public class PacmanFrame extends JFrame{
         super.setLayout(null);
         super.setVisible(true);
         super.requestFocus();
-
-        this.render();
-        this.repaint();
     }
 
     private void startThreads(){
         this.pacmanMover = new PacmanMover(this);
-        pacmanMover.start();
+        this.pacmanMover.start();
     }
 
     public void render() {

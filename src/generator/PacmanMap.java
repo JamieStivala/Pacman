@@ -7,7 +7,7 @@ import items.stationery.Wall;
 import java.awt.*;
 
 public class PacmanMap extends Seed {
-    private Blob inGameItems[][] = new Blob[20][40];
+    private Blob gameTextures[][] = new Blob[20][40];
     public PacmanMap(){
         this((long) (Math.random() * 1000000000));
     }
@@ -68,9 +68,9 @@ public class PacmanMap extends Seed {
             BlockType current[] = super.getSeed(vertical);
             for (int horizontal = 0; horizontal != current.length; horizontal++){
                 if(current[horizontal] == BlockType.WALL){
-                    inGameItems[vertical][horizontal] = new Wall(x, y);
+                    gameTextures[vertical][horizontal] = new Wall(x, y);
                 }else{
-                    inGameItems[vertical][horizontal] = new Coin(x, y);
+                    gameTextures[vertical][horizontal] = new Coin(x, y);
                 }
                 x += 36;
             }
@@ -83,8 +83,16 @@ public class PacmanMap extends Seed {
         for(int vertical = 0; vertical != super.getSeed().length; vertical++){
             BlockType current[] = super.getSeed(vertical);
             for (int horizontal = 0; horizontal != current.length; horizontal++){
-                inGameItems[vertical][horizontal].paint(g);
+                gameTextures[vertical][horizontal].paint(g);
             }
         }
+    }
+
+    public Blob[][] getGameTextures() {
+        return this.gameTextures;
+    }
+
+    public Blob[] getGameTextures(int index) {
+        return this.gameTextures[index];
     }
 }

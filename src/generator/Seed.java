@@ -19,11 +19,11 @@ public class Seed {
         }
     }
 
-    public BlockType[][] getSeed() {
+    BlockType[][] getSeed() {
         return seed;
     }
 
-    public BlockType[] getSeed(int index) {
+    BlockType[] getSeed(int index) {
         return seed[index];
     }
 }

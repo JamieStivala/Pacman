@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class Blob {
-    private BufferedImage image;
+    protected BufferedImage image;
     private Rectangle area;
     private boolean visible;
 

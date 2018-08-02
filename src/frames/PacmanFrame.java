@@ -64,4 +64,8 @@ public class PacmanFrame extends JFrame{
     public Pacman getPacman() {
         return pacman;
     }
+
+    public PacmanMover getPacmanMover() {
+        return pacmanMover;
+    }
 }

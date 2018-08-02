@@ -1,4 +1,4 @@
-package runner;
+package frames;
 
 import items.moving.Pacman;
 import listener.PacmanKeyListener;
@@ -14,7 +14,7 @@ public class PacmanFrame extends JFrame{
     private Pacman pacman;
     private BufferedImage screen;
 
-    PacmanFrame(){
+    public PacmanFrame(){
         map = new PacmanMap(937870171);
         pacman = new Pacman(2, 24);
         screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);

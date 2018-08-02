@@ -1,17 +1,17 @@
 package listener;
 
+import frames.PacmanFrame;
 import items.moving.Pacman;
 
-import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class PacmanKeyListener implements KeyListener {
     private Pacman pacman;
-    private JFrame jFrame;
-    public PacmanKeyListener(Pacman pacman, JFrame pacmanFrame){
+    private PacmanFrame pacmanFrame;
+    public PacmanKeyListener(Pacman pacman, PacmanFrame pacmanFrame){
         this.pacman = pacman;
-        this.jFrame = pacmanFrame;
+        this.pacmanFrame = pacmanFrame;
     }
     @Override
     public void keyTyped(KeyEvent e) {
@@ -24,8 +24,8 @@ public class PacmanKeyListener implements KeyListener {
         else if(e.getKeyCode() == 39 || e.getKeyCode() == 68) pacman.moveRight(5);
         else if(e.getKeyCode() == 38 || e.getKeyCode() == 87) pacman.moveUp(5);
         else if (e.getKeyCode() == 40 || e.getKeyCode() == 83) pacman.moveDown(5);
-
-        jFrame.update(jFrame.getGraphics());
+        pacmanFrame.render();
+        pacmanFrame.repaint();
     }
 
     @Override

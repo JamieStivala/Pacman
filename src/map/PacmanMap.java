@@ -2,6 +2,7 @@ package map;
 
 import items.Blob;
 import items.stationery.Coin;
+import items.stationery.Empty;
 import items.stationery.Wall;
 import map.generator.Seed;
 
@@ -70,8 +71,10 @@ public class PacmanMap extends Seed {
             for (int horizontal = 0; horizontal != current.length; horizontal++){
                 if(current[horizontal] == BlockType.WALL){
                     gameTextures[vertical][horizontal] = new Wall(x, y);
-                }else{
+                }else if(current[horizontal] == BlockType.COIN){
                     gameTextures[vertical][horizontal] = new Coin(x, y);
+                }else{
+                    gameTextures[vertical][horizontal] = new Empty(x, y);
                 }
                 x += 36;
             }

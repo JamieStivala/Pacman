@@ -1,6 +1,13 @@
 package generator;
 
+import items.Blob;
+import items.stationery.Coin;
+import items.stationery.Wall;
+
+import java.awt.*;
+
 public class PacmanMap extends Seed {
+    private Blob inGameItems[][] = new Blob[20][40];
     public PacmanMap(){
         this((long) (Math.random() * 1000000000));
     }
@@ -8,6 +15,7 @@ public class PacmanMap extends Seed {
     public PacmanMap(long seed){
         super(seed);
         this.addSpawnBox();
+        this.drawMap();
     }
 
     private void addSpawnBox(){
@@ -51,5 +59,32 @@ public class PacmanMap extends Seed {
         super.getSeed(10)[20] = BlockType.EMPTY;
         super.getSeed(10)[21] = BlockType.EMPTY;
         //Empty the inside box
+    }
+
+    private void drawMap(){
+        int x = 2;
+        int y = 24;
+        for(int vertical = 0; vertical != super.getSeed().length; vertical++){
+            BlockType current[] = super.getSeed(vertical);
+            for (int horizontal = 0; horizontal != current.length; horizontal++){
+                if(current[horizontal] == BlockType.WALL){
+                    inGameItems[vertical][horizontal] = new Wall(x, y);
+                }else{
+                    inGameItems[vertical][horizontal] = new Coin(x, y);
+                }
+                x += 36;
+            }
+            x = 2;
+            y += 39;
+        }
+    }
+
+    public void paint(Graphics g){
+        for(int vertical = 0; vertical != super.getSeed().length; vertical++){
+            BlockType current[] = super.getSeed(vertical);
+            for (int horizontal = 0; horizontal != current.length; horizontal++){
+                inGameItems[vertical][horizontal].paint(g);
+            }
+        }
     }
 }

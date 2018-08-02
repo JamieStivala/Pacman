@@ -1,4 +1,4 @@
-package frames.listeners.pacman;
+package frames.pacman.listeners;
 
 import frames.PacmanFrame;
 import items.moving.Pacman;

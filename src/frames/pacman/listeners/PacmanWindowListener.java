@@ -1,4 +1,4 @@
-package frames.listeners.pacman;
+package frames.pacman.listeners;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;

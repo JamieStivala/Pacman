@@ -1,7 +1,7 @@
 package frames;
 
-import frames.listeners.pacman.PacmanKeyListener;
-import frames.listeners.pacman.PacmanWindowListener;
+import frames.pacman.listeners.PacmanKeyListener;
+import frames.pacman.listeners.PacmanWindowListener;
 import items.moving.Pacman;
 import items.moving.threads.PacmanMover;
 import map.PacmanMap;

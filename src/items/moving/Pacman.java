@@ -16,7 +16,30 @@ public class Pacman extends Sprite {
     }
 
     public void setRotation(PacmanRotation rotation) {
+        PacmanRotation oldRotation = getRotation();
         this.rotation = rotation;
+        if (oldRotation == PacmanRotation.RIGHT && rotation == PacmanRotation.DOWN ||
+                oldRotation == PacmanRotation.DOWN && rotation == PacmanRotation.LEFT ||
+                oldRotation == PacmanRotation.LEFT && rotation == PacmanRotation.UP ||
+                oldRotation == PacmanRotation.UP && rotation == PacmanRotation.RIGHT ||
+                oldRotation == null && rotation == PacmanRotation.DOWN){
+            rotate();
+        } else if(oldRotation == PacmanRotation.RIGHT && rotation == PacmanRotation.LEFT ||
+                oldRotation == PacmanRotation.DOWN && rotation == PacmanRotation.UP ||
+                oldRotation == PacmanRotation.LEFT && rotation == PacmanRotation.RIGHT ||
+                oldRotation == PacmanRotation.UP && rotation == PacmanRotation.DOWN ||
+                oldRotation == null && rotation == PacmanRotation.LEFT) {
+            rotate();
+            rotate();
+        } else if(oldRotation == PacmanRotation.RIGHT && rotation == PacmanRotation.UP ||
+                oldRotation == PacmanRotation.DOWN && rotation == PacmanRotation.RIGHT ||
+                oldRotation == PacmanRotation.LEFT && rotation == PacmanRotation.DOWN ||
+                oldRotation == PacmanRotation.UP && rotation == PacmanRotation.LEFT ||
+                oldRotation == null && rotation == PacmanRotation.UP){
+            rotate();
+            rotate();
+            rotate();
+        }
     }
 
     private void rotate() {

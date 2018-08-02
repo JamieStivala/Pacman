@@ -1,4 +1,4 @@
-package frames;
+package frames.pacman;
 
 import frames.pacman.listeners.PacmanKeyListener;
 import frames.pacman.listeners.PacmanWindowListener;

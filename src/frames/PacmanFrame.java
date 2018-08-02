@@ -1,8 +1,8 @@
 package frames;
 
+import frames.listeners.pacman.PacmanKeyListener;
+import frames.listeners.pacman.PacmanWindowListener;
 import items.moving.Pacman;
-import listener.PacmanKeyListener;
-import listener.PacmanWindowListener;
 import map.PacmanMap;
 
 import javax.swing.*;

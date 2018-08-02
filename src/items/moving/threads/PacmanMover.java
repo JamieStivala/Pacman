@@ -5,7 +5,6 @@ import items.moving.Pacman;
 import items.moving.PacmanRotation;
 
 public class PacmanMover extends Thread{
-    private boolean stopped;
     private PacmanFrame pacmanFrame;
     private Pacman pacman;
 
@@ -16,7 +15,7 @@ public class PacmanMover extends Thread{
 
     @Override
     public void run() {
-        while(!stopped) {
+        while(pacmanFrame.isRunning()) {
             PacmanRotation rotation = pacmanFrame.getPacman().getRotation();
             if(rotation == PacmanRotation.LEFT) pacman.moveLeft(5);
             else if(rotation == PacmanRotation.RIGHT) pacman.moveRight(5);
@@ -31,8 +30,5 @@ public class PacmanMover extends Thread{
                 System.err.println("Interrupted exception: " + e.getMessage());
             }
         }
-    }
-    public void stopThread() {
-        this.stopped = true;
     }
 }

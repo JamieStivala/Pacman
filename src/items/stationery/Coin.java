@@ -4,6 +4,6 @@ import items.Blob;
 
 public class Coin extends Blob {
     public Coin(int x, int y) {
-        super("coin.png", x, y, 32, 32);
+        super("coin.png", x + 12, y+12, 10, 10);
     }
 }

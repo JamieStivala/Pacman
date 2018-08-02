@@ -21,11 +21,11 @@ public class PacmanFrame extends JFrame{
         super.setBackground(new Color(5, 19, 28));
         super.setLayout(null);
         super.setVisible(true);
+        map.paint(super.getGraphics());
     }
 
     @Override
     public void paint(Graphics g){
-        map.paint(g);
         pacman.paint(g);
     }
 

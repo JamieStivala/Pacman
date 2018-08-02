@@ -7,7 +7,6 @@ public class Pacman extends Sprite {
 
     public Pacman(int x, int y) {
         super("pacman.png", x, y, 35, 35);
-        this.setRotation(PacmanRotation.LEFT);
     }
 
     public PacmanRotation getRotation() {

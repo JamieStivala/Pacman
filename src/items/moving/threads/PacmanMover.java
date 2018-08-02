@@ -21,7 +21,7 @@ public class PacmanMover extends Thread{
             if(rotation == PacmanRotation.LEFT) pacman.moveLeft(5);
             else if(rotation == PacmanRotation.RIGHT) pacman.moveRight(5);
             else if(rotation == PacmanRotation.UP) pacman.moveUp(5);
-            else pacman.moveDown(5);
+            else if(rotation == PacmanRotation.DOWN) pacman.moveDown(5);
 
             pacmanFrame.render();
             pacmanFrame.repaint();

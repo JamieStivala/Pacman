@@ -3,6 +3,7 @@ package frames;
 import frames.listeners.pacman.PacmanKeyListener;
 import frames.listeners.pacman.PacmanWindowListener;
 import items.moving.Pacman;
+import items.moving.threads.FrameUpdater;
 import map.PacmanMap;
 
 import javax.swing.*;
@@ -12,12 +13,20 @@ import java.awt.image.BufferedImage;
 public class PacmanFrame extends JFrame{
     private PacmanMap map;
     private Pacman pacman;
+    private BufferedImage pacmanMap;
+    private FrameUpdater frameUpdater;
     private BufferedImage screen;
 
     public PacmanFrame(){
-        map = new PacmanMap(937870171);
-        pacman = new Pacman(2, 24);
-        screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
+        this.map = new PacmanMap(937870171);
+        this.pacman = new Pacman(2, 24);
+        this.screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
+
+        this.pacmanMap = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
+        map.paint(pacmanMap.getGraphics());
+
+        this.frameUpdater = new FrameUpdater(this);
+        frameUpdater.start();
 
         super.setTitle("Pacman");
         super.setSize(1440, 799);
@@ -27,6 +36,7 @@ public class PacmanFrame extends JFrame{
         super.setBackground(new Color(5, 19, 28));
         super.setLayout(null);
         super.setVisible(true);
+        super.requestFocus();
 
         this.render();
         this.repaint();
@@ -36,7 +46,7 @@ public class PacmanFrame extends JFrame{
         Graphics g = screen.getGraphics();
         g.setColor(new Color(5, 19, 28));
         g.fillRect(1, 1, screen.getWidth(), screen.getHeight());
-        map.paint(g);
+        g.drawImage(pacmanMap, 1, 1, screen.getWidth(), screen.getHeight(), null);
         pacman.paint(g);
     }
 
@@ -49,5 +59,9 @@ public class PacmanFrame extends JFrame{
     @Override
     public void update(Graphics g){
         paint(g);
+    }
+
+    public Pacman getPacman() {
+        return pacman;
     }
 }

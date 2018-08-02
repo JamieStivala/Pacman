@@ -13,16 +13,18 @@ class PacmanFrame extends JFrame{
 
     PacmanFrame(){
         super.setTitle("Pacman");
-        super.setSize(640, 480);
-        super.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        super.setSize(1440, 799);
+        super.setResizable(true);
         super.addWindowListener(new PacmanWindowListener());
         super.addKeyListener(new PacmanKeyListener());
         super.getContentPane().setBackground(Color.BLACK);
-        super.setLayout(gridLayout);
+        super.setLayout(null);
         super.setVisible(true);
 
         map = new PacmanMap(937870171);
 
+
+        /*
         for(int vertical = 0; vertical != map.getSeed().length; vertical++){
             BlockType current[] = map.getSeed(vertical);
             for (int horizontal = 0; horizontal != current.length; horizontal++){
@@ -33,8 +35,9 @@ class PacmanFrame extends JFrame{
                     button.setVisible(false);
                     super.add(button);
                 }
+                super.repaint();
             }
         }
-        super.repaint();
+        */
     }
 }

@@ -1,3 +1,5 @@
+package runner;
+
 import items.moving.Pacman;
 import listener.PacmanKeyListener;
 import listener.PacmanWindowListener;
@@ -5,14 +7,18 @@ import map.PacmanMap;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class PacmanFrame extends JFrame{
     private PacmanMap map;
     private Pacman pacman;
+    private BufferedImage screen;
 
-    PacmanFrame(){
+    public PacmanFrame(){
         map = new PacmanMap(937870171);
         pacman = new Pacman(2, 24);
+        screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
+
         super.setTitle("Pacman");
         super.setSize(1440, 799);
         super.setResizable(true);
@@ -21,12 +27,18 @@ public class PacmanFrame extends JFrame{
         super.setBackground(new Color(5, 19, 28));
         super.setLayout(null);
         super.setVisible(true);
-        map.paint(super.getGraphics());
+    }
+
+    public void render() {
+        Graphics g = screen.getGraphics();
+        map.paint(g);
+        pacman.paint(g);
     }
 
     @Override
     public void paint(Graphics g){
-        pacman.paint(g);
+        if(screen == null) return;
+        g.drawImage(screen, 1, 1, null);
     }
 
     @Override

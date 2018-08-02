@@ -1,4 +1,4 @@
-package items.moving.threads;
+package items.moving;
 
 public enum PacmanRotation {
     UP,

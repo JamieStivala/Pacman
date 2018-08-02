@@ -70,12 +70,8 @@ public class PacmanFrame extends JFrame{
         return pacman;
     }
 
-    public PacmanMover getPacmanMover() {
-        return pacmanMover;
-    }
-
-    public boolean isStopped() {
-        return stopped;
+    public boolean isRunning() {
+        return !stopped;
     }
 
     public void setStopped(boolean stopped) {

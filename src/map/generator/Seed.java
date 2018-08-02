@@ -1,4 +1,6 @@
-package generator;
+package map.generator;
+
+import map.BlockType;
 
 import java.util.Random;
 
@@ -19,11 +21,11 @@ public class Seed {
         }
     }
 
-    BlockType[][] getSeed() {
+    protected BlockType[][] getSeed() {
         return seed;
     }
 
-    BlockType[] getSeed(int index) {
+    protected BlockType[] getSeed(int index) {
         return seed[index];
     }
 }

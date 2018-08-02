@@ -1,4 +1,6 @@
-package generator;
+package map.generator;
+
+import map.BlockType;
 
 class SeedOperations {
     private static String fixLength(String fixing, int length) {

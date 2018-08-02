@@ -1,4 +1,4 @@
-package generator;
+package map;
 
 public enum BlockType{
     EMPTY,

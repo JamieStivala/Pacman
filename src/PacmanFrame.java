@@ -1,6 +1,6 @@
-import generator.PacmanMap;
 import listener.PacmanKeyListener;
 import listener.PacmanWindowListener;
+import map.PacmanMap;
 
 import javax.swing.*;
 import java.awt.*;

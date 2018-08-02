@@ -1,8 +1,9 @@
-package generator;
+package map;
 
 import items.Blob;
 import items.stationery.Coin;
 import items.stationery.Wall;
+import map.generator.Seed;
 
 import java.awt.*;
 

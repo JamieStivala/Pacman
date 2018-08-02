@@ -1,6 +1,7 @@
 import generator.BlockType;
 import generator.PacmanMap;
 import generator.Seed;
+import items.stationery.Coin;
 import listener.PacmanKeyListener;
 import listener.PacmanWindowListener;
 
@@ -22,8 +23,6 @@ class PacmanFrame extends JFrame{
         super.setVisible(true);
 
         map = new PacmanMap(937870171);
-
-
         /*
         for(int vertical = 0; vertical != map.getSeed().length; vertical++){
             BlockType current[] = map.getSeed(vertical);
@@ -40,4 +39,10 @@ class PacmanFrame extends JFrame{
         }
         */
     }
+
+    @Override
+    public void paint(Graphics g){
+
+    }
+
 }

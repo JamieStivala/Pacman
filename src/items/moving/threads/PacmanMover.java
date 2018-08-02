@@ -1,6 +1,6 @@
 package items.moving.threads;
 
-import frames.pacman.PacmanFrame;
+import frames.PacmanFrame;
 import items.moving.Pacman;
 import items.moving.PacmanRotation;
 

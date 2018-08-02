@@ -16,7 +16,7 @@ public class PacmanFrame extends JFrame{
     private BufferedImage pacmanMap;
     private PacmanMover pacmanMover;
     private BufferedImage screen;
-    private boolean stopped;
+    private volatile boolean stopped;
 
     public PacmanFrame(){
         this.map = new PacmanMap(937870171);

@@ -5,11 +5,11 @@ public class Sprite extends Blob{
         super(filename, x, y, width, height);
     }
 
-    void moveLeft (int pixels){
+    public void moveLeft (int pixels){
         super.getArea().setLocation ((int) (super.getArea().getX()) - pixels, (int)super.getArea().getY());
     }
 
-    void moveRight (int pixels){
+    public void moveRight (int pixels){
         super.getArea().setLocation ((int) (super.getArea().getX()) + pixels, (int)super.getArea().getY());
     }
 
@@ -17,7 +17,7 @@ public class Sprite extends Blob{
         super.getArea().setLocation ((int) (super.getArea().getX()), (int)super.getArea().getY() - pixels);
     }
 
-    void moveDown (int pixels){
+    public void moveDown (int pixels){
         super.getArea().setLocation ((int) (super.getArea().getX()), (int)super.getArea().getY() + pixels);
     }
 }

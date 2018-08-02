@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PacmanFrame extends JFrame{
-    private GridLayout gridLayout = new GridLayout(20, 40);
     private PacmanMap map;
     private Pacman pacman;
 

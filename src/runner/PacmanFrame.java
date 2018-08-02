@@ -14,7 +14,7 @@ public class PacmanFrame extends JFrame{
     private Pacman pacman;
     private BufferedImage screen;
 
-    public PacmanFrame(){
+    PacmanFrame(){
         map = new PacmanMap(937870171);
         pacman = new Pacman(2, 24);
         screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
@@ -27,10 +27,15 @@ public class PacmanFrame extends JFrame{
         super.setBackground(new Color(5, 19, 28));
         super.setLayout(null);
         super.setVisible(true);
+
+        this.render();
+        this.repaint();
     }
 
     public void render() {
         Graphics g = screen.getGraphics();
+        g.setColor(new Color(5, 19, 28));
+        g.fillRect(1, 1, screen.getWidth(), screen.getHeight());
         map.paint(g);
         pacman.paint(g);
     }

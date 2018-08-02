@@ -3,7 +3,7 @@ package frames;
 import frames.listeners.pacman.PacmanKeyListener;
 import frames.listeners.pacman.PacmanWindowListener;
 import items.moving.Pacman;
-import items.moving.threads.FrameUpdater;
+import items.moving.threads.PacmanMover;
 import map.PacmanMap;
 
 import javax.swing.*;
@@ -14,7 +14,7 @@ public class PacmanFrame extends JFrame{
     private PacmanMap map;
     private Pacman pacman;
     private BufferedImage pacmanMap;
-    private FrameUpdater frameUpdater;
+    private PacmanMover pacmanMover;
     private BufferedImage screen;
 
     public PacmanFrame(){
@@ -25,8 +25,8 @@ public class PacmanFrame extends JFrame{
         this.pacmanMap = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
         map.paint(pacmanMap.getGraphics());
 
-        this.frameUpdater = new FrameUpdater(this);
-        frameUpdater.start();
+        this.pacmanMover = new PacmanMover(this);
+        pacmanMover.start();
 
         super.setTitle("Pacman");
         super.setSize(1440, 799);

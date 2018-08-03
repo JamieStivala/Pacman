@@ -104,4 +104,9 @@ public class PacmanMap extends Seed {
     public Blob[] getGameTextures(int index) {
         return this.gameTextures[index];
     }
+
+    private void addToOrganizedBlocks(BlockType blockType, Blob blob){
+        this.organizedBlocks.computeIfAbsent(blockType, h -> new ArrayList<>());
+        this.organizedBlocks.get(blockType).add(blob);
+    }
 }

@@ -7,12 +7,14 @@ import items.stationery.Wall;
 import map.generator.Seed;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PacmanMap extends Seed {
     private Blob gameTextures[][];
     private HashMap<BlockType, ArrayList<Blob>> organizedBlocks;
+    private BufferedImage bufferedMap;
     public PacmanMap(){
         this((long) (Math.random() * 1000000000));
     }
@@ -21,8 +23,10 @@ public class PacmanMap extends Seed {
         super(seed);
         this.gameTextures = new Blob[20][40];
         this.organizedBlocks = new HashMap<>();
+        this.bufferedMap = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
         this.addSpawnBox();
         this.drawMap();
+        this.paint(bufferedMap.getGraphics());
     }
 
     private void addSpawnBox(){
@@ -101,6 +105,10 @@ public class PacmanMap extends Seed {
                 gameTextures[vertical][horizontal].paint(g);
             }
         }
+    }
+
+    public BufferedImage getBufferedMap(){
+        return this.bufferedMap;
     }
 
     public Blob[][] getGameTextures() {

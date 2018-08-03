@@ -14,7 +14,6 @@ import java.awt.image.BufferedImage;
 public class PacmanFrame extends JFrame{
     private PacmanMap map;
     private Pacman pacman;
-    private BufferedImage pacmanMap;
     private PacmanMover pacmanMover;
     private WallCollisionDetection wallCollisionDetection;
     private BufferedImage screen;
@@ -25,9 +24,6 @@ public class PacmanFrame extends JFrame{
         this.pacman = new Pacman(2, 24);
         this.screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
         this.setStopped(false);
-
-        this.pacmanMap = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
-        map.paint(pacmanMap.getGraphics());
 
         setFrameSettings();
         startThreads();
@@ -56,7 +52,7 @@ public class PacmanFrame extends JFrame{
         Graphics g = screen.getGraphics();
         g.setColor(new Color(5, 19, 28));
         g.fillRect(1, 1, screen.getWidth(), screen.getHeight());
-        g.drawImage(pacmanMap, 1, 1, screen.getWidth(), screen.getHeight(), null);
+        g.drawImage(map.getBufferedMap(), 1, 1, screen.getWidth(), screen.getHeight(), null);
         pacman.paint(g);
     }
 

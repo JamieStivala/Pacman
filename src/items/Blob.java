@@ -21,11 +21,11 @@ public class Blob {
         visible = true;
     }
 
-    boolean isVisible (){
+    private boolean isVisible (){
         return visible;
     }
 
-    void setVisible (boolean v){
+    public void setVisible (boolean v){
         this.visible = v;
     }
 

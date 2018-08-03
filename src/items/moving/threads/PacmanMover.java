@@ -24,6 +24,7 @@ public class PacmanMover extends Thread{
                 else if (rotation == PacmanRotation.DOWN) pacman.moveDown(5);
             }
 
+            pacmanFrame.getMap().paint();
             pacmanFrame.render();
             pacmanFrame.repaint();
             try{

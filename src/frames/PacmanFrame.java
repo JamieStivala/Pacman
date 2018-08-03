@@ -77,4 +77,8 @@ public class PacmanFrame extends JFrame{
     public void setStopped(boolean stopped) {
         this.stopped = stopped;
     }
+
+    public PacmanMap getMap() {
+        return map;
+    }
 }

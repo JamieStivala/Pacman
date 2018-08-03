@@ -4,6 +4,7 @@ import frames.listeners.pacman.PacmanKeyListener;
 import frames.listeners.pacman.PacmanWindowListener;
 import items.moving.Pacman;
 import items.moving.threads.PacmanMover;
+import map.CoinCollisionDetection;
 import map.PacmanMap;
 import map.WallCollisionDetection;
 
@@ -16,6 +17,7 @@ public class PacmanFrame extends JFrame{
     private Pacman pacman;
     private PacmanMover pacmanMover;
     private WallCollisionDetection wallCollisionDetection;
+    private CoinCollisionDetection coinCollisionDetection;
     private BufferedImage screen;
     private volatile boolean stopped;
 
@@ -44,8 +46,10 @@ public class PacmanFrame extends JFrame{
         this.pacmanMover = new PacmanMover(this);
         this.pacmanMover.start();
 
-        this.wallCollisionDetection = new WallCollisionDetection(this);
-        this.wallCollisionDetection.start();
+        this.coinCollisionDetection = new CoinCollisionDetection(this);
+        this.coinCollisionDetection.start();
+        //this.wallCollisionDetection = new WallCollisionDetection(this);
+        //this.wallCollisionDetection.start();
     }
 
     public void render() {

@@ -5,6 +5,7 @@ import items.Sprite;
 import java.awt.image.BufferedImage;
 
 public class Pacman extends Sprite {
+    private boolean collidedWithWall;
     private PacmanRotation rotation;
 
     public Pacman(int x, int y) {
@@ -56,4 +57,11 @@ public class Pacman extends Sprite {
         super.image = newImage;
     }
 
+    public boolean isCollidedWithWall() {
+        return collidedWithWall;
+    }
+
+    public void setCollidedWithWall(boolean collidedWithWall) {
+        this.collidedWithWall = collidedWithWall;
+    }
 }

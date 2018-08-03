@@ -7,15 +7,20 @@ import items.stationery.Wall;
 import map.generator.Seed;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PacmanMap extends Seed {
-    private Blob gameTextures[][] = new Blob[20][40];
+    private Blob gameTextures[][];
+    private HashMap<BlockType, ArrayList<Blob>> organizedBlocks;
     public PacmanMap(){
         this((long) (Math.random() * 1000000000));
     }
 
     public PacmanMap(long seed){
         super(seed);
+        this.gameTextures = new Blob[20][40];
+        this.organizedBlocks = new HashMap<>();
         this.addSpawnBox();
         this.drawMap();
     }

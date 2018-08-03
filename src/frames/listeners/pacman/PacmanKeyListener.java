@@ -10,9 +10,9 @@ import java.awt.event.KeyListener;
 public class PacmanKeyListener implements KeyListener {
     private Pacman pacman;
     private PacmanFrame pacmanFrame;
-    public PacmanKeyListener(Pacman pacman, PacmanFrame pacmanFrame){
-        this.pacman = pacman;
+    public PacmanKeyListener(PacmanFrame pacmanFrame){
         this.pacmanFrame = pacmanFrame;
+        this.pacman = pacmanFrame.getPacman();
     }
     @Override
     public void keyTyped(KeyEvent e) {
@@ -25,6 +25,7 @@ public class PacmanKeyListener implements KeyListener {
         else if(e.getKeyCode() == 39 || e.getKeyCode() == 68) pacman.setRotation(PacmanRotation.RIGHT);
         else if(e.getKeyCode() == 38 || e.getKeyCode() == 87) pacman.setRotation(PacmanRotation.UP);
         else if (e.getKeyCode() == 40 || e.getKeyCode() == 83) pacman.setRotation(PacmanRotation.DOWN);
+        this.pacmanFrame.getWallCollisionDetection().keyPressed();
     }
 
     @Override

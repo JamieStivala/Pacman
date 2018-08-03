@@ -75,10 +75,16 @@ public class PacmanMap extends Seed {
             BlockType current[] = super.getSeed(vertical);
             for (int horizontal = 0; horizontal != current.length; horizontal++){
                 if(current[horizontal] == BlockType.WALL){
-                    gameTextures[vertical][horizontal] = new Wall(x, y);
+                    Wall wall = new Wall(x, y);
+                    addToOrganizedBlocks(BlockType.WALL, wall);
+                    gameTextures[vertical][horizontal] = wall;
                 }else if(current[horizontal] == BlockType.COIN){
-                    gameTextures[vertical][horizontal] = new Coin(x, y);
+                    Coin coin = new Coin(x, y);
+                    addToOrganizedBlocks(BlockType.COIN, coin);
+                    gameTextures[vertical][horizontal] = coin;
                 }else{
+                    Empty empty = new Empty(x, y);
+                    addToOrganizedBlocks(BlockType.EMPTY, empty);
                     gameTextures[vertical][horizontal] = new Empty(x, y);
                 }
                 x += 36;

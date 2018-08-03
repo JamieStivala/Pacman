@@ -5,6 +5,7 @@ import frames.listeners.pacman.PacmanWindowListener;
 import items.moving.Pacman;
 import items.moving.threads.PacmanMover;
 import map.PacmanMap;
+import map.WallCollisionDetection;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +16,7 @@ public class PacmanFrame extends JFrame{
     private Pacman pacman;
     private BufferedImage pacmanMap;
     private PacmanMover pacmanMover;
+    private WallCollisionDetection wallCollisionDetection;
     private BufferedImage screen;
     private volatile boolean stopped;
 
@@ -36,7 +38,7 @@ public class PacmanFrame extends JFrame{
         super.setSize(1440, 799);
         super.setResizable(true);
         super.addWindowListener(new PacmanWindowListener());
-        super.addKeyListener(new PacmanKeyListener(pacman, this));
+        super.addKeyListener(new PacmanKeyListener(this));
         super.setLayout(null);
         super.setVisible(true);
         super.requestFocus();
@@ -45,6 +47,9 @@ public class PacmanFrame extends JFrame{
     private void startThreads(){
         this.pacmanMover = new PacmanMover(this);
         this.pacmanMover.start();
+
+        this.wallCollisionDetection = new WallCollisionDetection(this);
+        this.wallCollisionDetection.start();
     }
 
     public void render() {
@@ -80,5 +85,9 @@ public class PacmanFrame extends JFrame{
 
     public PacmanMap getMap() {
         return map;
+    }
+
+    public WallCollisionDetection getWallCollisionDetection() {
+        return wallCollisionDetection;
     }
 }

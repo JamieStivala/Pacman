@@ -33,7 +33,7 @@ public class Blob {
         return this.area.intersects (other.getArea());
     }
 
-    Rectangle getArea(){
+    public Rectangle getArea(){
         return area;
     }
 

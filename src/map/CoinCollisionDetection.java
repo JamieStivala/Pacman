@@ -14,6 +14,14 @@ public class CoinCollisionDetection extends Thread {
 
     @Override
     public void run(){
-
+        while(pacmanFrame.isRunning()){
+            pacmanFrame.getMap().getOrganizedBlocks().get(BlockType.COIN).removeIf(coin ->{
+                if(coin.hasCollidedWith(pacman)){
+                    coin.setVisible(false);
+                    return true;
+                }
+                return false;
+            });
+        }
     }
 }

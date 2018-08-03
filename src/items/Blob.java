@@ -30,7 +30,7 @@ public class Blob {
     }
 
     public boolean hasCollidedWith (Blob other){
-        return this.area.intersects (other.getArea());
+        return isVisible() && this.area.intersects (other.getArea());
     }
 
     public Rectangle getArea(){

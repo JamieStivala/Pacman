@@ -23,10 +23,9 @@ public class PacmanMap extends Seed {
         super(seed);
         this.gameTextures = new Blob[20][40];
         this.organizedBlocks = new HashMap<>();
-        this.bufferedMap = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
         this.addSpawnBox();
         this.drawMap();
-        this.paint(bufferedMap.getGraphics());
+        this.paint();
     }
 
     private void addSpawnBox(){
@@ -98,7 +97,9 @@ public class PacmanMap extends Seed {
         }
     }
 
-    public void paint(Graphics g){
+    public void paint(){
+        this.bufferedMap = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
+        Graphics g = bufferedMap.getGraphics();
         for(int vertical = 0; vertical != super.getSeed().length; vertical++){
             BlockType current[] = super.getSeed(vertical);
             for (int horizontal = 0; horizontal != current.length; horizontal++){

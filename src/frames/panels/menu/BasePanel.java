@@ -5,7 +5,7 @@ import frames.MainMenu;
 import javax.swing.*;
 import java.awt.*;
 
-public abstract class BasePanel extends JPanel {
+abstract class BasePanel extends JPanel {
     private MainMenu mainMenu;
     BasePanel(MainMenu mainMenu){
         this.mainMenu = mainMenu;

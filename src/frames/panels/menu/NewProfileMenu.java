@@ -10,11 +10,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class NewGameMenu extends BasePanel {
+public class NewProfileMenu extends BasePanel {
     private ImageIcon newProfileTextures[];
     private BufferedImage noSaveFound;
     private JLabel newProfile;
-    public NewGameMenu(MainMenu mainMenu){
+    public NewProfileMenu(MainMenu mainMenu){
         super(mainMenu);
     }
 

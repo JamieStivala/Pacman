@@ -31,17 +31,17 @@ public class MenuMouseListener implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        if(e.getComponent() == mainMenu.getNewGameMenu().getNewProfile()){
-            mainMenu.getNewGameMenu().getNewProfile().setBounds(340, 399, 760, 40);
-            mainMenu.getNewGameMenu().getNewProfile().setIcon(mainMenu.getNewGameMenu().getNewProfileTextures()[1]);
+        if(e.getComponent() == mainMenu.getNewProfileMenu().getNewProfile()){
+            mainMenu.getNewProfileMenu().getNewProfile().setBounds(340, 399, 760, 40);
+            mainMenu.getNewProfileMenu().getNewProfile().setIcon(mainMenu.getNewProfileMenu().getNewProfileTextures()[1]);
         }
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        if(e.getComponent() == mainMenu.getNewGameMenu().getNewProfile()){
-            mainMenu.getNewGameMenu().getNewProfile().setBounds(416, 399, 608, 32);
-            mainMenu.getNewGameMenu().getNewProfile().setIcon(mainMenu.getNewGameMenu().getNewProfileTextures()[0]);
+        if(e.getComponent() == mainMenu.getNewProfileMenu().getNewProfile()){
+            mainMenu.getNewProfileMenu().getNewProfile().setBounds(416, 399, 608, 32);
+            mainMenu.getNewProfileMenu().getNewProfile().setIcon(mainMenu.getNewProfileMenu().getNewProfileTextures()[0]);
         }
     }
 }

@@ -16,7 +16,7 @@ public class MainMenu extends JFrame {
         }
 
         super.setTitle("Pacman - Main Menu");
-        super.setSize(1440, 900);
+        super.setSize(1440, 799);
         super.setVisible(true);
         paint(super.getGraphics());
     }

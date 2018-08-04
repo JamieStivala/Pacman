@@ -11,6 +11,7 @@ abstract class BasePanel extends JPanel {
         this.mainMenu = mainMenu;
         loadTextures();
         loadComponents();
+        super.repaint();
     }
     abstract void loadComponents();
     abstract void loadTextures();

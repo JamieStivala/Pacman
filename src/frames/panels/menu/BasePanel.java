@@ -10,6 +10,7 @@ abstract class BasePanel extends JPanel {
     BasePanel(MainMenu mainMenu){
         this.mainMenu = mainMenu;
         super.setBackground(new Color(240, 130, 0));
+        super.setLayout(null);
         loadTextures();
         loadComponents();
         super.repaint();

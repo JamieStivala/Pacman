@@ -48,8 +48,9 @@ public class PacmanFrame extends JFrame{
 
         this.coinCollisionDetection = new CoinCollisionDetection(this);
         this.coinCollisionDetection.start();
-        //this.wallCollisionDetection = new WallCollisionDetection(this);
-        //this.wallCollisionDetection.start();
+
+        this.wallCollisionDetection = new WallCollisionDetection(this);
+        this.wallCollisionDetection.start();
     }
 
     public void render() {

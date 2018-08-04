@@ -19,7 +19,7 @@ abstract class BasePanel extends JPanel {
         if (mainMenu.getLogo() != null) g.drawImage(mainMenu.getLogo(), 208, 20, 1024, 242, null);
     }
 
-    public MainMenu getMainMenu() {
+    MainMenu getMainMenu() {
         return mainMenu;
     }
 }

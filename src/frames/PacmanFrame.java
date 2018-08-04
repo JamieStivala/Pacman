@@ -22,7 +22,11 @@ public class PacmanFrame extends JFrame{
     private volatile boolean stopped;
 
     public PacmanFrame(){
-        this.map = new PacmanMap(937870171);
+        this((long) (Math.random() * 1000000000));
+    }
+
+    public PacmanFrame(long seed){
+        this.map = new PacmanMap(seed);
         this.pacman = new Pacman(2, 24);
         this.screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
         this.setStopped(false);

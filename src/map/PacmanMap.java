@@ -15,9 +15,6 @@ public class PacmanMap extends Seed {
     private Blob gameTextures[][];
     private HashMap<BlockType, ArrayList<Blob>> organizedBlocks;
     private BufferedImage bufferedMap;
-    public PacmanMap(){
-        this((long) (Math.random() * 1000000000));
-    }
 
     public PacmanMap(long seed){
         super(seed);

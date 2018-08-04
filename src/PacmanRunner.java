@@ -1,7 +1,8 @@
-import frames.PacmanFrame;
+import frames.MainMenu;
 
 public class PacmanRunner {
     public static void main (String args []){
-        PacmanFrame pacmanFrame = new PacmanFrame();
+        MainMenu mainMenu = new MainMenu();
+        mainMenu.setVisible(true);
     }
 }

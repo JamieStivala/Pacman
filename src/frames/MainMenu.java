@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class MainMenu extends JFrame{
     private BufferedImage logo;
     private ArrayList<User> users;
+    private User currentUser;
     private CardLayout cardLayout;
 
     private NewProfileMenu newProfileMenu;

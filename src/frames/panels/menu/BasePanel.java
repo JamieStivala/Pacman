@@ -9,6 +9,8 @@ abstract class BasePanel extends JPanel {
     private MainMenu mainMenu;
     BasePanel(MainMenu mainMenu){
         this.mainMenu = mainMenu;
+        loadTextures();
+        loadComponents();
     }
     abstract void loadComponents();
     abstract void loadTextures();

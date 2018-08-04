@@ -1,17 +1,44 @@
 package frames;
 
-import frames.listeners.menu.MenuMouseListener;
-import frames.listeners.menu.MenuWindowListener;
+import frames.panels.menu.NewGameMenu;
 import user.manager.User;
 import user.manager.UserHandler;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 
+public class MainMenu extends JFrame{
+    private BufferedImage logo;
+    private ArrayList<User> users;
+
+    private NewGameMenu newGameMenu;
+
+    public MainMenu(){
+        this.users = UserHandler.loadUser();
+        loadTextures();
+    }
+
+    private void loadTextures() {
+        try {
+            logo = ImageIO.read(new File("resources/menu/PacmanLogo.png"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public BufferedImage getLogo() {
+        return logo;
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+}
+
+/*
 public class MainMenu extends JFrame {
     private BufferedImage logo;
     private BufferedImage[] startGameTextures;
@@ -48,7 +75,6 @@ public class MainMenu extends JFrame {
 
     private void addComponents(){
         startGame = new JLabel();
-        startGame.setName("start");
         startGame.setBounds(560, 299, 400, 40);
         startGame.setIcon(new ImageIcon(startGameTextures[0]));
         startGame.addMouseListener(new MenuMouseListener(this));
@@ -67,3 +93,4 @@ public class MainMenu extends JFrame {
         return logo;
     }
 }
+*/

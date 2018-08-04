@@ -18,6 +18,11 @@ public class NewGameMenu extends BasePanel {
 
     @Override
     void loadComponents() {
+        newProfile = new JLabel();
+        newProfile.setBounds(560, 299, 400, 40);
+        newProfile.setIcon(newGameTextures[0]);
+        newProfile.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(newProfile);
     }
 
     @Override

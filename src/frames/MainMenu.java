@@ -47,4 +47,12 @@ public class MainMenu extends JFrame {
         startGame.addMouseListener(new MenuMouseListener(this));
         super.getContentPane().add(startGame);
     }
+
+    public JLabel getStartGame() {
+        return startGame;
+    }
+
+    public BufferedImage[] getStartGameTextures() {
+        return startGameTextures;
+    }
 }

@@ -21,7 +21,7 @@ public class NewGameMenu extends BasePanel {
     @Override
     void loadComponents() {
         newProfile = new JLabel();
-        newProfile.setBounds(544, 399, 352, 32);
+        newProfile.setBounds(416, 399, 608, 32);
         newProfile.setIcon(newProfileTextures[0]);
         newProfile.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(newProfile);
@@ -31,8 +31,8 @@ public class NewGameMenu extends BasePanel {
     void loadTextures() {
         newProfileTextures = new ImageIcon[2];
         try{
-            newProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new_small.png")));
-            newProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new_big.png")));
+            newProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new_profile_small.png")));
+            newProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new_profile_big.png")));
             noSaveFound = ImageIO.read(new File("resources/menu/textures/game_save.png"));
         }catch (IOException e){
             e.printStackTrace();

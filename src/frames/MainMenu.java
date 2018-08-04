@@ -62,4 +62,8 @@ public class MainMenu extends JFrame {
     public BufferedImage[] getStartGameTextures() {
         return startGameTextures;
     }
+
+    public BufferedImage getLogo() {
+        return logo;
+    }
 }

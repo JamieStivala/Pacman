@@ -31,9 +31,9 @@ public class NewProfileMenu extends BasePanel {
     void loadTextures() {
         newProfileTextures = new ImageIcon[2];
         try{
-            newProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new_profile_small.png")));
-            newProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new_profile_big.png")));
-            noSaveFound = ImageIO.read(new File("resources/menu/textures/profile/game_save.png"));
+            newProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_small.png")));
+            newProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_big.png")));
+            noSaveFound = ImageIO.read(new File("resources/menu/textures/profile/game_save_not_found.png"));
         }catch (IOException e){
             e.printStackTrace();
         }

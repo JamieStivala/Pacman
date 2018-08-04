@@ -42,7 +42,7 @@ public class MainMenu extends JFrame{
 
     private void loadTextures() {
         try {
-            logo = ImageIO.read(new File("resources/menu/PacmanLogo.png"));
+            logo = ImageIO.read(new File("resources/menu/pacman_logo.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -112,7 +112,7 @@ public class MainMenu extends JFrame {
     private void loadTextures() {
         this.startGameTextures = new BufferedImage[2];
         try {
-            logo = ImageIO.read(new File("resources/menu/PacmanLogo.png"));
+            logo = ImageIO.read(new File("resources/menu/pacman_logo.png"));
             startGameTextures[0] = ImageIO.read(new File("resources/menu/textures/start/start_small.png"));
             startGameTextures[1] = ImageIO.read(new File("resources/menu/textures/start/start_big.png"));
         } catch (Exception e) {

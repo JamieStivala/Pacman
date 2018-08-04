@@ -1,4 +1,4 @@
-package UserManager;
+package user.manager;
 
 import java.io.Serializable;
 import java.util.ArrayList;

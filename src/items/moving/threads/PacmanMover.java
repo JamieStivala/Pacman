@@ -24,7 +24,10 @@ public class PacmanMover extends Thread{
                 else if (rotation == PacmanRotation.DOWN) pacman.moveDown(5);
             }
 
-            pacmanFrame.getMap().paint();
+            if(pacmanFrame.getCoinCollisionDetection().hasCoinBeenTaken()) {
+                pacmanFrame.getMap().paint();
+                pacmanFrame.getCoinCollisionDetection().updatedCoins();
+            }
             pacmanFrame.render();
             pacmanFrame.repaint();
             try{

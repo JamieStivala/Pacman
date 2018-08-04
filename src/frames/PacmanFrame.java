@@ -43,11 +43,11 @@ public class PacmanFrame extends JFrame{
     }
 
     private void startThreads(){
-        this.pacmanMover = new PacmanMover(this);
-        this.pacmanMover.start();
-
         this.coinCollisionDetection = new CoinCollisionDetection(this);
         this.coinCollisionDetection.start();
+
+        this.pacmanMover = new PacmanMover(this);
+        this.pacmanMover.start();
 
         this.wallCollisionDetection = new WallCollisionDetection(this);
         this.wallCollisionDetection.start();
@@ -90,5 +90,9 @@ public class PacmanFrame extends JFrame{
 
     public WallCollisionDetection getWallCollisionDetection() {
         return wallCollisionDetection;
+    }
+
+    public CoinCollisionDetection getCoinCollisionDetection() {
+        return coinCollisionDetection;
     }
 }

@@ -33,7 +33,6 @@ public class MainMenu extends JFrame{
         this.users = UserHandler.loadUser();
 
         if(users == null) {
-            this.getContentPane().add(newProfileMenu);
             cardLayout.show(super.getContentPane(), "NewProfileMenu");
         }else{
             System.out.println("wip");
@@ -50,6 +49,7 @@ public class MainMenu extends JFrame{
 
     private void initializePanels(){
         this.newProfileMenu = new NewProfileMenu(this);
+        this.getContentPane().add(newProfileMenu);
         cardLayout.addLayoutComponent(newProfileMenu, "NewProfileMenu");
     }
 

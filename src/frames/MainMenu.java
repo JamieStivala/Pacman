@@ -28,13 +28,14 @@ public class MainMenu extends JFrame {
         if (logo != null) g.drawImage(logo, 208, 20, 1024, 242, null);
     }
 
-    private void loadTextures(){
+    private void loadTextures() {
+        this.startGameTextures = new BufferedImage[2];
         try {
             logo = ImageIO.read(new File("resources/menu/PacmanLogo.png"));
             startGameTextures[0] = ImageIO.read(new File("resources/menu/buttons/start_before.png"));
             startGameTextures[1] = ImageIO.read(new File("resources/menu/buttons/start_after.png"));
         } catch (Exception e) {
-            System.out.println("Error loading: Pacman Logo");
+            e.printStackTrace();
         }
     }
 

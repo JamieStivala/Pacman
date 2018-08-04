@@ -3,12 +3,14 @@ package frames.panels.menu;
 import frames.MainMenu;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 public class CreateProfileMenu extends BasePanel {
     private BufferedImage enterProfileNameTexture;
+    private JTextField enterProfileName;
     public CreateProfileMenu(MainMenu mainMenu) {
         super(mainMenu);
     }
@@ -16,6 +18,9 @@ public class CreateProfileMenu extends BasePanel {
     @Override
     void loadComponents() {
         try{
+            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("resources/PacFont.ttf")).deriveFont(Font.PLAIN);
+            GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(font);
+
             enterProfileNameTexture = ImageIO.read(new File("resources/menu/textures/profile/please_enter_a_profile_name.png"));
         }catch (Exception e){
             e.printStackTrace();
@@ -24,7 +29,12 @@ public class CreateProfileMenu extends BasePanel {
 
     @Override
     void loadTextures() {
-
+        Font font = new Font("PacFont Good", Font.PLAIN, 60);
+        enterProfileName = new JTextField();
+        enterProfileName.setBounds(72, 300, 1296, 90);
+        enterProfileName.setFont(font);
+        enterProfileName.setBackground(new Color(240, 130, 0));
+        super.add(enterProfileName);
     }
 
     @Override

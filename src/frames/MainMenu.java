@@ -39,8 +39,8 @@ public class MainMenu extends JFrame {
         this.startGameTextures = new BufferedImage[2];
         try {
             logo = ImageIO.read(new File("resources/menu/PacmanLogo.png"));
-            startGameTextures[0] = ImageIO.read(new File("resources/menu/buttons/start/start_before.png"));
-            startGameTextures[1] = ImageIO.read(new File("resources/menu/buttons/start/start_after.png"));
+            startGameTextures[0] = ImageIO.read(new File("resources/menu/textures/start/start_small.png"));
+            startGameTextures[1] = ImageIO.read(new File("resources/menu/textures/start/start_big.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }

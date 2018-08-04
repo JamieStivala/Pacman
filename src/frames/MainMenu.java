@@ -39,6 +39,12 @@ public class MainMenu extends JFrame {
         }
     }
 
-    private void addButtons(){
+    private void addComponents(){
+        startGame = new JLabel();
+        startGame.setName("start");
+        startGame.setBounds(560, 299, 400, 40);
+        startGame.setIcon(new ImageIcon(startGameTextures[0]));
+        startGame.addMouseListener(new MenuMouseListener(this));
+        super.getContentPane().add(startGame);
     }
 }

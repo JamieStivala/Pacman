@@ -30,8 +30,11 @@ public class MainMenu extends JFrame{
         super.setResizable(false);
 
         this.users = UserHandler.loadUser();
-        this.getContentPane().add(newGameMenu);
-        cardLayout.show(super.getContentPane(), "NewGameMenu");
+
+        if(users == null) {
+            this.getContentPane().add(newGameMenu);
+            cardLayout.show(super.getContentPane(), "NewGameMenu");
+        }
     }
 
     private void loadTextures() {

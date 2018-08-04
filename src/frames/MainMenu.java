@@ -2,18 +2,23 @@ package frames;
 
 import frames.listeners.menu.MenuMouseListener;
 import frames.listeners.menu.MenuWindowListener;
+import user.manager.User;
+import user.manager.UserHandler;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.ArrayList;
 
 public class MainMenu extends JFrame {
     private BufferedImage logo;
     private BufferedImage[] startGameTextures;
     private JLabel startGame;
+    private ArrayList<User> users;
     public MainMenu() {
+        users = UserHandler.loadUser();
         this.loadTextures();
         super.setTitle("Pacman - Main Menu");
         super.setSize(1440, 799);
@@ -34,8 +39,8 @@ public class MainMenu extends JFrame {
         this.startGameTextures = new BufferedImage[2];
         try {
             logo = ImageIO.read(new File("resources/menu/PacmanLogo.png"));
-            startGameTextures[0] = ImageIO.read(new File("resources/menu/buttons/start_before.png"));
-            startGameTextures[1] = ImageIO.read(new File("resources/menu/buttons/start_after.png"));
+            startGameTextures[0] = ImageIO.read(new File("resources/menu/buttons/start/start_before.png"));
+            startGameTextures[1] = ImageIO.read(new File("resources/menu/buttons/start/start_after.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -61,6 +61,14 @@ public class MainMenu extends JFrame{
         return users;
     }
 
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
+
     public NewProfileMenu getNewProfileMenu() {
         return newProfileMenu;
     }

@@ -40,4 +40,12 @@ public class NewGameMenu extends BasePanel {
     public void paint(Graphics g){
         super.paint(g);
     }
+
+    public ImageIcon[] getNewGameTextures() {
+        return newGameTextures;
+    }
+
+    public JLabel getNewProfile() {
+        return newProfile;
+    }
 }

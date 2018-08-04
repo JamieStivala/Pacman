@@ -54,6 +54,10 @@ public class MainMenu extends JFrame{
     public ArrayList<User> getUsers() {
         return users;
     }
+
+    public NewGameMenu getNewGameMenu() {
+        return newGameMenu;
+    }
 }
 
 /*

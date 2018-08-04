@@ -9,14 +9,15 @@ import java.io.File;
 public class MainMenu extends JFrame {
     private BufferedImage background;
     public MainMenu() {
-        super.setTitle("Pacman - Main Menu");
-        super.setSize(1440, 900);
-        super.setVisible(true);
         try {
             background = ImageIO.read(new File("resources/" + "PacmanBackground.png"));
         } catch (Exception e) {
             System.out.println("Error loading: PacmanBackground");
         }
+
+        super.setTitle("Pacman - Main Menu");
+        super.setSize(1440, 900);
+        super.setVisible(true);
         paint(super.getGraphics());
     }
 

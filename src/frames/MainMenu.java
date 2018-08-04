@@ -6,6 +6,7 @@ import user.manager.UserHandler;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
@@ -13,12 +14,24 @@ import java.util.ArrayList;
 public class MainMenu extends JFrame{
     private BufferedImage logo;
     private ArrayList<User> users;
+    private CardLayout cardLayout;
 
     private NewGameMenu newGameMenu;
 
-    public MainMenu(){
-        this.users = UserHandler.loadUser();
+    public MainMenu() {
+        this.cardLayout = new CardLayout();
         loadTextures();
+        initializePanels();
+
+        super.setTitle("Pacman - Main Menu");
+        super.setSize(1440, 799);
+        super.setVisible(true);
+        super.getContentPane().setLayout(cardLayout);
+        super.setResizable(false);
+
+        this.users = UserHandler.loadUser();
+        this.getContentPane().add(newGameMenu);
+        cardLayout.show(super.getContentPane(), "NewGameMenu");
     }
 
     private void loadTextures() {
@@ -27,6 +40,11 @@ public class MainMenu extends JFrame{
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void initializePanels(){
+        this.newGameMenu = new NewGameMenu(this);
+        cardLayout.addLayoutComponent(newGameMenu, "NewGameMenu");
     }
 
     public BufferedImage getLogo() {

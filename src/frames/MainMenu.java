@@ -1,6 +1,7 @@
 package frames;
 
 import frames.listeners.menu.MenuMouseListener;
+import frames.listeners.menu.MenuWindowListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -19,6 +20,7 @@ public class MainMenu extends JFrame {
         super.setVisible(true);
         super.getContentPane().setLayout(null);
         super.getContentPane().setBackground(new Color(240, 130, 0));
+        super.addWindowListener(new MenuWindowListener());
         addComponents();
         repaint();
     }

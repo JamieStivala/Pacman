@@ -1,6 +1,7 @@
 package frames.listeners.menu;
 
 import frames.MainMenu;
+import frames.panels.menu.Panel;
 import sounds.menu.ClickSound;
 
 import javax.swing.*;
@@ -17,6 +18,10 @@ public class MenuMouseListener implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         if(e.getComponent() instanceof JLabel){
             new ClickSound().start();
+        }
+
+        if(e.getComponent() == mainMenu.getNewProfileMenu().getNewProfile()){
+            mainMenu.switchLayout(Panel.CREATE_PROFILE);
         }
     }
 

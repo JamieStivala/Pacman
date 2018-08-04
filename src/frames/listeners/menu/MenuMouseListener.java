@@ -1,6 +1,7 @@
 package frames.listeners.menu;
 
 import frames.MainMenu;
+import sounds.menu.ClickSound;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -14,7 +15,7 @@ public class MenuMouseListener implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        new ClickSound().start();
     }
 
     @Override

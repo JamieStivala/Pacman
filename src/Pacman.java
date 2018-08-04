@@ -1,6 +1,6 @@
 import frames.MainMenu;
 
-public class PacmanRunner {
+public class Pacman {
     public static void main (String args []){
         new MainMenu();
     }

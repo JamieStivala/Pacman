@@ -15,7 +15,9 @@ public class MenuMouseListener implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        new ClickSound().start();
+        if(e.getComponent() instanceof JLabel){
+            new ClickSound().start();
+        }
     }
 
     @Override

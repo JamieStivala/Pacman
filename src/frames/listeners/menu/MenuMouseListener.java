@@ -29,6 +29,7 @@ public class MenuMouseListener implements MouseListener {
     @Override
     public void mouseEntered(MouseEvent e) {
         if(e.getComponent() == mainMenu.getStartGame()){
+            mainMenu.getStartGame().setBounds(520, 299, 400, 40);
             mainMenu.getStartGame().setIcon(new ImageIcon(mainMenu.getStartGameTextures()[1]));
         }
     }
@@ -36,6 +37,7 @@ public class MenuMouseListener implements MouseListener {
     @Override
     public void mouseExited(MouseEvent e) {
         if(e.getComponent() == mainMenu.getStartGame()){
+            mainMenu.getStartGame().setBounds(560, 299, 400, 40);
             mainMenu.getStartGame().setIcon(new ImageIcon(mainMenu.getStartGameTextures()[0]));
         }
     }

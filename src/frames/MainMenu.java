@@ -1,6 +1,8 @@
 package frames;
 
+import frames.panels.menu.CreateProfileMenu;
 import frames.panels.menu.NewProfileMenu;
+import frames.panels.menu.Panel;
 import user.manager.User;
 import user.manager.UserHandler;
 
@@ -18,24 +20,23 @@ public class MainMenu extends JFrame{
     private CardLayout cardLayout;
 
     private NewProfileMenu newProfileMenu;
+    private CreateProfileMenu createProfileMenu;
 
     public MainMenu() {
         this.cardLayout = new CardLayout();
-        loadTextures();
-        initializePanels();
-
+        super.pack();
         super.setTitle("Pacman - Main Menu");
         super.setSize(1440, 799);
         super.setVisible(true);
         super.getContentPane().setLayout(cardLayout);
         super.setResizable(false);
+        loadTextures();
+        initializePanels();
 
         this.users = UserHandler.loadUser();
 
         if(users == null) {
-            cardLayout.show(super.getContentPane(), "NewProfileMenu");
-        }else{
-            System.out.println("wip");
+            switchLayout(Panel.NEW_PROFILE);
         }
     }
 
@@ -49,8 +50,10 @@ public class MainMenu extends JFrame{
 
     private void initializePanels(){
         this.newProfileMenu = new NewProfileMenu(this);
-        this.getContentPane().add(newProfileMenu);
-        cardLayout.addLayoutComponent(newProfileMenu, "NewProfileMenu");
+        super.getContentPane().add(newProfileMenu, Panel.NEW_PROFILE.toString());
+
+        this.createProfileMenu = new CreateProfileMenu(this);
+        super.getContentPane().add(createProfileMenu, Panel.CREATE_PROFILE.toString());
     }
 
     public BufferedImage getLogo() {
@@ -71,6 +74,14 @@ public class MainMenu extends JFrame{
 
     public NewProfileMenu getNewProfileMenu() {
         return newProfileMenu;
+    }
+
+    public void switchLayout(Panel panel){
+        if(panel == Panel.NEW_PROFILE){
+            cardLayout.show(super.getContentPane(), panel.toString());
+        }else if(panel == Panel.CREATE_PROFILE){
+            cardLayout.show(super.getContentPane(), panel.toString());
+        }
     }
 }
 

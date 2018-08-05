@@ -34,7 +34,15 @@ public class LoadProfileList extends BasePanel {
         profiles.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
         profiles.setCellRenderer(new SelectedListCellRenderer());
         profiles.addListSelectionListener(new MenuListSelectionListener());
-        super.add(profiles);
+
+        JScrollPane scrollPane = new JScrollPane(profiles);
+        scrollPane.setBounds(312, 310, 826, 300);
+        scrollPane.setBorder(null);
+        scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(2, 0));
+        scrollPane.getViewport().setBorder(null);
+        scrollPane.setViewportBorder(null);
+
+        super.add(scrollPane);
     }
 
     @Override

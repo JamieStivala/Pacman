@@ -131,21 +131,7 @@ public class MainMenu extends JFrame{
     public void switchLayout(Panel panel){
         this.previousFrame = currentFrame;
         this.currentFrame = panel;
-        if(panel == Panel.NEW_PROFILE){
-            this.cardLayout.show(super.getContentPane(), panel.toString());
-        }else if(panel == Panel.CREATE_PROFILE){
-            this.cardLayout.show(super.getContentPane(), panel.toString());
-        }else if(panel == Panel.PROFILE_CREATE_SELECT){
-            this.cardLayout.show(super.getContentPane(), panel.toString());
-        }else if(panel == Panel.LOAD_PROFILE_LIST){
-            this.cardLayout.show(super.getContentPane(), panel.toString());
-        }else if(panel == Panel.MAIN_PANEL){
-            this.cardLayout.show(super.getContentPane(), panel.toString());
-        }else if(panel == Panel.STATS_PANEL){
-            this.cardLayout.show(super.getContentPane(), panel.toString());
-        }else if(panel == Panel.DELETE_PROFILE_LIST){
-            this.cardLayout.show(super.getContentPane(), panel.toString());
-        }
+        this.cardLayout.show(super.getContentPane(), panel.toString());
     }
 
     public void goBack(){

@@ -124,10 +124,12 @@ public class LoadProfileList extends BasePanel {
     }
 
     public void addCreate(){
-
+        load.setVisible(false);
+        create.setVisible(true);
     }
 
     public void addLoad(){
-
+        create.setVisible(false);
+        load.setVisible(true);
     }
 }

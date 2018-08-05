@@ -2,6 +2,7 @@ package frames.panels.menu;
 
 import frames.MainMenu;
 import frames.listeners.menu.MenuKeyListener;
+import frames.listeners.menu.MenuMouseListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -39,8 +40,8 @@ public class CreateProfileMenu extends BasePanel {
 
             enterProfileNameTexture = ImageIO.read(new File("resources/menu/textures/profile/please_enter_a_profile_name.png"));
 
-            createProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create_small.png")));
-            createProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create_big.png")));
+            createProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_small.png")));
+            createProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_big.png")));
         }catch (Exception e){
             e.printStackTrace();
         }

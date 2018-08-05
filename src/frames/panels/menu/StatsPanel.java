@@ -19,6 +19,7 @@ public class StatsPanel extends BasePanel {
     private ImageIcon backTextures[];
 
     private BufferedImage numbers[];
+    private BufferedImage letters[];
 
     public StatsPanel(MainMenu mainMenu) {
         super(mainMenu);
@@ -43,6 +44,7 @@ public class StatsPanel extends BasePanel {
             backTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/stats/panel/back_big.png")));
 
             loadNumbers();
+            loadLetters();
         }catch (Exception ex){
             ex.printStackTrace();
         }
@@ -54,11 +56,18 @@ public class StatsPanel extends BasePanel {
             numbers[i] = ImageIO.read(new File("resources/menu/textures/numbers/" + i + ".png"));
         }
     }
+    private void loadLetters() throws Exception{
+        letters = new BufferedImage[26];
+        for (int i = 0; i != letters.length ; i++) {
+            letters[i] = ImageIO.read(new File("resources/menu/textures/letters/" + i + ".png"));
+        }
+    }
 
     @Override
     public void paint(Graphics g) {
         super.paint(g);
         g.drawImage(profileName, 50, 300, null);
+        g.drawImage(drawText("Jamie"), 500, 300, null);
         g.drawImage(highestScore, 50, 380, null);
         g.drawImage(gamesPlayed, 50, 460, null);
         g.drawImage(totalScore, 50, 540, null);
@@ -73,6 +82,18 @@ public class StatsPanel extends BasePanel {
         for(int i = 0; i != splitNumber.length; i++){
             g.drawImage(this.numbers[splitNumber[i] - '0'], i * 32, 0, null);
         }
+        return image;
+    }
+
+    public BufferedImage drawText(String text){
+        BufferedImage image = new BufferedImage(text.length() * 32, 32, BufferedImage.TYPE_INT_ARGB);
+        Graphics g = image.getGraphics();
+        char textArray[] = text.toUpperCase().toCharArray();
+
+        for(int i = 0; i != text.length(); i++){
+            g.drawImage(this.letters[textArray[i] - 'A'], i * 32, 0, null);
+        }
+
         return image;
     }
 }

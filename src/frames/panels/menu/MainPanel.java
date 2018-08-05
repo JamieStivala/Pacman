@@ -50,4 +50,36 @@ public class MainPanel extends BasePanel {
             e.printStackTrace();
         }
     }
+
+    public JLabel getStartGameLabel() {
+        return this.startGameLabel;
+    }
+
+    public ImageIcon[] getStartGameTextures() {
+        return this.startGameTextures;
+    }
+
+    public JLabel getViewStatsLabel() {
+        return this.viewStatsLabel;
+    }
+
+    public ImageIcon[] getViewStatsTextures() {
+        return this.viewStatsTextures;
+    }
+
+    public JLabel getChangeProfileLabel() {
+        return this.changeProfileLabel;
+    }
+
+    public ImageIcon[] getChangeProfileTextures() {
+        return this.changeProfileTextures;
+    }
+
+    public JLabel getExitLabel() {
+        return this.exitLabel;
+    }
+
+    public ImageIcon[] getExitTextures() {
+        return this.exitTextures;
+    }
 }

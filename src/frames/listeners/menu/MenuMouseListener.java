@@ -44,7 +44,7 @@ public class MenuMouseListener implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        mouseClicked(e);
     }
 
     @Override

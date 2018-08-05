@@ -1,9 +1,17 @@
 package frames.listeners.menu;
 
+import frames.MainMenu;
+import user.manager.UserHandler;
+
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 public class MenuWindowListener implements WindowListener {
+    private MainMenu mainMenu;
+    public MenuWindowListener(MainMenu mainMenu) {
+        this.mainMenu = mainMenu;
+    }
+
     @Override
     public void windowOpened(WindowEvent e) {
 
@@ -11,6 +19,7 @@ public class MenuWindowListener implements WindowListener {
 
     @Override
     public void windowClosing(WindowEvent e) {
+        UserHandler.saveUser(mainMenu.getUsers());
         System.exit(0);
     }
 

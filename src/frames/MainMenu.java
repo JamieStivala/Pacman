@@ -1,5 +1,6 @@
 package frames;
 
+import frames.listeners.menu.MenuWindowListener;
 import frames.panels.menu.CreateProfileMenu;
 import frames.panels.menu.NewProfileMenu;
 import frames.panels.menu.Panel;
@@ -30,12 +31,14 @@ public class MainMenu extends JFrame{
         super.setVisible(true);
         super.getContentPane().setLayout(cardLayout);
         super.setResizable(false);
+        super.addWindowListener(new MenuWindowListener(this));
         loadTextures();
         initializePanels();
 
         this.users = UserHandler.loadUser();
 
         if(users == null) {
+            System.out.println("in");
             switchLayout(Panel.NEW_PROFILE);
         }
     }
@@ -61,6 +64,7 @@ public class MainMenu extends JFrame{
     }
 
     public ArrayList<User> getUsers() {
+        if(this.users == null) this.users = new ArrayList<>();
         return users;
     }
 

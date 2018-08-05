@@ -40,6 +40,8 @@ public class MenuMouseListener implements MouseListener {
             System.exit(0);
         }else if(e.getComponent() == mainMenu.getMainPanel().getViewStatsLabel()){
             mainMenu.switchLayout(Panel.STATS_PANEL);
+        }else if(e.getComponent() == mainMenu.getMainPanel().getDeleteProfileLabel()){
+            mainMenu.switchLayout(Panel.DELETE_PROFILE_LIST);
         }
     }
 
@@ -81,8 +83,11 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == mainMenu.getMainPanel().getChangeProfileLabel()){
             mainMenu.getMainPanel().getChangeProfileLabel().setBounds(440,499,560,40);
             mainMenu.getMainPanel().getChangeProfileLabel().setIcon(mainMenu.getMainPanel().getChangeProfileTextures()[1]);
+        }else if(e.getComponent() == mainMenu.getMainPanel().getDeleteProfileLabel()){
+            mainMenu.getMainPanel().getDeleteProfileLabel().setBounds(440,599,560,40);
+            mainMenu.getMainPanel().getDeleteProfileLabel().setIcon(mainMenu.getMainPanel().getDeleteProfileTexture()[1]);
         }else if(e.getComponent() == mainMenu.getMainPanel().getExitLabel()){
-            mainMenu.getMainPanel().getExitLabel().setBounds(640,599,160,40);
+            mainMenu.getMainPanel().getExitLabel().setBounds(640,699,160,40);
             mainMenu.getMainPanel().getExitLabel().setIcon(mainMenu.getMainPanel().getExitTextures()[1]);
         }
     }
@@ -116,8 +121,11 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == mainMenu.getMainPanel().getChangeProfileLabel()){
             mainMenu.getMainPanel().getChangeProfileLabel().setBounds(496,499,448,32);
             mainMenu.getMainPanel().getChangeProfileLabel().setIcon(mainMenu.getMainPanel().getChangeProfileTextures()[0]);
+        }else if(e.getComponent() == mainMenu.getMainPanel().getDeleteProfileLabel()){
+            mainMenu.getMainPanel().getDeleteProfileLabel().setBounds(496,599,448,32);
+            mainMenu.getMainPanel().getDeleteProfileLabel().setIcon(mainMenu.getMainPanel().getDeleteProfileTexture()[0]);
         }else if(e.getComponent() == mainMenu.getMainPanel().getExitLabel()){
-            mainMenu.getMainPanel().getExitLabel().setBounds(660,599,128,32);
+            mainMenu.getMainPanel().getExitLabel().setBounds(660,699,128,32);
             mainMenu.getMainPanel().getExitLabel().setIcon(mainMenu.getMainPanel().getExitTextures()[0]);
         }
     }

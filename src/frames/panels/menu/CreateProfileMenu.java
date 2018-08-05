@@ -35,6 +35,7 @@ public class CreateProfileMenu extends BasePanel {
         enterProfileName.setBounds(72, 300, 1296, 90);
         enterProfileName.setBackground(new Color(240, 130, 0));
         enterProfileName.setHorizontalAlignment(SwingConstants.CENTER);
+        enterProfileName.addKeyListener(new MenuKeyListener(super.getMainMenu()));
         enterProfileName.setFont(font);
         super.add(enterProfileName);
     }

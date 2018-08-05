@@ -1,6 +1,7 @@
 package frames.panels.menu;
 
 import frames.MainMenu;
+import frames.listeners.menu.MenuMouseListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -28,21 +29,25 @@ public class MainPanel extends BasePanel {
         this.startGameLabel = new JLabel();
         this.startGameLabel.setIcon(startGameTextures[0]);
         this.startGameLabel.setBounds(560, 299, 320, 32);
+        this.startGameLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(startGameLabel);
 
         this.viewStatsLabel = new JLabel();
         this.viewStatsLabel.setIcon(viewStatsTextures[0]);
         this.viewStatsLabel.setBounds(560, 399, 320, 32);
+        this.viewStatsLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(viewStatsLabel);
 
         this.changeProfileLabel = new JLabel();
         this.changeProfileLabel.setIcon(changeProfileTextures[0]);
         this.changeProfileLabel.setBounds(496, 499, 448, 32);
+        this.changeProfileLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(changeProfileLabel);
 
         this.exitLabel = new JLabel();
         this.exitLabel.setIcon(exitTextures[0]);
         this.exitLabel.setBounds(656, 599, 128, 32);
+        this.exitLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(exitLabel);
     }
 

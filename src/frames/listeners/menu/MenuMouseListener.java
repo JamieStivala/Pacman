@@ -47,8 +47,10 @@ public class MenuMouseListener implements MouseListener {
             System.exit(0);
         }else if(e.getComponent() == this.mainMenu.getMainPanel().getViewStatsLabel()){
             this.mainMenu.switchLayout(Panel.STATS_PANEL);
-        }else if(e.getComponent() == this.mainMenu.getMainPanel().getDeleteProfileLabel()){
+        }else if(e.getComponent() == this.mainMenu.getMainPanel().getDeleteProfileLabel()) {
             this.mainMenu.switchLayout(Panel.DELETE_PROFILE_LIST);
+        }else if(e.getComponent() == this.mainMenu.getMainPanel().getStartGameLabel()){
+            this.mainMenu.switchLayout(Panel.PLAY_GAME_PANEL);
         }else if(e.getComponent() == this.mainMenu.getDeleteProfileList().getDeleteLabel()){
             int selected = this.mainMenu.getDeleteProfileList().getProfilesList().getSelectedIndex();
             User removed = this.mainMenu.getUsers().get(selected);

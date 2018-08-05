@@ -51,6 +51,14 @@ public class CreateProfileMenu extends BasePanel {
         return enterProfileName;
     }
 
+    public JLabel getCreateProfile() {
+        return createProfile;
+    }
+
+    public ImageIcon[] getCreateProfileTextures() {
+        return createProfileTextures;
+    }
+
     @Override
     public void paint(Graphics g){
         super.paint(g);

@@ -39,7 +39,7 @@ public class MainMenu extends JFrame{
         loadTextures();
         initializePanels();
 
-        if(users == null) {
+        if(users.isEmpty()) {
             switchLayout(Panel.NEW_PROFILE);
         }else{
             switchLayout(Panel.PROFILE_CREATE_SELECT);

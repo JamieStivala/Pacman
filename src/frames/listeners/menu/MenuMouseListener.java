@@ -36,6 +36,7 @@ public class MenuMouseListener implements MouseListener {
             this.mainMenu.switchLayout(Panel.MAIN_PANEL);
             this.mainMenu.getLoadProfileList().reloadComponents();
             this.mainMenu.getDeleteProfileList().reloadComponents();
+            this.mainMenu.getCreateProfileMenu().getEnterProfileNameTextField().setText(null);
         }else if (e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl() || e.getComponent() == mainMenu.getMainPanel().getChangeProfileLabel()){
             mainMenu.switchLayout(Panel.LOAD_PROFILE_LIST);
         }else if (e.getComponent() == mainMenu.getLoadProfileList().getLoadLabel()){

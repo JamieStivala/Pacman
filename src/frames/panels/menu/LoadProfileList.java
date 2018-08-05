@@ -25,6 +25,7 @@ public class LoadProfileList extends BasePanel {
         for (int i = 0; i != super.getMainMenu().getUsers().size(); i++) {
             listModel.add(i, super.getMainMenu().getUsers().get(i).getCharacterName());
         }
+        listModel.add(super.getMainMenu().getUsers().size(), "CREATE A PROFILE");
 
         profiles = new JList<>(listModel);
         profiles.setBounds(312, 310, 826, 300);

@@ -12,8 +12,8 @@ public class PlayGame extends BasePanel {
     private BufferedImage enterSeed;
     private BufferedImage or;
 
-    private JLabel previousSeedLabel;
-    private ImageIcon previousSeedTextures[];
+    private JLabel previousSeedsLabel;
+    private ImageIcon previousSeedsTextures[];
 
     private JLabel startLabel;
     private ImageIcon startTextures[];
@@ -34,10 +34,10 @@ public class PlayGame extends BasePanel {
         this.generateRandomWorldLabel.setBounds(50, 299, 672, 32);
         super.add(generateRandomWorldLabel);
 
-        this.previousSeedLabel = new JLabel();
-        this.previousSeedLabel.setIcon(previousSeedTextures[0]);
-        this.previousSeedLabel.setBounds(50, 599, 416, 32);
-        super.add(previousSeedLabel);
+        this.previousSeedsLabel = new JLabel();
+        this.previousSeedsLabel.setIcon(previousSeedsTextures[0]);
+        this.previousSeedsLabel.setBounds(50, 599, 416, 32);
+        super.add(previousSeedsLabel);
 
         this.startLabel = new JLabel();
         this.startLabel.setIcon(startTextures[0]);
@@ -48,12 +48,12 @@ public class PlayGame extends BasePanel {
     @Override
     void loadTextures() {
         super.loadTextures();
-        this.previousSeedTextures = new ImageIcon[2];
+        this.previousSeedsTextures = new ImageIcon[2];
         this.startTextures = new ImageIcon[2];
         this.generateRandomWorldTextures = new ImageIcon[2];
         try{
-            this.previousSeedTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/start/seed/previous_seed_small.png")));
-            this.previousSeedTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/start/seed/previous_seed_big.png")));
+            this.previousSeedsTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/start/seed/previous_seeds_small.png")));
+            this.previousSeedsTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/start/seed/previous_seeds_big.png")));
 
             this.generateRandomWorldTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/start/seed/generate_random_world_small.png")));
             this.generateRandomWorldTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/start/seed/generate_random_world_big.png")));
@@ -76,12 +76,12 @@ public class PlayGame extends BasePanel {
         g.drawImage(or, 50, 517, null);
     }
 
-    public JLabel getPreviousSeedLabel() {
-        return previousSeedLabel;
+    public JLabel getPreviousSeedsLabel() {
+        return previousSeedsLabel;
     }
 
-    public ImageIcon[] getPreviousSeedTextures() {
-        return previousSeedTextures;
+    public ImageIcon[] getPreviousSeedsTextures() {
+        return previousSeedsTextures;
     }
 
     public JLabel getStartLabel() {

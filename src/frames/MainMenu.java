@@ -147,4 +147,8 @@ public class MainMenu extends JFrame{
     public void goBack(){
         switchLayout(this.previousFrame);
     }
+
+    public void setPreviousFrame(Panel previousFrame) {
+        this.previousFrame = previousFrame;
+    }
 }

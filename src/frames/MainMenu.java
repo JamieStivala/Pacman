@@ -34,10 +34,10 @@ public class MainMenu extends JFrame{
         super.getContentPane().setLayout(cardLayout);
         super.setResizable(false);
         super.addWindowListener(new MenuWindowListener(this));
+        this.users = UserHandler.loadUser();
+
         loadTextures();
         initializePanels();
-
-        this.users = UserHandler.loadUser();
 
         if(users == null) {
             switchLayout(Panel.NEW_PROFILE);

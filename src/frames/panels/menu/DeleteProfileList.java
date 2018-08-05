@@ -27,7 +27,6 @@ public class DeleteProfileList extends BasePanel {
         for (int i = 0; i != super.getMainMenu().getUsers().size(); i++) {
             listModel.add(i, super.getMainMenu().getUsers().get(i).getCharacterName());
         }
-        listModel.add(super.getMainMenu().getUsers().size(), "CREATE A PROFILE");
 
         this.profilesList = new JList<>(listModel);
         this.profilesList.setBounds(312, 310, 826, 300);

@@ -1,6 +1,7 @@
 package frames.panels.menu;
 
 import frames.MainMenu;
+import sounds.menu.ClickSound;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -44,7 +45,7 @@ abstract class BasePanel extends JPanel implements MouseListener {
             backTextures = new ImageIcon[2];
             try {
                 backTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/back/back_small.png")));
-                backTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/back/back_small.png")));
+                backTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/back/back_big.png")));
             }catch (Exception e){
                 e.printStackTrace();
             }

@@ -14,12 +14,12 @@ import java.io.IOException;
 
 public class LoadProfileList extends BasePanel {
     private BufferedImage listOfProfiles;
-    private JList<String> profiles;
+    private JList<String> profilesList;
 
-    private JLabel create;
+    private JLabel createLabel;
     private ImageIcon createTextures[];
 
-    private JLabel load;
+    private JLabel loadLabel;
     private ImageIcon loadTextures[];
 
     public LoadProfileList(MainMenu mainMenu) {
@@ -34,16 +34,16 @@ public class LoadProfileList extends BasePanel {
         }
         listModel.add(super.getMainMenu().getUsers().size(), "CREATE A PROFILE");
 
-        profiles = new JList<>(listModel);
-        profiles.setBounds(312, 310, 826, 300);
-        profiles.setBackground(new Color(240, 130, 0));
-        profiles.setFont(super.getFont());
-        profiles.setFixedCellHeight(70);
-        profiles.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
-        profiles.setCellRenderer(new SelectedListCellRenderer());
-        profiles.addListSelectionListener(new MenuListSelectionListener(super.getMainMenu()));
+        profilesList = new JList<>(listModel);
+        profilesList.setBounds(312, 310, 826, 300);
+        profilesList.setBackground(new Color(240, 130, 0));
+        profilesList.setFont(super.getFont());
+        profilesList.setFixedCellHeight(70);
+        profilesList.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
+        profilesList.setCellRenderer(new SelectedListCellRenderer());
+        profilesList.addListSelectionListener(new MenuListSelectionListener(super.getMainMenu()));
 
-        JScrollPane scrollPane = new JScrollPane(profiles);
+        JScrollPane scrollPane = new JScrollPane(profilesList);
         scrollPane.setBounds(312, 310, 826, 300);
         scrollPane.setBorder(null);
         scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(2, 0));
@@ -51,19 +51,19 @@ public class LoadProfileList extends BasePanel {
         scrollPane.setViewportBorder(null);
         super.add(scrollPane);
 
-        create = new JLabel();
-        create.setVisible(false);
-        create.setIcon(createTextures[0]);
-        create.setBounds(946, 630, 192, 32);
-        create.addMouseListener(new MenuMouseListener(super.getMainMenu()));
-        super.add(create);
+        createLabel = new JLabel();
+        createLabel.setVisible(false);
+        createLabel.setIcon(createTextures[0]);
+        createLabel.setBounds(946, 630, 192, 32);
+        createLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(createLabel);
 
-        load = new JLabel();
-        load.setVisible(false);
-        load.setIcon(loadTextures[0]);
-        load.setBounds(1010, 630, 128, 32);
-        load.addMouseListener(new MenuMouseListener(super.getMainMenu()));
-        super.add(load);
+        loadLabel = new JLabel();
+        loadLabel.setVisible(false);
+        loadLabel.setIcon(loadTextures[0]);
+        loadLabel.setBounds(1010, 630, 128, 32);
+        loadLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(loadLabel);
     }
 
     @Override
@@ -72,10 +72,10 @@ public class LoadProfileList extends BasePanel {
         loadTextures = new ImageIcon[2];
         try {
             listOfProfiles = ImageIO.read(new File("resources/menu/textures/profile/list_of_profiles.png"));
-            createTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_small.png")));
-            createTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_big.png")));
-            loadTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_small.png")));
-            loadTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_big.png")));
+            createTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/createLabel/create_small.png")));
+            createTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/createLabel/create_big.png")));
+            loadTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/loadLabel/load_small.png")));
+            loadTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/loadLabel/load_big.png")));
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -87,12 +87,12 @@ public class LoadProfileList extends BasePanel {
         g.drawImage(listOfProfiles,312 , 250, null);
     }
 
-    public JLabel getCreate() {
-        return create;
+    public JLabel getCreateLabel() {
+        return createLabel;
     }
 
-    public void setCreate(JLabel create) {
-        this.create = create;
+    public void setCreateLabel(JLabel createLabel) {
+        this.createLabel = createLabel;
     }
 
     public ImageIcon[] getCreateTextures() {
@@ -103,12 +103,12 @@ public class LoadProfileList extends BasePanel {
         this.createTextures = createTextures;
     }
 
-    public JLabel getLoad() {
-        return load;
+    public JLabel getLoadLabel() {
+        return loadLabel;
     }
 
-    public void setLoad(JLabel load) {
-        this.load = load;
+    public void setLoadLabel(JLabel loadLabel) {
+        this.loadLabel = loadLabel;
     }
 
     public ImageIcon[] getLoadTextures() {
@@ -119,17 +119,17 @@ public class LoadProfileList extends BasePanel {
         this.loadTextures = loadTextures;
     }
 
-    public JList<String> getProfiles() {
-        return profiles;
+    public JList<String> getProfilesList() {
+        return profilesList;
     }
 
     public void addCreate(){
-        load.setVisible(false);
-        create.setVisible(true);
+        loadLabel.setVisible(false);
+        createLabel.setVisible(true);
     }
 
     public void addLoad(){
-        create.setVisible(false);
-        load.setVisible(true);
+        createLabel.setVisible(false);
+        loadLabel.setVisible(true);
     }
 }

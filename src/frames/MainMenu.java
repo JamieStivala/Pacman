@@ -4,6 +4,7 @@ import frames.listeners.menu.MenuWindowListener;
 import frames.panels.menu.CreateProfileMenu;
 import frames.panels.menu.NewProfileMenu;
 import frames.panels.menu.Panel;
+import frames.panels.menu.ProfileCreateOrSelectMenu;
 import user.manager.User;
 import user.manager.UserHandler;
 
@@ -22,6 +23,7 @@ public class MainMenu extends JFrame{
 
     private NewProfileMenu newProfileMenu;
     private CreateProfileMenu createProfileMenu;
+    private ProfileCreateOrSelectMenu profileCreateOrSelectMenu;
 
     public MainMenu() {
         this.cardLayout = new CardLayout();
@@ -39,6 +41,8 @@ public class MainMenu extends JFrame{
 
         if(users == null) {
             switchLayout(Panel.NEW_PROFILE);
+        }else{
+            switchLayout(Panel.PROFILE_CREATE_SELECT);
         }
     }
 
@@ -56,6 +60,9 @@ public class MainMenu extends JFrame{
 
         this.createProfileMenu = new CreateProfileMenu(this);
         super.getContentPane().add(createProfileMenu, Panel.CREATE_PROFILE.toString());
+
+        this.profileCreateOrSelectMenu = new ProfileCreateOrSelectMenu(this);
+        super.getContentPane().add(profileCreateOrSelectMenu, Panel.PROFILE_CREATE_SELECT.toString());
     }
 
     public BufferedImage getLogo() {

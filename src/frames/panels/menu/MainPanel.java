@@ -17,6 +17,9 @@ public class MainPanel extends BasePanel {
     private JLabel changeProfileLabel;
     private ImageIcon changeProfileTextures[];
 
+    private JLabel deleteProfileLabel;
+    private ImageIcon deleteProfileTexture[];
+
     private JLabel exitLabel;
     private ImageIcon exitTextures[];
 
@@ -45,9 +48,15 @@ public class MainPanel extends BasePanel {
         this.changeProfileLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(changeProfileLabel);
 
+        this.deleteProfileLabel = new JLabel();
+        this.deleteProfileLabel.setIcon(deleteProfileTexture[0]);
+        this.deleteProfileLabel.setBounds(496, 599, 448, 32);
+        this.deleteProfileLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(deleteProfileLabel);
+
         this.exitLabel = new JLabel();
         this.exitLabel.setIcon(exitTextures[0]);
-        this.exitLabel.setBounds(660, 599, 128, 32);
+        this.exitLabel.setBounds(660, 699, 128, 32);
         this.exitLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(exitLabel);
     }
@@ -58,6 +67,7 @@ public class MainPanel extends BasePanel {
         this.startGameTextures = new ImageIcon[2];
         this.viewStatsTextures = new ImageIcon[2];
         this.changeProfileTextures = new ImageIcon[2];
+        this.deleteProfileTexture = new ImageIcon[2];
         this.exitTextures = new ImageIcon[2];
         try {
             this.startGameTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/start/start_small.png")));
@@ -68,6 +78,9 @@ public class MainPanel extends BasePanel {
 
             this.changeProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/change/change_small.png")));
             this.changeProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/change/change_big.png")));
+
+            this.deleteProfileTexture[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/delete/delete_profile_small.png")));
+            this.deleteProfileTexture[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/delete/delete_profile_big.png")));
 
             this.exitTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/exit/exit_small.png")));
             this.exitTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/exit/exit_big.png")));

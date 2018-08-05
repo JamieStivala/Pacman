@@ -29,7 +29,7 @@ abstract class BasePanel extends JPanel {
 
     private void loadFont(){
         try {
-            this.font = Font.createFont(Font.TRUETYPE_FONT, new File("resources/PacFont.ttf")).deriveFont(Font.PLAIN);
+            this.font = Font.createFont(Font.TRUETYPE_FONT, new File("resources/PacFont.ttf")).deriveFont(Font.PLAIN, 60);
             GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(font);
         }catch (Exception e){
             e.printStackTrace();

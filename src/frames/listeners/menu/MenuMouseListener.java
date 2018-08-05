@@ -57,6 +57,12 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl()){
             mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl().setBounds(480, 499, 760, 40);
             mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl().setIcon(mainMenu.getProfileCreateOrSelectMenu().getLoadProfileTextures()[1]);
+        }else if(e.getComponent() == mainMenu.getLoadProfileList().getLoad() && mainMenu.getLoadProfileList().getLoad().isVisible()){
+            mainMenu.getLoadProfileList().getLoad().setBounds(978, 630, 160, 40);
+            mainMenu.getLoadProfileList().getLoad().setIcon(mainMenu.getLoadProfileList().getLoadTextures()[1]);
+        }else if(e.getComponent() == mainMenu.getLoadProfileList().getCreate() && mainMenu.getLoadProfileList().getCreate().isVisible()){
+            mainMenu.getLoadProfileList().getCreate().setBounds(898, 630, 240, 40);
+            mainMenu.getLoadProfileList().getCreate().setIcon(mainMenu.getLoadProfileList().getCreateTextures()[1]);
         }
     }
 
@@ -74,6 +80,12 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl()){
             mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl().setBounds(528, 499, 384, 32);
             mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl().setIcon(mainMenu.getProfileCreateOrSelectMenu().getLoadProfileTextures()[0]);
+        }else if(e.getComponent() == mainMenu.getLoadProfileList().getLoad()){
+            mainMenu.getLoadProfileList().getLoad().setBounds(1010, 630, 128, 32);
+            mainMenu.getLoadProfileList().getLoad().setIcon(mainMenu.getLoadProfileList().getLoadTextures()[0]);
+        }else if(e.getComponent() == mainMenu.getLoadProfileList().getCreate()){
+            mainMenu.getLoadProfileList().getCreate().setBounds(946, 630, 192, 32);
+            mainMenu.getLoadProfileList().getCreate().setIcon(mainMenu.getLoadProfileList().getCreateTextures()[0]);
         }
     }
 }

@@ -7,5 +7,6 @@ public enum Panel {
     LOAD_PROFILE_LIST,
     DELETE_PROFILE_LIST,
     MAIN_PANEL,
-    STATS_PANEL
+    STATS_PANEL,
+    PLAY_GAME_PANEL
 }

@@ -27,6 +27,7 @@ public class MainMenu extends JFrame{
     private DeleteProfileList deleteProfileList;
     private MainPanel mainPanel;
     private StatsPanel statsPanel;
+    private PlayGame playGame;
 
     private Panel currentFrame;
     private Panel previousFrame;
@@ -81,6 +82,9 @@ public class MainMenu extends JFrame{
 
         this.statsPanel = new StatsPanel(this);
         super.getContentPane().add(statsPanel, Panel.STATS_PANEL.toString());
+
+        this.playGame = new PlayGame(this);
+        super.getContentPane().add(playGame, Panel.PLAY_GAME_PANEL.toString());
     }
 
     public BufferedImage getLogo() {

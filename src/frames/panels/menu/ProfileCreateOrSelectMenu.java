@@ -7,14 +7,14 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.io.File;
 
-public class ProfileSelectMenu extends BasePanel {
+public class ProfileCreateOrSelectMenu extends BasePanel {
     private ImageIcon newProfileTextures[];
     private JLabel newProfileLbl;
 
     private ImageIcon loadProfileTextures[];
     private JLabel loadProfileLbl;
 
-    public ProfileSelectMenu(MainMenu mainMenu) {
+    public ProfileCreateOrSelectMenu(MainMenu mainMenu) {
         super(mainMenu);
     }
 

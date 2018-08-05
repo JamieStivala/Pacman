@@ -3,6 +3,7 @@ package frames.listeners.menu;
 import frames.MainMenu;
 import frames.panels.menu.Panel;
 import sounds.menu.ClickSound;
+import user.manager.User;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -22,6 +23,11 @@ public class MenuMouseListener implements MouseListener {
 
         if(e.getComponent() == mainMenu.getNewProfileMenu().getNewProfile()){
             mainMenu.switchLayout(Panel.CREATE_PROFILE);
+        }else if(e.getComponent() == mainMenu.getCreateProfileMenu().getCreateProfile() && !mainMenu.getCreateProfileMenu().getEnterProfileName().getText().isEmpty() && !mainMenu.getCreateProfileMenu().getEnterProfileName().getText().trim().isEmpty()){
+            User user = new User(mainMenu.getCreateProfileMenu().getEnterProfileName().getText());
+            this.mainMenu.getUsers().add(user);
+            this.mainMenu.setCurrentUser(user);
+            //Switch Layout
         }
     }
 

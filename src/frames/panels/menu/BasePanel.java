@@ -93,11 +93,17 @@ abstract class BasePanel extends JPanel implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-
+        if(e.getComponent() == this.backLabel){
+            this.backLabel.setIcon(this.backTextures[1]);
+            this.backLabel.setBounds(1208, 680,160, 40);
+        }
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-
+        if(e.getComponent() == this.backLabel){
+            this.backLabel.setIcon(this.backTextures[0]);
+            backLabel.setBounds(1240, 680, 128, 32);
+        }
     }
 }

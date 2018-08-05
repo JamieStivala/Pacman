@@ -38,7 +38,6 @@ public class MainMenu extends JFrame{
         this.users = UserHandler.loadUser();
 
         if(users == null) {
-            System.out.println("in");
             switchLayout(Panel.NEW_PROFILE);
         }
     }

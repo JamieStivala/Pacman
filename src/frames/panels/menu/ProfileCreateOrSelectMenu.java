@@ -48,4 +48,20 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
             e.printStackTrace();
         }
     }
+
+    public ImageIcon[] getNewProfileTextures() {
+        return newProfileTextures;
+    }
+
+    public JLabel getNewProfileLbl() {
+        return newProfileLbl;
+    }
+
+    public ImageIcon[] getLoadProfileTextures() {
+        return loadProfileTextures;
+    }
+
+    public JLabel getLoadProfileLbl() {
+        return loadProfileLbl;
+    }
 }

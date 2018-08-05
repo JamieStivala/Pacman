@@ -27,6 +27,9 @@ public class MainMenu extends JFrame{
     private MainPanel mainPanel;
     private StatsPanel statsPanel;
 
+    private Panel currentFrame;
+    private Panel previousFrame;
+
     public MainMenu() {
         this.cardLayout = new CardLayout();
         super.pack();
@@ -114,6 +117,8 @@ public class MainMenu extends JFrame{
     }
 
     public void switchLayout(Panel panel){
+        previousFrame = currentFrame;
+        currentFrame = panel;
         if(panel == Panel.NEW_PROFILE){
             cardLayout.show(super.getContentPane(), panel.toString());
         }else if(panel == Panel.CREATE_PROFILE){
@@ -127,5 +132,9 @@ public class MainMenu extends JFrame{
         }else if(panel == Panel.STATS_PANEL){
             cardLayout.show(super.getContentPane(), panel.toString());
         }
+    }
+
+    public void goBack(){
+        switchLayout(this.previousFrame);
     }
 }

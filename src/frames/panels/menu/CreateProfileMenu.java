@@ -12,53 +12,56 @@ import java.io.File;
 
 public class CreateProfileMenu extends BasePanel {
     private BufferedImage enterProfileNameTexture;
-    private JLabel createProfileLbl;
+
+    private JLabel createProfileLabel;
     private ImageIcon createProfileTextures[];
-    private JTextField enterProfileName;
+
+    private JTextField enterProfileNameTextField;
+
     public CreateProfileMenu(MainMenu mainMenu) {
         super(mainMenu);
     }
 
     @Override
     void loadComponents() {
-        enterProfileName = new JTextField();
-        enterProfileName.setBounds(72, 300, 1296, 90);
-        enterProfileName.setBackground(new Color(240, 130, 0));
-        enterProfileName.setHorizontalAlignment(SwingConstants.CENTER);
-        enterProfileName.addKeyListener(new MenuKeyListener(super.getMainMenu()));
-        enterProfileName.setFont(super.getFont());
-        super.add(enterProfileName);
+        this.enterProfileNameTextField = new JTextField();
+        this.enterProfileNameTextField.setBounds(72, 300, 1296, 90);
+        this.enterProfileNameTextField.setBackground(new Color(240, 130, 0));
+        this.enterProfileNameTextField.setHorizontalAlignment(SwingConstants.CENTER);
+        this.enterProfileNameTextField.addKeyListener(new MenuKeyListener(super.getMainMenu()));
+        this.enterProfileNameTextField.setFont(super.getFont());
+        super.add(enterProfileNameTextField);
 
-        createProfileLbl = new JLabel();
-        createProfileLbl.setBounds(1176, 410, 192, 32);
-        createProfileLbl.setIcon(createProfileTextures[0]);
-        createProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
-        super.add(createProfileLbl);
+        this.createProfileLabel = new JLabel();
+        this.createProfileLabel.setBounds(1176, 410, 192, 32);
+        this.createProfileLabel.setIcon(createProfileTextures[0]);
+        this.createProfileLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(createProfileLabel);
     }
 
     @Override
     void loadTextures() {
-        createProfileTextures = new ImageIcon[2];
+        this.createProfileTextures = new ImageIcon[2];
         try{
-            enterProfileNameTexture = ImageIO.read(new File("resources/menu/textures/profile/please_enter_a_profile_name.png"));
+            this.enterProfileNameTexture = ImageIO.read(new File("resources/menu/textures/profile/please_enter_a_profile_name.png"));
 
-            createProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_small.png")));
-            createProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_big.png")));
+            this.createProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_small.png")));
+            this.createProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_big.png")));
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public JTextField getEnterProfileName() {
-        return enterProfileName;
+    public JTextField getEnterProfileNameTextField() {
+        return this.enterProfileNameTextField;
     }
 
-    public JLabel getCreateProfileLbl() {
-        return createProfileLbl;
+    public JLabel getCreateProfileLabel() {
+        return this.createProfileLabel;
     }
 
     public ImageIcon[] getCreateProfileTextures() {
-        return createProfileTextures;
+        return this.createProfileTextures;
     }
 
     @Override

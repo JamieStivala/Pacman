@@ -21,47 +21,47 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
     @Override
     @SuppressWarnings("Duplicates")
     void loadComponents() {
-        newProfileLbl = new JLabel();
-        newProfileLbl.setBounds(416, 299, 608, 32);
-        newProfileLbl.setIcon(newProfileTextures[0]);
-        newProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.newProfileLbl = new JLabel();
+        this.newProfileLbl.setBounds(416, 299, 608, 32);
+        this.newProfileLbl.setIcon(newProfileTextures[0]);
+        this.newProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(newProfileLbl);
 
-        loadProfileLbl = new JLabel();
-        loadProfileLbl.setBounds(528, 499, 384, 32);
-        loadProfileLbl.setIcon(loadProfileTextures[0]);
-        loadProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.loadProfileLbl = new JLabel();
+        this.loadProfileLbl.setBounds(528, 499, 384, 32);
+        this.loadProfileLbl.setIcon(loadProfileTextures[0]);
+        this.loadProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(loadProfileLbl);
     }
 
     @Override
     void loadTextures() {
-        newProfileTextures = new ImageIcon[2];
-        loadProfileTextures = new ImageIcon[2];
+        this.newProfileTextures = new ImageIcon[2];
+        this.loadProfileTextures = new ImageIcon[2];
         try{
-            newProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_small.png")));
-            newProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_big.png")));
+            this.newProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_small.png")));
+            this.newProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_big.png")));
 
-            loadProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_profile_small.png")));
-            loadProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_profile_big.png")));
+            this.loadProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_profile_small.png")));
+            this.loadProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_profile_big.png")));
         }catch(Exception e){
             e.printStackTrace();
         }
     }
 
     public ImageIcon[] getNewProfileTextures() {
-        return newProfileTextures;
+        return this.newProfileTextures;
     }
 
     public JLabel getNewProfileLbl() {
-        return newProfileLbl;
+        return this.newProfileLbl;
     }
 
     public ImageIcon[] getLoadProfileTextures() {
-        return loadProfileTextures;
+        return this.loadProfileTextures;
     }
 
     public JLabel getLoadProfileLbl() {
-        return loadProfileLbl;
+        return this.loadProfileLbl;
     }
 }

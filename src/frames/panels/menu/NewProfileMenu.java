@@ -12,28 +12,30 @@ import java.io.IOException;
 
 public class NewProfileMenu extends BasePanel {
     private ImageIcon newProfileTextures[];
+    private JLabel newProfileLabel;
+
     private BufferedImage noSaveFound;
-    private JLabel newProfileLbl;
+
     public NewProfileMenu(MainMenu mainMenu){
         super(mainMenu);
     }
 
     @Override
     void loadComponents() {
-        newProfileLbl = new JLabel();
-        newProfileLbl.setBounds(416, 399, 608, 32);
-        newProfileLbl.setIcon(newProfileTextures[0]);
-        newProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
-        super.add(newProfileLbl);
+        this.newProfileLabel = new JLabel();
+        this.newProfileLabel.setBounds(416, 399, 608, 32);
+        this.newProfileLabel.setIcon(newProfileTextures[0]);
+        this.newProfileLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(newProfileLabel);
     }
 
     @Override
     void loadTextures() {
-        newProfileTextures = new ImageIcon[2];
+        this.newProfileTextures = new ImageIcon[2];
         try{
-            newProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_small.png")));
-            newProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_big.png")));
-            noSaveFound = ImageIO.read(new File("resources/menu/textures/profile/game_save_not_found.png"));
+            this.newProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_small.png")));
+            this.newProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_big.png")));
+            this.noSaveFound = ImageIO.read(new File("resources/menu/textures/profile/game_save_not_found.png"));
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -42,14 +44,14 @@ public class NewProfileMenu extends BasePanel {
     @Override
     public void paint(Graphics g){
         super.paint(g);
-        g.drawImage(noSaveFound, 288, 250, null);
+        g.drawImage(this.noSaveFound, 288, 250, null);
     }
 
     public ImageIcon[] getNewProfileTextures() {
-        return newProfileTextures;
+        return this.newProfileTextures;
     }
 
-    public JLabel getNewProfileLbl() {
-        return newProfileLbl;
+    public JLabel getNewProfileLabel() {
+        return this.newProfileLabel;
     }
 }

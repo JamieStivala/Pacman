@@ -34,14 +34,14 @@ public class LoadProfileList extends BasePanel {
         }
         listModel.add(super.getMainMenu().getUsers().size(), "CREATE A PROFILE");
 
-        profilesList = new JList<>(listModel);
-        profilesList.setBounds(312, 310, 826, 300);
-        profilesList.setBackground(new Color(240, 130, 0));
-        profilesList.setFont(super.getFont());
-        profilesList.setFixedCellHeight(70);
-        profilesList.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
-        profilesList.setCellRenderer(new SelectedListCellRenderer());
-        profilesList.addListSelectionListener(new MenuListSelectionListener(super.getMainMenu()));
+        this.profilesList = new JList<>(listModel);
+        this.profilesList.setBounds(312, 310, 826, 300);
+        this.profilesList.setBackground(new Color(240, 130, 0));
+        this.profilesList.setFont(super.getFont());
+        this.profilesList.setFixedCellHeight(70);
+        this.profilesList.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
+        this.profilesList.setCellRenderer(new SelectedListCellRenderer());
+        this.profilesList.addListSelectionListener(new MenuListSelectionListener(super.getMainMenu()));
 
         JScrollPane scrollPane = new JScrollPane(profilesList);
         scrollPane.setBounds(312, 310, 826, 300);
@@ -88,7 +88,7 @@ public class LoadProfileList extends BasePanel {
     }
 
     public JLabel getCreateLabel() {
-        return createLabel;
+        return this.createLabel;
     }
 
     public void setCreateLabel(JLabel createLabel) {
@@ -104,7 +104,7 @@ public class LoadProfileList extends BasePanel {
     }
 
     public JLabel getLoadLabel() {
-        return loadLabel;
+        return this.loadLabel;
     }
 
     public void setLoadLabel(JLabel loadLabel) {
@@ -112,7 +112,7 @@ public class LoadProfileList extends BasePanel {
     }
 
     public ImageIcon[] getLoadTextures() {
-        return loadTextures;
+        return this.loadTextures;
     }
 
     public void setLoadTextures(ImageIcon[] loadTextures) {
@@ -120,16 +120,16 @@ public class LoadProfileList extends BasePanel {
     }
 
     public JList<String> getProfilesList() {
-        return profilesList;
+        return this.profilesList;
     }
 
     public void addCreate(){
-        loadLabel.setVisible(false);
-        createLabel.setVisible(true);
+        this.loadLabel.setVisible(false);
+        this.createLabel.setVisible(true);
     }
 
     public void addLoad(){
-        createLabel.setVisible(false);
-        loadLabel.setVisible(true);
+        this.createLabel.setVisible(false);
+        this.loadLabel.setVisible(true);
     }
 }

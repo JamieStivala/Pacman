@@ -28,9 +28,9 @@ public class MenuKeyListener implements KeyListener {
     public void keyReleased(KeyEvent e) {
         //All the keys that are used while typing and don't have a character
         boolean isTypingKey = e.getKeyChar() == 65535 || e.getKeyCode() == 8 || e.getKeyCode() == 10;
-        if(!isTypingKey && e.getSource() == mainMenu.getCreateProfileMenu().getEnterProfileName() && pattern.matcher(e.getKeyChar() + "").find()){
-            String currentText = mainMenu.getCreateProfileMenu().getEnterProfileName().getText();
-            mainMenu.getCreateProfileMenu().getEnterProfileName().setText(currentText.substring(0, currentText.length() - 1));
+        if(!isTypingKey && e.getSource() == mainMenu.getCreateProfileMenu().getEnterProfileNameTextField() && pattern.matcher(e.getKeyChar() + "").find()){
+            String currentText = mainMenu.getCreateProfileMenu().getEnterProfileNameTextField().getText();
+            mainMenu.getCreateProfileMenu().getEnterProfileNameTextField().setText(currentText.substring(0, currentText.length() - 1));
         }
 
     }

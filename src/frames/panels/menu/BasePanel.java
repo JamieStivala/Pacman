@@ -37,11 +37,11 @@ abstract class BasePanel extends JPanel {
     }
 
     MainMenu getMainMenu() {
-        return mainMenu;
+        return this.mainMenu;
     }
 
     @Override
     public Font getFont() {
-        return font;
+        return this.font;
     }
 }

@@ -22,10 +22,10 @@ public class MenuMouseListener implements MouseListener {
             new ClickSound().start();
         }
 
-        if(e.getComponent() == mainMenu.getNewProfileMenu().getNewProfileLbl() || e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl() || e.getComponent() == mainMenu.getLoadProfileList().getCreateLabel()){
+        if(e.getComponent() == mainMenu.getNewProfileMenu().getNewProfileLabel() || e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl() || e.getComponent() == mainMenu.getLoadProfileList().getCreateLabel()){
             mainMenu.switchLayout(Panel.CREATE_PROFILE);
-        }else if(e.getComponent() == mainMenu.getCreateProfileMenu().getCreateProfileLbl() && !mainMenu.getCreateProfileMenu().getEnterProfileName().getText().isEmpty() && !mainMenu.getCreateProfileMenu().getEnterProfileName().getText().trim().isEmpty() && mainMenu.getCreateProfileMenu().getEnterProfileName().getText() != null && !UserHandler.nameExists(mainMenu.getUsers(), mainMenu.getCreateProfileMenu().getEnterProfileName().getText())){
-            User user = new User(mainMenu.getCreateProfileMenu().getEnterProfileName().getText().toLowerCase());
+        }else if(e.getComponent() == mainMenu.getCreateProfileMenu().getCreateProfileLabel() && !mainMenu.getCreateProfileMenu().getEnterProfileNameTextField().getText().isEmpty() && !mainMenu.getCreateProfileMenu().getEnterProfileNameTextField().getText().trim().isEmpty() && mainMenu.getCreateProfileMenu().getEnterProfileNameTextField().getText() != null && !UserHandler.nameExists(mainMenu.getUsers(), mainMenu.getCreateProfileMenu().getEnterProfileNameTextField().getText())){
+            User user = new User(mainMenu.getCreateProfileMenu().getEnterProfileNameTextField().getText().toLowerCase());
             this.mainMenu.getUsers().add(user);
             this.mainMenu.setCurrentUser(user);
             this.mainMenu.switchLayout(Panel.MAIN_PANEL);
@@ -48,12 +48,12 @@ public class MenuMouseListener implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        if(e.getComponent() == mainMenu.getNewProfileMenu().getNewProfileLbl()){
-            mainMenu.getNewProfileMenu().getNewProfileLbl().setBounds(340, 399, 760, 40);
-            mainMenu.getNewProfileMenu().getNewProfileLbl().setIcon(mainMenu.getNewProfileMenu().getNewProfileTextures()[1]);
-        }else if(e.getComponent() == mainMenu.getCreateProfileMenu().getCreateProfileLbl()){
-            mainMenu.getCreateProfileMenu().getCreateProfileLbl().setBounds(1152, 410, 240, 40);
-            mainMenu.getCreateProfileMenu().getCreateProfileLbl().setIcon(mainMenu.getCreateProfileMenu().getCreateProfileTextures()[1]);
+        if(e.getComponent() == mainMenu.getNewProfileMenu().getNewProfileLabel()){
+            mainMenu.getNewProfileMenu().getNewProfileLabel().setBounds(340, 399, 760, 40);
+            mainMenu.getNewProfileMenu().getNewProfileLabel().setIcon(mainMenu.getNewProfileMenu().getNewProfileTextures()[1]);
+        }else if(e.getComponent() == mainMenu.getCreateProfileMenu().getCreateProfileLabel()){
+            mainMenu.getCreateProfileMenu().getCreateProfileLabel().setBounds(1152, 410, 240, 40);
+            mainMenu.getCreateProfileMenu().getCreateProfileLabel().setIcon(mainMenu.getCreateProfileMenu().getCreateProfileTextures()[1]);
         }else if(e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl()){
             mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl().setBounds(340, 299, 760, 40);
             mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl().setIcon(mainMenu.getProfileCreateOrSelectMenu().getNewProfileTextures()[1]);
@@ -71,12 +71,12 @@ public class MenuMouseListener implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {
-        if(e.getComponent() == mainMenu.getNewProfileMenu().getNewProfileLbl()){
-            mainMenu.getNewProfileMenu().getNewProfileLbl().setBounds(416, 399, 608, 32);
-            mainMenu.getNewProfileMenu().getNewProfileLbl().setIcon(mainMenu.getNewProfileMenu().getNewProfileTextures()[0]);
-        }else if(e.getComponent() == mainMenu.getCreateProfileMenu().getCreateProfileLbl()){
-            mainMenu.getCreateProfileMenu().getCreateProfileLbl().setBounds(1176, 410, 192, 32);
-            mainMenu.getCreateProfileMenu().getCreateProfileLbl().setIcon(mainMenu.getCreateProfileMenu().getCreateProfileTextures()[0]);
+        if(e.getComponent() == mainMenu.getNewProfileMenu().getNewProfileLabel()){
+            mainMenu.getNewProfileMenu().getNewProfileLabel().setBounds(416, 399, 608, 32);
+            mainMenu.getNewProfileMenu().getNewProfileLabel().setIcon(mainMenu.getNewProfileMenu().getNewProfileTextures()[0]);
+        }else if(e.getComponent() == mainMenu.getCreateProfileMenu().getCreateProfileLabel()){
+            mainMenu.getCreateProfileMenu().getCreateProfileLabel().setBounds(1176, 410, 192, 32);
+            mainMenu.getCreateProfileMenu().getCreateProfileLabel().setIcon(mainMenu.getCreateProfileMenu().getCreateProfileTextures()[0]);
         }else if(e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl()){
             mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl().setBounds(416, 299, 608, 32);
             mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl().setIcon(mainMenu.getProfileCreateOrSelectMenu().getNewProfileTextures()[0]);

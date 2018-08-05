@@ -12,7 +12,7 @@ import java.io.File;
 
 public class CreateProfileMenu extends BasePanel {
     private BufferedImage enterProfileNameTexture;
-    private JLabel createProfile;
+    private JLabel createProfileLbl;
     private ImageIcon createProfileTextures[];
     private JTextField enterProfileName;
     public CreateProfileMenu(MainMenu mainMenu) {
@@ -30,11 +30,11 @@ public class CreateProfileMenu extends BasePanel {
         enterProfileName.setFont(font);
         super.add(enterProfileName);
 
-        createProfile = new JLabel();
-        createProfile.setBounds(1176, 410, 192, 32);
-        createProfile.setIcon(createProfileTextures[0]);
-        createProfile.addMouseListener(new MenuMouseListener(super.getMainMenu()));
-        super.add(createProfile);
+        createProfileLbl = new JLabel();
+        createProfileLbl.setBounds(1176, 410, 192, 32);
+        createProfileLbl.setIcon(createProfileTextures[0]);
+        createProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(createProfileLbl);
     }
 
     @Override
@@ -57,8 +57,8 @@ public class CreateProfileMenu extends BasePanel {
         return enterProfileName;
     }
 
-    public JLabel getCreateProfile() {
-        return createProfile;
+    public JLabel getCreateProfileLbl() {
+        return createProfileLbl;
     }
 
     public ImageIcon[] getCreateProfileTextures() {

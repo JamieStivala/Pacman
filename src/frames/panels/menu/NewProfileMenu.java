@@ -13,18 +13,18 @@ import java.io.IOException;
 public class NewProfileMenu extends BasePanel {
     private ImageIcon newProfileTextures[];
     private BufferedImage noSaveFound;
-    private JLabel newProfile;
+    private JLabel newProfileLbl;
     public NewProfileMenu(MainMenu mainMenu){
         super(mainMenu);
     }
 
     @Override
     void loadComponents() {
-        newProfile = new JLabel();
-        newProfile.setBounds(416, 399, 608, 32);
-        newProfile.setIcon(newProfileTextures[0]);
-        newProfile.addMouseListener(new MenuMouseListener(super.getMainMenu()));
-        super.add(newProfile);
+        newProfileLbl = new JLabel();
+        newProfileLbl.setBounds(416, 399, 608, 32);
+        newProfileLbl.setIcon(newProfileTextures[0]);
+        newProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(newProfileLbl);
     }
 
     @Override
@@ -49,7 +49,7 @@ public class NewProfileMenu extends BasePanel {
         return newProfileTextures;
     }
 
-    public JLabel getNewProfile() {
-        return newProfile;
+    public JLabel getNewProfileLbl() {
+        return newProfileLbl;
     }
 }

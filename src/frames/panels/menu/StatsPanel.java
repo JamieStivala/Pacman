@@ -64,4 +64,15 @@ public class StatsPanel extends BasePanel {
         g.drawImage(totalScore, 50, 540, null);
         g.drawImage(lastPlayedScore, 50, 620, null);
     }
+
+    public BufferedImage drawNumber(int number){
+        BufferedImage image = new BufferedImage((((number + "").length()) * 32), 32, BufferedImage.TYPE_INT_ARGB);
+        Graphics g = image.getGraphics();
+        char splitNumber[] = (number + "").toCharArray();
+
+        for(int i = 0; i != splitNumber.length; i++){
+            g.drawImage(this.numbers[splitNumber[i] - '0'], i * 32, 0, null);
+        }
+        return image;
+    }
 }

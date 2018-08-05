@@ -15,6 +15,12 @@ public class LoadProfileList extends BasePanel {
     private BufferedImage listOfProfiles;
     private JList<String> profiles;
 
+    private JLabel create;
+    private ImageIcon createTextures[];
+
+    private JLabel load;
+    private ImageIcon loadTextures[];
+
     public LoadProfileList(MainMenu mainMenu) {
         super(mainMenu);
     }
@@ -44,12 +50,20 @@ public class LoadProfileList extends BasePanel {
         scrollPane.setViewportBorder(null);
 
         super.add(scrollPane);
+
+
     }
 
     @Override
     void loadTextures() {
+        createTextures = new ImageIcon[2];
+        loadTextures = new ImageIcon[2];
         try {
             listOfProfiles = ImageIO.read(new File("resources/menu/textures/profile/list_of_profiles.png"));
+            createTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_small")));
+            createTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_big")));
+            loadTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_small")));
+            loadTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_big")));
         }catch (IOException e){
             e.printStackTrace();
         }

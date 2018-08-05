@@ -2,17 +2,25 @@ package frames.panels.menu;
 
 import frames.MainMenu;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 
-abstract class BasePanel extends JPanel {
+abstract class BasePanel extends JPanel implements MouseListener {
     private MainMenu mainMenu;
     private Font font;
+
+    private JLabel backLabel;
+    private ImageIcon backTextures[];
+
     private boolean showBack;
 
     BasePanel(MainMenu mainMenu, boolean showBack){
         this.mainMenu = mainMenu;
+        this.showBack = showBack;
         super.setBackground(new Color(240, 130, 0));
         super.setLayout(null);
         loadFont();
@@ -20,8 +28,28 @@ abstract class BasePanel extends JPanel {
         loadComponents();
         super.repaint();
     }
-    abstract void loadComponents();
-    abstract void loadTextures();
+
+    void loadComponents(){
+        if(showBack){
+            backLabel = new JLabel();
+            backLabel.setIcon(backTextures[0]);
+            backLabel.setBounds(1240, 680, 128, 32);
+            backLabel.addMouseListener(this);
+            super.add(backLabel);
+        }
+    }
+
+    void loadTextures(){
+        if(showBack){
+            backTextures = new ImageIcon[2];
+            try {
+                backTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/back/back_small.png")));
+                backTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/back/back_small.png")));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
 
     @Override
     public void paint(Graphics g){
@@ -45,5 +73,30 @@ abstract class BasePanel extends JPanel {
     @Override
     public Font getFont() {
         return this.font;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }

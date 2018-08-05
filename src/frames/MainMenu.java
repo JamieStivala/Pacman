@@ -24,6 +24,7 @@ public class MainMenu extends JFrame{
     private CreateProfileMenu createProfileMenu;
     private ProfileCreateOrSelectMenu profileCreateOrSelectMenu;
     private LoadProfileList loadProfileList;
+    private MainPanel mainPanel;
 
     public MainMenu() {
         this.cardLayout = new CardLayout();
@@ -66,6 +67,9 @@ public class MainMenu extends JFrame{
 
         this.loadProfileList = new LoadProfileList(this);
         super.getContentPane().add(loadProfileList, Panel.LOAD_PROFILE_LIST.toString());
+
+        this.mainPanel = new MainPanel(this);
+        super.getContentPane().add(mainPanel, Panel.MAIN_PANEL.toString());
     }
 
     public BufferedImage getLogo() {
@@ -101,6 +105,10 @@ public class MainMenu extends JFrame{
         return loadProfileList;
     }
 
+    public MainPanel getMainPanel() {
+        return mainPanel;
+    }
+
     public void switchLayout(Panel panel){
         if(panel == Panel.NEW_PROFILE){
             cardLayout.show(super.getContentPane(), panel.toString());
@@ -109,6 +117,8 @@ public class MainMenu extends JFrame{
         }else if(panel == Panel.PROFILE_CREATE_SELECT){
             cardLayout.show(super.getContentPane(), panel.toString());
         }else if(panel == Panel.LOAD_PROFILE_LIST){
+            cardLayout.show(super.getContentPane(), panel.toString());
+        }else if(panel == Panel.MAIN_PANEL){
             cardLayout.show(super.getContentPane(), panel.toString());
         }
     }

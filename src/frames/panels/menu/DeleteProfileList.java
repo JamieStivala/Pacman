@@ -66,15 +66,15 @@ public class DeleteProfileList extends BasePanel {
     }
 
     public JLabel getDeleteLabel() {
-        return deleteLabel;
+        return this.deleteLabel;
     }
 
     public ImageIcon[] getDeleteTextures() {
-        return deleteTextures;
+        return this.deleteTextures;
     }
 
     public JList<String> getProfilesList() {
-        return profilesList;
+        return this.profilesList;
     }
 
     public void triggerDeleteButton(){

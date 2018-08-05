@@ -18,15 +18,15 @@ public class MenuListSelectionListener implements ListSelectionListener {
         if(e.getValueIsAdjusting()) {
             new ClickSound().start();
 
-            if(e.getSource() == mainMenu.getLoadProfileList().getProfilesList()){
-                JList<String> list = mainMenu.getLoadProfileList().getProfilesList();
+            if(e.getSource() == this.mainMenu.getLoadProfileList().getProfilesList()){
+                JList<String> list = this.mainMenu.getLoadProfileList().getProfilesList();
                 if(list.getSelectedValue().equalsIgnoreCase("CREATE A PROFILE")){
-                    mainMenu.getLoadProfileList().addCreate();
+                    this.mainMenu.getLoadProfileList().addCreate();
                 }else {
-                    mainMenu.getLoadProfileList().addLoad();
+                    this.mainMenu.getLoadProfileList().addLoad();
                 }
-            } else if(e.getSource() == mainMenu.getDeleteProfileList().getProfilesList()){
-                mainMenu.getDeleteProfileList().triggerDeleteButton();
+            } else if(e.getSource() == this.mainMenu.getDeleteProfileList().getProfilesList()){
+                this.mainMenu.getDeleteProfileList().triggerDeleteButton();
             }
         }
     }

@@ -42,19 +42,19 @@ public class MainMenu extends JFrame{
         super.addWindowListener(new MenuWindowListener(this));
         this.users = UserHandler.loadUser();
 
-        loadTextures();
-        initializePanels();
+        this.loadTextures();
+        this.initializePanels();
 
         if(users.isEmpty()) {
-            switchLayout(Panel.NEW_PROFILE);
+            this.switchLayout(Panel.NEW_PROFILE);
         }else{
-            switchLayout(Panel.PROFILE_CREATE_SELECT);
+            this.switchLayout(Panel.PROFILE_CREATE_SELECT);
         }
     }
 
     private void loadTextures() {
         try {
-            logo = ImageIO.read(new File("resources/menu/pacman_logo.png"));
+            this.logo = ImageIO.read(new File("resources/menu/pacman_logo.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -84,7 +84,7 @@ public class MainMenu extends JFrame{
     }
 
     public BufferedImage getLogo() {
-        return logo;
+        return this.logo;
     }
 
     public ArrayList<User> getUsers() {
@@ -93,7 +93,7 @@ public class MainMenu extends JFrame{
     }
 
     public User getCurrentUser() {
-        return currentUser;
+        return this.currentUser;
     }
 
     public void setCurrentUser(User currentUser) {
@@ -101,46 +101,46 @@ public class MainMenu extends JFrame{
     }
 
     public NewProfileMenu getNewProfileMenu() {
-        return newProfileMenu;
+        return this.newProfileMenu;
     }
 
     public CreateProfileMenu getCreateProfileMenu() {
-        return createProfileMenu;
+        return this.createProfileMenu;
     }
 
     public ProfileCreateOrSelectMenu getProfileCreateOrSelectMenu() {
-        return profileCreateOrSelectMenu;
+        return this.profileCreateOrSelectMenu;
     }
 
     public LoadProfileList getLoadProfileList() {
-        return loadProfileList;
+        return this.loadProfileList;
     }
 
     public DeleteProfileList getDeleteProfileList() {
-        return deleteProfileList;
+        return this.deleteProfileList;
     }
 
     public MainPanel getMainPanel() {
-        return mainPanel;
+        return this.mainPanel;
     }
 
     public void switchLayout(Panel panel){
-        previousFrame = currentFrame;
-        currentFrame = panel;
+        this.previousFrame = currentFrame;
+        this.currentFrame = panel;
         if(panel == Panel.NEW_PROFILE){
-            cardLayout.show(super.getContentPane(), panel.toString());
+            this.cardLayout.show(super.getContentPane(), panel.toString());
         }else if(panel == Panel.CREATE_PROFILE){
-            cardLayout.show(super.getContentPane(), panel.toString());
+            this.cardLayout.show(super.getContentPane(), panel.toString());
         }else if(panel == Panel.PROFILE_CREATE_SELECT){
-            cardLayout.show(super.getContentPane(), panel.toString());
+            this.cardLayout.show(super.getContentPane(), panel.toString());
         }else if(panel == Panel.LOAD_PROFILE_LIST){
-            cardLayout.show(super.getContentPane(), panel.toString());
+            this.cardLayout.show(super.getContentPane(), panel.toString());
         }else if(panel == Panel.MAIN_PANEL){
-            cardLayout.show(super.getContentPane(), panel.toString());
+            this.cardLayout.show(super.getContentPane(), panel.toString());
         }else if(panel == Panel.STATS_PANEL){
-            cardLayout.show(super.getContentPane(), panel.toString());
+            this.cardLayout.show(super.getContentPane(), panel.toString());
         }else if(panel == Panel.DELETE_PROFILE_LIST){
-            cardLayout.show(super.getContentPane(), panel.toString());
+            this.cardLayout.show(super.getContentPane(), panel.toString());
         }
     }
 

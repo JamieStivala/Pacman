@@ -1,6 +1,7 @@
 package frames.panels.menu;
 
 import frames.MainMenu;
+import frames.listeners.menu.MenuListSelectionListener;
 import frames.panels.menu.custom.SelectedListCellRenderer;
 
 import javax.imageio.ImageIO;
@@ -31,7 +32,7 @@ public class LoadProfileList extends BasePanel {
         profiles.setFont(super.getFont());
         profiles.setFixedCellHeight(70);
         profiles.setCellRenderer(new SelectedListCellRenderer());
-
+        profiles.addListSelectionListener(new MenuListSelectionListener());
         super.add(profiles);
     }
 

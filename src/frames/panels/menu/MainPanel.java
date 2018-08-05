@@ -46,7 +46,7 @@ public class MainPanel extends BasePanel {
 
         this.exitLabel = new JLabel();
         this.exitLabel.setIcon(exitTextures[0]);
-        this.exitLabel.setBounds(656, 599, 128, 32);
+        this.exitLabel.setBounds(660, 599, 128, 32);
         this.exitLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(exitLabel);
     }

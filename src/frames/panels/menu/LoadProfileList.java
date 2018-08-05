@@ -31,6 +31,7 @@ public class LoadProfileList extends BasePanel {
         profiles.setBackground(new Color(240, 130, 0));
         profiles.setFont(super.getFont());
         profiles.setFixedCellHeight(70);
+        profiles.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
         profiles.setCellRenderer(new SelectedListCellRenderer());
         profiles.addListSelectionListener(new MenuListSelectionListener());
         super.add(profiles);

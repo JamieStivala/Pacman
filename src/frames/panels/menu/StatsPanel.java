@@ -74,7 +74,7 @@ public class StatsPanel extends BasePanel {
         g.drawImage(lastPlayedScore, 50, 620, null);
     }
 
-    public BufferedImage drawNumber(int number){
+    private BufferedImage drawNumber(int number){
         BufferedImage image = new BufferedImage((((number + "").length()) * 32), 32, BufferedImage.TYPE_INT_ARGB);
         Graphics g = image.getGraphics();
         char splitNumber[] = (number + "").toCharArray();
@@ -85,7 +85,7 @@ public class StatsPanel extends BasePanel {
         return image;
     }
 
-    public BufferedImage drawText(String text){
+    private BufferedImage drawText(String text){
         BufferedImage image = new BufferedImage(text.length() * 32, 32, BufferedImage.TYPE_INT_ARGB);
         Graphics g = image.getGraphics();
         char textArray[] = text.toUpperCase().toCharArray();

@@ -26,4 +26,10 @@ public class LoadProfileList extends BasePanel {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void paint(Graphics g){
+        super.paint(g);
+        g.drawImage(listOfProfiles,312 , 250, null);
+    }
 }

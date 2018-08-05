@@ -28,4 +28,11 @@ public class UserHandler {
 
         return users;
     }
+
+    public static boolean nameExists(ArrayList<User> users, String name){
+        for (User user : users) {
+            if(user.getCharacterName().equalsIgnoreCase(name)) return true;
+        }
+        return false;
+    }
 }

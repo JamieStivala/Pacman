@@ -21,13 +21,12 @@ public class CreateProfileMenu extends BasePanel {
 
     @Override
     void loadComponents() {
-        Font font = new Font("PacFont Good", Font.PLAIN, 60);
         enterProfileName = new JTextField();
         enterProfileName.setBounds(72, 300, 1296, 90);
         enterProfileName.setBackground(new Color(240, 130, 0));
         enterProfileName.setHorizontalAlignment(SwingConstants.CENTER);
         enterProfileName.addKeyListener(new MenuKeyListener(super.getMainMenu()));
-        enterProfileName.setFont(font);
+        enterProfileName.setFont(super.getFont());
         super.add(enterProfileName);
 
         createProfileLbl = new JLabel();
@@ -41,9 +40,6 @@ public class CreateProfileMenu extends BasePanel {
     void loadTextures() {
         createProfileTextures = new ImageIcon[2];
         try{
-            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("resources/PacFont.ttf")).deriveFont(Font.PLAIN);
-            GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(font);
-
             enterProfileNameTexture = ImageIO.read(new File("resources/menu/textures/profile/please_enter_a_profile_name.png"));
 
             createProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_small.png")));

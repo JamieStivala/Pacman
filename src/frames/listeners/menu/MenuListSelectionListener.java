@@ -25,6 +25,8 @@ public class MenuListSelectionListener implements ListSelectionListener {
                 }else {
                     mainMenu.getLoadProfileList().addLoad();
                 }
+            } else if(e.getSource() == mainMenu.getDeleteProfileList().getProfilesList()){
+                mainMenu.getDeleteProfileList().triggerDeleteButton();
             }
         }
     }

@@ -18,6 +18,11 @@ public class MenuMouseListener implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
         if(e.getComponent() instanceof JLabel){
             new ClickSound().start();
         }
@@ -43,12 +48,22 @@ public class MenuMouseListener implements MouseListener {
             mainMenu.switchLayout(Panel.STATS_PANEL);
         }else if(e.getComponent() == mainMenu.getMainPanel().getDeleteProfileLabel()){
             mainMenu.switchLayout(Panel.DELETE_PROFILE_LIST);
-        }
-    }
+        }else if(e.getComponent() == mainMenu.getDeleteProfileList().getDeleteLabel()){
+            int selected = mainMenu.getDeleteProfileList().getProfilesList().getSelectedIndex();
+            User removed = mainMenu.getUsers().get(selected);
 
-    @Override
-    public void mousePressed(MouseEvent e) {
-        mouseClicked(e);
+            mainMenu.getUsers().remove(selected);
+            mainMenu.getLoadProfileList().reloadComponents();
+            ((DefaultListModel) mainMenu.getDeleteProfileList().getProfilesList().getModel()).remove(selected);
+
+            if(mainMenu.getUsers().isEmpty()){
+                mainMenu.setPreviousFrame(Panel.NEW_PROFILE);
+            }else if(removed == mainMenu.getCurrentUser()){
+                mainMenu.setPreviousFrame(Panel.PROFILE_CREATE_SELECT);
+            }else{
+                mainMenu.getDeleteProfileList().getProfilesList().setSelectedIndex(10);
+            }
+        }
     }
 
     @Override
@@ -90,6 +105,9 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == mainMenu.getMainPanel().getExitLabel()){
             mainMenu.getMainPanel().getExitLabel().setBounds(640,699,160,40);
             mainMenu.getMainPanel().getExitLabel().setIcon(mainMenu.getMainPanel().getExitTextures()[1]);
+        }else if(e.getComponent() == mainMenu.getDeleteProfileList().getDeleteLabel()){
+            mainMenu.getDeleteProfileList().getDeleteLabel().setIcon(mainMenu.getDeleteProfileList().getDeleteTextures()[1]);
+            mainMenu.getDeleteProfileList().getDeleteLabel().setBounds(898, 630, 240, 40);
         }
     }
 
@@ -128,6 +146,9 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == mainMenu.getMainPanel().getExitLabel()){
             mainMenu.getMainPanel().getExitLabel().setBounds(660,699,128,32);
             mainMenu.getMainPanel().getExitLabel().setIcon(mainMenu.getMainPanel().getExitTextures()[0]);
+        }else if(e.getComponent() == mainMenu.getDeleteProfileList().getDeleteLabel()){
+            mainMenu.getDeleteProfileList().getDeleteLabel().setIcon(mainMenu.getDeleteProfileList().getDeleteTextures()[0]);
+            mainMenu.getDeleteProfileList().getDeleteLabel().setBounds(946, 630, 192, 32);
         }
     }
 }

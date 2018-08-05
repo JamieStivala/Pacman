@@ -20,6 +20,9 @@ public class MainMenu extends JFrame{
 
     private BufferedImage logo;
 
+    private JLabel back;
+    private ImageIcon backTextures[];
+
     private NewProfileMenu newProfileMenu;
     private CreateProfileMenu createProfileMenu;
     private ProfileCreateOrSelectMenu profileCreateOrSelectMenu;
@@ -49,8 +52,11 @@ public class MainMenu extends JFrame{
     }
 
     private void loadTextures() {
+        backTextures = new ImageIcon[2];
         try {
             logo = ImageIO.read(new File("resources/menu/pacman_logo.png"));
+            backTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/back/back_small.png")));
+            backTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/back/back_small.png")));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -111,6 +117,14 @@ public class MainMenu extends JFrame{
 
     public MainPanel getMainPanel() {
         return mainPanel;
+    }
+
+    public JLabel getBack() {
+        return back;
+    }
+
+    public ImageIcon[] getBackTextures() {
+        return backTextures;
     }
 
     public void switchLayout(Panel panel){

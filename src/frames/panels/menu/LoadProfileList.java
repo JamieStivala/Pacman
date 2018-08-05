@@ -40,7 +40,7 @@ public class LoadProfileList extends BasePanel {
         profiles.setFixedCellHeight(70);
         profiles.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
         profiles.setCellRenderer(new SelectedListCellRenderer());
-        profiles.addListSelectionListener(new MenuListSelectionListener());
+        profiles.addListSelectionListener(new MenuListSelectionListener(super.getMainMenu()));
 
         JScrollPane scrollPane = new JScrollPane(profiles);
         scrollPane.setBounds(312, 310, 826, 300);
@@ -50,8 +50,6 @@ public class LoadProfileList extends BasePanel {
         scrollPane.setViewportBorder(null);
 
         super.add(scrollPane);
-
-
     }
 
     @Override
@@ -60,10 +58,10 @@ public class LoadProfileList extends BasePanel {
         loadTextures = new ImageIcon[2];
         try {
             listOfProfiles = ImageIO.read(new File("resources/menu/textures/profile/list_of_profiles.png"));
-            createTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_small")));
-            createTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_big")));
-            loadTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_small")));
-            loadTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_big")));
+            createTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_small.png")));
+            createTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_big.png")));
+            loadTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_small.png")));
+            loadTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_big.png")));
         }catch (IOException e){
             e.printStackTrace();
         }
@@ -105,5 +103,17 @@ public class LoadProfileList extends BasePanel {
 
     public void setLoadTextures(ImageIcon[] loadTextures) {
         this.loadTextures = loadTextures;
+    }
+
+    public JList<String> getProfiles() {
+        return profiles;
+    }
+
+    public void addCreate(){
+
+    }
+
+    public void addLoad(){
+
     }
 }

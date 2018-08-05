@@ -67,11 +67,19 @@ public class StatsPanel extends BasePanel {
     public void paint(Graphics g) {
         super.paint(g);
         g.drawImage(profileName, 50, 300, null);
-        g.drawImage(drawText("Jamie"), 500, 300, null);
+        g.drawImage(drawText(super.getMainMenu().getCurrentUser().getCharacterName()), 626, 300, null);
+
         g.drawImage(highestScore, 50, 380, null);
+        g.drawImage(drawNumber(super.getMainMenu().getCurrentUser().getHighestScore()), 626, 380, null);
+
         g.drawImage(gamesPlayed, 50, 460, null);
+        g.drawImage(drawNumber(super.getMainMenu().getCurrentUser().getTotalGamesPlayed()), 626, 460, null);
+
         g.drawImage(totalScore, 50, 540, null);
+        g.drawImage(drawNumber(super.getMainMenu().getCurrentUser().getTotalScore()), 626, 540, null);
+
         g.drawImage(lastPlayedScore, 50, 620, null);
+        g.drawImage(drawNumber(super.getMainMenu().getCurrentUser().getLastGameScore()), 626, 620, null);
     }
 
     private BufferedImage drawNumber(int number){

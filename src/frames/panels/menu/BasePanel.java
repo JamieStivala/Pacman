@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 abstract class BasePanel extends JPanel implements MouseListener {
@@ -16,6 +17,9 @@ abstract class BasePanel extends JPanel implements MouseListener {
 
     private JLabel backLabel;
     private ImageIcon backTextures[];
+
+    private BufferedImage numbers[];
+    private BufferedImage letters[];
 
     private boolean showBack;
 
@@ -46,9 +50,25 @@ abstract class BasePanel extends JPanel implements MouseListener {
             try {
                 backTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/back/back_small.png")));
                 backTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/back/back_big.png")));
+
+                loadNumbers();
+                loadLetters();
             }catch (Exception e){
                 e.printStackTrace();
             }
+        }
+    }
+
+    private void loadNumbers() throws Exception{
+        this.numbers = new BufferedImage[10];
+        for (int i = 0; i != numbers.length ; i++) {
+            numbers[i] = ImageIO.read(new File("resources/menu/textures/numbers/" + i + ".png"));
+        }
+    }
+    private void loadLetters() throws Exception{
+        this.letters = new BufferedImage[26];
+        for (int i = 0; i != letters.length ; i++) {
+            letters[i] = ImageIO.read(new File("resources/menu/textures/letters/" + i + ".png"));
         }
     }
 
@@ -65,6 +85,30 @@ abstract class BasePanel extends JPanel implements MouseListener {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    BufferedImage drawNumber(int number){
+        BufferedImage image = new BufferedImage((((number + "").length()) * 32), 32, BufferedImage.TYPE_INT_ARGB);
+        Graphics g = image.getGraphics();
+        char splitNumber[] = (number + "").toCharArray();
+
+        for(int i = 0; i != splitNumber.length; i++){
+            g.drawImage(this.numbers[splitNumber[i] - '0'], i * 32, 0, null);
+        }
+        return image;
+    }
+
+    BufferedImage drawText(String text){
+        BufferedImage image = new BufferedImage(text.length() * 32, 32, BufferedImage.TYPE_INT_ARGB);
+        Graphics g = image.getGraphics();
+        char textArray[] = text.toUpperCase().toCharArray();
+
+        for(int i = 0; i != text.length(); i++){
+            if(textArray[i] - 'A' == -33) g.drawImage(null, i * 32, 0, null);
+            else g.drawImage(this.letters[textArray[i] - 'A'], i * 32, 0, null);
+        }
+
+        return image;
     }
 
     MainMenu getMainMenu() {

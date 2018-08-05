@@ -32,8 +32,9 @@ public class CreateProfileMenu extends BasePanel {
         Font font = new Font("PacFont Good", Font.PLAIN, 60);
         enterProfileName = new JTextField();
         enterProfileName.setBounds(72, 300, 1296, 90);
-        enterProfileName.setFont(font);
         enterProfileName.setBackground(new Color(240, 130, 0));
+        enterProfileName.setHorizontalAlignment(SwingConstants.CENTER);
+        enterProfileName.setFont(font);
         super.add(enterProfileName);
     }
 

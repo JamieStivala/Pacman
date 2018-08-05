@@ -8,7 +8,10 @@ import java.io.File;
 
 public class ProfileSelectMenu extends BasePanel {
     private ImageIcon newProfileTextures[];
+    private JLabel newProfileLbl;
+
     private ImageIcon loadProfileTextures[];
+    private JLabel loadProfileLbl;
 
     public ProfileSelectMenu(MainMenu mainMenu) {
         super(mainMenu);

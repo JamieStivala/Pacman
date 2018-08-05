@@ -17,6 +17,8 @@ public class StatsPanel extends BasePanel {
     private JLabel backLabel;
     private ImageIcon backTextures[];
 
+    private BufferedImage numbers[];
+
     public StatsPanel(MainMenu mainMenu) {
         super(mainMenu);
     }
@@ -38,8 +40,17 @@ public class StatsPanel extends BasePanel {
 
             backTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/stats/panel/back_small.png")));
             backTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/stats/panel/back_big.png")));
+
+            loadNumbers();
         }catch (Exception ex){
             ex.printStackTrace();
+        }
+    }
+
+    private void loadNumbers() throws Exception{
+        numbers = new BufferedImage[10];
+        for (int i = 0; i != numbers.length ; i++) {
+            numbers[i] = ImageIO.read(new File("resources/menu/textures/numbers/" + i + ".png"));
         }
     }
 }

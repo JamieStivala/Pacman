@@ -76,6 +76,10 @@ public class MainMenu extends JFrame{
         return newProfileMenu;
     }
 
+    public CreateProfileMenu getCreateProfileMenu() {
+        return createProfileMenu;
+    }
+
     public void switchLayout(Panel panel){
         if(panel == Panel.NEW_PROFILE){
             cardLayout.show(super.getContentPane(), panel.toString());

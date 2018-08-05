@@ -11,6 +11,8 @@ import java.io.File;
 
 public class CreateProfileMenu extends BasePanel {
     private BufferedImage enterProfileNameTexture;
+    private JLabel createProfile;
+    private ImageIcon createProfileTextures[];
     private JTextField enterProfileName;
     public CreateProfileMenu(MainMenu mainMenu) {
         super(mainMenu);
@@ -18,11 +20,15 @@ public class CreateProfileMenu extends BasePanel {
 
     @Override
     void loadComponents() {
+        createProfileTextures = new ImageIcon[2];
         try{
             Font font = Font.createFont(Font.TRUETYPE_FONT, new File("resources/PacFont.ttf")).deriveFont(Font.PLAIN);
             GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(font);
 
             enterProfileNameTexture = ImageIO.read(new File("resources/menu/textures/profile/please_enter_a_profile_name.png"));
+
+            createProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create_small.png")));
+            createProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create_big.png")));
         }catch (Exception e){
             e.printStackTrace();
         }

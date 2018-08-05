@@ -1,6 +1,7 @@
 package frames.panels.menu;
 
 import frames.MainMenu;
+import frames.listeners.menu.MenuKeyListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -36,6 +37,10 @@ public class CreateProfileMenu extends BasePanel {
         enterProfileName.setHorizontalAlignment(SwingConstants.CENTER);
         enterProfileName.setFont(font);
         super.add(enterProfileName);
+    }
+
+    public JTextField getEnterProfileName() {
+        return enterProfileName;
     }
 
     @Override

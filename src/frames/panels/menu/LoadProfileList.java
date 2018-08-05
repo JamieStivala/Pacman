@@ -2,6 +2,7 @@ package frames.panels.menu;
 
 import frames.MainMenu;
 import frames.listeners.menu.MenuListSelectionListener;
+import frames.listeners.menu.MenuMouseListener;
 import frames.panels.menu.custom.SelectedListCellRenderer;
 
 import javax.imageio.ImageIO;
@@ -48,8 +49,21 @@ public class LoadProfileList extends BasePanel {
         scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(2, 0));
         scrollPane.getViewport().setBorder(null);
         scrollPane.setViewportBorder(null);
-
         super.add(scrollPane);
+
+        create = new JLabel();
+        create.setVisible(false);
+        create.setIcon(createTextures[0]);
+        create.setBounds(946, 630, 192, 32);
+        create.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(create);
+
+        load = new JLabel();
+        load.setVisible(false);
+        load.setIcon(loadTextures[0]);
+        load.setBounds(1010, 630, 128, 32);
+        load.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(load);
     }
 
     @Override

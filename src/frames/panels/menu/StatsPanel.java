@@ -87,7 +87,8 @@ public class StatsPanel extends BasePanel {
         char textArray[] = text.toUpperCase().toCharArray();
 
         for(int i = 0; i != text.length(); i++){
-            g.drawImage(this.letters[textArray[i] - 'A'], i * 32, 0, null);
+            if(textArray[i] - 'A' == -33) g.drawImage(null, i * 32, 0, null);
+            else g.drawImage(this.letters[textArray[i] - 'A'], i * 32, 0, null);
         }
 
         return image;

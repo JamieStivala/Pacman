@@ -22,7 +22,7 @@ public class MenuMouseListener implements MouseListener {
             new ClickSound().start();
         }
 
-        if(e.getComponent() == mainMenu.getNewProfileMenu().getNewProfileLbl() || e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl()){
+        if(e.getComponent() == mainMenu.getNewProfileMenu().getNewProfileLbl() || e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl() || e.getComponent() == mainMenu.getLoadProfileList().getCreateLabel()){
             mainMenu.switchLayout(Panel.CREATE_PROFILE);
         }else if(e.getComponent() == mainMenu.getCreateProfileMenu().getCreateProfileLbl() && !mainMenu.getCreateProfileMenu().getEnterProfileName().getText().isEmpty() && !mainMenu.getCreateProfileMenu().getEnterProfileName().getText().trim().isEmpty() && mainMenu.getCreateProfileMenu().getEnterProfileName().getText() != null && !UserHandler.nameExists(mainMenu.getUsers(), mainMenu.getCreateProfileMenu().getEnterProfileName().getText())){
             User user = new User(mainMenu.getCreateProfileMenu().getEnterProfileName().getText().toLowerCase());

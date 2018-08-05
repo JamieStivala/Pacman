@@ -74,8 +74,8 @@ public class LoadProfileList extends BasePanel {
             listOfProfiles = ImageIO.read(new File("resources/menu/textures/profile/list_of_profiles.png"));
             createTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_small.png")));
             createTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_big.png")));
-            loadTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/loadLabel/load_small.png")));
-            loadTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/loadLabel/load_big.png")));
+            loadTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_small.png")));
+            loadTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_big.png")));
         }catch (IOException e){
             e.printStackTrace();
         }

@@ -4,5 +4,5 @@ public enum Panel {
     CREATE_PROFILE,
     NEW_PROFILE,
     PROFILE_CREATE_SELECT,
-    PROFILE_LIST
+    LOAD_PROFILE_LIST
 }

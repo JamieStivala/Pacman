@@ -30,7 +30,7 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
         loadProfileLbl = new JLabel();
         loadProfileLbl.setBounds(528, 499, 384, 32);
         loadProfileLbl.setIcon(loadProfileTextures[0]);
-        newProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        loadProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(loadProfileLbl);
     }
 

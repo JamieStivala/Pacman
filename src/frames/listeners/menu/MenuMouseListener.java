@@ -48,6 +48,12 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == mainMenu.getCreateProfileMenu().getCreateProfileLbl()){
             mainMenu.getCreateProfileMenu().getCreateProfileLbl().setBounds(1152, 410, 240, 40);
             mainMenu.getCreateProfileMenu().getCreateProfileLbl().setIcon(mainMenu.getCreateProfileMenu().getCreateProfileTextures()[1]);
+        }else if(e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl()){
+            mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl().setBounds(340, 299, 760, 40);
+            mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl().setIcon(mainMenu.getProfileCreateOrSelectMenu().getNewProfileTextures()[1]);
+        }else if(e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl()){
+            mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl().setBounds(480, 499, 760, 40);
+            mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl().setIcon(mainMenu.getProfileCreateOrSelectMenu().getLoadProfileTextures()[1]);
         }
     }
 
@@ -59,6 +65,12 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == mainMenu.getCreateProfileMenu().getCreateProfileLbl()){
             mainMenu.getCreateProfileMenu().getCreateProfileLbl().setBounds(1176, 410, 192, 32);
             mainMenu.getCreateProfileMenu().getCreateProfileLbl().setIcon(mainMenu.getCreateProfileMenu().getCreateProfileTextures()[0]);
+        }else if(e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl()){
+            mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl().setBounds(416, 299, 608, 32);
+            mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl().setIcon(mainMenu.getProfileCreateOrSelectMenu().getNewProfileTextures()[0]);
+        }else if(e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl()){
+            mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl().setBounds(528, 499, 384, 32);
+            mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl().setIcon(mainMenu.getProfileCreateOrSelectMenu().getLoadProfileTextures()[0]);
         }
     }
 }

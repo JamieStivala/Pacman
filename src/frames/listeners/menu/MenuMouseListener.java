@@ -37,6 +37,8 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == mainMenu.getMainPanel().getExitLabel()){
             UserHandler.saveUser(mainMenu.getUsers());
             System.exit(0);
+        }else if(e.getComponent() == mainMenu.getMainPanel().getViewStatsLabel()){
+            mainMenu.switchLayout(Panel.STATS_PANEL);
         }
     }
 

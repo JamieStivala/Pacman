@@ -95,6 +95,8 @@ public class MainMenu extends JFrame{
             cardLayout.show(super.getContentPane(), panel.toString());
         }else if(panel == Panel.CREATE_PROFILE){
             cardLayout.show(super.getContentPane(), panel.toString());
+        }else if(panel == Panel.PROFILE_CREATE_SELECT){
+            cardLayout.show(super.getContentPane(), panel.toString());
         }
     }
 }

@@ -78,6 +78,10 @@ public class DeleteProfileList extends BasePanel {
         return profilesList;
     }
 
+    public void triggerDeleteButton(){
+        this.deleteLabel.setVisible(true);
+    }
+
     public void reloadComponents(){
         this.removeAll();
         this.loadComponents();

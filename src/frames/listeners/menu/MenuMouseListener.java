@@ -28,6 +28,8 @@ public class MenuMouseListener implements MouseListener {
             this.mainMenu.getUsers().add(user);
             this.mainMenu.setCurrentUser(user);
             //Switch Layout
+        }else if (e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl()){
+            mainMenu.switchLayout(Panel.LOAD_PROFILE_LIST);
         }
     }
 

@@ -6,6 +6,9 @@ import java.util.ArrayList;
 public class User implements Serializable {
     private String characterName;
     private int totalScore;
+    private int totalGamesPlayed;
+    private int highestScore;
+    private int lastGameScore;
     private ArrayList<Long> seedsPlayed;
 
     public User(String characterName){
@@ -26,6 +29,30 @@ public class User implements Serializable {
 
     public void setTotalScore(int totalScore) {
         this.totalScore = totalScore;
+    }
+
+    public int getTotalGamesPlayed() {
+        return totalGamesPlayed;
+    }
+
+    public void incrementTotalPlayedGamed() {
+        this.totalGamesPlayed++;
+    }
+
+    public int getHighestScore() {
+        return highestScore;
+    }
+
+    public void setHighestScore(int highestScore) {
+        this.highestScore = highestScore;
+    }
+
+    public int getLastGameScore() {
+        return lastGameScore;
+    }
+
+    public void setLastGameScore(int lastGameScore) {
+        this.lastGameScore = lastGameScore;
     }
 
     public ArrayList<Long> getSeedsPlayed() {

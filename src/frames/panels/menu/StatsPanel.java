@@ -4,6 +4,7 @@ import frames.MainMenu;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -52,5 +53,15 @@ public class StatsPanel extends BasePanel {
         for (int i = 0; i != numbers.length ; i++) {
             numbers[i] = ImageIO.read(new File("resources/menu/textures/numbers/" + i + ".png"));
         }
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        g.drawImage(profileName, 50, 300, null);
+        g.drawImage(highestScore, 50, 380, null);
+        g.drawImage(gamesPlayed, 50, 460, null);
+        g.drawImage(totalScore, 50, 540, null);
+        g.drawImage(lastPlayedScore, 50, 620, null);
     }
 }

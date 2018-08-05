@@ -24,6 +24,7 @@ public class MainMenu extends JFrame{
     private CreateProfileMenu createProfileMenu;
     private ProfileCreateOrSelectMenu profileCreateOrSelectMenu;
     private LoadProfileList loadProfileList;
+    private DeleteProfileList deleteProfileList;
     private MainPanel mainPanel;
     private StatsPanel statsPanel;
 
@@ -72,6 +73,9 @@ public class MainMenu extends JFrame{
         this.loadProfileList = new LoadProfileList(this);
         super.getContentPane().add(loadProfileList, Panel.LOAD_PROFILE_LIST.toString());
 
+        this.deleteProfileList = new DeleteProfileList(this);
+        super.getContentPane().add(deleteProfileList, Panel.DELETE_PROFILE_LIST.toString());
+
         this.mainPanel = new MainPanel(this);
         super.getContentPane().add(mainPanel, Panel.MAIN_PANEL.toString());
 
@@ -112,6 +116,10 @@ public class MainMenu extends JFrame{
         return loadProfileList;
     }
 
+    public DeleteProfileList getDeleteProfileList() {
+        return deleteProfileList;
+    }
+
     public MainPanel getMainPanel() {
         return mainPanel;
     }
@@ -130,6 +138,8 @@ public class MainMenu extends JFrame{
         }else if(panel == Panel.MAIN_PANEL){
             cardLayout.show(super.getContentPane(), panel.toString());
         }else if(panel == Panel.STATS_PANEL){
+            cardLayout.show(super.getContentPane(), panel.toString());
+        }else if(panel == Panel.DELETE_PROFILE_LIST){
             cardLayout.show(super.getContentPane(), panel.toString());
         }
     }

@@ -1,6 +1,7 @@
 package frames.panels.menu;
 
 import frames.MainMenu;
+import frames.panels.menu.custom.SelectedListCellRenderer;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -29,8 +30,7 @@ public class LoadProfileList extends BasePanel {
         profiles.setBackground(new Color(240, 130, 0));
         profiles.setFont(super.getFont());
         profiles.setFixedCellHeight(70);
-        DefaultListCellRenderer renderer = (DefaultListCellRenderer) profiles.getCellRenderer();
-        renderer.setHorizontalAlignment(SwingConstants.CENTER);
+        profiles.setCellRenderer(new SelectedListCellRenderer());
 
         super.add(profiles);
     }

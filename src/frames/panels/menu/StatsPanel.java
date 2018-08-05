@@ -23,7 +23,7 @@ public class StatsPanel extends BasePanel {
     private BufferedImage letters[];
 
     public StatsPanel(MainMenu mainMenu) {
-        super(mainMenu);
+        super(mainMenu, true);
     }
 
     @Override

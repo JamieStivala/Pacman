@@ -15,7 +15,7 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
     private JLabel loadProfileLbl;
 
     public ProfileCreateOrSelectMenu(MainMenu mainMenu) {
-        super(mainMenu);
+        super(mainMenu, false);
     }
 
     @Override

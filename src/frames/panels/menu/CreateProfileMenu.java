@@ -19,7 +19,7 @@ public class CreateProfileMenu extends BasePanel {
     private JTextField enterProfileNameTextField;
 
     public CreateProfileMenu(MainMenu mainMenu) {
-        super(mainMenu);
+        super(mainMenu, true);
     }
 
     @Override

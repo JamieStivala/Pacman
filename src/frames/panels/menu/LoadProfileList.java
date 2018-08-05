@@ -23,7 +23,7 @@ public class LoadProfileList extends BasePanel {
     private ImageIcon loadTextures[];
 
     public LoadProfileList(MainMenu mainMenu) {
-        super(mainMenu);
+        super(mainMenu, true);
     }
 
     @Override

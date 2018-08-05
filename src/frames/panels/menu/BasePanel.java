@@ -9,7 +9,9 @@ import java.io.File;
 abstract class BasePanel extends JPanel {
     private MainMenu mainMenu;
     private Font font;
-    BasePanel(MainMenu mainMenu){
+    private boolean showBack;
+
+    BasePanel(MainMenu mainMenu, boolean showBack){
         this.mainMenu = mainMenu;
         super.setBackground(new Color(240, 130, 0));
         super.setLayout(null);

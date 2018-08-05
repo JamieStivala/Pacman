@@ -17,7 +17,7 @@ public class NewProfileMenu extends BasePanel {
     private BufferedImage noSaveFound;
 
     public NewProfileMenu(MainMenu mainMenu){
-        super(mainMenu);
+        super(mainMenu, false);
     }
 
     @Override

@@ -21,7 +21,7 @@ public class MainPanel extends BasePanel {
     private ImageIcon exitTextures[];
 
     public MainPanel(MainMenu mainMenu) {
-        super(mainMenu);
+        super(mainMenu, false);
     }
 
     @Override

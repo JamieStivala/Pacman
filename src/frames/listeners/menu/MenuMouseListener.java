@@ -66,6 +66,18 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == mainMenu.getLoadProfileList().getCreateLabel() && mainMenu.getLoadProfileList().getCreateLabel().isVisible()){
             mainMenu.getLoadProfileList().getCreateLabel().setBounds(898, 630, 240, 40);
             mainMenu.getLoadProfileList().getCreateLabel().setIcon(mainMenu.getLoadProfileList().getCreateTextures()[1]);
+        }else if(e.getComponent() == mainMenu.getMainPanel().getStartGameLabel()){
+            mainMenu.getMainPanel().getStartGameLabel().setBounds(520, 299, 400, 40);
+            mainMenu.getMainPanel().getStartGameLabel().setIcon(mainMenu.getMainPanel().getStartGameTextures()[1]);
+        }else if(e.getComponent() == mainMenu.getMainPanel().getViewStatsLabel()){
+            mainMenu.getMainPanel().getViewStatsLabel().setBounds(520,399,400,40);
+            mainMenu.getMainPanel().getViewStatsLabel().setIcon(mainMenu.getMainPanel().getViewStatsTextures()[1]);
+        }else if(e.getComponent() == mainMenu.getMainPanel().getChangeProfileLabel()){
+            mainMenu.getMainPanel().getChangeProfileLabel().setBounds(440,499,560,40);
+            mainMenu.getMainPanel().getChangeProfileLabel().setIcon(mainMenu.getMainPanel().getChangeProfileTextures()[1]);
+        }else if(e.getComponent() == mainMenu.getMainPanel().getExitLabel()){
+            mainMenu.getMainPanel().getExitLabel().setBounds(640,599,160,40);
+            mainMenu.getMainPanel().getExitLabel().setIcon(mainMenu.getMainPanel().getExitTextures()[1]);
         }
     }
 
@@ -89,6 +101,18 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == mainMenu.getLoadProfileList().getCreateLabel()){
             mainMenu.getLoadProfileList().getCreateLabel().setBounds(946, 630, 192, 32);
             mainMenu.getLoadProfileList().getCreateLabel().setIcon(mainMenu.getLoadProfileList().getCreateTextures()[0]);
+        }else if(e.getComponent() == mainMenu.getMainPanel().getStartGameLabel()){
+            mainMenu.getMainPanel().getStartGameLabel().setBounds(560, 299, 320, 32);
+            mainMenu.getMainPanel().getStartGameLabel().setIcon(mainMenu.getMainPanel().getStartGameTextures()[0]);
+        }else if(e.getComponent() == mainMenu.getMainPanel().getViewStatsLabel()){
+            mainMenu.getMainPanel().getViewStatsLabel().setBounds(560,399,320,32);
+            mainMenu.getMainPanel().getViewStatsLabel().setIcon(mainMenu.getMainPanel().getViewStatsTextures()[0]);
+        }else if(e.getComponent() == mainMenu.getMainPanel().getChangeProfileLabel()){
+            mainMenu.getMainPanel().getChangeProfileLabel().setBounds(496,499,448,32);
+            mainMenu.getMainPanel().getChangeProfileLabel().setIcon(mainMenu.getMainPanel().getChangeProfileTextures()[0]);
+        }else if(e.getComponent() == mainMenu.getMainPanel().getExitLabel()){
+            mainMenu.getMainPanel().getExitLabel().setBounds(660,599,128,32);
+            mainMenu.getMainPanel().getExitLabel().setIcon(mainMenu.getMainPanel().getExitTextures()[0]);
         }
     }
 }

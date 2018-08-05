@@ -1,9 +1,85 @@
 package frames.panels.menu;
 
 import frames.MainMenu;
+import frames.listeners.menu.MenuListSelectionListener;
+import frames.listeners.menu.MenuMouseListener;
+import frames.panels.menu.custom.SelectedListCellRenderer;
 
-public class DeleteProfileList extends LoadProfileList {
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+
+public class DeleteProfileList extends BasePanel {
+    private JLabel deleteLabel;
+    private ImageIcon deleteTextures[];
+
+    private JList<String> profilesList;
+
     public DeleteProfileList(MainMenu mainMenu) {
-        super(mainMenu);
+        super(mainMenu, true);
+    }
+
+    @Override
+    void loadComponents() {
+        super.loadComponents();
+        DefaultListModel<String> listModel= new DefaultListModel<>();
+        for (int i = 0; i != super.getMainMenu().getUsers().size(); i++) {
+            listModel.add(i, super.getMainMenu().getUsers().get(i).getCharacterName());
+        }
+        listModel.add(super.getMainMenu().getUsers().size(), "CREATE A PROFILE");
+
+        this.profilesList = new JList<>(listModel);
+        this.profilesList.setBounds(312, 310, 826, 300);
+        this.profilesList.setBackground(new Color(240, 130, 0));
+        this.profilesList.setFont(super.getFont());
+        this.profilesList.setFixedCellHeight(70);
+        this.profilesList.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
+        this.profilesList.setCellRenderer(new SelectedListCellRenderer());
+        this.profilesList.addListSelectionListener(new MenuListSelectionListener(super.getMainMenu()));
+
+        JScrollPane scrollPane = new JScrollPane(profilesList);
+        scrollPane.setBounds(312, 310, 826, 300);
+        scrollPane.setBorder(null);
+        scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(2, 0));
+        scrollPane.getViewport().setBorder(null);
+        scrollPane.setViewportBorder(null);
+        super.add(scrollPane);
+
+        deleteLabel = new JLabel();
+        deleteLabel.setVisible(false);
+        deleteLabel.setIcon(deleteTextures[0]);
+        deleteLabel.setBounds(946, 630, 192, 32);
+        deleteLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(deleteLabel);
+    }
+
+    @Override
+    void loadTextures() {
+        super.loadTextures();
+        this.deleteTextures = new ImageIcon[2];
+        try{
+            this.deleteTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/delete/delete_small.png")));
+            this.deleteTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/delete/delete_big.png")));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public JLabel getDeleteLabel() {
+        return deleteLabel;
+    }
+
+    public ImageIcon[] getDeleteTextures() {
+        return deleteTextures;
+    }
+
+    public JList<String> getProfilesList() {
+        return profilesList;
+    }
+
+    public void reloadComponents(){
+        this.removeAll();
+        this.loadComponents();
     }
 }

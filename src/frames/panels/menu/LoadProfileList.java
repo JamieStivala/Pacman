@@ -74,4 +74,36 @@ public class LoadProfileList extends BasePanel {
         super.paint(g);
         g.drawImage(listOfProfiles,312 , 250, null);
     }
+
+    public JLabel getCreate() {
+        return create;
+    }
+
+    public void setCreate(JLabel create) {
+        this.create = create;
+    }
+
+    public ImageIcon[] getCreateTextures() {
+        return createTextures;
+    }
+
+    public void setCreateTextures(ImageIcon[] createTextures) {
+        this.createTextures = createTextures;
+    }
+
+    public JLabel getLoad() {
+        return load;
+    }
+
+    public void setLoad(JLabel load) {
+        this.load = load;
+    }
+
+    public ImageIcon[] getLoadTextures() {
+        return loadTextures;
+    }
+
+    public void setLoadTextures(ImageIcon[] loadTextures) {
+        this.loadTextures = loadTextures;
+    }
 }

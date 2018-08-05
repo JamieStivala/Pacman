@@ -113,6 +113,14 @@ public class MainPanel extends BasePanel {
         return this.changeProfileTextures;
     }
 
+    public JLabel getDeleteProfileLabel() {
+        return deleteProfileLabel;
+    }
+
+    public ImageIcon[] getDeleteProfileTexture() {
+        return deleteProfileTexture;
+    }
+
     public JLabel getExitLabel() {
         return this.exitLabel;
     }

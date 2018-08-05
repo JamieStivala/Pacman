@@ -26,6 +26,7 @@ public class MainPanel extends BasePanel {
 
     @Override
     void loadComponents() {
+        super.loadComponents();
         this.startGameLabel = new JLabel();
         this.startGameLabel.setIcon(startGameTextures[0]);
         this.startGameLabel.setBounds(560, 299, 320, 32);
@@ -53,6 +54,7 @@ public class MainPanel extends BasePanel {
 
     @Override
     void loadTextures() {
+        super.loadTextures();
         this.startGameTextures = new ImageIcon[2];
         this.viewStatsTextures = new ImageIcon[2];
         this.changeProfileTextures = new ImageIcon[2];

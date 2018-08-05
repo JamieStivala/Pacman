@@ -24,6 +24,7 @@ public class CreateProfileMenu extends BasePanel {
 
     @Override
     void loadComponents() {
+        super.loadComponents();
         this.enterProfileNameTextField = new JTextField();
         this.enterProfileNameTextField.setBounds(72, 300, 1296, 90);
         this.enterProfileNameTextField.setBackground(new Color(240, 130, 0));
@@ -41,6 +42,7 @@ public class CreateProfileMenu extends BasePanel {
 
     @Override
     void loadTextures() {
+        super.loadTextures();
         this.createProfileTextures = new ImageIcon[2];
         try{
             this.enterProfileNameTexture = ImageIO.read(new File("resources/menu/textures/profile/please_enter_a_profile_name.png"));

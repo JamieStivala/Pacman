@@ -22,6 +22,7 @@ public class NewProfileMenu extends BasePanel {
 
     @Override
     void loadComponents() {
+        super.loadComponents();
         this.newProfileLabel = new JLabel();
         this.newProfileLabel.setBounds(416, 399, 608, 32);
         this.newProfileLabel.setIcon(newProfileTextures[0]);
@@ -31,6 +32,7 @@ public class NewProfileMenu extends BasePanel {
 
     @Override
     void loadTextures() {
+        super.loadTextures();
         this.newProfileTextures = new ImageIcon[2];
         try{
             this.newProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_small.png")));

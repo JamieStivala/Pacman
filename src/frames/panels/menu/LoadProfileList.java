@@ -28,6 +28,7 @@ public class LoadProfileList extends BasePanel {
 
     @Override
     void loadComponents() {
+        super.loadComponents();
         DefaultListModel<String> listModel= new DefaultListModel<>();
         for (int i = 0; i != super.getMainMenu().getUsers().size(); i++) {
             listModel.add(i, super.getMainMenu().getUsers().get(i).getCharacterName());
@@ -68,6 +69,7 @@ public class LoadProfileList extends BasePanel {
 
     @Override
     void loadTextures() {
+        super.loadTextures();
         createTextures = new ImageIcon[2];
         loadTextures = new ImageIcon[2];
         try {

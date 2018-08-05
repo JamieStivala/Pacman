@@ -21,6 +21,7 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
     @Override
     @SuppressWarnings("Duplicates")
     void loadComponents() {
+        super.loadComponents();
         this.newProfileLbl = new JLabel();
         this.newProfileLbl.setBounds(416, 299, 608, 32);
         this.newProfileLbl.setIcon(newProfileTextures[0]);
@@ -36,6 +37,7 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
 
     @Override
     void loadTextures() {
+        super.loadTextures();
         this.newProfileTextures = new ImageIcon[2];
         this.loadProfileTextures = new ImageIcon[2];
         try{

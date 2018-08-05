@@ -28,6 +28,7 @@ public class StatsPanel extends BasePanel {
 
     @Override
     void loadComponents() {
+        super.loadComponents();
         backLabel = new JLabel();
         backLabel.setIcon(backTextures[0]);
         backLabel.setBounds(1240, 680, 128, 32);
@@ -37,6 +38,7 @@ public class StatsPanel extends BasePanel {
 
     @Override
     void loadTextures() {
+        super.loadTextures();
         backTextures = new ImageIcon[2];
         try{
             profileName = ImageIO.read(new File("resources/menu/textures/profile/stats/panel/name.png"));

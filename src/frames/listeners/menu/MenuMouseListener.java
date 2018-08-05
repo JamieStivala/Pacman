@@ -29,11 +29,14 @@ public class MenuMouseListener implements MouseListener {
             this.mainMenu.getUsers().add(user);
             this.mainMenu.setCurrentUser(user);
             this.mainMenu.switchLayout(Panel.MAIN_PANEL);
-        }else if (e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl()){
+        }else if (e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl() || e.getComponent() == mainMenu.getMainPanel().getChangeProfileLabel()){
             mainMenu.switchLayout(Panel.LOAD_PROFILE_LIST);
         }else if (e.getComponent() == mainMenu.getLoadProfileList().getLoadLabel()){
             mainMenu.setCurrentUser(mainMenu.getUsers().get(mainMenu.getLoadProfileList().getProfilesList().getSelectedIndex()));
             this.mainMenu.switchLayout(Panel.MAIN_PANEL);
+        }else if(e.getComponent() == mainMenu.getMainPanel().getExitLabel()){
+            UserHandler.saveUser(mainMenu.getUsers());
+            System.exit(0);
         }
     }
 

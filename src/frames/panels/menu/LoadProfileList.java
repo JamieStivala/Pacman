@@ -27,7 +27,7 @@ public class LoadProfileList extends BasePanel {
         }
 
         profiles = new JList<>(listModel);
-        profiles.setBounds(312, 310, 826, 400);
+        profiles.setBounds(312, 310, 826, 300);
         profiles.setBackground(new Color(240, 130, 0));
         profiles.setFont(super.getFont());
         profiles.setFixedCellHeight(70);

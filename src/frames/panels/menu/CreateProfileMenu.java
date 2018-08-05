@@ -31,7 +31,7 @@ public class CreateProfileMenu extends BasePanel {
         super.add(enterProfileName);
 
         createProfile = new JLabel();
-        createProfile.setBounds(624, 410, 192, 32);
+        createProfile.setBounds(1176, 410, 192, 32);
         createProfile.setIcon(createProfileTextures[0]);
         createProfile.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(createProfile);

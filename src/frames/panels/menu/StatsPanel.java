@@ -1,10 +1,8 @@
 package frames.panels.menu;
 
 import frames.MainMenu;
-import frames.listeners.menu.MenuMouseListener;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -16,9 +14,6 @@ public class StatsPanel extends BasePanel {
     private BufferedImage totalScore;
     private BufferedImage lastPlayedScore;
 
-    private JLabel backLabel;
-    private ImageIcon backTextures[];
-
     private BufferedImage numbers[];
     private BufferedImage letters[];
 
@@ -27,28 +22,14 @@ public class StatsPanel extends BasePanel {
     }
 
     @Override
-    void loadComponents() {
-        super.loadComponents();
-        backLabel = new JLabel();
-        backLabel.setIcon(backTextures[0]);
-        backLabel.setBounds(1240, 680, 128, 32);
-        backLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
-        super.add(backLabel);
-    }
-
-    @Override
     void loadTextures() {
         super.loadTextures();
-        backTextures = new ImageIcon[2];
         try{
             profileName = ImageIO.read(new File("resources/menu/textures/profile/stats/panel/name.png"));
             highestScore = ImageIO.read(new File("resources/menu/textures/profile/stats/panel/highest_score.png"));
             gamesPlayed = ImageIO.read(new File("resources/menu/textures/profile/stats/panel/games_played.png"));
             totalScore = ImageIO.read(new File("resources/menu/textures/profile/stats/panel/total_score.png"));
             lastPlayedScore = ImageIO.read(new File("resources/menu/textures/profile/stats/panel/last_played_score.png"));
-
-            backTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/stats/panel/back_small.png")));
-            backTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/stats/panel/back_big.png")));
 
             loadNumbers();
             loadLetters();
@@ -110,13 +91,5 @@ public class StatsPanel extends BasePanel {
         }
 
         return image;
-    }
-
-    public JLabel getBackLabel() {
-        return backLabel;
-    }
-
-    public ImageIcon[] getBackTextures() {
-        return backTextures;
     }
 }

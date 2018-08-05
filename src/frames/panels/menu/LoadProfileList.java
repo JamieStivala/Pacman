@@ -93,32 +93,16 @@ public class LoadProfileList extends BasePanel {
         return this.createLabel;
     }
 
-    public void setCreateLabel(JLabel createLabel) {
-        this.createLabel = createLabel;
-    }
-
     public ImageIcon[] getCreateTextures() {
         return createTextures;
-    }
-
-    public void setCreateTextures(ImageIcon[] createTextures) {
-        this.createTextures = createTextures;
     }
 
     public JLabel getLoadLabel() {
         return this.loadLabel;
     }
 
-    public void setLoadLabel(JLabel loadLabel) {
-        this.loadLabel = loadLabel;
-    }
-
     public ImageIcon[] getLoadTextures() {
         return this.loadTextures;
-    }
-
-    public void setLoadTextures(ImageIcon[] loadTextures) {
-        this.loadTextures = loadTextures;
     }
 
     public JList<String> getProfilesList() {
@@ -133,5 +117,10 @@ public class LoadProfileList extends BasePanel {
     public void addLoad(){
         this.createLabel.setVisible(false);
         this.loadLabel.setVisible(true);
+    }
+
+    public void reloadComponents(){
+        this.removeAll();
+        this.loadComponents();
     }
 }

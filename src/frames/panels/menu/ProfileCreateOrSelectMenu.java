@@ -19,12 +19,19 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
     }
 
     @Override
+    @SuppressWarnings("Duplicates")
     void loadComponents() {
         newProfileLbl = new JLabel();
-        newProfileLbl.setBounds(560, 299, 400, 40);
+        newProfileLbl.setBounds(416, 299, 608, 32);
         newProfileLbl.setIcon(newProfileTextures[0]);
         newProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(newProfileLbl);
+
+        loadProfileLbl = new JLabel();
+        loadProfileLbl.setBounds(528, 499, 384, 32);
+        loadProfileLbl.setIcon(loadProfileTextures[0]);
+        newProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(loadProfileLbl);
     }
 
     @Override

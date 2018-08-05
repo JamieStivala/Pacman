@@ -29,6 +29,12 @@ public class CreateProfileMenu extends BasePanel {
         enterProfileName.addKeyListener(new MenuKeyListener(super.getMainMenu()));
         enterProfileName.setFont(font);
         super.add(enterProfileName);
+
+        createProfile = new JLabel();
+        createProfile.setBounds(624, 410, 192, 32);
+        createProfile.setIcon(createProfileTextures[0]);
+        createProfile.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(createProfile);
     }
 
     @Override

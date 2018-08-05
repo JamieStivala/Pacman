@@ -21,7 +21,7 @@ public class LoadProfileList extends BasePanel {
     @Override
     void loadTextures() {
         try {
-            listOfProfiles = ImageIO.read(new File("resources/textures/profile/list_of_profiles.png"));
+            listOfProfiles = ImageIO.read(new File("resources/menu/textures/profile/list_of_profiles.png"));
         }catch (IOException e){
             e.printStackTrace();
         }

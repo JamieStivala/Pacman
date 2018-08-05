@@ -1,6 +1,7 @@
 package frames.panels.menu;
 
 import frames.MainMenu;
+import frames.listeners.menu.MenuMouseListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -27,7 +28,11 @@ public class StatsPanel extends BasePanel {
 
     @Override
     void loadComponents() {
-
+        backLabel = new JLabel();
+        backLabel.setIcon(backTextures[0]);
+        backLabel.setBounds(1240, 680, 128, 32);
+        backLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        super.add(backLabel);
     }
 
     @Override
@@ -103,5 +108,13 @@ public class StatsPanel extends BasePanel {
         }
 
         return image;
+    }
+
+    public JLabel getBackLabel() {
+        return backLabel;
+    }
+
+    public ImageIcon[] getBackTextures() {
+        return backTextures;
     }
 }

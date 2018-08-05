@@ -4,6 +4,7 @@ import frames.MainMenu;
 import frames.panels.menu.Panel;
 import sounds.menu.ClickSound;
 import user.manager.User;
+import user.manager.UserHandler;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -23,8 +24,8 @@ public class MenuMouseListener implements MouseListener {
 
         if(e.getComponent() == mainMenu.getNewProfileMenu().getNewProfileLbl() || e.getComponent() == mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl()){
             mainMenu.switchLayout(Panel.CREATE_PROFILE);
-        }else if(e.getComponent() == mainMenu.getCreateProfileMenu().getCreateProfileLbl() && !mainMenu.getCreateProfileMenu().getEnterProfileName().getText().isEmpty() && !mainMenu.getCreateProfileMenu().getEnterProfileName().getText().trim().isEmpty() && mainMenu.getCreateProfileMenu().getEnterProfileName().getText() != null){
-            User user = new User(mainMenu.getCreateProfileMenu().getEnterProfileName().getText());
+        }else if(e.getComponent() == mainMenu.getCreateProfileMenu().getCreateProfileLbl() && !mainMenu.getCreateProfileMenu().getEnterProfileName().getText().isEmpty() && !mainMenu.getCreateProfileMenu().getEnterProfileName().getText().trim().isEmpty() && mainMenu.getCreateProfileMenu().getEnterProfileName().getText() != null && !UserHandler.nameExists(mainMenu.getUsers(), mainMenu.getCreateProfileMenu().getEnterProfileName().getText())){
+            User user = new User(mainMenu.getCreateProfileMenu().getEnterProfileName().getText().toLowerCase());
             this.mainMenu.getUsers().add(user);
             this.mainMenu.setCurrentUser(user);
             //Switch Layout

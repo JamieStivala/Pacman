@@ -75,4 +75,28 @@ public class PlayGame extends BasePanel {
         g.drawImage(enterSeed, 50, 449, null);
         g.drawImage(or, 50, 517, null);
     }
+
+    public JLabel getPreviousSeedLabel() {
+        return previousSeedLabel;
+    }
+
+    public ImageIcon[] getPreviousSeedTextures() {
+        return previousSeedTextures;
+    }
+
+    public JLabel getStartLabel() {
+        return startLabel;
+    }
+
+    public ImageIcon[] getStartTextures() {
+        return startTextures;
+    }
+
+    public JLabel getGenerateRandomWorldLabel() {
+        return generateRandomWorldLabel;
+    }
+
+    public ImageIcon[] getGenerateRandomWorldTextures() {
+        return generateRandomWorldTextures;
+    }
 }

@@ -15,6 +15,17 @@ public class MenuListSelectionListener implements ListSelectionListener {
 
     @Override
     public void valueChanged(ListSelectionEvent e) {
-        if(e.getValueIsAdjusting()) new ClickSound().start();
+        if(e.getValueIsAdjusting()) {
+            new ClickSound().start();
+
+            if(e.getSource() == mainMenu.getLoadProfileList().getProfiles()){
+                JList<String> list = mainMenu.getLoadProfileList().getProfiles();
+                if(list.getSelectedValue().equalsIgnoreCase("CREATE A PROFILE")){
+                    mainMenu.getLoadProfileList().addCreate();
+                }else {
+                    mainMenu.getLoadProfileList().addLoad();
+                }
+            }
+        }
     }
 }

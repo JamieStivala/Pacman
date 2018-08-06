@@ -60,8 +60,6 @@ public class MenuMouseListener implements MouseListener {
                 this.mainMenu.setPreviousFrame(Panel.NEW_PROFILE);
             }else if(removed == this.mainMenu.getCurrentUser()){
                 this.mainMenu.setPreviousFrame(Panel.PROFILE_CREATE_SELECT);
-            }else{
-                this.mainMenu.getDeleteProfileList().getProfilesList().setSelectedIndex(10);
             }
         }else if(e.getComponent() == this.mainMenu.getPlayGame().getGenerateRandomWorldLabel()){
             this.mainMenu.startGame();

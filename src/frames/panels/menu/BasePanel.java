@@ -41,6 +41,7 @@ abstract class BasePanel extends JPanel implements MouseListener {
             backLabel = new JLabel();
             backLabel.setIcon(backTextures[0]);
             backLabel.setBounds(1240, 680, 128, 32);
+            backLabel.addMouseListener(this);
             backLabel.addMouseListener(new MenuAnimationHandler(this.backTextures, new Rectangle(1240, 680, 128, 32) , new Rectangle(1208, 680,160, 40)));
             super.add(backLabel);
         }

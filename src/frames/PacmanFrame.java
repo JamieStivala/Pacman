@@ -43,7 +43,7 @@ public class PacmanFrame extends JFrame{
         for (int i = 0; i != user.getSeedsPlayed().size(); i++) {
             if(user.getSeedsPlayed().get(i) == seed) found = true;
         }
-        if(!found) user.getSeedsPlayed().add(seed);
+        if(!found) user.getSeedsPlayed().add(0, seed);
         user.incrementTotalPlayedGamed();
     }
 

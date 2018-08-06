@@ -122,7 +122,8 @@ public class SeedViewerList extends BasePanel {
     }
 
     public void triggerButtons(){
-
+        this.deleteLabel.setVisible(true);
+        this.selectLabel.setVisible(true);
     }
 
     public void reloadComponents(){

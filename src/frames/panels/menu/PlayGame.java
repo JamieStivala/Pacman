@@ -44,7 +44,7 @@ public class PlayGame extends BasePanel {
 
         this.startLabel = new JLabel();
         this.startLabel.setIcon(startTextures[0]);
-        this.startLabel.setBounds(640, 700, 160, 40);
+        this.startLabel.setBounds(560, 700, 320, 32);
         this.startLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(startLabel);
     }

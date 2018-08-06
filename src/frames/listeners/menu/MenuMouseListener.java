@@ -111,6 +111,15 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == this.mainMenu.getDeleteProfileList().getDeleteLabel()){
             this.mainMenu.getDeleteProfileList().getDeleteLabel().setIcon(this.mainMenu.getDeleteProfileList().getDeleteTextures()[1]);
             this.mainMenu.getDeleteProfileList().getDeleteLabel().setBounds(898, 630, 240, 40);
+        }else if(e.getComponent() == this.mainMenu.getPlayGame().getGenerateRandomWorldLabel()){
+            this.mainMenu.getPlayGame().getGenerateRandomWorldLabel().setIcon(this.mainMenu.getPlayGame().getGenerateRandomWorldTextures()[1]);
+            this.mainMenu.getPlayGame().getGenerateRandomWorldLabel().setBounds(50, 299, 840, 40);
+        }else if(e.getComponent() == this.mainMenu.getPlayGame().getPreviousSeedsLabel()){
+            this.mainMenu.getPlayGame().getPreviousSeedsLabel().setIcon(this.mainMenu.getPlayGame().getPreviousSeedsTextures()[1]);
+            this.mainMenu.getPlayGame().getPreviousSeedsLabel().setBounds(50, 599, 560, 40);
+        }else if(e.getComponent() == this.mainMenu.getPlayGame().getStartLabel()){
+            this.mainMenu.getPlayGame().getStartLabel().setIcon(this.mainMenu.getPlayGame().getStartTextures()[1]);
+            this.mainMenu.getPlayGame().getStartLabel().setBounds(520, 700, 400, 40);
         }
     }
 
@@ -152,6 +161,15 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == this.mainMenu.getDeleteProfileList().getDeleteLabel()){
             this.mainMenu.getDeleteProfileList().getDeleteLabel().setIcon(this.mainMenu.getDeleteProfileList().getDeleteTextures()[0]);
             this.mainMenu.getDeleteProfileList().getDeleteLabel().setBounds(946, 630, 192, 32);
+        }else if(e.getComponent() == this.mainMenu.getPlayGame().getGenerateRandomWorldLabel()){
+            this.mainMenu.getPlayGame().getGenerateRandomWorldLabel().setIcon(this.mainMenu.getPlayGame().getGenerateRandomWorldTextures()[0]);
+            this.mainMenu.getPlayGame().getGenerateRandomWorldLabel().setBounds(50, 299, 672, 32);
+        }else if(e.getComponent() == this.mainMenu.getPlayGame().getPreviousSeedsLabel()){
+            this.mainMenu.getPlayGame().getPreviousSeedsLabel().setIcon(this.mainMenu.getPlayGame().getPreviousSeedsTextures()[0]);
+            this.mainMenu.getPlayGame().getPreviousSeedsLabel().setBounds(50, 599, 416, 32);
+        }else if(e.getComponent() == this.mainMenu.getPlayGame().getStartLabel()){
+            this.mainMenu.getPlayGame().getStartLabel().setIcon(this.mainMenu.getPlayGame().getStartTextures()[0]);
+            this.mainMenu.getPlayGame().getStartLabel().setBounds(560, 700, 320, 32);
         }
     }
 }

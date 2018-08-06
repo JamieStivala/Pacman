@@ -22,7 +22,7 @@ public class PacmanFrame extends JFrame{
     private BufferedImage screen;
     private volatile boolean stopped;
 
-    PacmanFrame(User user){
+    public PacmanFrame(User user){
         this(user, (long) (Math.random() * 1000000000));
     }
 
@@ -50,7 +50,7 @@ public class PacmanFrame extends JFrame{
     private void setFrameSettings(){
         super.setTitle("Pacman");
         super.setSize(1440, 799);
-        super.setResizable(true);
+        super.setResizable(false);
         super.addKeyListener(new PacmanKeyListener(this));
         super.setLayout(null);
         super.setVisible(true);

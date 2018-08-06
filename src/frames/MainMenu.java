@@ -62,14 +62,14 @@ public class MainMenu extends JFrame{
     }
 
     private void initializePanels(){
+        this.profileCreateOrSelectMenu = new ProfileCreateOrSelectMenu(this);
+        super.getContentPane().add(profileCreateOrSelectMenu, Panel.PROFILE_CREATE_SELECT.toString());
+
         this.newProfileMenu = new NewProfileMenu(this);
         super.getContentPane().add(newProfileMenu, Panel.NEW_PROFILE.toString());
 
         this.createProfileMenu = new CreateProfileMenu(this);
         super.getContentPane().add(createProfileMenu, Panel.CREATE_PROFILE.toString());
-
-        this.profileCreateOrSelectMenu = new ProfileCreateOrSelectMenu(this);
-        super.getContentPane().add(profileCreateOrSelectMenu, Panel.PROFILE_CREATE_SELECT.toString());
 
         this.loadProfileList = new LoadProfileList(this);
         super.getContentPane().add(loadProfileList, Panel.LOAD_PROFILE_LIST.toString());

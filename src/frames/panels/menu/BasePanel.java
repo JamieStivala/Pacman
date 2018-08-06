@@ -1,6 +1,7 @@
 package frames.panels.menu;
 
 import frames.MainMenu;
+import frames.listeners.menu.MenuAnimationHandler;
 import sounds.menu.ClickSound;
 
 import javax.imageio.ImageIO;
@@ -40,7 +41,7 @@ abstract class BasePanel extends JPanel implements MouseListener {
             backLabel = new JLabel();
             backLabel.setIcon(backTextures[0]);
             backLabel.setBounds(1240, 680, 128, 32);
-            backLabel.addMouseListener(this);
+            backLabel.addMouseListener(new MenuAnimationHandler(this.backTextures, new Rectangle(1240, 680, 128, 32) , new Rectangle(1208, 680,160, 40)));
             super.add(backLabel);
         }
     }
@@ -149,17 +150,11 @@ abstract class BasePanel extends JPanel implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        if(e.getComponent() == this.backLabel){
-            this.backLabel.setIcon(this.backTextures[1]);
-            this.backLabel.setBounds(1208, 680,160, 40);
-        }
+
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        if(e.getComponent() == this.backLabel){
-            this.backLabel.setIcon(this.backTextures[0]);
-            backLabel.setBounds(1240, 680, 128, 32);
-        }
+
     }
 }

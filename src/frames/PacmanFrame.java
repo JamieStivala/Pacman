@@ -1,7 +1,6 @@
 package frames;
 
 import frames.listeners.pacman.PacmanKeyListener;
-import frames.listeners.pacman.PacmanWindowListener;
 import items.moving.Pacman;
 import items.moving.threads.PacmanMover;
 import map.CoinCollisionDetection;
@@ -39,7 +38,6 @@ public class PacmanFrame extends JFrame{
         super.setTitle("Pacman");
         super.setSize(1440, 799);
         super.setResizable(true);
-        super.addWindowListener(new PacmanWindowListener());
         super.addKeyListener(new PacmanKeyListener(this));
         super.setLayout(null);
         super.setVisible(true);

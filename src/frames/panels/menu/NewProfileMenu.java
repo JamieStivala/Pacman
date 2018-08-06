@@ -1,6 +1,7 @@
 package frames.panels.menu;
 
 import frames.MainMenu;
+import frames.listeners.menu.MenuAnimationHandler;
 import frames.listeners.menu.MenuMouseListener;
 
 import javax.imageio.ImageIO;
@@ -27,6 +28,7 @@ public class NewProfileMenu extends BasePanel {
         this.newProfileLabel.setBounds(416, 399, 608, 32);
         this.newProfileLabel.setIcon(newProfileTextures[0]);
         this.newProfileLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.newProfileLabel.addMouseListener(new MenuAnimationHandler(this.getNewProfileTextures(), this.getNewProfileLabel().getBounds(), new Rectangle(340, 399, 760, 40)));
         super.add(newProfileLabel);
     }
 

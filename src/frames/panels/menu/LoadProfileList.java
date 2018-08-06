@@ -1,6 +1,7 @@
 package frames.panels.menu;
 
 import frames.MainMenu;
+import frames.listeners.menu.MenuAnimationHandler;
 import frames.listeners.menu.MenuListSelectionListener;
 import frames.listeners.menu.MenuMouseListener;
 import frames.panels.menu.custom.SelectedListCellRenderer;
@@ -57,6 +58,7 @@ public class LoadProfileList extends BasePanel {
         createLabel.setIcon(createTextures[0]);
         createLabel.setBounds(946, 630, 192, 32);
         createLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        createLabel.addMouseListener(new MenuAnimationHandler(this.getCreateTextures(), this.getCreateLabel().getBounds(), new Rectangle(898, 630, 240, 40)));
         super.add(createLabel);
 
         loadLabel = new JLabel();
@@ -64,6 +66,7 @@ public class LoadProfileList extends BasePanel {
         loadLabel.setIcon(loadTextures[0]);
         loadLabel.setBounds(1010, 630, 128, 32);
         loadLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        loadLabel.addMouseListener(new MenuAnimationHandler(this.getLoadTextures(), this.getCreateLabel().getBounds(), new Rectangle(978, 630, 160, 40)));
         super.add(loadLabel);
     }
 

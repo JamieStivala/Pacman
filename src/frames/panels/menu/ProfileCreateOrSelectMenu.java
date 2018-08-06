@@ -28,13 +28,13 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
         this.newProfileLbl.setBounds(416, 299, 608, 32);
         this.newProfileLbl.setIcon(newProfileTextures[0]);
         this.newProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
-        this.newProfileLbl.addMouseListener(new MenuAnimationHandler(this.newProfileTextures,  new Rectangle(416, 299, 608, 32), new Rectangle(340, 299, 760, 40)));
+        this.newProfileLbl.addMouseListener(new MenuAnimationHandler(this.newProfileTextures,  this.newProfileLbl.getBounds(), new Rectangle(340, 299, 760, 40)));
         super.add(newProfileLbl);
 
         this.loadProfileLbl = new JLabel();
         this.loadProfileLbl.setBounds(528, 499, 384, 32);
         this.loadProfileLbl.setIcon(loadProfileTextures[0]);
-        this.loadProfileLbl.addMouseListener(new MenuAnimationHandler(this.loadProfileTextures, new Rectangle(528, 499, 384, 32), new Rectangle(480, 499, 760, 40)));
+        this.loadProfileLbl.addMouseListener(new MenuAnimationHandler(this.loadProfileTextures, this.loadProfileLbl.getBounds(), new Rectangle(480, 499, 760, 40)));
         this.loadProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(loadProfileLbl);
     }

@@ -22,6 +22,8 @@ public class PlayGame extends BasePanel {
     private JLabel generateRandomWorldLabel;
     private ImageIcon generateRandomWorldTextures[];
 
+    private JTextField seed;
+
     public PlayGame(MainMenu mainMenu) {
         super(mainMenu, true);
     }
@@ -47,6 +49,15 @@ public class PlayGame extends BasePanel {
         this.startLabel.setBounds(560, 700, 320, 32);
         this.startLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(startLabel);
+
+        this.seed = new JTextField();
+        this.seed.setBounds(422, 449, 900, 32);
+        this.seed.setBackground(new Color(240, 130, 0));
+        this.seed.setFont(super.getPixelMinerFont());
+        this.seed.setForeground(new Color(240, 240, 200));
+        this.seed.setBorder(BorderFactory.createLineBorder(new Color(240, 240, 200), 1));
+        super.add(seed);
+
     }
 
     @Override

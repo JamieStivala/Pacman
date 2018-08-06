@@ -105,32 +105,20 @@ public class SeedViewerList extends BasePanel {
         return seeds;
     }
 
-    public ImageIcon[] getDeleteTexture() {
-        return deleteTexture;
+    public JLabel getDeleteLabel() {
+        return deleteLabel;
     }
 
-    public void setDeleteTexture(ImageIcon[] deleteTexture) {
-        this.deleteTexture = deleteTexture;
+    public ImageIcon[] getDeleteTexture() {
+        return deleteTexture;
     }
 
     public JLabel getSelectLabel() {
         return selectLabel;
     }
 
-    public void setSelectLabel(JLabel selectLabel) {
-        this.selectLabel = selectLabel;
-    }
-
     public ImageIcon[] getSelectTexture() {
         return selectTexture;
-    }
-
-    public void setSelectTexture(ImageIcon[] selectTexture) {
-        this.selectTexture = selectTexture;
-    }
-
-    public void setSeeds(JList<Long> seeds) {
-        this.seeds = seeds;
     }
 
     public void triggerButtons(){

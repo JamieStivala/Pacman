@@ -114,4 +114,8 @@ public class PlayGame extends BasePanel {
     public ImageIcon[] getGenerateRandomWorldTextures() {
         return generateRandomWorldTextures;
     }
+
+    public JTextField getSeed() {
+        return seed;
+    }
 }

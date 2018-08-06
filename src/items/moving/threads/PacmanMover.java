@@ -17,14 +17,14 @@ public class PacmanMover extends Thread{
     public void run() {
         while(pacmanFrame.isRunning()) {
             PacmanRotation rotation = pacmanFrame.getPacman().getRotation();
-            if(pacman.getX() < 0 && rotation == PacmanRotation.LEFT){
-                pacman.getArea().setLocation(1440, pacman.getY());
-            }else if(pacman.getX() > 1440 && rotation == PacmanRotation.RIGHT){
-                pacman.getArea().setLocation(-10 , pacman.getY());
-            }else if(pacman.getY() < 0 && rotation == PacmanRotation.UP){
-                pacman.getArea().setLocation(pacman.getX(), 799);
-            }else if(pacman.getY() > 799 && rotation == PacmanRotation.DOWN){
-                pacman.getArea().setLocation(pacman.getX(), 0);
+            if(pacman.getX() < 17 && rotation == PacmanRotation.LEFT){
+                pacman.getArea().setLocation(1423, pacman.getY());
+            }else if(pacman.getX() > 1423 && rotation == PacmanRotation.RIGHT){
+                pacman.getArea().setLocation(17 , pacman.getY());
+            }else if(pacman.getY() < 17 && rotation == PacmanRotation.UP){
+                pacman.getArea().setLocation(pacman.getX(), 782);
+            }else if(pacman.getY() > 782 && rotation == PacmanRotation.DOWN){
+                pacman.getArea().setLocation(pacman.getX(), 17);
             }else if(!pacman.isCollidedWithWall()) {
                 if (rotation == PacmanRotation.LEFT) pacman.moveLeft(5);
                 else if (rotation == PacmanRotation.RIGHT) pacman.moveRight(5);

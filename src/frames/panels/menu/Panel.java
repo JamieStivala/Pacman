@@ -8,5 +8,6 @@ public enum Panel {
     DELETE_PROFILE_LIST,
     MAIN_PANEL,
     STATS_PANEL,
-    PLAY_GAME_PANEL
+    PLAY_GAME_PANEL,
+    SEED_VIEWER_LIST
 }

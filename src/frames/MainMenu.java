@@ -29,6 +29,7 @@ public class MainMenu extends JFrame{
     private MainPanel mainPanel;
     private StatsPanel statsPanel;
     private PlayGame playGame;
+    private SeedViewerList seedViewerList;
 
     private Panel currentFrame;
     private Panel previousFrame;
@@ -86,6 +87,9 @@ public class MainMenu extends JFrame{
 
         this.playGame = new PlayGame(this);
         super.getContentPane().add(playGame, Panel.PLAY_GAME_PANEL.toString());
+
+        this.seedViewerList = new SeedViewerList(this);
+        super.getContentPane().add(seedViewerList, Panel.SEED_VIEWER_LIST.toString());
     }
 
     public BufferedImage getLogo() {

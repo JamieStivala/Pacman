@@ -54,12 +54,14 @@ public class SeedViewerList extends BasePanel {
         super.add(scrollPane);
 
         this.deleteLabel = new JLabel();
+        this.deleteLabel.setVisible(false);
         this.deleteLabel.setIcon(deleteTexture[0]);
         this.deleteLabel.setBounds(408, 620, 192, 32);
         this.deleteLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(deleteLabel);
 
         this.selectLabel = new JLabel();
+        this.selectLabel.setVisible(false);
         this.selectLabel.setIcon(selectTexture[0]);
         this.selectLabel.setBounds(880, 620, 192, 32);
         this.selectLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));

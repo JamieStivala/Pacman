@@ -137,6 +137,10 @@ public class MainMenu extends JFrame{
         return playGame;
     }
 
+    public SeedViewerList getSeedViewerList() {
+        return seedViewerList;
+    }
+
     public void switchLayout(Panel panel){
         this.previousFrame = currentFrame;
         this.currentFrame = panel;

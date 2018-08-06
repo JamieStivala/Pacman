@@ -1,6 +1,7 @@
 package frames.listeners;
 
 import frames.MainMenu;
+import frames.PacmanFrame;
 import frames.panels.menu.Panel;
 
 import java.awt.event.WindowEvent;
@@ -8,9 +9,11 @@ import java.awt.event.WindowListener;
 
 public class MenuPacmanWindowListener implements WindowListener {
     private MainMenu mainMenu;
+    private PacmanFrame pacmanFrame;
 
-    public MenuPacmanWindowListener(MainMenu mainMenu) {
+    public MenuPacmanWindowListener(MainMenu mainMenu, PacmanFrame pacmanFrame) {
         this.mainMenu = mainMenu;
+        this.pacmanFrame = pacmanFrame;
     }
 
     @Override
@@ -21,6 +24,7 @@ public class MenuPacmanWindowListener implements WindowListener {
 
     @Override
     public void windowClosing(WindowEvent e) {
+        this.pacmanFrame.setStopped(true);
         this.mainMenu.setVisible(true);
         this.mainMenu.getSeedViewerList().reloadComponents();
         this.mainMenu.handleScore();

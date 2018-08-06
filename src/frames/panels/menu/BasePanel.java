@@ -129,13 +129,13 @@ abstract class BasePanel extends JPanel implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(e.getComponent() instanceof JLabel) new ClickSound().start();
-        if(e.getComponent() == this.backLabel) mainMenu.goBack();
+
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        if(e.getComponent() instanceof JLabel) new ClickSound().start();
+        if(e.getComponent() == this.backLabel) mainMenu.goBack();
     }
 
     @Override

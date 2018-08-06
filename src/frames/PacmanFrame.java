@@ -110,4 +110,8 @@ public class PacmanFrame extends JFrame{
     public CoinCollisionDetection getCoinCollisionDetection() {
         return coinCollisionDetection;
     }
+
+    public User getUser() {
+        return user;
+    }
 }

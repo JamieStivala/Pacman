@@ -1,6 +1,7 @@
 package frames.panels.menu;
 
 import frames.MainMenu;
+import frames.listeners.menu.MenuMouseListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -32,16 +33,19 @@ public class PlayGame extends BasePanel {
         this.generateRandomWorldLabel = new JLabel();
         this.generateRandomWorldLabel.setIcon(generateRandomWorldTextures[0]);
         this.generateRandomWorldLabel.setBounds(50, 299, 672, 32);
+        this.generateRandomWorldLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(generateRandomWorldLabel);
 
         this.previousSeedsLabel = new JLabel();
         this.previousSeedsLabel.setIcon(previousSeedsTextures[0]);
         this.previousSeedsLabel.setBounds(50, 599, 416, 32);
+        this.previousSeedsLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(previousSeedsLabel);
 
         this.startLabel = new JLabel();
         this.startLabel.setIcon(startTextures[0]);
         this.startLabel.setBounds(640, 700, 160, 40);
+        this.startLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
         super.add(startLabel);
     }
 

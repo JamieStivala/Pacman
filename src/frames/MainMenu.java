@@ -1,5 +1,6 @@
 package frames;
 
+import frames.listeners.MenuPacmanWindowListener;
 import frames.listeners.menu.MenuWindowListener;
 import frames.panels.menu.*;
 import frames.panels.menu.Panel;
@@ -145,4 +146,11 @@ public class MainMenu extends JFrame{
     public void setPreviousFrame(Panel previousFrame) {
         this.previousFrame = previousFrame;
     }
+
+    public void startGame(){
+        PacmanFrame pacmanFrame = new PacmanFrame();
+        pacmanFrame.addWindowListener(new MenuPacmanWindowListener(this));
+    }
+
+    public void handleScore(){}
 }

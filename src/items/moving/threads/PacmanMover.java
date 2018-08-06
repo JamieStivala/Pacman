@@ -17,7 +17,16 @@ public class PacmanMover extends Thread{
     public void run() {
         while(pacmanFrame.isRunning()) {
             PacmanRotation rotation = pacmanFrame.getPacman().getRotation();
-            if(!pacman.isCollidedWithWall()) {
+            System.out.println(pacman.getY());
+            if(pacman.getX() < 0 && rotation == PacmanRotation.LEFT){
+                pacman.getArea().setLocation(1440, pacman.getY());
+            }else if(pacman.getX() > 1440 && rotation == PacmanRotation.RIGHT){
+                pacman.getArea().setLocation(-10 , pacman.getY());
+            }else if(pacman.getY() < 0 && rotation == PacmanRotation.UP){
+                pacman.getArea().setLocation(pacman.getX(), 799);
+            }else if(pacman.getY() > 799 && rotation == PacmanRotation.DOWN){
+                pacman.getArea().setLocation(pacman.getX(), 0);
+            }else if(!pacman.isCollidedWithWall()) {
                 if (rotation == PacmanRotation.LEFT) pacman.moveLeft(5);
                 else if (rotation == PacmanRotation.RIGHT) pacman.moveRight(5);
                 else if (rotation == PacmanRotation.UP) pacman.moveUp(5);

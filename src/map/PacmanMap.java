@@ -20,6 +20,7 @@ public class PacmanMap extends Seed {
         super(seed);
         this.gameTextures = new Blob[20][40];
         this.organizedBlocks = new HashMap<>();
+        this.addReflectiveWalls();
         this.addSpawnBox();
         this.drawMap();
         this.paint();
@@ -66,6 +67,24 @@ public class PacmanMap extends Seed {
         super.getSeed(10)[20] = BlockType.EMPTY;
         super.getSeed(10)[21] = BlockType.EMPTY;
         //Empty the inside box
+    }
+
+    private void addReflectiveWalls(){
+        for (int vertical = 0; vertical != super.getSeed().length ; vertical++) {
+            BlockType current[] = super.getSeed(vertical);
+            if(current[0] == BlockType.WALL){
+                current[39] = BlockType.WALL;
+            }else if(current[39] == BlockType.WALL){
+                current[0] = BlockType.WALL;
+            }
+            for (int horizontal = 0; horizontal != current.length; horizontal++){
+                if(super.getSeed(0)[horizontal] == BlockType.WALL){
+                    super.getSeed(19)[horizontal] = BlockType.WALL;
+                }else if(super.getSeed(19)[horizontal] == BlockType.WALL){
+                    super.getSeed(0)[horizontal] = BlockType.WALL;
+                }
+            }
+        }
     }
 
     private void drawMap(){

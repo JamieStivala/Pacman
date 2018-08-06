@@ -14,7 +14,6 @@ import java.io.File;
 
 public class SeedViewerList extends BasePanel {
     private BufferedImage listOfSeeds;
-
     private JList<Long> seeds;
 
     public SeedViewerList(MainMenu mainMenu) {
@@ -70,6 +69,14 @@ public class SeedViewerList extends BasePanel {
             super.getMainMenu().goBack();
             super.getMainMenu().setPreviousFrame(Panel.MAIN_PANEL);
         }
+    }
+
+    public JList<Long> getSeeds() {
+        return seeds;
+    }
+
+    public void triggerButtons(){
+
     }
 
     public void reloadComponents(){

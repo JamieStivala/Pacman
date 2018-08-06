@@ -29,16 +29,22 @@ public class PacmanFrame extends JFrame{
     PacmanFrame(User user, long seed){
         this.map = new PacmanMap(seed);
         this.user = user;
-
-        user.getSeedsPlayed().add(seed);
-        user.incrementTotalPlayedGamed();
-
+        profileFlags(seed);
         this.pacman = new Pacman(2, 24);
         this.screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
         this.setStopped(false);
 
         setFrameSettings();
         startThreads();
+    }
+
+    private void profileFlags(long seed){
+        boolean found = false;
+        for (int i = 0; i != user.getSeedsPlayed().size(); i++) {
+            if(user.getSeedsPlayed().get(i) == seed) found = true;
+        }
+        if(!found) user.getSeedsPlayed().add(seed);
+        user.incrementTotalPlayedGamed();
     }
 
     private void setFrameSettings(){

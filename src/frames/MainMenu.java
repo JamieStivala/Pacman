@@ -141,6 +141,10 @@ public class MainMenu extends JFrame{
         return seedViewerList;
     }
 
+    public StatsPanel getStatsPanel() {
+        return statsPanel;
+    }
+
     public void switchLayout(Panel panel){
         this.previousFrame = currentFrame;
         this.currentFrame = panel;

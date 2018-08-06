@@ -9,13 +9,11 @@ public class MenuAnimationHandler implements MouseListener {
     private ImageIcon animation[];
     private Rectangle boundsSmall;
     private Rectangle boundsBig;
-    private JLabel component;
 
-    public MenuAnimationHandler(ImageIcon animation[], Rectangle boundsSmall, Rectangle boundsBig, JLabel component) {
+    public MenuAnimationHandler(ImageIcon animation[], Rectangle boundsSmall, Rectangle boundsBig) {
         this.animation = animation;
         this.boundsSmall = boundsSmall;
         this.boundsBig = boundsBig;
-        this.component = component;
     }
 
     @Override
@@ -35,13 +33,13 @@ public class MenuAnimationHandler implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        this.component.setIcon(this.animation[1]);
-        this.component.setBounds(this.boundsBig);
+        ((JLabel)e.getComponent()).setIcon(this.animation[1]);
+        e.getComponent().setBounds(this.boundsBig);
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        this.component.setIcon(this.animation[0]);
-        this.component.setBounds(this.boundsSmall);
+        ((JLabel)e.getComponent()).setIcon(this.animation[0]);
+        e.getComponent().setBounds(this.boundsSmall);
     }
 }

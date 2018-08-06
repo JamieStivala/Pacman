@@ -69,8 +69,8 @@ public class PacmanMap extends Seed {
     }
 
     private void drawMap(){
-        int x = 2;
-        int y = 24;
+        int x = 0;
+        int y = 20;
         for(int vertical = 0; vertical != super.getSeed().length; vertical++){
             BlockType current[] = super.getSeed(vertical);
             for (int horizontal = 0; horizontal != current.length; horizontal++){
@@ -89,7 +89,7 @@ public class PacmanMap extends Seed {
                 }
                 x += 36;
             }
-            x = 2;
+            x = 0;
             y += 39;
         }
     }

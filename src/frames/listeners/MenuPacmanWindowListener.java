@@ -25,6 +25,7 @@ public class MenuPacmanWindowListener implements WindowListener {
     @Override
     public void windowClosing(WindowEvent e) {
         this.pacmanFrame.setStopped(true);
+        this.pacmanFrame.dispose();
         this.mainMenu.setVisible(true);
         this.mainMenu.getSeedViewerList().reloadComponents();
         this.mainMenu.handleScore();

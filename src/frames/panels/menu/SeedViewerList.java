@@ -14,6 +14,13 @@ import java.io.File;
 
 public class SeedViewerList extends BasePanel {
     private BufferedImage listOfSeeds;
+
+    private JLabel deleteLabel;
+    private ImageIcon deleteTexture[];
+
+    private JLabel selectLabel;
+    private ImageIcon selectTexture[];
+
     private JList<Long> seeds;
 
     public SeedViewerList(MainMenu mainMenu) {
@@ -49,8 +56,16 @@ public class SeedViewerList extends BasePanel {
     @Override
     void loadTextures() {
         super.loadTextures();
+        this.deleteTexture = new ImageIcon[2];
+        this.selectTexture = new ImageIcon[2];
         try{
             listOfSeeds = ImageIO.read(new File("resources/menu/textures/start/seed/panel/list_of_seeds.png"));
+
+            deleteTexture[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/delete/delete_small.png")));
+            deleteTexture[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/delete/delete_big.png")));
+
+            selectTexture[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/start/seed/panel/select_small.png")));
+            selectTexture[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/start/seed/panel/select_big.png")));
         }catch (Exception e){
             e.printStackTrace();
         }

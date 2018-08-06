@@ -75,6 +75,10 @@ public class MenuMouseListener implements MouseListener {
             else this.mainMenu.startGame(Long.parseLong(this.mainMenu.getPlayGame().getSeed().getText()));
         }else if(e.getComponent() == this.mainMenu.getPlayGame().getPreviousSeedsLabel()){
             this.mainMenu.switchLayout(Panel.SEED_VIEWER_LIST);
+        }else if(e.getComponent() == this.mainMenu.getSeedViewerList().getSelectLabel()){
+            this.mainMenu.getPlayGame().getSeed().setText(this.mainMenu.getSeedViewerList().getSeeds().getSelectedValue() + "");
+            this.mainMenu.goBack();
+            this.mainMenu.setPreviousFrame(Panel.MAIN_PANEL);
         }
     }
 

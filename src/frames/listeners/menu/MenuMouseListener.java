@@ -68,6 +68,9 @@ public class MenuMouseListener implements MouseListener {
             }
         }else if(e.getComponent() == this.mainMenu.getPlayGame().getGenerateRandomWorldLabel()){
             mainMenu.startGame();
+        }else if(e.getComponent() == this.mainMenu.getPlayGame().getStartLabel()){
+            if(mainMenu.getPlayGame().getSeed().getText() == null || mainMenu.getPlayGame().getSeed().getText().trim().isEmpty() || mainMenu.getPlayGame().getSeed().getText().isEmpty())  mainMenu.startGame();
+            else mainMenu.startGame(Long.parseLong(mainMenu.getPlayGame().getSeed().getText()));
         }
     }
 

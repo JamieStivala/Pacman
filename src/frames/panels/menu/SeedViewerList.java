@@ -35,7 +35,7 @@ public class SeedViewerList extends BasePanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        g.drawImage(listOfSeeds, 408, 299, null);
+        g.drawImage(listOfSeeds, 408, 250, null);
     }
 
     @Override

@@ -128,6 +128,10 @@ public class MainMenu extends JFrame{
         return this.mainPanel;
     }
 
+    public PlayGame getPlayGame() {
+        return playGame;
+    }
+
     public void switchLayout(Panel panel){
         this.previousFrame = currentFrame;
         this.currentFrame = panel;

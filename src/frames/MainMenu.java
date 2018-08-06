@@ -148,12 +148,12 @@ public class MainMenu extends JFrame{
     }
 
     public void startGame(){
-        PacmanFrame pacmanFrame = new PacmanFrame();
+        PacmanFrame pacmanFrame = new PacmanFrame(this.currentUser);
         pacmanFrame.addWindowListener(new MenuPacmanWindowListener(this));
     }
 
     public void startGame(long seed){
-        PacmanFrame pacmanFrame = new PacmanFrame(seed);
+        PacmanFrame pacmanFrame = new PacmanFrame(this.currentUser, seed);
         pacmanFrame.addWindowListener(new MenuPacmanWindowListener(this));
     }
 

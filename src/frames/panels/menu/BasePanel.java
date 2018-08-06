@@ -92,7 +92,7 @@ abstract class BasePanel extends JPanel implements MouseListener {
     }
 
     BufferedImage drawNumber(int number){
-        BufferedImage image = new BufferedImage((((number + "").length()) * 32), 32, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage image = new BufferedImage((((number + "").length()) * 32), 30, BufferedImage.TYPE_INT_ARGB);
         Graphics g = image.getGraphics();
         char splitNumber[] = (number + "").toCharArray();
 
@@ -123,7 +123,7 @@ abstract class BasePanel extends JPanel implements MouseListener {
         return this.pacFont;
     }
 
-    public Font getPixelMiner() {
+    public Font getPixelMinerFont() {
         return pixelMiner;
     }
 

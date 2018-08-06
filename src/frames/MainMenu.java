@@ -169,5 +169,12 @@ public class MainMenu extends JFrame{
         pacmanFrame.addWindowListener(new MenuPacmanWindowListener(this, pacmanFrame));
     }
 
-    public void handleScore(){}
+    public void handleScore(){
+        if(currentUser.getLastGameScore() > currentUser.getHighestScore()){
+            currentUser.setHighestScore(currentUser.getLastGameScore());
+        }
+        currentUser.setTotalScore(currentUser.getTotalScore() + currentUser.getLastGameScore());
+
+        this.getStatsPanel().repaint();
+    }
 }

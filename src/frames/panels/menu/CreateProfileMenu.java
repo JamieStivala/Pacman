@@ -30,7 +30,7 @@ public class CreateProfileMenu extends BasePanel {
         this.enterProfileNameTextField.setBackground(new Color(240, 130, 0));
         this.enterProfileNameTextField.setHorizontalAlignment(SwingConstants.CENTER);
         this.enterProfileNameTextField.addKeyListener(new MenuKeyListener(super.getMainMenu()));
-        this.enterProfileNameTextField.setFont(super.getFont());
+        this.enterProfileNameTextField.setFont(super.getPacFont());
         super.add(enterProfileNameTextField);
 
         this.createProfileLabel = new JLabel();

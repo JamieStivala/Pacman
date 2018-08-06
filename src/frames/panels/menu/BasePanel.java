@@ -13,7 +13,7 @@ import java.io.File;
 
 abstract class BasePanel extends JPanel implements MouseListener {
     private MainMenu mainMenu;
-    private Font font;
+    private Font pacFont;
 
     private JLabel backLabel;
     private ImageIcon backTextures[];
@@ -80,8 +80,8 @@ abstract class BasePanel extends JPanel implements MouseListener {
 
     private void loadFont(){
         try {
-            this.font = Font.createFont(Font.TRUETYPE_FONT, new File("resources/PacFont.ttf")).deriveFont(Font.PLAIN, 60);
-            GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(font);
+            this.pacFont = Font.createFont(Font.TRUETYPE_FONT, new File("resources/pacFont.ttf")).deriveFont(Font.PLAIN, 60);
+            GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(pacFont);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -115,9 +115,8 @@ abstract class BasePanel extends JPanel implements MouseListener {
         return this.mainMenu;
     }
 
-    @Override
-    public Font getFont() {
-        return this.font;
+    Font getPacFont() {
+        return this.pacFont;
     }
 
     @Override

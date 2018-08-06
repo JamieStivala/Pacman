@@ -38,7 +38,7 @@ public class LoadProfileList extends BasePanel {
         this.profilesList = new JList<>(listModel);
         this.profilesList.setBounds(312, 310, 826, 300);
         this.profilesList.setBackground(new Color(240, 130, 0));
-        this.profilesList.setFont(super.getFont());
+        this.profilesList.setFont(super.getPacFont());
         this.profilesList.setFixedCellHeight(70);
         this.profilesList.setSelectionMode(DefaultListSelectionModel.SINGLE_SELECTION);
         this.profilesList.setCellRenderer(new SelectedListCellRenderer());

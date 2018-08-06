@@ -129,6 +129,12 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == this.mainMenu.getPlayGame().getStartLabel()){
             this.mainMenu.getPlayGame().getStartLabel().setIcon(this.mainMenu.getPlayGame().getStartTextures()[1]);
             this.mainMenu.getPlayGame().getStartLabel().setBounds(520, 700, 400, 40);
+        }else if(e.getComponent() == this.mainMenu.getSeedViewerList().getSelectLabel()){
+            this.mainMenu.getSeedViewerList().getSelectLabel().setIcon(this.mainMenu.getSeedViewerList().getSelectTexture()[1]);
+            this.mainMenu.getSeedViewerList().getSelectLabel().setBounds(880, 620, 240, 40);
+        }else if(e.getComponent() == this.mainMenu.getSeedViewerList().getDeleteLabel()){
+            this.mainMenu.getSeedViewerList().getDeleteLabel().setIcon(this.mainMenu.getSeedViewerList().getDeleteTexture()[1]);
+            this.mainMenu.getSeedViewerList().getDeleteLabel().setBounds(408, 620, 240, 40);
         }
     }
 
@@ -179,6 +185,12 @@ public class MenuMouseListener implements MouseListener {
         }else if(e.getComponent() == this.mainMenu.getPlayGame().getStartLabel()){
             this.mainMenu.getPlayGame().getStartLabel().setIcon(this.mainMenu.getPlayGame().getStartTextures()[0]);
             this.mainMenu.getPlayGame().getStartLabel().setBounds(560, 700, 320, 32);
+        }else if(e.getComponent() == this.mainMenu.getSeedViewerList().getSelectLabel()){
+            this.mainMenu.getSeedViewerList().getSelectLabel().setIcon(this.mainMenu.getSeedViewerList().getSelectTexture()[0]);
+            this.mainMenu.getSeedViewerList().getSelectLabel().setBounds(880, 620, 192, 32);
+        }else if(e.getComponent() == this.mainMenu.getSeedViewerList().getDeleteLabel()){
+            this.mainMenu.getSeedViewerList().getDeleteLabel().setIcon(this.mainMenu.getSeedViewerList().getDeleteTexture()[0]);
+            this.mainMenu.getSeedViewerList().getDeleteLabel().setBounds(408, 620, 192, 32);
         }
     }
 }

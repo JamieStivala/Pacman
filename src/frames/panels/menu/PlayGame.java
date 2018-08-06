@@ -1,6 +1,7 @@
 package frames.panels.menu;
 
 import frames.MainMenu;
+import frames.listeners.menu.MenuKeyListener;
 import frames.listeners.menu.MenuMouseListener;
 
 import javax.imageio.ImageIO;
@@ -56,6 +57,7 @@ public class PlayGame extends BasePanel {
         this.seed.setFont(super.getPixelMinerFont());
         this.seed.setForeground(new Color(240, 240, 200));
         this.seed.setBorder(BorderFactory.createLineBorder(new Color(240, 240, 200), 1));
+        this.seed.addKeyListener(new MenuKeyListener(super.getMainMenu()));
         super.add(seed);
 
     }

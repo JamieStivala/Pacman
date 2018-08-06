@@ -29,7 +29,10 @@ public class PacmanFrame extends JFrame{
     PacmanFrame(User user, long seed){
         this.map = new PacmanMap(seed);
         this.user = user;
+
         user.getSeedsPlayed().add(seed);
+        user.incrementTotalPlayedGamed();
+
         this.pacman = new Pacman(2, 24);
         this.screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
         this.setStopped(false);

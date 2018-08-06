@@ -12,7 +12,7 @@ public class Blob {
 
     public Blob (String filename, int x, int y, int width, int height) {
         try {
-            image = ImageIO.read(new File("resources/" + filename));
+            image = ImageIO.read(new File("resources/game/" + filename));
         } catch (Exception e) {
             System.out.println("Error loading: " + filename);
         }

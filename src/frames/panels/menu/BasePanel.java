@@ -30,7 +30,7 @@ abstract class BasePanel extends JPanel implements MouseListener {
         this.showBack = showBack;
         super.setBackground(new Color(240, 130, 0));
         super.setLayout(null);
-        loadFont();
+        loadFonts();
         loadTextures();
         loadComponents();
         super.repaint();
@@ -81,12 +81,12 @@ abstract class BasePanel extends JPanel implements MouseListener {
         if (mainMenu.getLogo() != null) g.drawImage(mainMenu.getLogo(), 208, 0, 1024, 242, null);
     }
 
-    private void loadFont(){
+    private void loadFonts(){
         try {
-            this.pacFont = Font.createFont(Font.TRUETYPE_FONT, new File("resources/PacFont.ttf")).deriveFont(Font.PLAIN, 60);
+            this.pacFont = Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/PacFont.ttf")).deriveFont(Font.PLAIN, 60);
             GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(pacFont);
 
-            this.pixelMiner = Font.createFont(Font.TRUETYPE_FONT, new File("resources/Pixel-Miners.ttf")).deriveFont(Font.PLAIN, 18);
+            this.pixelMiner = Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/Pixel-Miners.ttf")).deriveFont(Font.PLAIN, 18);
             GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(pixelMiner);
         }catch (Exception e){
             e.printStackTrace();

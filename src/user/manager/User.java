@@ -56,10 +56,7 @@ public class User implements Serializable {
     }
 
     public ArrayList<Long> getSeedsPlayed() {
+        if(seedsPlayed == null) this.seedsPlayed = new ArrayList<>();
         return seedsPlayed;
-    }
-
-    public void setSeedsPlayed(ArrayList<Long> seedsPlayed) {
-        this.seedsPlayed = seedsPlayed;
     }
 }

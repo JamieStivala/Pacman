@@ -3,7 +3,6 @@ package frames.panels.menu;
 import frames.MainMenu;
 import frames.listeners.menu.MenuAnimationHandler;
 import frames.listeners.menu.MenuKeyListener;
-import frames.listeners.menu.MenuMouseListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -37,7 +36,7 @@ public class CreateProfileMenu extends BasePanel {
         this.createProfileLabel = new JLabel();
         this.createProfileLabel.setBounds(1176, 410, 192, 32);
         this.createProfileLabel.setIcon(createProfileTextures[0]);
-        this.createProfileLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.createProfileLabel.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         this.createProfileLabel.addMouseListener(new MenuAnimationHandler(this.getCreateProfileTextures(), this.createProfileLabel.getBounds(), new Rectangle(1152, 410, 240, 40)));
         super.add(createProfileLabel);
     }

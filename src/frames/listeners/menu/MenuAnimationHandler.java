@@ -1,5 +1,7 @@
 package frames.listeners.menu;
 
+import sounds.menu.ClickSound;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -23,7 +25,9 @@ public class MenuAnimationHandler implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        if(e.getComponent() instanceof JLabel){
+            new ClickSound().start();
+        }
     }
 
     @Override

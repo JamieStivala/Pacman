@@ -3,7 +3,6 @@ package frames.panels.menu;
 import frames.MainMenu;
 import frames.listeners.menu.MenuAnimationHandler;
 import frames.listeners.menu.MenuKeyListener;
-import frames.listeners.menu.MenuMouseListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -37,21 +36,21 @@ public class PlayGame extends BasePanel {
         this.generateRandomWorldLabel = new JLabel();
         this.generateRandomWorldLabel.setIcon(generateRandomWorldTextures[0]);
         this.generateRandomWorldLabel.setBounds(50, 299, 672, 32);
-        this.generateRandomWorldLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.generateRandomWorldLabel.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         this.generateRandomWorldLabel.addMouseListener(new MenuAnimationHandler(this.getGenerateRandomWorldTextures(),  this.getGenerateRandomWorldLabel().getBounds(), new Rectangle(50, 299, 840, 40)));
         super.add(generateRandomWorldLabel);
 
         this.previousSeedsLabel = new JLabel();
         this.previousSeedsLabel.setIcon(previousSeedsTextures[0]);
         this.previousSeedsLabel.setBounds(50, 599, 416, 32);
-        this.previousSeedsLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.previousSeedsLabel.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         this.previousSeedsLabel.addMouseListener(new MenuAnimationHandler(this.getPreviousSeedsTextures(), this.getPreviousSeedsLabel().getBounds(), new Rectangle(50, 599, 560, 40)));
         super.add(previousSeedsLabel);
 
         this.startLabel = new JLabel();
         this.startLabel.setIcon(startTextures[0]);
         this.startLabel.setBounds(560, 700, 320, 32);
-        this.startLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.startLabel.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         this.startLabel.addMouseListener(new MenuAnimationHandler(this.getStartTextures(), this.getStartLabel().getBounds(), new Rectangle(520, 700, 400, 40)));
         super.add(startLabel);
 

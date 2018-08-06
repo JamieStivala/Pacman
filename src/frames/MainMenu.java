@@ -1,6 +1,7 @@
 package frames;
 
 import frames.listeners.MenuPacmanWindowListener;
+import frames.listeners.menu.MenuMouseListener;
 import frames.listeners.menu.MenuWindowListener;
 import frames.panels.menu.*;
 import frames.panels.menu.Panel;
@@ -31,11 +32,14 @@ public class MainMenu extends JFrame{
     private PlayGame playGame;
     private SeedViewerList seedViewerList;
 
+    private MenuMouseListener sharedMenuMouseListener;
+
     private Panel currentFrame;
     private Panel previousFrame;
 
     public MainMenu() {
         this.cardLayout = new CardLayout();
+        this.sharedMenuMouseListener = new MenuMouseListener(this);
         super.pack();
         super.setTitle("Pacman - Main Menu");
         super.setSize(1440, 799);
@@ -143,6 +147,10 @@ public class MainMenu extends JFrame{
 
     public StatsPanel getStatsPanel() {
         return statsPanel;
+    }
+
+    public MenuMouseListener getSharedMenuMouseListener() {
+        return sharedMenuMouseListener;
     }
 
     public void switchLayout(Panel panel){

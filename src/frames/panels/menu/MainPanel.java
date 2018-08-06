@@ -2,7 +2,6 @@ package frames.panels.menu;
 
 import frames.MainMenu;
 import frames.listeners.menu.MenuAnimationHandler;
-import frames.listeners.menu.MenuMouseListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -35,35 +34,35 @@ public class MainPanel extends BasePanel {
         this.startGameLabel = new JLabel();
         this.startGameLabel.setIcon(startGameTextures[0]);
         this.startGameLabel.setBounds(560, 299, 320, 32);
-        this.startGameLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.startGameLabel.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         this.startGameLabel.addMouseListener(new MenuAnimationHandler(this.getStartGameTextures(), this.getStartGameLabel().getBounds(), new Rectangle(520, 299, 400, 40)));
         super.add(startGameLabel);
 
         this.viewStatsLabel = new JLabel();
         this.viewStatsLabel.setIcon(viewStatsTextures[0]);
         this.viewStatsLabel.setBounds(560, 399, 320, 32);
-        this.viewStatsLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.viewStatsLabel.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         this.viewStatsLabel.addMouseListener(new MenuAnimationHandler(this.getViewStatsTextures(), this.getViewStatsLabel().getBounds(), new Rectangle(520,399,400,40)));
         super.add(viewStatsLabel);
 
         this.changeProfileLabel = new JLabel();
         this.changeProfileLabel.setIcon(changeProfileTextures[0]);
         this.changeProfileLabel.setBounds(496, 499, 448, 32);
-        this.changeProfileLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.changeProfileLabel.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         this.changeProfileLabel.addMouseListener(new MenuAnimationHandler(this.getChangeProfileTextures(), this.getChangeProfileLabel().getBounds(), new Rectangle(440,499,560,40)));
         super.add(changeProfileLabel);
 
         this.deleteProfileLabel = new JLabel();
         this.deleteProfileLabel.setIcon(deleteProfileTexture[0]);
         this.deleteProfileLabel.setBounds(496, 599, 448, 32);
-        this.deleteProfileLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.deleteProfileLabel.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         this.deleteProfileLabel.addMouseListener(new MenuAnimationHandler(this.getDeleteProfileTexture(), this.getDeleteProfileLabel().getBounds(), new Rectangle(440,599,560,40)));
         super.add(deleteProfileLabel);
 
         this.exitLabel = new JLabel();
         this.exitLabel.setIcon(exitTextures[0]);
         this.exitLabel.setBounds(660, 699, 128, 32);
-        this.exitLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.exitLabel.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         this.exitLabel.addMouseListener(new MenuAnimationHandler(this.getExitTextures(), this.getExitLabel().getBounds(), new Rectangle(640,699,160,40)));
         super.add(exitLabel);
     }

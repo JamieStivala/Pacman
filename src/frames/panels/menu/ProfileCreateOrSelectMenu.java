@@ -2,7 +2,6 @@ package frames.panels.menu;
 
 import frames.MainMenu;
 import frames.listeners.menu.MenuAnimationHandler;
-import frames.listeners.menu.MenuMouseListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -27,7 +26,7 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
         this.newProfileLbl = new JLabel();
         this.newProfileLbl.setBounds(416, 299, 608, 32);
         this.newProfileLbl.setIcon(newProfileTextures[0]);
-        this.newProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.newProfileLbl.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         this.newProfileLbl.addMouseListener(new MenuAnimationHandler(this.newProfileTextures,  this.newProfileLbl.getBounds(), new Rectangle(340, 299, 760, 40)));
         super.add(newProfileLbl);
 
@@ -35,7 +34,7 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
         this.loadProfileLbl.setBounds(528, 499, 384, 32);
         this.loadProfileLbl.setIcon(loadProfileTextures[0]);
         this.loadProfileLbl.addMouseListener(new MenuAnimationHandler(this.loadProfileTextures, this.loadProfileLbl.getBounds(), new Rectangle(480, 499, 760, 40)));
-        this.loadProfileLbl.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.loadProfileLbl.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         super.add(loadProfileLbl);
     }
 

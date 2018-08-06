@@ -2,7 +2,6 @@ package frames.listeners.menu;
 
 import frames.MainMenu;
 import frames.panels.menu.Panel;
-import sounds.menu.ClickSound;
 import user.manager.User;
 import user.manager.UserHandler;
 
@@ -23,10 +22,6 @@ public class MenuMouseListener implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if(e.getComponent() instanceof JLabel){
-            new ClickSound().start();
-        }
-
         if(e.getComponent() == this.mainMenu.getNewProfileMenu().getNewProfileLabel() || e.getComponent() == this.mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl() || e.getComponent() == this.mainMenu.getLoadProfileList().getCreateLabel()){
             this.mainMenu.switchLayout(Panel.CREATE_PROFILE);
         }else if(e.getComponent() == this.mainMenu.getCreateProfileMenu().getCreateProfileLabel() && !this.mainMenu.getCreateProfileMenu().getEnterProfileNameTextField().getText().isEmpty() && !this.mainMenu.getCreateProfileMenu().getEnterProfileNameTextField().getText().trim().isEmpty() && mainMenu.getCreateProfileMenu().getEnterProfileNameTextField().getText() != null && !UserHandler.nameExists(mainMenu.getUsers(), mainMenu.getCreateProfileMenu().getEnterProfileNameTextField().getText())){

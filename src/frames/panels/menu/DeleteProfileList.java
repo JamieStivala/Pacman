@@ -3,7 +3,6 @@ package frames.panels.menu;
 import frames.MainMenu;
 import frames.listeners.menu.MenuAnimationHandler;
 import frames.listeners.menu.MenuListSelectionListener;
-import frames.listeners.menu.MenuMouseListener;
 import frames.panels.menu.custom.SelectedListCellRenderer;
 
 import javax.imageio.ImageIO;
@@ -50,7 +49,7 @@ public class DeleteProfileList extends BasePanel {
         deleteLabel.setVisible(false);
         deleteLabel.setIcon(deleteTextures[0]);
         deleteLabel.setBounds(946, 630, 192, 32);
-        deleteLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        deleteLabel.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         deleteLabel.addMouseListener(new MenuAnimationHandler(this.deleteTextures, this.deleteLabel.getBounds(), new Rectangle(898, 630, 240, 40)));
         super.add(deleteLabel);
     }

@@ -3,7 +3,6 @@ package frames.panels.menu;
 import frames.MainMenu;
 import frames.listeners.menu.MenuAnimationHandler;
 import frames.listeners.menu.MenuListSelectionListener;
-import frames.listeners.menu.MenuMouseListener;
 import frames.panels.menu.custom.SelectedListCellRenderer;
 import sounds.menu.ClickSound;
 
@@ -58,7 +57,7 @@ public class SeedViewerList extends BasePanel {
         this.deleteLabel.setVisible(false);
         this.deleteLabel.setIcon(deleteTexture[0]);
         this.deleteLabel.setBounds(408, 620, 192, 32);
-        this.deleteLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.deleteLabel.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         this.deleteLabel.addMouseListener(new MenuAnimationHandler(this.getDeleteTexture(), this.getDeleteLabel().getBounds(), new Rectangle(408, 620, 240, 40)));
         super.add(deleteLabel);
 
@@ -66,7 +65,7 @@ public class SeedViewerList extends BasePanel {
         this.selectLabel.setVisible(false);
         this.selectLabel.setIcon(selectTexture[0]);
         this.selectLabel.setBounds(880, 620, 192, 32);
-        this.selectLabel.addMouseListener(new MenuMouseListener(super.getMainMenu()));
+        this.selectLabel.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
         this.selectLabel.addMouseListener(new MenuAnimationHandler(this.getSelectTexture(), this.getSelectLabel().getBounds(), new Rectangle(880, 620, 240, 40)));
         super.add(selectLabel);
     }

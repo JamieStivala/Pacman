@@ -6,6 +6,7 @@ import items.moving.threads.PacmanMover;
 import map.CoinCollisionDetection;
 import map.PacmanMap;
 import map.WallCollisionDetection;
+import user.manager.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,11 +21,11 @@ public class PacmanFrame extends JFrame{
     private BufferedImage screen;
     private volatile boolean stopped;
 
-    public PacmanFrame(){
-        this((long) (Math.random() * 1000000000));
+    PacmanFrame(User user){
+        this(user, (long) (Math.random() * 1000000000));
     }
 
-    public PacmanFrame(long seed){
+    PacmanFrame(User user, long seed){
         this.map = new PacmanMap(seed);
         this.pacman = new Pacman(2, 24);
         this.screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);

@@ -36,11 +36,13 @@ public class MenuMouseListener implements MouseListener {
             this.mainMenu.switchLayout(Panel.MAIN_PANEL);
             this.mainMenu.getLoadProfileList().reloadComponents();
             this.mainMenu.getDeleteProfileList().reloadComponents();
+            this.mainMenu.getSeedViewerList().reloadComponents();
             this.mainMenu.getCreateProfileMenu().getEnterProfileNameTextField().setText(null);
         }else if (e.getComponent() == this.mainMenu.getProfileCreateOrSelectMenu().getLoadProfileLbl() || e.getComponent() == this.mainMenu.getMainPanel().getChangeProfileLabel()){
             this.mainMenu.switchLayout(Panel.LOAD_PROFILE_LIST);
         }else if (e.getComponent() == this.mainMenu.getLoadProfileList().getLoadLabel()){
             this.mainMenu.setCurrentUser(this.mainMenu.getUsers().get(this.mainMenu.getLoadProfileList().getProfilesList().getSelectedIndex()));
+            this.mainMenu.getSeedViewerList().reloadComponents();
             this.mainMenu.switchLayout(Panel.MAIN_PANEL);
         }else if(e.getComponent() == this.mainMenu.getMainPanel().getExitLabel()){
             UserHandler.saveUser(this.mainMenu.getUsers());

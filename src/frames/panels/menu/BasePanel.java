@@ -127,6 +127,10 @@ abstract class BasePanel extends JPanel implements MouseListener {
         return pixelMiner;
     }
 
+    public JLabel getBackLabel() {
+        return backLabel;
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
 

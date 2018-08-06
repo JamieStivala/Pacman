@@ -15,6 +15,7 @@ import java.awt.image.BufferedImage;
 public class PacmanFrame extends JFrame{
     private PacmanMap map;
     private Pacman pacman;
+    private User user;
     private PacmanMover pacmanMover;
     private WallCollisionDetection wallCollisionDetection;
     private CoinCollisionDetection coinCollisionDetection;
@@ -27,6 +28,8 @@ public class PacmanFrame extends JFrame{
 
     PacmanFrame(User user, long seed){
         this.map = new PacmanMap(seed);
+        this.user = user;
+        user.getSeedsPlayed().add(seed);
         this.pacman = new Pacman(2, 24);
         this.screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
         this.setStopped(false);

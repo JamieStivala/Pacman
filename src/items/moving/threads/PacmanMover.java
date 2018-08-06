@@ -17,7 +17,6 @@ public class PacmanMover extends Thread{
     public void run() {
         while(pacmanFrame.isRunning()) {
             PacmanRotation rotation = pacmanFrame.getPacman().getRotation();
-            System.out.println(pacman.getY());
             if(pacman.getX() < 0 && rotation == PacmanRotation.LEFT){
                 pacman.getArea().setLocation(1440, pacman.getY());
             }else if(pacman.getX() > 1440 && rotation == PacmanRotation.RIGHT){

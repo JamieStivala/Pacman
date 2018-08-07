@@ -3,6 +3,8 @@ package map.generator;
 import map.BlockType;
 
 class SeedOperations {
+    private static int finalAmountWall;
+
     private static String fixLength(String fixing, int length) {
         StringBuilder buffer = new StringBuilder(fixing);
 
@@ -45,18 +47,24 @@ class SeedOperations {
             }
         }
 
-
+        finalAmountWall = amountWall;
         if(amountWall > amountEmpty){
+            finalAmountWall = amountEmpty;
             for (int i = 0; i != blockType.length ; i++) {
                 if(blockType[i] == BlockType.EMPTY) blockType[i] = BlockType.WALL;
                 else if(blockType[i] == BlockType.WALL) blockType[i] = BlockType.EMPTY;
             }
         }else if(amountWall > amountCoin){
+            finalAmountWall = amountCoin;
             for (int i = 0; i != blockType.length ; i++) {
                 if(blockType[i] == BlockType.COIN) blockType[i] = BlockType.WALL;
                 else if(blockType[i] == BlockType.WALL) blockType[i] = BlockType.COIN;
             }
         }
         return blockType;
+    }
+
+    public static int getAmountWall() {
+        return finalAmountWall;
     }
 }

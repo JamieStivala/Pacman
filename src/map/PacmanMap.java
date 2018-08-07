@@ -5,6 +5,7 @@ import items.stationery.Coin;
 import items.stationery.Empty;
 import items.stationery.Wall;
 import map.generator.Seed;
+import map.generator.SeedOperations;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 public class PacmanMap extends Seed {
     private Blob gameTextures[][];
     private HashMap<BlockType, ArrayList<Blob>> organizedBlocks;
+    private int wallArray[][];
     private BufferedImage bufferedMap;
 
     public PacmanMap(long seed){
@@ -90,7 +92,8 @@ public class PacmanMap extends Seed {
     private void drawMap(){
         int x = 0;
         int y = 20;
-        for(int vertical = 0; vertical != super.getSeed().length; vertical++){
+        this.wallArray = new int[SeedOperations.getAmountWall()][2];
+        for(int vertical = 0, emptyCounter = 0; vertical != super.getSeed().length; vertical++){
             BlockType current[] = super.getSeed(vertical);
             for (int horizontal = 0; horizontal != current.length; horizontal++){
                 if(current[horizontal] == BlockType.WALL){
@@ -102,6 +105,8 @@ public class PacmanMap extends Seed {
                     addToOrganizedBlocks(BlockType.COIN, coin);
                     gameTextures[vertical][horizontal] = coin;
                 }else{
+                    this.wallArray[emptyCounter] = new int[] {x, y};
+                    emptyCounter++;
                     Empty empty = new Empty(x, y);
                     addToOrganizedBlocks(BlockType.EMPTY, empty);
                     gameTextures[vertical][horizontal] = new Empty(x, y);

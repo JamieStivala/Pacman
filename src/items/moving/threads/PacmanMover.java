@@ -17,10 +17,10 @@ public class PacmanMover extends Thread{
     public void run() {
         while(pacmanFrame.isRunning()) {
             PacmanRotation rotation = pacmanFrame.getPacman().getRotation();
-            if(pacman.getX() < 17 && rotation == PacmanRotation.LEFT){
+            if(pacman.getX() < -5 && rotation == PacmanRotation.LEFT){
                 pacman.getArea().setLocation(1423, pacman.getY());
             }else if(pacman.getX() > 1423 && rotation == PacmanRotation.RIGHT){
-                pacman.getArea().setLocation(17 , pacman.getY());
+                pacman.getArea().setLocation(-5 , pacman.getY());
             }else if(pacman.getY() < 17 && rotation == PacmanRotation.UP){
                 pacman.getArea().setLocation(pacman.getX(), 782);
             }else if(pacman.getY() > 782 && rotation == PacmanRotation.DOWN){

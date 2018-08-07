@@ -2,9 +2,7 @@ package map.generator;
 
 import map.BlockType;
 
-public class SeedOperations {
-    private static int finalAmountWall;
-
+class SeedOperations {
     private static String fixLength(String fixing, int length) {
         StringBuilder buffer = new StringBuilder(fixing);
 
@@ -61,15 +59,6 @@ public class SeedOperations {
             }
         }
 
-        finalAmountWall += amountWall;
         return blockType;
-    }
-
-    public static void setAmountWall(int finalAmountWall) {
-        SeedOperations.finalAmountWall = finalAmountWall;
-    }
-
-    public static int getAmountWall() {
-        return finalAmountWall;
     }
 }

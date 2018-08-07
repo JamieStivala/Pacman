@@ -5,7 +5,6 @@ import items.stationery.Coin;
 import items.stationery.Empty;
 import items.stationery.Wall;
 import map.generator.Seed;
-import map.generator.SeedOperations;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -22,9 +21,10 @@ public class PacmanMap extends Seed {
         super(seed);
         this.gameTextures = new Blob[20][40];
         this.organizedBlocks = new HashMap<>();
-        this.addReflectiveWalls();
         this.addSpawnBox();
+        this.addReflectiveWalls();
         this.drawMap();
+        this.aStartWallArrayFiller();
         this.paint();
     }
 
@@ -76,7 +76,7 @@ public class PacmanMap extends Seed {
             BlockType current[] = super.getSeed(vertical);
             if(current[0] == BlockType.WALL){
                 current[39] = BlockType.WALL;
-            }else if(current[39] == BlockType.WALL){
+            }else if(current[39] == BlockType.WALL) {
                 current[0] = BlockType.WALL;
             }
             for (int horizontal = 0; horizontal != current.length; horizontal++){
@@ -92,8 +92,7 @@ public class PacmanMap extends Seed {
     private void drawMap(){
         int x = 0;
         int y = 20;
-        this.wallArray = new int[SeedOperations.getAmountWall()][2];
-        for(int vertical = 0, emptyCounter = 0; vertical != super.getSeed().length; vertical++){
+        for(int vertical = 0; vertical != super.getSeed().length; vertical++){
             BlockType current[] = super.getSeed(vertical);
             for (int horizontal = 0; horizontal != current.length; horizontal++){
                 if(current[horizontal] == BlockType.WALL){
@@ -105,8 +104,6 @@ public class PacmanMap extends Seed {
                     addToOrganizedBlocks(BlockType.COIN, coin);
                     gameTextures[vertical][horizontal] = coin;
                 }else{
-                    this.wallArray[emptyCounter] = new int[] {x, y};
-                    emptyCounter++;
                     Empty empty = new Empty(x, y);
                     addToOrganizedBlocks(BlockType.EMPTY, empty);
                     gameTextures[vertical][horizontal] = new Empty(x, y);
@@ -115,6 +112,19 @@ public class PacmanMap extends Seed {
             }
             x = 0;
             y += 39;
+        }
+    }
+
+    private void aStartWallArrayFiller(){
+        this.wallArray = new int[this.getOrganizedBlocks().get(BlockType.WALL).size()][2];
+        for(int vertical = 0, wallCounter = 0; vertical != super.getSeed().length; vertical++){
+            BlockType current[] = super.getSeed(vertical);
+            for (int horizontal = 0; horizontal != current.length; horizontal++){
+                if(current[horizontal] == BlockType.WALL){
+                    wallArray[wallCounter] = new int[] {vertical, horizontal};
+                    wallCounter++;
+                }
+            }
         }
     }
 

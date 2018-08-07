@@ -156,7 +156,7 @@ public class PacmanMap extends Seed {
         this.organizedBlocks.get(blockType).add(blob);
     }
 
-    public HashMap<BlockType, ArrayList<Blob>> getOrganizedBlocks() {
+    HashMap<BlockType, ArrayList<Blob>> getOrganizedBlocks() {
         return organizedBlocks;
     }
 

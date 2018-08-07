@@ -2,7 +2,7 @@ package map.generator;
 
 import map.BlockType;
 
-class SeedOperations {
+public class SeedOperations {
     private static int finalAmountWall;
 
     private static String fixLength(String fixing, int length) {

@@ -159,4 +159,8 @@ public class PacmanMap extends Seed {
     public HashMap<BlockType, ArrayList<Blob>> getOrganizedBlocks() {
         return organizedBlocks;
     }
+
+    public int[][] getWallArray() {
+        return wallArray;
+    }
 }

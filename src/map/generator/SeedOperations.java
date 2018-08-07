@@ -47,21 +47,26 @@ public class SeedOperations {
             }
         }
 
-        finalAmountWall = amountWall;
         if(amountWall > amountEmpty){
-            finalAmountWall = amountEmpty;
+            amountWall = amountEmpty;
             for (int i = 0; i != blockType.length ; i++) {
                 if(blockType[i] == BlockType.EMPTY) blockType[i] = BlockType.WALL;
                 else if(blockType[i] == BlockType.WALL) blockType[i] = BlockType.EMPTY;
             }
         }else if(amountWall > amountCoin){
-            finalAmountWall = amountCoin;
+            amountWall = amountCoin;
             for (int i = 0; i != blockType.length ; i++) {
                 if(blockType[i] == BlockType.COIN) blockType[i] = BlockType.WALL;
                 else if(blockType[i] == BlockType.WALL) blockType[i] = BlockType.COIN;
             }
         }
+
+        finalAmountWall += amountWall;
         return blockType;
+    }
+
+    public static void setAmountWall(int finalAmountWall) {
+        SeedOperations.finalAmountWall = finalAmountWall;
     }
 
     public static int getAmountWall() {

@@ -165,4 +165,12 @@ public class PacmanMap extends Seed {
     public int[][] getWallArray() {
         return wallArray;
     }
+
+    public Line[] getVerticalWallLines() {
+        return verticalWallLines;
+    }
+
+    public Line[] getHorizontalWallLines() {
+        return horizontalWallLines;
+    }
 }

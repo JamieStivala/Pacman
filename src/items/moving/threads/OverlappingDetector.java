@@ -18,21 +18,47 @@ public class OverlappingDetector extends Thread{
     @Override
     public void run(){
         while(pacmanFrame.isRunning()){
-            if(pacman.getCurrentRotation() == LEFT || pacman.getCurrentRotation() == RIGHT && pacman.getNextRotation() == UP || pacman.getNextRotation() == DOWN){
+            boolean overlaps = false;
+
+            if((pacman.getCurrentRotation() == LEFT || pacman.getCurrentRotation() == RIGHT) && (pacman.getNextRotation() == UP || pacman.getNextRotation() == DOWN)) {
+                for (Line current : pacmanFrame.getMap().getVerticalWallLines()) {
+                    if (pacman.getArea().intersectsLine(current.getX(), current.getY(), current.getX1(), current.getY1())) {
+                        overlaps = true;
+                    }
+                }
+            }else if((pacman.getCurrentRotation() == UP || pacman.getCurrentRotation() == DOWN) && (pacman.getNextRotation() == LEFT || pacman.getNextRotation() == RIGHT)) {
+                for (Line current : pacmanFrame.getMap().getHorizontalWallLines()) {
+                    if (pacman.getArea().intersectsLine(current.getX(), current.getY(), current.getX1(), current.getY1())) {
+                        overlaps = true;
+                    }
+                }
+            }
+            if(!overlaps) {
+                pacman.setCurrentRotation(pacman.getNextRotation());
+                //System.out.println("in");
+            }
+
+            /*
+            boolean overlaps = false;
+            if((pacman.getCurrentRotation() == LEFT || pacman.getCurrentRotation() == RIGHT) && (pacman.getNextRotation() == UP || pacman.getNextRotation() == DOWN)){
                 for (Line current: pacmanFrame.getMap().getVerticalWallLines()) {
                     if(!pacman.getArea().intersectsLine(current.getX(), current.getY(), current.getX1(), current.getY1())){
-                        pacman.setCurrentRotation(pacman.getNextRotation());
+                        overlaps = true;
                     }
                 }
-            } else if(pacman.getCurrentRotation() == UP || pacman.getCurrentRotation() == DOWN && pacman.getNextRotation() == LEFT || pacman.getNextRotation() == RIGHT){
+            } else if((pacman.getCurrentRotation() == UP || pacman.getCurrentRotation() == DOWN) && (pacman.getNextRotation() == LEFT || pacman.getNextRotation() == RIGHT)){
                 for (Line current: pacmanFrame.getMap().getHorizontalWallLines()) {
                     if(!pacman.getArea().intersectsLine(current.getX(), current.getY(), current.getX1(), current.getY1())){
-                        pacman.setCurrentRotation(pacman.getNextRotation());
+                        overlaps = true;
                     }
                 }
-            }else{
+            }
+
+            if(!overlaps){
                 pacman.setCurrentRotation(pacman.getNextRotation());
             }
+            */
         }
+
     }
 }

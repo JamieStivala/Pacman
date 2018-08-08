@@ -10,7 +10,7 @@ public class Pacman extends Sprite {
     private PacmanRotation nextRotation;
 
     public Pacman(int x, int y) {
-        super("pacman.png", x, y, 35, 35);
+        super("pacman.png", x, y, 32, 32);
     }
 
     public PacmanRotation getCurrentRotation() {

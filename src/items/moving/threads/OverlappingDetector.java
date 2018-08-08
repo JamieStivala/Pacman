@@ -36,6 +36,7 @@ public class OverlappingDetector extends Thread {
 
             if (!overlaps || (pacman.isCollidedWithWall() && pacman.getCurrentRotation() != pacman.getNextRotation())) {
                 pacman.setCurrentRotation(pacman.getNextRotation());
+                pacmanFrame.getWallCollisionDetection().setKeyPressedSinceCollision(true);
             }
         }
 

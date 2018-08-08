@@ -15,11 +15,15 @@ public class PacmanMap extends Seed {
     private Blob gameTextures[][];
     private HashMap<BlockType, ArrayList<Blob>> organizedBlocks;
     private int wallArray[][];
+    private Line vertical[];
+    private Line horizontal[];
     private BufferedImage bufferedMap;
 
     public PacmanMap(long seed){
         super(seed);
         this.gameTextures = new Blob[20][40];
+        this.vertical = new Line[40];
+        this.horizontal = new Line[20];
         this.organizedBlocks = new HashMap<>();
         this.addSpawnBox();
         this.addReflectiveWalls();
@@ -124,7 +128,13 @@ public class PacmanMap extends Seed {
                     wallArray[wallCounter] = new int[] {vertical, horizontal};
                     wallCounter++;
                 }
+
+                if(horizontal < 40) {
+                    this.vertical[horizontal] = new Line(horizontal * 36, 0, horizontal * 36, 799);
+                }
+
             }
+            this.horizontal[vertical] = new Line(0, (vertical * 39) + 20, 1440, (vertical * 39) + 20);
         }
     }
 

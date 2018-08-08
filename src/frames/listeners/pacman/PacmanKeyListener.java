@@ -21,10 +21,10 @@ public class PacmanKeyListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode() == 37 || e.getKeyCode() == 65) pacman.setRotation(PacmanRotation.LEFT);
-        else if(e.getKeyCode() == 39 || e.getKeyCode() == 68) pacman.setRotation(PacmanRotation.RIGHT);
-        else if(e.getKeyCode() == 38 || e.getKeyCode() == 87) pacman.setRotation(PacmanRotation.UP);
-        else if (e.getKeyCode() == 40 || e.getKeyCode() == 83) pacman.setRotation(PacmanRotation.DOWN);
+        if(e.getKeyCode() == 37 || e.getKeyCode() == 65) pacman.setCurrentRotation(PacmanRotation.LEFT);
+        else if(e.getKeyCode() == 39 || e.getKeyCode() == 68) pacman.setCurrentRotation(PacmanRotation.RIGHT);
+        else if(e.getKeyCode() == 38 || e.getKeyCode() == 87) pacman.setCurrentRotation(PacmanRotation.UP);
+        else if (e.getKeyCode() == 40 || e.getKeyCode() == 83) pacman.setCurrentRotation(PacmanRotation.DOWN);
         this.pacmanFrame.getWallCollisionDetection().keyPressed();
     }
 

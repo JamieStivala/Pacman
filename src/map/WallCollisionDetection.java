@@ -23,16 +23,16 @@ public class WallCollisionDetection extends Thread {
             ArrayList<Blob> walls = frame.getMap().getOrganizedBlocks().get(BlockType.WALL);
             for (Blob blob : walls) {
                 if(keyPressedSinceCollision) {
-                    if (pacman.getRotation() == PacmanRotation.RIGHT && pacman.getArea().intersectsLine(blob.getX() - 2, blob.getY() + 4, blob.getX() - 2, blob.getY() + blob.getArea().height - 4)) {
+                    if (pacman.getCurrentRotation() == PacmanRotation.RIGHT && pacman.getArea().intersectsLine(blob.getX() - 2, blob.getY() + 4, blob.getX() - 2, blob.getY() + blob.getArea().height - 4)) {
                         pacman.setCollidedWithWall(true);
                         keyPressedSinceCollision = false;
-                    } else if (pacman.getRotation() == PacmanRotation.LEFT && pacman.getArea().intersectsLine(blob.getX() + blob.getArea().width + 2, blob.getY() + 4, blob.getX() + blob.getArea().width +  2, blob.getY() + blob.getArea().height - 4)) {
+                    } else if (pacman.getCurrentRotation() == PacmanRotation.LEFT && pacman.getArea().intersectsLine(blob.getX() + blob.getArea().width + 2, blob.getY() + 4, blob.getX() + blob.getArea().width +  2, blob.getY() + blob.getArea().height - 4)) {
                         pacman.setCollidedWithWall(true);
                         keyPressedSinceCollision = false;
-                    } else if (pacman.getRotation() == PacmanRotation.DOWN && pacman.getArea().intersectsLine(blob.getX() + 4, blob.getY() - 2, blob.getX() + blob.getArea().width - 4, blob.getY() - 2)) {
+                    } else if (pacman.getCurrentRotation() == PacmanRotation.DOWN && pacman.getArea().intersectsLine(blob.getX() + 4, blob.getY() - 2, blob.getX() + blob.getArea().width - 4, blob.getY() - 2)) {
                         pacman.setCollidedWithWall(true);
                         keyPressedSinceCollision = false;
-                    } else if (pacman.getRotation() == PacmanRotation.UP && pacman.getArea().intersectsLine(blob.getX() + 4, blob.getY() + blob.getArea().height + 2, blob.getX() + blob.getArea().width - 4, blob.getY() + blob.getArea().height + 2)) {
+                    } else if (pacman.getCurrentRotation() == PacmanRotation.UP && pacman.getArea().intersectsLine(blob.getX() + 4, blob.getY() + blob.getArea().height + 2, blob.getX() + blob.getArea().width - 4, blob.getY() + blob.getArea().height + 2)) {
                         pacman.setCollidedWithWall(true);
                         keyPressedSinceCollision = false;
                     }else {

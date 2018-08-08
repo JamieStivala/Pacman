@@ -6,22 +6,23 @@ import java.awt.image.BufferedImage;
 
 public class Pacman extends Sprite {
     private volatile boolean collidedWithWall;
-    private PacmanRotation rotation;
+    private PacmanRotation currentRotation;
+    private PacmanRotation nextRotation;
 
     public Pacman(int x, int y) {
         super("pacman.png", x, y, 35, 35);
     }
 
-    public PacmanRotation getRotation() {
-        return rotation;
+    public PacmanRotation getCurrentRotation() {
+        return currentRotation;
     }
 
-    public void setRotation(PacmanRotation rotation) {
-        PacmanRotation oldRotation = this.getRotation();
-        this.rotation = rotation;
-        if ((oldRotation != PacmanRotation.RIGHT || rotation != PacmanRotation.DOWN) && (oldRotation != PacmanRotation.DOWN || rotation != PacmanRotation.LEFT) && (oldRotation != PacmanRotation.LEFT || rotation != PacmanRotation.UP) && (oldRotation != PacmanRotation.UP || rotation != PacmanRotation.RIGHT) && (oldRotation != null || rotation != PacmanRotation.DOWN)) {
-            if ((oldRotation != PacmanRotation.RIGHT || rotation != PacmanRotation.LEFT) && (oldRotation != PacmanRotation.DOWN || rotation != PacmanRotation.UP) && (oldRotation != PacmanRotation.LEFT || rotation != PacmanRotation.RIGHT) && (oldRotation != PacmanRotation.UP || rotation != PacmanRotation.DOWN) && (oldRotation != null || rotation != PacmanRotation.LEFT)) {
-                if (oldRotation == PacmanRotation.RIGHT && rotation == PacmanRotation.UP || oldRotation == PacmanRotation.DOWN && rotation == PacmanRotation.RIGHT || oldRotation == PacmanRotation.LEFT && rotation == PacmanRotation.DOWN || oldRotation == PacmanRotation.UP && rotation == PacmanRotation.LEFT || oldRotation == null && rotation == PacmanRotation.UP) {
+    public void setCurrentRotation(PacmanRotation currentRotation) {
+        PacmanRotation oldRotation = this.getCurrentRotation();
+        this.currentRotation = currentRotation;
+        if ((oldRotation != PacmanRotation.RIGHT || currentRotation != PacmanRotation.DOWN) && (oldRotation != PacmanRotation.DOWN || currentRotation != PacmanRotation.LEFT) && (oldRotation != PacmanRotation.LEFT || currentRotation != PacmanRotation.UP) && (oldRotation != PacmanRotation.UP || currentRotation != PacmanRotation.RIGHT) && (oldRotation != null || currentRotation != PacmanRotation.DOWN)) {
+            if ((oldRotation != PacmanRotation.RIGHT || currentRotation != PacmanRotation.LEFT) && (oldRotation != PacmanRotation.DOWN || currentRotation != PacmanRotation.UP) && (oldRotation != PacmanRotation.LEFT || currentRotation != PacmanRotation.RIGHT) && (oldRotation != PacmanRotation.UP || currentRotation != PacmanRotation.DOWN) && (oldRotation != null || currentRotation != PacmanRotation.LEFT)) {
+                if (oldRotation == PacmanRotation.RIGHT && currentRotation == PacmanRotation.UP || oldRotation == PacmanRotation.DOWN && currentRotation == PacmanRotation.RIGHT || oldRotation == PacmanRotation.LEFT && currentRotation == PacmanRotation.DOWN || oldRotation == PacmanRotation.UP && currentRotation == PacmanRotation.LEFT || oldRotation == null && currentRotation == PacmanRotation.UP) {
                     this.rotate();
                     this.rotate();
                     this.rotate();

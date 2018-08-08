@@ -7,6 +7,7 @@ import items.moving.PacmanRotation;
 public class PacmanMover extends Thread{
     private PacmanFrame pacmanFrame;
     private Pacman pacman;
+    private PacmanRotation nextRotation;
 
     public PacmanMover(PacmanFrame pacmanFrame){
         this.pacmanFrame = pacmanFrame;

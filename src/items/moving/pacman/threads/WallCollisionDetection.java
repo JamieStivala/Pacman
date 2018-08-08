@@ -60,7 +60,7 @@ public class WallCollisionDetection extends Thread {
         this.keyPressedSinceCollision = true;
     }
 
-    public void setKeyPressedSinceCollision(boolean keyPressedSinceCollision) {
-        this.keyPressedSinceCollision = keyPressedSinceCollision;
+    void updateKeyPressed() {
+        this.keyPressedSinceCollision = true;
     }
 }

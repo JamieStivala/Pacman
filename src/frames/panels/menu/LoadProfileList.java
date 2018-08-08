@@ -29,7 +29,7 @@ public class LoadProfileList extends BasePanel {
     @Override
     void loadComponents() {
         super.loadComponents();
-        DefaultListModel<String> listModel= new DefaultListModel<>();
+        DefaultListModel<String> listModel = new DefaultListModel<>();
         for (int i = 0; i != super.getMainMenu().getUsers().size(); i++) {
             listModel.add(i, super.getMainMenu().getUsers().get(i).getCharacterName());
         }
@@ -80,15 +80,15 @@ public class LoadProfileList extends BasePanel {
             createTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_big.png")));
             loadTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_small.png")));
             loadTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_big.png")));
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void paint(Graphics g){
+    public void paint(Graphics g) {
         super.paint(g);
-        g.drawImage(listOfProfiles,312 , 250, null);
+        g.drawImage(listOfProfiles, 312, 250, null);
     }
 
     public JLabel getCreateLabel() {
@@ -111,17 +111,17 @@ public class LoadProfileList extends BasePanel {
         return this.profilesList;
     }
 
-    public void addCreate(){
+    public void addCreate() {
         this.loadLabel.setVisible(false);
         this.createLabel.setVisible(true);
     }
 
-    public void addLoad(){
+    public void addLoad() {
         this.createLabel.setVisible(false);
         this.loadLabel.setVisible(true);
     }
 
-    public void reloadComponents(){
+    public void reloadComponents() {
         this.removeAll();
         this.loadComponents();
     }

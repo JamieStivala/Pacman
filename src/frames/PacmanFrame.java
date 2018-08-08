@@ -13,7 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class PacmanFrame extends JFrame{
+public class PacmanFrame extends JFrame {
     private PacmanMap map;
     private Pacman pacman;
     private User user;
@@ -25,11 +25,11 @@ public class PacmanFrame extends JFrame{
     private BufferedImage screen;
     private volatile boolean stopped;
 
-    public PacmanFrame(User user){
+    public PacmanFrame(User user) {
         this(user, (long) (Math.random() * 1000000000));
     }
 
-    PacmanFrame(User user, long seed){
+    PacmanFrame(User user, long seed) {
         this.map = new PacmanMap(seed);
         this.user = user;
         profileFlags(seed);
@@ -41,16 +41,16 @@ public class PacmanFrame extends JFrame{
         startThreads();
     }
 
-    private void profileFlags(long seed){
+    private void profileFlags(long seed) {
         boolean found = false;
         for (int i = 0; i != user.getSeedsPlayed().size(); i++) {
-            if(user.getSeedsPlayed().get(i) == seed) found = true;
+            if (user.getSeedsPlayed().get(i) == seed) found = true;
         }
-        if(!found) user.getSeedsPlayed().add(0, seed);
+        if (!found) user.getSeedsPlayed().add(0, seed);
         user.incrementTotalPlayedGamed();
     }
 
-    private void setFrameSettings(){
+    private void setFrameSettings() {
         super.setTitle("Pacman");
         super.setSize(1440, 799);
         super.setResizable(false);
@@ -60,7 +60,7 @@ public class PacmanFrame extends JFrame{
         super.requestFocus();
     }
 
-    private void startThreads(){
+    private void startThreads() {
         this.coinCollisionDetection = new CoinCollisionDetection(this);
         this.coinCollisionDetection.start();
 
@@ -83,13 +83,13 @@ public class PacmanFrame extends JFrame{
     }
 
     @Override
-    public void paint(Graphics g){
-        if(screen == null) return;
+    public void paint(Graphics g) {
+        if (screen == null) return;
         g.drawImage(screen, 1, 1, null);
     }
 
     @Override
-    public void update(Graphics g){
+    public void update(Graphics g) {
         paint(g);
     }
 

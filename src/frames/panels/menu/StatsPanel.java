@@ -21,13 +21,13 @@ public class StatsPanel extends BasePanel {
     @Override
     void loadTextures() {
         super.loadTextures();
-        try{
+        try {
             this.profileName = ImageIO.read(new File("resources/menu/textures/profile/stats/panel/name.png"));
             this.highestScore = ImageIO.read(new File("resources/menu/textures/profile/stats/panel/highest_score.png"));
             this.gamesPlayed = ImageIO.read(new File("resources/menu/textures/profile/stats/panel/games_played.png"));
             this.totalScore = ImageIO.read(new File("resources/menu/textures/profile/stats/panel/total_score.png"));
             this.lastPlayedScore = ImageIO.read(new File("resources/menu/textures/profile/stats/panel/last_played_score.png"));
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }

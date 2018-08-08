@@ -22,12 +22,12 @@ public class WallCollisionDetection extends Thread {
         while (frame.isRunning()) {
             ArrayList<Blob> walls = frame.getMap().getOrganizedBlocks().get(BlockType.WALL);
             for (Blob blob : walls) {
-                if(keyPressedSinceCollision) {
+                if (keyPressedSinceCollision) {
                     if (pacman.getCurrentRotation() == PacmanRotation.RIGHT && pacman.getArea().intersectsLine(blob.getX() - 2, blob.getY() + 4, blob.getX() - 2, blob.getY() + blob.getArea().height - 4)) {
                         pacman.setCollidedWithWall(true);
                         keyPressedSinceCollision = false;
                         sleep();
-                    } else if (pacman.getCurrentRotation() == PacmanRotation.LEFT && pacman.getArea().intersectsLine(blob.getX() + blob.getArea().width + 2, blob.getY() + 4, blob.getX() + blob.getArea().width +  2, blob.getY() + blob.getArea().height - 4)) {
+                    } else if (pacman.getCurrentRotation() == PacmanRotation.LEFT && pacman.getArea().intersectsLine(blob.getX() + blob.getArea().width + 2, blob.getY() + 4, blob.getX() + blob.getArea().width + 2, blob.getY() + blob.getArea().height - 4)) {
                         pacman.setCollidedWithWall(true);
                         keyPressedSinceCollision = false;
                         sleep();
@@ -39,7 +39,7 @@ public class WallCollisionDetection extends Thread {
                         pacman.setCollidedWithWall(true);
                         keyPressedSinceCollision = false;
                         sleep();
-                    }else {
+                    } else {
                         pacman.setCollidedWithWall(false);
                     }
                 }
@@ -47,10 +47,10 @@ public class WallCollisionDetection extends Thread {
         }
     }
 
-    private void sleep(){
-        try{
+    private void sleep() {
+        try {
             Thread.sleep(210);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             System.err.println("Interrupted exception: " + e.getMessage());
         }
     }

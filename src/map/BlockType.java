@@ -1,6 +1,6 @@
 package map;
 
-public enum BlockType{
+public enum BlockType {
     EMPTY,
     COIN,
     WALL

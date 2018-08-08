@@ -19,7 +19,7 @@ public class PacmanMap extends Seed {
     private Line horizontalWallLines[];
     private BufferedImage bufferedMap;
 
-    public PacmanMap(long seed){
+    public PacmanMap(long seed) {
         super(seed);
         this.gameTextures = new Blob[20][40];
         this.verticalWallLines = new Line[40];
@@ -32,7 +32,7 @@ public class PacmanMap extends Seed {
         this.paint();
     }
 
-    private void addSpawnBox(){
+    private void addSpawnBox() {
         //Top & Bottom walls
         super.getSeed(7)[19] = BlockType.WALL;
         super.getSeed(7)[20] = BlockType.WALL;
@@ -75,39 +75,39 @@ public class PacmanMap extends Seed {
         //Empty the inside box
     }
 
-    private void addReflectiveWalls(){
-        for (int vertical = 0; vertical != super.getSeed().length ; vertical++) {
+    private void addReflectiveWalls() {
+        for (int vertical = 0; vertical != super.getSeed().length; vertical++) {
             BlockType current[] = super.getSeed(vertical);
-            if(current[0] == BlockType.WALL){
+            if (current[0] == BlockType.WALL) {
                 current[39] = BlockType.WALL;
-            }else if(current[39] == BlockType.WALL) {
+            } else if (current[39] == BlockType.WALL) {
                 current[0] = BlockType.WALL;
             }
-            for (int horizontal = 0; horizontal != current.length; horizontal++){
-                if(super.getSeed(0)[horizontal] == BlockType.WALL){
+            for (int horizontal = 0; horizontal != current.length; horizontal++) {
+                if (super.getSeed(0)[horizontal] == BlockType.WALL) {
                     super.getSeed(19)[horizontal] = BlockType.WALL;
-                }else if(super.getSeed(19)[horizontal] == BlockType.WALL){
+                } else if (super.getSeed(19)[horizontal] == BlockType.WALL) {
                     super.getSeed(0)[horizontal] = BlockType.WALL;
                 }
             }
         }
     }
 
-    private void drawMap(){
+    private void drawMap() {
         int x = 0;
         int y = 20;
-        for(int vertical = 0; vertical != super.getSeed().length; vertical++){
+        for (int vertical = 0; vertical != super.getSeed().length; vertical++) {
             BlockType current[] = super.getSeed(vertical);
-            for (int horizontal = 0; horizontal != current.length; horizontal++){
-                if(current[horizontal] == BlockType.WALL){
+            for (int horizontal = 0; horizontal != current.length; horizontal++) {
+                if (current[horizontal] == BlockType.WALL) {
                     Wall wall = new Wall(x, y);
                     addToOrganizedBlocks(BlockType.WALL, wall);
                     gameTextures[vertical][horizontal] = wall;
-                }else if(current[horizontal] == BlockType.COIN){
+                } else if (current[horizontal] == BlockType.COIN) {
                     Coin coin = new Coin(x, y);
                     addToOrganizedBlocks(BlockType.COIN, coin);
                     gameTextures[vertical][horizontal] = coin;
-                }else{
+                } else {
                     Empty empty = new Empty(x, y);
                     addToOrganizedBlocks(BlockType.EMPTY, empty);
                     gameTextures[vertical][horizontal] = new Empty(x, y);
@@ -119,16 +119,16 @@ public class PacmanMap extends Seed {
         }
     }
 
-    private void aStartWallArrayFiller(){
+    private void aStartWallArrayFiller() {
         this.wallArray = new int[this.getOrganizedBlocks().get(BlockType.WALL).size()][2];
-        for(int vertical = 0, wallCounter = 0; vertical != super.getSeed().length; vertical++){
+        for (int vertical = 0, wallCounter = 0; vertical != super.getSeed().length; vertical++) {
             BlockType current[] = super.getSeed(vertical);
-            for (int horizontal = 0; horizontal != current.length; horizontal++){
-                if(current[horizontal] == BlockType.WALL){
-                    wallArray[wallCounter] = new int[] {vertical, horizontal};
+            for (int horizontal = 0; horizontal != current.length; horizontal++) {
+                if (current[horizontal] == BlockType.WALL) {
+                    wallArray[wallCounter] = new int[]{vertical, horizontal};
                     wallCounter++;
                 }
-                if(horizontal < 40) {
+                if (horizontal < 40) {
                     this.verticalWallLines[horizontal] = new Line(horizontal * 36 - 1, 0, horizontal * 36 - 1, 799);
                 }
             }
@@ -136,22 +136,22 @@ public class PacmanMap extends Seed {
         }
     }
 
-    public void paint(){
+    public void paint() {
         this.bufferedMap = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
         Graphics g = bufferedMap.getGraphics();
-        for(int vertical = 0; vertical != super.getSeed().length; vertical++){
+        for (int vertical = 0; vertical != super.getSeed().length; vertical++) {
             BlockType current[] = super.getSeed(vertical);
-            for (int horizontal = 0; horizontal != current.length; horizontal++){
+            for (int horizontal = 0; horizontal != current.length; horizontal++) {
                 gameTextures[vertical][horizontal].paint(g);
             }
         }
     }
 
-    public BufferedImage getBufferedMap(){
+    public BufferedImage getBufferedMap() {
         return this.bufferedMap;
     }
 
-    private void addToOrganizedBlocks(BlockType blockType, Blob blob){
+    private void addToOrganizedBlocks(BlockType blockType, Blob blob) {
         this.organizedBlocks.computeIfAbsent(blockType, h -> new ArrayList<>());
         this.organizedBlocks.get(blockType).add(blob);
     }

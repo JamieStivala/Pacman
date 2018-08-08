@@ -37,7 +37,7 @@ public class PlayGame extends BasePanel {
         this.generateRandomWorldLabel.setIcon(generateRandomWorldTextures[0]);
         this.generateRandomWorldLabel.setBounds(50, 299, 672, 32);
         this.generateRandomWorldLabel.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
-        this.generateRandomWorldLabel.addMouseListener(new MenuAnimationHandler(this.getGenerateRandomWorldTextures(),  this.getGenerateRandomWorldLabel().getBounds(), new Rectangle(50, 299, 840, 40)));
+        this.generateRandomWorldLabel.addMouseListener(new MenuAnimationHandler(this.getGenerateRandomWorldTextures(), this.getGenerateRandomWorldLabel().getBounds(), new Rectangle(50, 299, 840, 40)));
         super.add(generateRandomWorldLabel);
 
         this.previousSeedsLabel = new JLabel();
@@ -71,7 +71,7 @@ public class PlayGame extends BasePanel {
         this.previousSeedsTextures = new ImageIcon[2];
         this.startTextures = new ImageIcon[2];
         this.generateRandomWorldTextures = new ImageIcon[2];
-        try{
+        try {
             this.previousSeedsTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/start/seed/previous_seeds_small.png")));
             this.previousSeedsTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/start/seed/previous_seeds_big.png")));
 
@@ -83,7 +83,7 @@ public class PlayGame extends BasePanel {
 
             this.enterSeed = ImageIO.read(new File("resources/menu/textures/start/seed/enter_seed.png"));
             this.or = ImageIO.read(new File("resources/menu/textures/start/seed/or.png"));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

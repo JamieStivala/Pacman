@@ -11,7 +11,7 @@ public class User implements Serializable {
     private int lastGameScore;
     private ArrayList<Long> seedsPlayed;
 
-    public User(String characterName){
+    public User(String characterName) {
         this.characterName = characterName;
     }
 
@@ -56,7 +56,7 @@ public class User implements Serializable {
     }
 
     public ArrayList<Long> getSeedsPlayed() {
-        if(seedsPlayed == null) this.seedsPlayed = new ArrayList<>();
+        if (seedsPlayed == null) this.seedsPlayed = new ArrayList<>();
         return seedsPlayed;
     }
 }

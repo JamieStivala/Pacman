@@ -31,8 +31,8 @@ public class SeedViewerList extends BasePanel {
     @Override
     void loadComponents() {
         super.loadComponents();
-        if(super.getMainMenu().getCurrentUser() == null) return;
-        DefaultListModel<Long> listModel= new DefaultListModel<>();
+        if (super.getMainMenu().getCurrentUser() == null) return;
+        DefaultListModel<Long> listModel = new DefaultListModel<>();
         for (int i = 0; i != super.getMainMenu().getCurrentUser().getSeedsPlayed().size(); i++) {
             listModel.add(i, super.getMainMenu().getCurrentUser().getSeedsPlayed().get(i));
         }
@@ -75,7 +75,7 @@ public class SeedViewerList extends BasePanel {
         super.loadTextures();
         this.deleteTexture = new ImageIcon[2];
         this.selectTexture = new ImageIcon[2];
-        try{
+        try {
             listOfSeeds = ImageIO.read(new File("resources/menu/textures/start/seed/panel/list_of_seeds.png"));
 
             deleteTexture[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/delete/delete_small.png")));
@@ -83,7 +83,7 @@ public class SeedViewerList extends BasePanel {
 
             selectTexture[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/start/seed/panel/select_small.png")));
             selectTexture[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/start/seed/panel/select_big.png")));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -96,8 +96,8 @@ public class SeedViewerList extends BasePanel {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if(e.getComponent() instanceof JLabel) new ClickSound().start();
-        if(e.getComponent() == super.getBackLabel()) {
+        if (e.getComponent() instanceof JLabel) new ClickSound().start();
+        if (e.getComponent() == super.getBackLabel()) {
             super.getMainMenu().goBack();
             super.getMainMenu().setPreviousFrame(Panel.MAIN_PANEL);
         }
@@ -123,12 +123,12 @@ public class SeedViewerList extends BasePanel {
         return selectTexture;
     }
 
-    public void triggerButtons(){
+    public void triggerButtons() {
         this.deleteLabel.setVisible(true);
         this.selectLabel.setVisible(true);
     }
 
-    public void reloadComponents(){
+    public void reloadComponents() {
         this.removeAll();
         this.loadComponents();
     }

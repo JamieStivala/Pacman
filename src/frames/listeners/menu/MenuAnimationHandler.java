@@ -25,7 +25,7 @@ public class MenuAnimationHandler implements MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        if(e.getComponent() instanceof JLabel){
+        if (e.getComponent() instanceof JLabel) {
             new ClickSound().start();
         }
     }
@@ -37,13 +37,13 @@ public class MenuAnimationHandler implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        ((JLabel)e.getComponent()).setIcon(this.animation[1]);
+        ((JLabel) e.getComponent()).setIcon(this.animation[1]);
         e.getComponent().setBounds(this.boundsBig);
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        ((JLabel)e.getComponent()).setIcon(this.animation[0]);
+        ((JLabel) e.getComponent()).setIcon(this.animation[0]);
         e.getComponent().setBounds(this.boundsSmall);
     }
 }

@@ -8,6 +8,7 @@ import java.awt.event.WindowListener;
 
 public class MenuWindowListener implements WindowListener {
     private MainMenu mainMenu;
+
     public MenuWindowListener(MainMenu mainMenu) {
         this.mainMenu = mainMenu;
     }

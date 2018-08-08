@@ -15,7 +15,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 
-public class MainMenu extends JFrame{
+public class MainMenu extends JFrame {
     private ArrayList<User> users;
     private User currentUser;
     private CardLayout cardLayout;
@@ -52,9 +52,9 @@ public class MainMenu extends JFrame{
         this.loadTextures();
         this.initializePanels();
 
-        if(users.isEmpty()) {
+        if (users.isEmpty()) {
             this.switchLayout(Panel.NEW_PROFILE);
-        }else{
+        } else {
             this.switchLayout(Panel.PROFILE_CREATE_SELECT);
         }
     }
@@ -67,7 +67,7 @@ public class MainMenu extends JFrame{
         }
     }
 
-    private void initializePanels(){
+    private void initializePanels() {
         this.profileCreateOrSelectMenu = new ProfileCreateOrSelectMenu(this);
         super.getContentPane().add(profileCreateOrSelectMenu, Panel.PROFILE_CREATE_SELECT.toString());
 
@@ -101,7 +101,7 @@ public class MainMenu extends JFrame{
     }
 
     public ArrayList<User> getUsers() {
-        if(this.users == null) this.users = new ArrayList<>();
+        if (this.users == null) this.users = new ArrayList<>();
         return users;
     }
 
@@ -153,13 +153,13 @@ public class MainMenu extends JFrame{
         return sharedMenuMouseListener;
     }
 
-    public void switchLayout(Panel panel){
+    public void switchLayout(Panel panel) {
         this.previousFrame = currentFrame;
         this.currentFrame = panel;
         this.cardLayout.show(super.getContentPane(), panel.toString());
     }
 
-    public void goBack(){
+    public void goBack() {
         switchLayout(this.previousFrame);
     }
 
@@ -167,18 +167,18 @@ public class MainMenu extends JFrame{
         this.previousFrame = previousFrame;
     }
 
-    public void startGame(){
+    public void startGame() {
         PacmanFrame pacmanFrame = new PacmanFrame(this.currentUser);
         pacmanFrame.addWindowListener(new MenuPacmanWindowListener(this, pacmanFrame));
     }
 
-    public void startGame(long seed){
+    public void startGame(long seed) {
         PacmanFrame pacmanFrame = new PacmanFrame(this.currentUser, seed);
         pacmanFrame.addWindowListener(new MenuPacmanWindowListener(this, pacmanFrame));
     }
 
-    public void handleScore(){
-        if(currentUser.getLastGameScore() > currentUser.getHighestScore()){
+    public void handleScore() {
+        if (currentUser.getLastGameScore() > currentUser.getHighestScore()) {
             currentUser.setHighestScore(currentUser.getLastGameScore());
         }
         currentUser.setTotalScore(currentUser.getTotalScore() + currentUser.getLastGameScore());

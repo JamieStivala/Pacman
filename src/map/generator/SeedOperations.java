@@ -12,13 +12,13 @@ class SeedOperations {
             }
         } else if (fixing.length() > length) {
             buffer.delete(0, fixing.length() - length);
-        }else{
+        } else {
             return fixing;
         }
         return buffer.toString();
     }
 
-    static BlockType[] numberToEnum(int firstNumber, int secondNumber, int thirdNumber){
+    static BlockType[] numberToEnum(int firstNumber, int secondNumber, int thirdNumber) {
         int amountWall = 0;
         int amountCoin = 0;
         int amountEmpty = 0;
@@ -29,33 +29,33 @@ class SeedOperations {
         char binary[] = binaryString.toCharArray();
         BlockType blockType[] = new BlockType[40];
 
-        for(int i = 0, counter = 0; i != binary.length; i++, counter++){
+        for (int i = 0, counter = 0; i != binary.length; i++, counter++) {
             char defaultI = binary[i];
             char incrementedI = binary[++i];
 
-            if(defaultI == '0' && incrementedI == '0'){
+            if (defaultI == '0' && incrementedI == '0') {
                 blockType[counter] = BlockType.EMPTY;
                 amountEmpty++;
-            }else if(defaultI == '0' && incrementedI == '1' || defaultI == '1' && incrementedI == '0'){
+            } else if (defaultI == '0' && incrementedI == '1' || defaultI == '1' && incrementedI == '0') {
                 blockType[counter] = BlockType.COIN;
                 amountCoin++;
-            }else if(defaultI == '1' && incrementedI == '1'){
+            } else if (defaultI == '1' && incrementedI == '1') {
                 blockType[counter] = BlockType.WALL;
                 amountWall++;
             }
         }
 
-        if(amountWall > amountEmpty){
+        if (amountWall > amountEmpty) {
             amountWall = amountEmpty;
-            for (int i = 0; i != blockType.length ; i++) {
-                if(blockType[i] == BlockType.EMPTY) blockType[i] = BlockType.WALL;
-                else if(blockType[i] == BlockType.WALL) blockType[i] = BlockType.EMPTY;
+            for (int i = 0; i != blockType.length; i++) {
+                if (blockType[i] == BlockType.EMPTY) blockType[i] = BlockType.WALL;
+                else if (blockType[i] == BlockType.WALL) blockType[i] = BlockType.EMPTY;
             }
-        }else if(amountWall > amountCoin){
+        } else if (amountWall > amountCoin) {
             amountWall = amountCoin;
-            for (int i = 0; i != blockType.length ; i++) {
-                if(blockType[i] == BlockType.COIN) blockType[i] = BlockType.WALL;
-                else if(blockType[i] == BlockType.WALL) blockType[i] = BlockType.COIN;
+            for (int i = 0; i != blockType.length; i++) {
+                if (blockType[i] == BlockType.COIN) blockType[i] = BlockType.WALL;
+                else if (blockType[i] == BlockType.WALL) blockType[i] = BlockType.COIN;
             }
         }
 

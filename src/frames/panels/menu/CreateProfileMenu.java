@@ -45,12 +45,12 @@ public class CreateProfileMenu extends BasePanel {
     void loadTextures() {
         super.loadTextures();
         this.createProfileTextures = new ImageIcon[2];
-        try{
+        try {
             this.enterProfileNameTexture = ImageIO.read(new File("resources/menu/textures/profile/please_enter_a_profile_name.png"));
 
             this.createProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_small.png")));
             this.createProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/create/create_big.png")));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -68,7 +68,7 @@ public class CreateProfileMenu extends BasePanel {
     }
 
     @Override
-    public void paint(Graphics g){
+    public void paint(Graphics g) {
         super.paint(g);
         g.drawImage(enterProfileNameTexture, 72, 250, null);
     }

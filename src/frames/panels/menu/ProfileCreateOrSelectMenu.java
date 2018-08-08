@@ -27,7 +27,7 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
         this.newProfileLbl.setBounds(416, 299, 608, 32);
         this.newProfileLbl.setIcon(newProfileTextures[0]);
         this.newProfileLbl.addMouseListener(super.getMainMenu().getSharedMenuMouseListener());
-        this.newProfileLbl.addMouseListener(new MenuAnimationHandler(this.newProfileTextures,  this.newProfileLbl.getBounds(), new Rectangle(340, 299, 760, 40)));
+        this.newProfileLbl.addMouseListener(new MenuAnimationHandler(this.newProfileTextures, this.newProfileLbl.getBounds(), new Rectangle(340, 299, 760, 40)));
         super.add(newProfileLbl);
 
         this.loadProfileLbl = new JLabel();
@@ -43,13 +43,13 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
         super.loadTextures();
         this.newProfileTextures = new ImageIcon[2];
         this.loadProfileTextures = new ImageIcon[2];
-        try{
+        try {
             this.newProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_small.png")));
             this.newProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_big.png")));
 
             this.loadProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_profile_small.png")));
             this.loadProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/load/load_profile_big.png")));
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -23,7 +23,7 @@ public class DeleteProfileList extends BasePanel {
     @Override
     void loadComponents() {
         super.loadComponents();
-        DefaultListModel<String> listModel= new DefaultListModel<>();
+        DefaultListModel<String> listModel = new DefaultListModel<>();
         for (int i = 0; i != super.getMainMenu().getUsers().size(); i++) {
             listModel.add(i, super.getMainMenu().getUsers().get(i).getCharacterName());
         }
@@ -58,10 +58,10 @@ public class DeleteProfileList extends BasePanel {
     void loadTextures() {
         super.loadTextures();
         this.deleteTextures = new ImageIcon[2];
-        try{
+        try {
             this.deleteTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/delete/delete_small.png")));
             this.deleteTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/delete/delete_big.png")));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -78,11 +78,11 @@ public class DeleteProfileList extends BasePanel {
         return this.profilesList;
     }
 
-    public void triggerDeleteButton(){
+    public void triggerDeleteButton() {
         this.deleteLabel.setVisible(true);
     }
 
-    public void reloadComponents(){
+    public void reloadComponents() {
         this.removeAll();
         this.loadComponents();
     }

@@ -6,13 +6,13 @@ import javax.sound.sampled.Clip;
 import java.io.File;
 
 public class ClickSound extends Thread {
-    public void run(){
+    public void run() {
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("resources/menu/sounds/click.wav").getAbsoluteFile());
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }

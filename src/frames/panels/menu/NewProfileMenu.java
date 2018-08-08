@@ -16,7 +16,7 @@ public class NewProfileMenu extends BasePanel {
 
     private BufferedImage noSaveFound;
 
-    public NewProfileMenu(MainMenu mainMenu){
+    public NewProfileMenu(MainMenu mainMenu) {
         super(mainMenu, false);
     }
 
@@ -35,17 +35,17 @@ public class NewProfileMenu extends BasePanel {
     void loadTextures() {
         super.loadTextures();
         this.newProfileTextures = new ImageIcon[2];
-        try{
+        try {
             this.newProfileTextures[0] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_small.png")));
             this.newProfileTextures[1] = new ImageIcon(ImageIO.read(new File("resources/menu/textures/profile/new/new_profile_big.png")));
             this.noSaveFound = ImageIO.read(new File("resources/menu/textures/profile/game_save_not_found.png"));
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void paint(Graphics g){
+    public void paint(Graphics g) {
         super.paint(g);
         g.drawImage(this.noSaveFound, 288, 250, null);
     }

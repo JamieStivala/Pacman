@@ -10,8 +10,8 @@ public class Blob {
     private Rectangle area;
     private boolean visible;
 
-    public Blob (String filename, int x, int y, int width, int height) {
-        if(filename != null) {
+    public Blob(String filename, int x, int y, int width, int height) {
+        if (filename != null) {
             try {
                 image = ImageIO.read(new File("resources/game/" + filename));
             } catch (Exception e) {
@@ -19,41 +19,41 @@ public class Blob {
             }
         }
 
-        area = new Rectangle (x, y, width, height);
+        area = new Rectangle(x, y, width, height);
         visible = true;
     }
 
-    private boolean isVisible (){
+    private boolean isVisible() {
         return visible;
     }
 
-    public void setVisible (boolean v){
+    public void setVisible(boolean v) {
         this.visible = v;
     }
 
-    public boolean hasCollidedWith (Blob other){
-        return isVisible() && this.area.intersects (other.getArea());
+    public boolean hasCollidedWith(Blob other) {
+        return isVisible() && this.area.intersects(other.getArea());
     }
 
-    public Rectangle getArea(){
+    public Rectangle getArea() {
         return area;
     }
 
-    public int getX(){
+    public int getX() {
         return (int) area.getX();
     }
 
-    public int getY(){
+    public int getY() {
         return (int) area.getY();
     }
 
-    public BufferedImage getImage(){
+    public BufferedImage getImage() {
         return image;
     }
 
     public void paint(Graphics g) {
-        if(!visible) return;
-        g.drawImage (getImage(), (int)area.getX(), (int)area.getY(), (int)area.getWidth(), (int)area.getHeight(), null);
+        if (!visible) return;
+        g.drawImage(getImage(), (int) area.getX(), (int) area.getY(), (int) area.getWidth(), (int) area.getHeight(), null);
     }
 
 }

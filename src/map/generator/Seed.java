@@ -13,7 +13,7 @@ public class Seed {
         this.seed = new BlockType[20][40];
         this.random = new Random(seed);
 
-        for(int vertical = 0; vertical != 20; vertical++){
+        for (int vertical = 0; vertical != 20; vertical++) {
             this.seed[vertical] = SeedOperations.numberToEnum(
                     random.nextInt(1000000000),
                     random.nextInt(1000000000),

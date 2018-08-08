@@ -29,7 +29,7 @@ public class PacmanMover extends Thread {
         }
     }
 
-    private void doMove(PacmanRotation rotation){
+    private void doMove(PacmanRotation rotation) {
         if (pacman.getX() < -5 && rotation == PacmanRotation.LEFT) {
             pacman.getArea().setLocation(1423, pacman.getY());
         } else if (pacman.getX() > 1423 && rotation == PacmanRotation.RIGHT) {
@@ -46,7 +46,7 @@ public class PacmanMover extends Thread {
         }
     }
 
-    private void renderCoins(){
+    private void renderCoins() {
         if (pacmanFrame.getCoinCollisionDetection().hasCoinBeenTaken()) {
             pacmanFrame.getMap().paint();
             pacmanFrame.getCoinCollisionDetection().updatedCoins();

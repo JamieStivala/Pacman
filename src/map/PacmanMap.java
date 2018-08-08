@@ -128,13 +128,11 @@ public class PacmanMap extends Seed {
                     wallArray[wallCounter] = new int[] {vertical, horizontal};
                     wallCounter++;
                 }
-
                 if(horizontal < 40) {
-                    this.verticalWallLines[horizontal] = new Line(horizontal * 36, 0, horizontal * 36, 799);
+                    this.verticalWallLines[horizontal] = new Line(horizontal * 36 - 1, 0, horizontal * 36 - 1, 799);
                 }
-
             }
-            this.horizontalWallLines[vertical] = new Line(0, (vertical * 39) + 20, 1440, (vertical * 39) + 20);
+            this.horizontalWallLines[vertical] = new Line(0, (vertical * 39) + 19, 1440, (vertical * 39) + 19);
         }
     }
 

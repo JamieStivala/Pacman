@@ -11,10 +11,12 @@ public class Blob {
     private boolean visible;
 
     public Blob (String filename, int x, int y, int width, int height) {
-        try {
-            image = ImageIO.read(new File("resources/game/" + filename));
-        } catch (Exception e) {
-            System.out.println("Error loading: " + filename);
+        if(filename != null) {
+            try {
+                image = ImageIO.read(new File("resources/game/" + filename));
+            } catch (Exception e) {
+                System.out.println("Error loading: " + filename);
+            }
         }
 
         area = new Rectangle (x, y, width, height);

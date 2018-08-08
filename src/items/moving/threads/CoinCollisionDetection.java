@@ -31,11 +31,11 @@ public class CoinCollisionDetection extends Thread {
         pacmanFrame.getUser().setLastGameScore(score);
     }
 
-    public boolean hasCoinBeenTaken() {
+    boolean hasCoinBeenTaken() {
         return !coinUpdateSinceLastBuffer;
     }
 
-    public void updatedCoins() {
+    void updatedCoins() {
         this.coinUpdateSinceLastBuffer = true;
     }
 }

@@ -4,9 +4,9 @@ import frames.listeners.pacman.PacmanKeyListener;
 import items.moving.Pacman;
 import items.moving.threads.OverlappingDetector;
 import items.moving.threads.PacmanMover;
-import map.CoinCollisionDetection;
+import items.moving.threads.CoinCollisionDetection;
 import map.PacmanMap;
-import map.WallCollisionDetection;
+import items.moving.threads.WallCollisionDetection;
 import user.manager.User;
 
 import javax.swing.*;

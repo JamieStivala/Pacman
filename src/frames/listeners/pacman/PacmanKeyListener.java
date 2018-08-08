@@ -1,8 +1,8 @@
 package frames.listeners.pacman;
 
 import frames.PacmanFrame;
-import items.moving.Pacman;
-import items.moving.PacmanRotation;
+import items.moving.pacman.Pacman;
+import items.moving.pacman.PacmanRotation;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

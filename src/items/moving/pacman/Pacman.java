@@ -1,4 +1,4 @@
-package items.moving;
+package items.moving.pacman;
 
 import items.Sprite;
 

@@ -1,10 +1,10 @@
-package items.moving.threads;
+package items.moving.pacman.threads;
 
 import frames.PacmanFrame;
-import items.moving.Pacman;
+import items.moving.pacman.Pacman;
 import map.Line;
 
-import static items.moving.PacmanRotation.*;
+import static items.moving.pacman.PacmanRotation.*;
 
 public class OverlappingDetector extends Thread {
     private PacmanFrame pacmanFrame;

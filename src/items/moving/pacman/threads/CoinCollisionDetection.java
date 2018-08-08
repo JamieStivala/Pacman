@@ -1,7 +1,7 @@
-package items.moving.threads;
+package items.moving.pacman.threads;
 
 import frames.PacmanFrame;
-import items.moving.Pacman;
+import items.moving.pacman.Pacman;
 import map.BlockType;
 
 public class CoinCollisionDetection extends Thread {

@@ -1,9 +1,9 @@
-package items.moving.threads;
+package items.moving.pacman.threads;
 
 import frames.PacmanFrame;
 import items.Blob;
-import items.moving.Pacman;
-import items.moving.PacmanRotation;
+import items.moving.pacman.Pacman;
+import items.moving.pacman.PacmanRotation;
 import map.BlockType;
 
 import java.util.ArrayList;

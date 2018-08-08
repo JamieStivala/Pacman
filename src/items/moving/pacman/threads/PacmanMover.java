@@ -1,8 +1,8 @@
-package items.moving.threads;
+package items.moving.pacman.threads;
 
 import frames.PacmanFrame;
-import items.moving.Pacman;
-import items.moving.PacmanRotation;
+import items.moving.pacman.Pacman;
+import items.moving.pacman.PacmanRotation;
 
 public class PacmanMover extends Thread {
     private PacmanFrame pacmanFrame;

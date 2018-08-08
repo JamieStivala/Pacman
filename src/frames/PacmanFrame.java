@@ -1,12 +1,12 @@
 package frames;
 
 import frames.listeners.pacman.PacmanKeyListener;
-import items.moving.Pacman;
-import items.moving.threads.OverlappingDetector;
-import items.moving.threads.PacmanMover;
-import items.moving.threads.CoinCollisionDetection;
+import items.moving.pacman.Pacman;
+import items.moving.pacman.threads.OverlappingDetector;
+import items.moving.pacman.threads.PacmanMover;
+import items.moving.pacman.threads.CoinCollisionDetection;
 import map.PacmanMap;
-import items.moving.threads.WallCollisionDetection;
+import items.moving.pacman.threads.WallCollisionDetection;
 import user.manager.User;
 
 import javax.swing.*;

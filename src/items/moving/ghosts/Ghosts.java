@@ -9,10 +9,10 @@ public class Ghosts {
     private Yellow yellow;
 
     public Ghosts(){
-        pink = new Pink(720, 399);
-        red = new Red(720, 399);
-        turquoise = new Turquoise(720, 399);
-        yellow = new Yellow(720, 399);
+        red = new Red(720, 360);
+        pink = new Pink(720, 380);
+        turquoise = new Turquoise(720, 400);
+        yellow = new Yellow(720, 410);
     }
 
     public Pink getPink() {

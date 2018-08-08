@@ -1,6 +1,8 @@
 package frames;
 
+import astar.AStar;
 import frames.listeners.pacman.PacmanKeyListener;
+import items.moving.ghosts.Ghosts;
 import items.moving.pacman.Pacman;
 import items.moving.pacman.threads.OverlappingDetector;
 import items.moving.pacman.threads.PacmanMover;
@@ -21,6 +23,8 @@ public class PacmanFrame extends JFrame {
     private WallCollisionDetection wallCollisionDetection;
     private CoinCollisionDetection coinCollisionDetection;
     private OverlappingDetector overlappingDetector;
+    private Ghosts ghosts;
+    private AStar aStar;
 
     private BufferedImage screen;
     private volatile boolean stopped;
@@ -32,6 +36,7 @@ public class PacmanFrame extends JFrame {
     PacmanFrame(User user, long seed) {
         this.map = new PacmanMap(seed);
         this.user = user;
+        this.ghosts = new Ghosts();
         profileFlags(seed);
         this.pacman = new Pacman(2, 24);
         this.screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);

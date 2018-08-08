@@ -2,6 +2,7 @@ package frames;
 
 import frames.listeners.pacman.PacmanKeyListener;
 import items.moving.Pacman;
+import items.moving.threads.OverlappingDetector;
 import items.moving.threads.PacmanMover;
 import map.CoinCollisionDetection;
 import map.PacmanMap;
@@ -19,6 +20,8 @@ public class PacmanFrame extends JFrame{
     private PacmanMover pacmanMover;
     private WallCollisionDetection wallCollisionDetection;
     private CoinCollisionDetection coinCollisionDetection;
+    private OverlappingDetector overlappingDetector;
+
     private BufferedImage screen;
     private volatile boolean stopped;
 
@@ -66,6 +69,9 @@ public class PacmanFrame extends JFrame{
 
         this.wallCollisionDetection = new WallCollisionDetection(this);
         this.wallCollisionDetection.start();
+
+        this.overlappingDetector = new OverlappingDetector(this);
+        this.overlappingDetector.start();
     }
 
     public void render() {

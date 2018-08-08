@@ -7,7 +7,6 @@ import java.awt.image.BufferedImage;
 public class Pacman extends Sprite {
     private volatile boolean collidedWithWall;
     private PacmanRotation currentRotation;
-    private PacmanRotation nextRotation;
 
     public Pacman(int x, int y) {
         super("pacman.png", x, y, 35, 35);

@@ -26,20 +26,32 @@ public class WallCollisionDetection extends Thread {
                     if (pacman.getCurrentRotation() == PacmanRotation.RIGHT && pacman.getArea().intersectsLine(blob.getX() - 2, blob.getY() + 4, blob.getX() - 2, blob.getY() + blob.getArea().height - 4)) {
                         pacman.setCollidedWithWall(true);
                         keyPressedSinceCollision = false;
+                        sleep();
                     } else if (pacman.getCurrentRotation() == PacmanRotation.LEFT && pacman.getArea().intersectsLine(blob.getX() + blob.getArea().width + 2, blob.getY() + 4, blob.getX() + blob.getArea().width +  2, blob.getY() + blob.getArea().height - 4)) {
                         pacman.setCollidedWithWall(true);
                         keyPressedSinceCollision = false;
+                        sleep();
                     } else if (pacman.getCurrentRotation() == PacmanRotation.DOWN && pacman.getArea().intersectsLine(blob.getX() + 4, blob.getY() - 2, blob.getX() + blob.getArea().width - 4, blob.getY() - 2)) {
                         pacman.setCollidedWithWall(true);
                         keyPressedSinceCollision = false;
+                        sleep();
                     } else if (pacman.getCurrentRotation() == PacmanRotation.UP && pacman.getArea().intersectsLine(blob.getX() + 4, blob.getY() + blob.getArea().height + 2, blob.getX() + blob.getArea().width - 4, blob.getY() + blob.getArea().height + 2)) {
                         pacman.setCollidedWithWall(true);
                         keyPressedSinceCollision = false;
+                        sleep();
                     }else {
                         pacman.setCollidedWithWall(false);
                     }
                 }
             }
+        }
+    }
+
+    private void sleep(){
+        try{
+            Thread.sleep(210);
+        }catch (InterruptedException e){
+            System.err.println("Interrupted exception: " + e.getMessage());
         }
     }
 

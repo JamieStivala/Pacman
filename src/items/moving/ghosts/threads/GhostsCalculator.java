@@ -37,9 +37,9 @@ public class GhostsCalculator extends Thread {
         this.ghosts.getYellow().setPath(aStar.findPath());
     }
 
-    private Node getPositionFromCoordinates(Blob b){
-        int h = b.getX()/36; //X
-        int v = ((b.getY() - 20) /39); //Y
-        return new Node(h, v);
+    private Node getPositionFromCoordinates(Blob blob){
+        int horizontal = blob.getX()/36; //X
+        int vertical = ((blob.getY() - 20) /39); //Y
+        return new Node(horizontal, vertical);
     }
 }

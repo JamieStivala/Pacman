@@ -26,12 +26,10 @@ public class PacmanMap extends Seed {
         this.horizontalWallLines = new Line[20];
         this.organizedBlocks = new HashMap<>();
 
+        this.addSpawnBox();
+        this.addReflectiveWalls();
         this.drawMap();
         this.aStartWallArrayFiller();
-
-        this.addSpawnBox();
-        this.drawMap();
-        this.addReflectiveWalls();
         this.paint();
     }
 

@@ -125,4 +125,12 @@ public class PacmanFrame extends JFrame {
     public User getUser() {
         return user;
     }
+
+    public Ghosts getGhosts() {
+        return ghosts;
+    }
+
+    public AStar getAStar() {
+        return aStar;
+    }
 }

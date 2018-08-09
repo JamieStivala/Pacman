@@ -19,4 +19,10 @@ public class GhostsCalculator extends Thread {
     public void run(){
 
     }
+
+    private int[] getPositionFromCoordinates(){
+        int h = pacman.getX()/36; //X
+        int v = ((pacman.getY() - 20) /39); //Y
+        return new int[]{h, v};
+    }
 }

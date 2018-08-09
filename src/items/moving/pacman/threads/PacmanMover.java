@@ -11,6 +11,7 @@ public class PacmanMover extends Thread {
     private PacmanFrame pacmanFrame;
     private Pacman pacman;
     private Ghosts ghosts;
+    private double freqOfMoves = 0;
 
     public PacmanMover(PacmanFrame pacmanFrame) {
         this.pacmanFrame = pacmanFrame;
@@ -46,15 +47,22 @@ public class PacmanMover extends Thread {
         } else if (!pacman.isCollidedWithWall()) {
             if (rotation == PacmanRotation.LEFT) pacman.moveLeft(6);
             else if (rotation == PacmanRotation.RIGHT) pacman.moveRight(6);
-            else if (rotation == PacmanRotation.UP) pacman.moveUp(6);
-            else if (rotation == PacmanRotation.DOWN) pacman.moveDown(6);
+            else if (rotation == PacmanRotation.UP) {
+                pacman.moveUp(6);
+                freqOfMoves += 0.5;
+            }
+            else if (rotation == PacmanRotation.DOWN){
+                pacman.moveDown(6);
+                freqOfMoves += 0.5;
+            }
         }
+        freqOfMoves++;
     }
 
     private int prevPosition = 0;
-
     private void moveGhosts() {
         new GhostsCalculator(this.pacmanFrame).start();
+        if(freqOfMoves <= 5) return;
         if (ghosts.getRed().getPath() == null || ghosts.getRed().getPath().isEmpty() || (pacman.isCollidedWithWall() && prevPosition == this.ghosts.getRed().getPath().size()))
             return;
 
@@ -65,6 +73,7 @@ public class PacmanMover extends Thread {
         int previousPosition[] = getCoordinatesFromPosition(this.ghosts.getRed().getPath().get(this.ghosts.getRed().getChanged()));
         ghosts.getRed().getArea().setLocation(previousPosition[0], previousPosition[1]);
         prevPosition = this.ghosts.getRed().getChanged();
+        freqOfMoves = 0;
     }
 
     private void renderCoins() {

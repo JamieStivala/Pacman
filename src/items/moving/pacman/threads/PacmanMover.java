@@ -52,13 +52,15 @@ public class PacmanMover extends Thread {
     }
 
     private int prevPosition = 0;
+
     private void moveGhosts() {
         new GhostsCalculator(this.pacmanFrame).start();
-        if(ghosts.getRed().getPath() == null || ghosts.getRed().getPath().isEmpty() || (pacman.isCollidedWithWall() && prevPosition == this.ghosts.getRed().getPath().size())) return;
+        if (ghosts.getRed().getPath() == null || ghosts.getRed().getPath().isEmpty() || (pacman.isCollidedWithWall() && prevPosition == this.ghosts.getRed().getPath().size()))
+            return;
 
-        if(pacman.isCollidedWithWall()) {
+        if (pacman.isCollidedWithWall())
             this.ghosts.getRed().setChanged(prevPosition++);
-        }
+
 
         int previousPosition[] = getCoordinatesFromPosition(this.ghosts.getRed().getPath().get(this.ghosts.getRed().getChanged()));
         ghosts.getRed().getArea().setLocation(previousPosition[0], previousPosition[1]);
@@ -72,9 +74,9 @@ public class PacmanMover extends Thread {
         }
     }
 
-    private int[] getCoordinatesFromPosition(Node x){
-        int h = x.getRow() *36; //X
-        int v = (x.getCol() * 39 ) + 20; //Y
+    private int[] getCoordinatesFromPosition(Node x) {
+        int h = x.getRow() * 36; //X
+        int v = (x.getCol() * 39) + 20; //Y
         return new int[]{h, v};
     }
 }

@@ -3,11 +3,11 @@ package frames;
 import frames.listeners.pacman.PacmanKeyListener;
 import items.moving.ghosts.Ghosts;
 import items.moving.pacman.Pacman;
+import items.moving.pacman.threads.CoinCollisionDetection;
 import items.moving.pacman.threads.OverlappingDetector;
 import items.moving.pacman.threads.PacmanMover;
-import items.moving.pacman.threads.CoinCollisionDetection;
-import map.PacmanMap;
 import items.moving.pacman.threads.WallCollisionDetection;
+import map.PacmanMap;
 import user.manager.User;
 
 import javax.swing.*;
@@ -83,6 +83,7 @@ public class PacmanFrame extends JFrame {
         g.fillRect(1, 1, screen.getWidth(), screen.getHeight());
         g.drawImage(map.getBufferedMap(), 1, 1, screen.getWidth(), screen.getHeight(), null);
         pacman.paint(g);
+        ghosts.paint(g);
     }
 
     @Override

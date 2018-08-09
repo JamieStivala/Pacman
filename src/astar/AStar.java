@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 
 public class AStar {
     private static int DEFAULT_HV_COST = 10; // Horizontal - Vertical Cost
-    private static int DEFAULT_DIAGONAL_COST = 14;
+    private static int DEFAULT_DIAGONAL_COST = 40;
     private int hvCost;
     private int diagonalCost;
     private Node[][] searchArea;

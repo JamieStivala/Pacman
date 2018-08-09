@@ -20,21 +20,21 @@ public class GhostsCalculator extends Thread {
 
     @Override
     public void run(){
-        AStar aStar = new AStar(20, 40, this.getPositionFromCoordinates(ghosts.getRed()), this.getPositionFromCoordinates(pacman));
+        AStar aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getRed()), this.getPositionFromCoordinates(pacman));
         aStar.setBlocks(this.wallArray);
-        this.ghosts.getRed().setAStar(aStar);
+        this.ghosts.getRed().setPath(aStar.findPath());
 
-        aStar = new AStar(20, 40, this.getPositionFromCoordinates(ghosts.getTurquoise()), this.getPositionFromCoordinates(pacman));
+        aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getTurquoise()), this.getPositionFromCoordinates(pacman));
         aStar.setBlocks(this.wallArray);
-        this.ghosts.getTurquoise().setAStar(aStar);
+        this.ghosts.getTurquoise().setPath(aStar.findPath());
 
-        aStar = new AStar(20, 40, this.getPositionFromCoordinates(ghosts.getYellow()), this.getPositionFromCoordinates(pacman));
+        aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getYellow()), this.getPositionFromCoordinates(pacman));
         aStar.setBlocks(this.wallArray);
-        this.ghosts.getPink().setAStar(aStar);
+        this.ghosts.getPink().setPath(aStar.findPath());
 
-        aStar = new AStar(20, 40, this.getPositionFromCoordinates(ghosts.getPink()), this.getPositionFromCoordinates(pacman));
+        aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getPink()), this.getPositionFromCoordinates(pacman));
         aStar.setBlocks(this.wallArray);
-        this.ghosts.getYellow().setAStar(aStar);
+        this.ghosts.getYellow().setPath(aStar.findPath());
     }
 
     private Node getPositionFromCoordinates(Blob b){

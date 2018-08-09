@@ -125,7 +125,7 @@ public class PacmanMap extends Seed {
             BlockType current[] = super.getSeed(vertical);
             for (int horizontal = 0; horizontal != current.length; horizontal++) {
                 if (current[horizontal] == BlockType.WALL) {
-                    wallArray[wallCounter] = new int[]{vertical, horizontal};
+                    wallArray[wallCounter] = new int[]{horizontal, vertical};
                     wallCounter++;
                 }
                 if (horizontal < 40) {

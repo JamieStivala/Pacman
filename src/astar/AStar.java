@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 
 public class AStar {
     private static int DEFAULT_HV_COST = 10; // Horizontal - Vertical Cost
-    private static int DEFAULT_DIAGONAL_COST = 1000;
+    private static int DEFAULT_DIAGONAL_COST = 10000000;
     private int hvCost;
     private int diagonalCost;
     private Node[][] searchArea;
@@ -84,13 +84,16 @@ public class AStar {
         int row = currentNode.getRow();
         int col = currentNode.getCol();
         int lowerRow = row + 1;
+
         if (lowerRow < getSearchArea().length) {
+
             if (col - 1 >= 0) {
-                checkNode(currentNode, col - 1, lowerRow, getDiagonalCost()); // Comment this line if diagonal movements are not allowed
+                //checkNode(currentNode, col - 1, lowerRow, getDiagonalCost()); // Comment this line if diagonal movements are not allowed
             }
             if (col + 1 < getSearchArea()[0].length) {
-                checkNode(currentNode, col + 1, lowerRow, getDiagonalCost()); // Comment this line if diagonal movements are not allowed
+                //checkNode(currentNode, col + 1, lowerRow, getDiagonalCost()); // Comment this line if diagonal movements are not allowed
             }
+
             checkNode(currentNode, col, lowerRow, getHvCost());
         }
     }

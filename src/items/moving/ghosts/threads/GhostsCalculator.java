@@ -21,12 +21,19 @@ public class GhostsCalculator extends Thread {
     @Override
     public void run(){
         AStar aStar = new AStar(20, 40, this.getPositionFromCoordinates(ghosts.getRed()), this.getPositionFromCoordinates(pacman));
+        aStar.setBlocks(this.wallArray);
         this.ghosts.getRed().setAStar(aStar);
+
         aStar = new AStar(20, 40, this.getPositionFromCoordinates(ghosts.getTurquoise()), this.getPositionFromCoordinates(pacman));
+        aStar.setBlocks(this.wallArray);
         this.ghosts.getTurquoise().setAStar(aStar);
+
         aStar = new AStar(20, 40, this.getPositionFromCoordinates(ghosts.getYellow()), this.getPositionFromCoordinates(pacman));
+        aStar.setBlocks(this.wallArray);
         this.ghosts.getPink().setAStar(aStar);
+
         aStar = new AStar(20, 40, this.getPositionFromCoordinates(ghosts.getPink()), this.getPositionFromCoordinates(pacman));
+        aStar.setBlocks(this.wallArray);
         this.ghosts.getYellow().setAStar(aStar);
     }
 

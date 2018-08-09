@@ -36,7 +36,7 @@ public class PacmanFrame extends JFrame {
         this.user = user;
         this.ghosts = new Ghosts();
         profileFlags(seed);
-        this.pacman = new Pacman(2, 24);
+        this.pacman = new Pacman(0, 24);
         this.screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
         this.setStopped(false);
 

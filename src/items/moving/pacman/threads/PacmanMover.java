@@ -66,9 +66,6 @@ public class PacmanMover extends Thread {
         if (ghosts.getRed().getPath() == null || ghosts.getRed().getPath().isEmpty() || (pacman.isCollidedWithWall() && prevPosition == this.ghosts.getRed().getPath().size()))
             return;
 
-        if (pacman.isCollidedWithWall())
-            this.ghosts.getRed().setChanged(prevPosition++);
-
 
         int previousPosition[] = getCoordinatesFromPosition(this.ghosts.getRed().getPath().get(this.ghosts.getRed().getChanged()));
         ghosts.getRed().getArea().setLocation(previousPosition[0], previousPosition[1]);

@@ -41,7 +41,7 @@ public class AStar {
         }
     }
 
-    void setBlocks(int[][] blocksArray) {
+    public void setBlocks(int[][] blocksArray) {
         for (int x[] : blocksArray) {
             int row = x[0];
             int col = x[1];

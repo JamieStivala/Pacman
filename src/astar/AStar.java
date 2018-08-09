@@ -49,7 +49,7 @@ public class AStar {
         }
     }
 
-    List<Node> findPath() {
+    public List<Node> findPath() {
         openList.add(initialNode);
         while (!isEmpty(openList)) {
             Node currentNode = openList.poll();

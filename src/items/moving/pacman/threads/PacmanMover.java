@@ -59,17 +59,22 @@ public class PacmanMover extends Thread {
         freqOfMoves++;
     }
 
-    private int prevPosition = 0;
+    private Node lastNode;
     private void moveGhosts() {
-        new GhostsCalculator(this.pacmanFrame).start();
-        if(freqOfMoves <= 5) return;
-        if (ghosts.getRed().getPath() == null || ghosts.getRed().getPath().isEmpty() || (pacman.isCollidedWithWall() && prevPosition == this.ghosts.getRed().getPath().size()))
+        new GhostsCalculator(this.pacmanFrame).run();
+        if(freqOfMoves <= 6) return;
+        if (ghosts.getRed().getPath() == null || ghosts.getRed().getPath().isEmpty())
             return;
 
+        Node currentNode = this.ghosts.getRed().getPath().get(this.ghosts.getRed().getChanged());
+        if(lastNode != null && this.ghosts.getRed().getChanged() + 1 > ghosts.getRed().getPath().size()  && (currentNode.getCol() == lastNode.getCol() && currentNode.getRow() == lastNode.getRow() || pacman.isCollidedWithWall())){
+            this.ghosts.getRed().setChanged(this.ghosts.getRed().getChanged() + 1);
+            currentNode = this.ghosts.getRed().getPath().get(this.ghosts.getRed().getChanged() + 1);
+        }
 
-        int previousPosition[] = getCoordinatesFromPosition(this.ghosts.getRed().getPath().get(this.ghosts.getRed().getChanged()));
+        int previousPosition[] = getCoordinatesFromPosition(currentNode);
         ghosts.getRed().getArea().setLocation(previousPosition[0], previousPosition[1]);
-        prevPosition = this.ghosts.getRed().getChanged();
+        lastNode = currentNode;
         freqOfMoves = 0;
     }
 

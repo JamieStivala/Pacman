@@ -46,13 +46,11 @@ class SeedOperations {
         }
 
         if (amountWall > amountEmpty) {
-            amountWall = amountEmpty;
             for (int i = 0; i != blockType.length; i++) {
                 if (blockType[i] == BlockType.EMPTY) blockType[i] = BlockType.WALL;
                 else if (blockType[i] == BlockType.WALL) blockType[i] = BlockType.EMPTY;
             }
         } else if (amountWall > amountCoin) {
-            amountWall = amountCoin;
             for (int i = 0; i != blockType.length; i++) {
                 if (blockType[i] == BlockType.COIN) blockType[i] = BlockType.WALL;
                 else if (blockType[i] == BlockType.WALL) blockType[i] = BlockType.COIN;

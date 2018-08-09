@@ -9,11 +9,11 @@ public class Pink extends Sprite {
         super("pink.png", x, y, 32, 32);
     }
 
-    public AStar getaStar() {
+    public AStar getAStar() {
         return aStar;
     }
 
-    public void setaStar(AStar aStar) {
+    public void setAStar(AStar aStar) {
         this.aStar = aStar;
     }
 }

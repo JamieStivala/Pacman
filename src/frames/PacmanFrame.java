@@ -24,7 +24,6 @@ public class PacmanFrame extends JFrame {
     private CoinCollisionDetection coinCollisionDetection;
     private OverlappingDetector overlappingDetector;
     private Ghosts ghosts;
-    private AStar aStar;
 
     private BufferedImage screen;
     private volatile boolean stopped;
@@ -128,9 +127,5 @@ public class PacmanFrame extends JFrame {
 
     public Ghosts getGhosts() {
         return ghosts;
-    }
-
-    public AStar getAStar() {
-        return aStar;
     }
 }

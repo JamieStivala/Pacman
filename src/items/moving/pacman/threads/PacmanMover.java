@@ -51,14 +51,18 @@ public class PacmanMover extends Thread {
         }
     }
 
+    private int prevPosition = 0;
     private void moveGhosts() {
         new GhostsCalculator(this.pacmanFrame).start();
+        if(ghosts.getRed().getPath() == null || ghosts.getRed().getPath().isEmpty() || (pacman.isCollidedWithWall() && prevPosition == this.ghosts.getRed().getPath().size())) return;
 
-        if(ghosts.getRed().getPath() == null || ghosts.getRed().getPath().isEmpty()) return;
+        if(pacman.isCollidedWithWall()) {
+            this.ghosts.getRed().setChanged(prevPosition++);
+        }
 
-        int test[] = getCoordinatesFromPosition(this.ghosts.getRed().getPath().get(this.ghosts.getRed().getChanged()));
-        ghosts.getRed().getArea().setLocation(test[0], test[1]);
-
+        int previousPosition[] = getCoordinatesFromPosition(this.ghosts.getRed().getPath().get(this.ghosts.getRed().getChanged()));
+        ghosts.getRed().getArea().setLocation(previousPosition[0], previousPosition[1]);
+        prevPosition = this.ghosts.getRed().getChanged();
     }
 
     private void renderCoins() {

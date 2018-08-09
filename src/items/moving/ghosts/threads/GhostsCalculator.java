@@ -1,6 +1,9 @@
 package items.moving.ghosts.threads;
 
+import astar.AStar;
+import astar.Node;
 import frames.PacmanFrame;
+import items.Blob;
 import items.moving.ghosts.Ghosts;
 import items.moving.pacman.Pacman;
 
@@ -20,9 +23,9 @@ public class GhostsCalculator extends Thread {
 
     }
 
-    private int[] getPositionFromCoordinates(){
-        int h = pacman.getX()/36; //X
-        int v = ((pacman.getY() - 20) /39); //Y
-        return new int[]{h, v};
+    private Node getPositionFromCoordinates(Blob b){
+        int h = b.getX()/36; //X
+        int v = ((b.getY() - 20) /39); //Y
+        return new Node(h, v);
     }
 }

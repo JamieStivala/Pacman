@@ -1,6 +1,5 @@
 package frames;
 
-import astar.AStar;
 import frames.listeners.pacman.PacmanKeyListener;
 import items.moving.ghosts.Ghosts;
 import items.moving.pacman.Pacman;

@@ -1,19 +1,21 @@
 package items.moving.ghosts;
 
-import astar.AStar;
+import astar.Node;
 import items.Sprite;
 
+import java.util.List;
+
 public class Turquoise extends Sprite {
-    private AStar aStar;
+    private List<Node> path;
     public Turquoise(int x, int y) {
         super("turquoise.png", x, y, 32, 32);
     }
 
-    public AStar getAStar() {
-        return aStar;
+    public List<Node> getPath() {
+        return path;
     }
 
-    public void setAStar(AStar aStar) {
-        this.aStar = aStar;
+    public void setPath(List<Node> path) {
+        this.path = path;
     }
 }

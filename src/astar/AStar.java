@@ -27,7 +27,7 @@ public class AStar {
         this.closedList = new ArrayList<>();
     }
 
-    AStar(int rows, int cols, Node initialNode, Node finalNode) {
+    public AStar(int rows, int cols, Node initialNode, Node finalNode) {
         this(rows, cols, initialNode, finalNode, DEFAULT_HV_COST, DEFAULT_DIAGONAL_COST);
     }
 

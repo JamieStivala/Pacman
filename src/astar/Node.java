@@ -9,7 +9,7 @@ public class Node {
     private boolean isBlock;
     private Node parent;
 
-    Node(int row, int col) {
+    public Node(int row, int col) {
         super();
         this.row = row;
         this.col = col;

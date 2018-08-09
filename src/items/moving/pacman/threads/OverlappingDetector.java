@@ -34,9 +34,8 @@ public class OverlappingDetector extends Thread {
                 }
             }
 
-            if (!overlaps || (pacman.isCollidedWithWall() && pacman.getCurrentRotation() != pacman.getNextRotation())) {
+            if (!overlaps || pacman.isCollidedWithWall()) {
                 pacman.setCurrentRotation(pacman.getNextRotation());
-                pacmanFrame.getWallCollisionDetection().updateKeyPressed();
             }
         }
 

@@ -17,8 +17,9 @@ public class PacmanMover extends Thread {
     @Override
     public void run() {
         while (pacmanFrame.isRunning()) {
-            doMove(pacmanFrame.getPacman().getCurrentRotation());
+            doPacmanMove(pacmanFrame.getPacman().getCurrentRotation());
             renderCoins();
+            new GhostsCalculator(pacmanFrame).start();
 
             pacmanFrame.render();
             pacmanFrame.repaint();
@@ -30,7 +31,7 @@ public class PacmanMover extends Thread {
         }
     }
 
-    private void doMove(PacmanRotation rotation) {
+    private void doPacmanMove(PacmanRotation rotation) {
         if (pacman.getX() < -5 && rotation == PacmanRotation.LEFT) {
             pacman.getArea().setLocation(1423, pacman.getY());
         } else if (pacman.getX() > 1423 && rotation == PacmanRotation.RIGHT) {
@@ -47,10 +48,20 @@ public class PacmanMover extends Thread {
         }
     }
 
+    private void moveGhosts(){
+
+    }
+
     private void renderCoins() {
         if (pacmanFrame.getCoinCollisionDetection().hasCoinBeenTaken()) {
             pacmanFrame.getMap().paint();
             pacmanFrame.getCoinCollisionDetection().updatedCoins();
         }
+    }
+
+    private int[] getCoordinatesFromPosition(int vertical, int horizontal){
+        int h = horizontal*36; //X
+        int v = ((vertical + 20) *39); //Y
+        return new int[]{h, v};
     }
 }

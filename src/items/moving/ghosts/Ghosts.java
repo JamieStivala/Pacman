@@ -7,11 +7,10 @@ public class Ghosts {
     private Red red;
     private Turquoise turquoise;
     private Yellow yellow;
-
     public Ghosts(){
         red = new Red(720, 360);
-        pink = new Pink(720, 380);
-        turquoise = new Turquoise(720, 400);
+        pink = new Pink(685, 375);
+        turquoise = new Turquoise(765, 375);
         yellow = new Yellow(720, 410);
     }
 

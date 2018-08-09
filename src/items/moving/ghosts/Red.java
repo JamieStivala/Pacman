@@ -44,4 +44,8 @@ public class Red extends Sprite {
     public int getChanged() {
         return changed;
     }
+
+    public void setChanged(int changed){
+        this.changed = changed;
+    }
 }

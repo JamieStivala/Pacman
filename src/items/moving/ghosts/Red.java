@@ -18,11 +18,11 @@ public class Red extends Sprite {
     }
 
     public void setPath(List<Node> path) {
-        changed = getChanged(path);
+        changed = setChanged(path);
         this.path = path;
     }
 
-    private int getChanged(List<Node> newNodes){
+    private int setChanged(List<Node> newNodes){
         List<Node> oldNodes = this.getPath();
         int oldFound = getChanged();
         if(oldNodes == null) return 0;

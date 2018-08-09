@@ -13,6 +13,6 @@ public class GhostsCalculator extends Thread {
     public GhostsCalculator(PacmanFrame pacmanFrame){
         this.pacman = pacmanFrame.getPacman();
         this.ghosts = pacmanFrame.getGhosts();
-        this.aStar = pacmanFrame.getaStar();
+        this.aStar = pacmanFrame.getAStar();
     }
 }

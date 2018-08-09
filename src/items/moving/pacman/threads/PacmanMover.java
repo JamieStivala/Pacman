@@ -1,6 +1,8 @@
 package items.moving.pacman.threads;
 
+import astar.Node;
 import frames.PacmanFrame;
+import items.moving.ghosts.Ghosts;
 import items.moving.ghosts.threads.GhostsCalculator;
 import items.moving.pacman.Pacman;
 import items.moving.pacman.PacmanRotation;
@@ -8,10 +10,12 @@ import items.moving.pacman.PacmanRotation;
 public class PacmanMover extends Thread {
     private PacmanFrame pacmanFrame;
     private Pacman pacman;
+    private Ghosts ghosts;
 
     public PacmanMover(PacmanFrame pacmanFrame) {
         this.pacmanFrame = pacmanFrame;
         this.pacman = pacmanFrame.getPacman();
+        this.ghosts = pacmanFrame.getGhosts();
     }
 
     @Override
@@ -19,8 +23,7 @@ public class PacmanMover extends Thread {
         while (pacmanFrame.isRunning()) {
             doPacmanMove(pacmanFrame.getPacman().getCurrentRotation());
             renderCoins();
-            new GhostsCalculator(pacmanFrame).start();
-
+            moveGhosts();
             pacmanFrame.render();
             pacmanFrame.repaint();
             try {
@@ -48,7 +51,13 @@ public class PacmanMover extends Thread {
         }
     }
 
-    private void moveGhosts(){
+    private void moveGhosts() {
+        new GhostsCalculator(this.pacmanFrame).start();
+
+        if(ghosts.getRed().getPath() == null || ghosts.getRed().getPath().isEmpty()) return;
+
+        int test[] = getCoordinatesFromPosition(this.ghosts.getRed().getPath().get(this.ghosts.getRed().getChanged()));
+        ghosts.getRed().getArea().setLocation(test[0], test[1]);
 
     }
 
@@ -59,9 +68,9 @@ public class PacmanMover extends Thread {
         }
     }
 
-    private int[] getCoordinatesFromPosition(int vertical, int horizontal){
-        int h = horizontal*36; //X
-        int v = ((vertical + 20) *39); //Y
+    private int[] getCoordinatesFromPosition(Node x){
+        int h = x.getRow() *36; //X
+        int v = (x.getCol() * 39 ) + 20; //Y
         return new int[]{h, v};
     }
 }

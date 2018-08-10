@@ -16,13 +16,17 @@ public class ChompSoundThread extends Thread {
         }
     }
 
-    void playSound(){
-        try{
-            Chomp chomp = new Chomp();
-            chomp.start();
-            chomp.join();
-        }catch (InterruptedException e){
-            e.printStackTrace();
+    private void playSound(){
+        Chomp chomp = new Chomp();
+        chomp.start();
+        sleep();
+    }
+
+    private void sleep() {
+        try {
+            Thread.sleep(700);
+        } catch (InterruptedException e) {
+            System.err.println("Interrupted exception: " + e.getMessage());
         }
     }
 }

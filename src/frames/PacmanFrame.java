@@ -5,6 +5,7 @@ import items.moving.GeneralMover;
 import items.moving.ghosts.Ghosts;
 import items.moving.ghosts.threads.GhostsCollisionDetection;
 import items.moving.pacman.Pacman;
+import items.moving.pacman.threads.ChompSoundThread;
 import items.moving.pacman.threads.CoinCollisionDetection;
 import items.moving.pacman.threads.OverlappingDetector;
 import items.moving.pacman.threads.WallCollisionDetection;
@@ -25,6 +26,7 @@ public class PacmanFrame extends JFrame {
     private CoinCollisionDetection coinCollisionDetection;
     private OverlappingDetector overlappingDetector;
     private GhostsCollisionDetection ghostsCollisionDetection;
+    private ChompSoundThread chompSoundThread;
     private Ghosts ghosts;
 
     private BufferedImage screen;
@@ -83,6 +85,9 @@ public class PacmanFrame extends JFrame {
 
         this.ghostsCollisionDetection = new GhostsCollisionDetection(this);
         this.ghostsCollisionDetection.start();
+
+        this.chompSoundThread = new ChompSoundThread(this);
+        this.chompSoundThread.start();
     }
 
     public void render() {
@@ -135,5 +140,9 @@ public class PacmanFrame extends JFrame {
 
     public Ghosts getGhosts() {
         return ghosts;
+    }
+
+    public ChompSoundThread getChompSoundThread() {
+        return chompSoundThread;
     }
 }

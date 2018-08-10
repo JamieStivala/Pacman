@@ -23,7 +23,12 @@ public class GhostsCollisionDetection extends Thread{
             for (Ghost ghost: this.ghosts.getGhosts()) {
                 if(ghost.hasCollidedWith(pacman)) {
                     pacmanFrame.setStopped(true);
-                    new Death().start();
+                    try {
+                        pacmanFrame.getChompSoundThread().join();
+                        new Death().start();
+                    }catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
                 }
             }
         }

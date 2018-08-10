@@ -20,22 +20,22 @@ public class GhostsCalculator extends Thread {
 
     @Override
     public void run(){
-        AStar yellow = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getYellow()), this.getPositionFromCoordinates(pacman));
-        yellow.setBlocks(this.wallArray);
-        this.ghosts.getPink().setPath(yellow.findPath());
+        AStar aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getYellow()), this.getPositionFromCoordinates(pacman));
+        aStar.setBlocks(this.wallArray);
+        this.ghosts.getYellow().setPath(aStar.findPath());
 
-        AStar turquoise = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getTurquoise()), this.getPositionFromCoordinates(pacman));
-        turquoise.setBlocks(this.wallArray);
-        this.ghosts.getTurquoise().setPath(turquoise.findPath());
+        aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getTurquoise()), this.getPositionFromCoordinates(pacman));
+        aStar.setBlocks(this.wallArray);
+        this.ghosts.getTurquoise().setPath(aStar.findPath());
 
-        AStar red = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getRed()), this.getPositionFromCoordinates(pacman));
-        red.setBlocks(this.wallArray);
-        this.ghosts.getRed().setPath(red.findPath());
+        aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getRed()), this.getPositionFromCoordinates(pacman));
+        aStar.setBlocks(this.wallArray);
+        this.ghosts.getRed().setPath(aStar.findPath());
 
 
-        AStar pink = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getPink()), this.getPositionFromCoordinates(pacman));
-        pink.setBlocks(this.wallArray);
-        this.ghosts.getYellow().setPath(pink.findPath());
+        aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getPink()), this.getPositionFromCoordinates(pacman));
+        aStar.setBlocks(this.wallArray);
+        this.ghosts.getPink().setPath(aStar.findPath());
     }
 
     private Node getPositionFromCoordinates(Blob blob){

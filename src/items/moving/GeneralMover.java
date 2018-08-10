@@ -1,4 +1,4 @@
-package items.moving.pacman.threads;
+package items.moving;
 
 import astar.Node;
 import frames.PacmanFrame;
@@ -8,13 +8,13 @@ import items.moving.ghosts.threads.GhostsCalculator;
 import items.moving.pacman.Pacman;
 import items.moving.pacman.PacmanRotation;
 
-public class PacmanMover extends Thread {
+public class GeneralMover extends Thread {
     private PacmanFrame pacmanFrame;
     private Pacman pacman;
     private Ghosts ghosts;
     private double freqOfMoves = 0;
 
-    public PacmanMover(PacmanFrame pacmanFrame) {
+    public GeneralMover(PacmanFrame pacmanFrame) {
         this.pacmanFrame = pacmanFrame;
         this.pacman = pacmanFrame.getPacman();
         this.ghosts = pacmanFrame.getGhosts();
@@ -60,7 +60,7 @@ public class PacmanMover extends Thread {
         freqOfMoves++;
     }
 
-    private void moveGhost(int counter, Ghost ghost) {
+    private void moveGhost(int counter, int amountOfGhosts, Ghost ghost) {
         if(counter == 0) new GhostsCalculator(this.pacmanFrame).start();
         if(freqOfMoves <= 6) return;
 
@@ -70,12 +70,12 @@ public class PacmanMover extends Thread {
         int nextPosition[] = getCoordinatesFromPosition(ghost.getPath().get(ghost.getChanged()));
         ghost.getArea().setLocation(nextPosition[0], nextPosition[1]);
 
-        if(counter == 3) freqOfMoves = 0;
+        if(counter == amountOfGhosts) freqOfMoves = 0;
     }
 
     private void moveGhosts(int counter, Ghost[] ghosts){
         if(counter == ghosts.length) return;
-        moveGhost(counter, ghosts[counter]);
+        moveGhost(counter, ghosts.length, ghosts[counter]);
         moveGhosts(++counter, ghosts);
     }
 

@@ -1,11 +1,11 @@
 package frames;
 
 import frames.listeners.pacman.PacmanKeyListener;
+import items.moving.GeneralMover;
 import items.moving.ghosts.Ghosts;
 import items.moving.pacman.Pacman;
 import items.moving.pacman.threads.CoinCollisionDetection;
 import items.moving.pacman.threads.OverlappingDetector;
-import items.moving.pacman.threads.PacmanMover;
 import items.moving.pacman.threads.WallCollisionDetection;
 import map.PacmanMap;
 import user.manager.User;
@@ -18,7 +18,7 @@ public class PacmanFrame extends JFrame {
     private PacmanMap map;
     private Pacman pacman;
     private User user;
-    private PacmanMover pacmanMover;
+    private GeneralMover generalMover;
     private WallCollisionDetection wallCollisionDetection;
     private CoinCollisionDetection coinCollisionDetection;
     private OverlappingDetector overlappingDetector;
@@ -67,8 +67,8 @@ public class PacmanFrame extends JFrame {
         this.coinCollisionDetection = new CoinCollisionDetection(this);
         this.coinCollisionDetection.start();
 
-        this.pacmanMover = new PacmanMover(this);
-        this.pacmanMover.start();
+        this.generalMover = new GeneralMover(this);
+        this.generalMover.start();
 
         this.wallCollisionDetection = new WallCollisionDetection(this);
         this.wallCollisionDetection.start();

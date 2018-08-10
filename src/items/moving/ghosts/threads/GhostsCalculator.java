@@ -14,7 +14,7 @@ public class GhostsCalculator extends Thread {
     private CoinCollisionDetection coinCollisionDetection;
     private int wallArray[][];
 
-    public GhostsCalculator(PacmanFrame pacmanFrame){
+    public GhostsCalculator(PacmanFrame pacmanFrame) {
         this.pacman = pacmanFrame.getPacman();
         this.ghosts = pacmanFrame.getGhosts();
         this.wallArray = pacmanFrame.getMap().getWallArray();
@@ -22,26 +22,28 @@ public class GhostsCalculator extends Thread {
     }
 
     @Override
-    public void run(){
-        AStar aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getYellow()), this.getPositionFromCoordinates(pacman));
+    public void run() {
+        System.out.println(coinCollisionDetection.getScore());
+        AStar aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getRed()), this.getPositionFromCoordinates(pacman));
         aStar.setBlocks(this.wallArray);
-        this.ghosts.getYellow().setPath(aStar.findPath());
+        this.ghosts.getRed().setPath(aStar.findPath());
+        ghosts.setAmountOfGhostsOut(1);
 
-        if(coinCollisionDetection.getScore() > 20) {
+        if (coinCollisionDetection.getScore() > 20) {
             aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getTurquoise()), this.getPositionFromCoordinates(pacman));
             aStar.setBlocks(this.wallArray);
             this.ghosts.getTurquoise().setPath(aStar.findPath());
             ghosts.setAmountOfGhostsOut(2);
         }
 
-        if(coinCollisionDetection.getScore() > 100) {
-            aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getRed()), this.getPositionFromCoordinates(pacman));
+        if (coinCollisionDetection.getScore() > 100) {
+            aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getYellow()), this.getPositionFromCoordinates(pacman));
             aStar.setBlocks(this.wallArray);
-            this.ghosts.getRed().setPath(aStar.findPath());
+            this.ghosts.getYellow().setPath(aStar.findPath());
             ghosts.setAmountOfGhostsOut(3);
         }
 
-        if(coinCollisionDetection.getScore() > 200) {
+        if (coinCollisionDetection.getScore() > 200) {
             aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getPink()), this.getPositionFromCoordinates(pacman));
             aStar.setBlocks(this.wallArray);
             this.ghosts.getPink().setPath(aStar.findPath());
@@ -49,9 +51,9 @@ public class GhostsCalculator extends Thread {
         }
     }
 
-    private Node getPositionFromCoordinates(Blob blob){
-        int horizontal = blob.getX()/36; //X
-        int vertical = ((blob.getY() - 20) /39); //Y
+    private Node getPositionFromCoordinates(Blob blob) {
+        int horizontal = blob.getX() / 36; //X
+        int vertical = ((blob.getY() - 20) / 39); //Y
         return new Node(horizontal, vertical);
     }
 }

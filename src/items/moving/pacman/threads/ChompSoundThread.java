@@ -2,6 +2,7 @@ package items.moving.pacman.threads;
 
 import frames.PacmanFrame;
 import sounds.pacman.Chomp;
+import sounds.pacman.GameStart;
 
 public class ChompSoundThread extends Thread {
     private PacmanFrame pacmanFrame;
@@ -11,6 +12,8 @@ public class ChompSoundThread extends Thread {
     }
     @Override
     public void run(){
+        new GameStart().start();
+        gameStart();
         while(pacmanFrame.isRunning()) {
             playSound();
         }
@@ -29,4 +32,12 @@ public class ChompSoundThread extends Thread {
             System.err.println("Interrupted exception: " + e.getMessage());
         }
     }
+    private void gameStart() {
+        try {
+            Thread.sleep(4500);
+        } catch (InterruptedException e) {
+            System.err.println("Interrupted exception: " + e.getMessage());
+        }
+    }
+
 }

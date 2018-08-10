@@ -7,6 +7,7 @@ public class Ghosts {
     private Red red;
     private Turquoise turquoise;
     private Yellow yellow;
+
     public Ghosts(){
         red = new Red(720, 360);
         pink = new Pink(685, 375);

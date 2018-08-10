@@ -7,12 +7,14 @@ public class Ghosts {
     private Red red;
     private Turquoise turquoise;
     private Yellow yellow;
+    private int amountOfGhostsOut;
 
     public Ghosts(){
         red = new Red(720, 360);
         pink = new Pink(685, 375);
         turquoise = new Turquoise(765, 375);
         yellow = new Yellow(720, 410);
+        this.amountOfGhostsOut = 1;
     }
 
     public Pink getPink() {
@@ -36,5 +38,13 @@ public class Ghosts {
         pink.paint(g);
         turquoise.paint(g);
         yellow.paint(g);
+    }
+
+    public int getAmountOfGhostsOut() {
+        return amountOfGhostsOut;
+    }
+
+    public void setAmountOfGhostsOut(int amountOfGhostsOut) {
+        this.amountOfGhostsOut = amountOfGhostsOut;
     }
 }

@@ -21,7 +21,6 @@ public class CoinCollisionDetection extends Thread {
             pacmanFrame.getMap().getOrganizedBlocks().get(BlockType.COIN).removeIf(coin -> {
                 if (coin.hasCollidedWith(pacman)) {
                     score = score + (pacmanFrame.getGhosts().getAmountOfGhostsOut() * 2);
-                    System.out.println(score);
                     coinUpdateSinceLastBuffer = false;
                     coin.setVisible(false);
                     return true;

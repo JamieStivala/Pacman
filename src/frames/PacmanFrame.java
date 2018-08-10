@@ -9,6 +9,7 @@ import items.moving.pacman.threads.CoinCollisionDetection;
 import items.moving.pacman.threads.OverlappingDetector;
 import items.moving.pacman.threads.WallCollisionDetection;
 import map.PacmanMap;
+import sounds.pacman.GameStart;
 import user.manager.User;
 
 import javax.swing.*;
@@ -40,7 +41,9 @@ public class PacmanFrame extends JFrame {
         profileFlags(seed);
         this.pacman = new Pacman(0, 24);
         this.screen = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
+
         this.setStopped(false);
+        new GameStart().start();
 
         setFrameSettings();
         startThreads();

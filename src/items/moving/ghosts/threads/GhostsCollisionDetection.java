@@ -4,6 +4,7 @@ import frames.PacmanFrame;
 import items.moving.ghosts.Ghost;
 import items.moving.ghosts.Ghosts;
 import items.moving.pacman.Pacman;
+import sounds.pacman.Death;
 
 public class GhostsCollisionDetection extends Thread{
     private PacmanFrame pacmanFrame;
@@ -22,6 +23,7 @@ public class GhostsCollisionDetection extends Thread{
             for (Ghost ghost: this.ghosts.getGhosts()) {
                 if(ghost.hasCollidedWith(pacman)) {
                     pacmanFrame.setStopped(true);
+                    new Death().start();
                 }
             }
         }

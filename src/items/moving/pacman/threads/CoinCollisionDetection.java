@@ -3,6 +3,7 @@ package items.moving.pacman.threads;
 import frames.PacmanFrame;
 import items.moving.pacman.Pacman;
 import map.BlockType;
+import sounds.pacman.Chomp;
 
 public class CoinCollisionDetection extends Thread {
     private PacmanFrame pacmanFrame;
@@ -20,6 +21,7 @@ public class CoinCollisionDetection extends Thread {
         while (pacmanFrame.isRunning()) {
             pacmanFrame.getMap().getOrganizedBlocks().get(BlockType.COIN).removeIf(coin -> {
                 if (coin.hasCollidedWith(pacman)) {
+                    new Chomp().start();
                     score = score + (pacmanFrame.getGhosts().getAmountOfGhostsOut() * 2);
                     coinUpdateSinceLastBuffer = false;
                     coin.setVisible(false);

@@ -7,3 +7,5 @@ public class Pacman {
         new PacmanFrame(new User(""));
     }
 }
+
+

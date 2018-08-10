@@ -33,7 +33,7 @@ public class WallCollisionDetection extends Thread {
                     } else if (pacman.getCurrentRotation() == PacmanRotation.DOWN && pacman.getArea().intersectsLine(blob.getX() + 4, blob.getY() - 2, blob.getX() + blob.getArea().width - 4, blob.getY() - 2)) {
                         pacman.setCollidedWithWall(true);
                         keyPressedSinceCollision = false;
-                    } else if (pacman.getCurrentRotation() == PacmanRotation.UP && pacman.getArea().intersectsLine(blob.getX() + 6, blob.getY() + blob.getArea().height + 2, blob.getX() + blob.getArea().width - 6, blob.getY() + blob.getArea().height + 2)) {
+                    } else if (pacman.getCurrentRotation() == PacmanRotation.UP && pacman.getArea().intersectsLine(blob.getX() + 6, blob.getY() + blob.getArea().height + 4, blob.getX() + blob.getArea().width - 6, blob.getY() + blob.getArea().height + 6)) {
                         pacman.setCollidedWithWall(true);
                         keyPressedSinceCollision = false;
                     } else {
@@ -47,7 +47,7 @@ public class WallCollisionDetection extends Thread {
 
     private void sleep() {
         try {
-            Thread.sleep(20);
+            Thread.sleep(10);
         } catch (InterruptedException e) {
             System.err.println("Interrupted exception: " + e.getMessage());
         }

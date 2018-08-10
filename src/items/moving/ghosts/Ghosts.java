@@ -7,6 +7,8 @@ public class Ghosts {
     private Red red;
     private Turquoise turquoise;
     private Yellow yellow;
+
+    private Ghost ghosts[];
     private int amountOfGhostsOut;
 
     public Ghosts(){
@@ -14,6 +16,13 @@ public class Ghosts {
         pink = new Pink(685, 375);
         turquoise = new Turquoise(765, 375);
         yellow = new Yellow(720, 410);
+
+        ghosts = new Ghost[4];
+        ghosts[0] = red;
+        ghosts[1] = pink;
+        ghosts[2] = turquoise;
+        ghosts[3] = yellow;
+
         this.amountOfGhostsOut = 1;
     }
 
@@ -46,5 +55,9 @@ public class Ghosts {
 
     public void setAmountOfGhostsOut(int amountOfGhostsOut) {
         this.amountOfGhostsOut = amountOfGhostsOut;
+    }
+
+    public Ghost[] getGhosts() {
+        return ghosts;
     }
 }

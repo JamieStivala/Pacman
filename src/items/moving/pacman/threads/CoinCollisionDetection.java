@@ -20,7 +20,7 @@ public class CoinCollisionDetection extends Thread {
         while (pacmanFrame.isRunning()) {
             pacmanFrame.getMap().getOrganizedBlocks().get(BlockType.COIN).removeIf(coin -> {
                 if (coin.hasCollidedWith(pacman)) {
-                    score++;
+                    score += (score * pacmanFrame.getGhosts().getAmountOfGhostsOut());
                     coinUpdateSinceLastBuffer = false;
                     coin.setVisible(false);
                     return true;
@@ -31,11 +31,15 @@ public class CoinCollisionDetection extends Thread {
         pacmanFrame.getUser().setLastGameScore(score);
     }
 
-    boolean hasCoinBeenTaken() {
+    public boolean hasCoinBeenTaken() {
         return !coinUpdateSinceLastBuffer;
     }
 
-    void updatedCoins() {
+    public void updatedCoins() {
         this.coinUpdateSinceLastBuffer = true;
+    }
+
+    public int getScore() {
+        return score;
     }
 }

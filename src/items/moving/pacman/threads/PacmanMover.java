@@ -25,7 +25,7 @@ public class PacmanMover extends Thread {
         while (pacmanFrame.isRunning()) {
             doPacmanMove(pacmanFrame.getPacman().getCurrentRotation());
             renderCoins();
-            moveGhosts(0, new Ghost[]{ghosts.getRed(), ghosts.getTurquoise()}); //TODO REWRITE GHOST MOVING SYSTEM (moveGhost)
+            moveGhosts(0, new Ghost[]{ghosts.getYellow(), ghosts.getTurquoise(), ghosts.getPink(), ghosts.getRed()});
             pacmanFrame.render();
             pacmanFrame.repaint();
             try {
@@ -60,22 +60,22 @@ public class PacmanMover extends Thread {
         freqOfMoves++;
     }
 
-    private void moveGhost(Ghost ghost, int counter) {
+    private void moveGhost(int counter, Ghost ghost) {
+        if(counter == 0) new GhostsCalculator(this.pacmanFrame).start();
         if(freqOfMoves <= 6) return;
-        if (counter == 0) new GhostsCalculator(this.pacmanFrame).run();
-        System.out.println(counter + " " + ghost.getPath());
+
         if (ghost.getPath() == null || ghost.getPath().isEmpty())
             return;
 
-        int previousPosition[] = getCoordinatesFromPosition(ghost.getPath().get(ghost.getChanged()));
-        ghost.getArea().setLocation(previousPosition[0], previousPosition[1]);
+        int nextPosition[] = getCoordinatesFromPosition(ghost.getPath().get(ghost.getChanged()));
+        ghost.getArea().setLocation(nextPosition[0], nextPosition[1]);
 
-        if(counter == 1) freqOfMoves = 0;
+        if(counter == 3) freqOfMoves = 0;
     }
 
     private void moveGhosts(int counter, Ghost[] ghosts){
         if(counter == ghosts.length) return;
-        moveGhost(ghosts[counter], counter);
+        moveGhost(counter, ghosts[counter]);
         moveGhosts(++counter, ghosts);
     }
 

@@ -126,11 +126,11 @@ abstract class BasePanel extends JPanel implements MouseListener {
         return this.pacFont;
     }
 
-    public Font getPixelMinerFont() {
+    Font getPixelMinerFont() {
         return pixelMiner;
     }
 
-    public JLabel getBackLabel() {
+    JLabel getBackLabel() {
         return backLabel;
     }
 

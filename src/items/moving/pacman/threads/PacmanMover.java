@@ -25,7 +25,7 @@ public class PacmanMover extends Thread {
         while (pacmanFrame.isRunning()) {
             doPacmanMove(pacmanFrame.getPacman().getCurrentRotation());
             renderCoins();
-            moveGhosts(0, new Ghost[]{ghosts.getRed(), ghosts.getYellow(), ghosts.getPink(), ghosts.getTurquoise()});
+            moveGhosts(0, new Ghost[]{ghosts.getRed(), ghosts.getTurquoise()}); //TODO REWRITE GHOST MOVING SYSTEM (moveGhost)
             pacmanFrame.render();
             pacmanFrame.repaint();
             try {
@@ -60,28 +60,21 @@ public class PacmanMover extends Thread {
         freqOfMoves++;
     }
 
-    private Node lastNode[] = new Node[4];
     private void moveGhost(Ghost ghost, int counter) {
-        new GhostsCalculator(this.pacmanFrame).run();
         if(freqOfMoves <= 6) return;
+        if (counter == 0) new GhostsCalculator(this.pacmanFrame).run();
+        System.out.println(counter + " " + ghost.getPath());
         if (ghost.getPath() == null || ghost.getPath().isEmpty())
             return;
 
-        Node currentNode = ghost.getPath().get(ghost.getChanged());
-        if(lastNode != null && ghost.getChanged() + 1 > ghost.getPath().size()  && (currentNode.getCol() == lastNode[counter].getCol() && currentNode.getRow() == lastNode[counter].getRow() || pacman.isCollidedWithWall())){
-            ghost.setChanged(ghost.getChanged() + 1);
-            currentNode = ghost.getPath().get(ghost.getChanged() + 1);
-        }
-
-        int previousPosition[] = getCoordinatesFromPosition(currentNode);
+        int previousPosition[] = getCoordinatesFromPosition(ghost.getPath().get(ghost.getChanged()));
         ghost.getArea().setLocation(previousPosition[0], previousPosition[1]);
-        lastNode[counter] = currentNode;
 
-        freqOfMoves = 0;
+        if(counter == 1) freqOfMoves = 0;
     }
 
     private void moveGhosts(int counter, Ghost[] ghosts){
-        if(counter == 4) return;
+        if(counter == ghosts.length) return;
         moveGhost(ghosts[counter], counter);
         moveGhosts(++counter, ghosts);
     }

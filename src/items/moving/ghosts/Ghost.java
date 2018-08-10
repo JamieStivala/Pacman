@@ -24,7 +24,6 @@ public abstract class Ghost extends Sprite {
 
     private int setChanged(List<Node> newNodes){
         List<Node> oldNodes = this.getPath();
-        int oldFound = getChanged();
         if(oldNodes == null) return 0;
 
         int min = (oldNodes.size() < newNodes.size()) ? oldNodes.size() : newNodes.size();
@@ -32,7 +31,7 @@ public abstract class Ghost extends Sprite {
         for (int i = 0; i != min ; i++) {
             Node oldNode = oldNodes.get(i);
             for (int x = 0; x != min ; x++) {
-                if(oldNode.getRow() != newNodes.get(x).getRow() || oldNode.getCol() != newNodes.get(x).getCol()) if(x >= oldFound){
+                if(oldNode.getRow() == newNodes.get(x).getRow() + 1 || oldNode.getRow() == newNodes.get(x).getRow() -1 || oldNode.getCol() == newNodes.get(x).getCol() + 1 || oldNode.getCol() == newNodes.get(x).getCol() - 1){
                     return x;
                 }
             }

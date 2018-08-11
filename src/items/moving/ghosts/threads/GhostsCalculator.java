@@ -25,7 +25,6 @@ public class GhostsCalculator extends Thread {
     public void run() {
         AStar aStar;
         if (coinCollisionDetection.getScore() > 2) {
-            System.out.println(coinCollisionDetection.getScore());
             aStar = new AStar(40, 20, this.getPositionFromCoordinates(ghosts.getRed()), this.getPositionFromCoordinates(pacman));
             aStar.setBlocks(this.wallArray);
             this.ghosts.getRed().setPath(aStar.findPath());

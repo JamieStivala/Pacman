@@ -69,8 +69,6 @@ public class GeneralMover extends Thread {
 
         int nextPosition[] = getCoordinatesFromPosition(ghost.getPath().get(ghost.getChanged()));
         ghost.getArea().setLocation(nextPosition[0], nextPosition[1]);
-
-        if(counter == 3) freqOfMoves = 0;
     }
 
     private void moveGhosts(int counter, Ghost[] ghosts){

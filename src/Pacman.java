@@ -1,10 +1,9 @@
-import frames.PacmanFrame;
-import user.manager.User;
+import frames.MainMenu;
 
 public class Pacman {
     public static void main(String args[]) {
-        //new MainMenu();
-        new PacmanFrame(new User(""));
+        new MainMenu();
+        //new PacmanFrame(new User(""));
     }
 }
 

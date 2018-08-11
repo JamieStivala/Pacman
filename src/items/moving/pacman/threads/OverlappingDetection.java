@@ -6,11 +6,11 @@ import map.Line;
 
 import static items.moving.pacman.PacmanRotation.*;
 
-public class OverlappingDetector extends Thread {
+public class OverlappingDetection extends Thread {
     private PacmanFrame pacmanFrame;
     private Pacman pacman;
 
-    public OverlappingDetector(PacmanFrame pacmanFrame) {
+    public OverlappingDetection(PacmanFrame pacmanFrame) {
         this.pacmanFrame = pacmanFrame;
         this.pacman = pacmanFrame.getPacman();
     }

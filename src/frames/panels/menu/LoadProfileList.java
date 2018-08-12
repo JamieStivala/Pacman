@@ -22,10 +22,16 @@ public class LoadProfileList extends BasePanel {
     private JLabel loadLabel;
     private ImageIcon loadTextures[];
 
+    /**
+     * @param mainMenu The object of the MainMenu which stores most of the objects regarding the MainMenu
+     */
     public LoadProfileList(MainMenu mainMenu) {
         super(mainMenu, true);
     }
 
+    /**
+     * This loads all the JLabel and components needed for the frame to work
+     */
     @Override
     void loadComponents() {
         super.loadComponents();
@@ -69,6 +75,9 @@ public class LoadProfileList extends BasePanel {
         super.add(loadLabel);
     }
 
+    /**
+     * This loads all the textures for the JLabel
+     */
     @Override
     void loadTextures() {
         super.loadTextures();
@@ -111,16 +120,25 @@ public class LoadProfileList extends BasePanel {
         return this.profilesList;
     }
 
+    /**
+     * Shows the create button
+     */
     public void addCreate() {
         this.loadLabel.setVisible(false);
         this.createLabel.setVisible(true);
     }
 
+    /**
+     * Shows the load button
+     */
     public void addLoad() {
         this.createLabel.setVisible(false);
         this.loadLabel.setVisible(true);
     }
 
+    /**
+     * Reloads all the components of the frame due to updates to the frame
+     */
     public void reloadComponents() {
         this.removeAll();
         this.loadComponents();

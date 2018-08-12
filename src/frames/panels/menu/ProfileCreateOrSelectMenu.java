@@ -15,10 +15,16 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
     private ImageIcon loadProfileTextures[];
     private JLabel loadProfileLbl;
 
+    /**
+     * @param mainMenu The object of the MainMenu which stores most of the objects regarding the MainMenu
+     */
     public ProfileCreateOrSelectMenu(MainMenu mainMenu) {
         super(mainMenu, false);
     }
 
+    /**
+     * This loads all the JLabel and components needed for the frame to work
+     */
     @Override
     @SuppressWarnings("Duplicates")
     void loadComponents() {
@@ -38,6 +44,9 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
         super.add(loadProfileLbl);
     }
 
+    /**
+     * This loads all the textures for the JLabel
+     */
     @Override
     void loadTextures() {
         super.loadTextures();
@@ -54,16 +63,8 @@ public class ProfileCreateOrSelectMenu extends BasePanel {
         }
     }
 
-    public ImageIcon[] getNewProfileTextures() {
-        return this.newProfileTextures;
-    }
-
     public JLabel getNewProfileLbl() {
         return this.newProfileLbl;
-    }
-
-    public ImageIcon[] getLoadProfileTextures() {
-        return this.loadProfileTextures;
     }
 
     public JLabel getLoadProfileLbl() {

@@ -14,10 +14,16 @@ public class StatsPanel extends BasePanel {
     private BufferedImage totalScore;
     private BufferedImage lastPlayedScore;
 
+    /**
+     * @param mainMenu The object of the MainMenu which stores most of the objects regarding the MainMenu
+     */
     public StatsPanel(MainMenu mainMenu) {
         super(mainMenu, true);
     }
 
+    /**
+     * This loads all the textures for the JLabel
+     */
     @Override
     void loadTextures() {
         super.loadTextures();
@@ -32,6 +38,10 @@ public class StatsPanel extends BasePanel {
         }
     }
 
+    /**
+     * Paints profile name, highest score, games played, total score and last played score
+     * @param g The java.awt Graphics
+     */
     @Override
     public void paint(Graphics g) {
         super.paint(g);

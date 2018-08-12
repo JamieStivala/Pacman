@@ -25,10 +25,16 @@ public class PlayGame extends BasePanel {
 
     private JTextField seed;
 
+    /**
+     * @param mainMenu The object of the MainMenu which stores most of the objects regarding the MainMenu
+     */
     public PlayGame(MainMenu mainMenu) {
         super(mainMenu, true);
     }
 
+    /**
+     * This loads all the JLabel and components needed for the frame to work
+     */
     @Override
     void loadComponents() {
         super.loadComponents();
@@ -65,6 +71,9 @@ public class PlayGame extends BasePanel {
 
     }
 
+    /**
+     * This loads all the textures for the JLabel
+     */
     @Override
     void loadTextures() {
         super.loadTextures();
@@ -88,6 +97,10 @@ public class PlayGame extends BasePanel {
         }
     }
 
+    /**
+     * Loads the or text, enter seed text and also another or
+     * @param g The java.awt Graphics
+     */
     @Override
     public void paint(Graphics g) {
         super.paint(g);

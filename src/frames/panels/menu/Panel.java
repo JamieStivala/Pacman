@@ -1,5 +1,8 @@
 package frames.panels.menu;
 
+/**
+ * An enum that represents the all the panels for code readability
+ */
 public enum Panel {
     CREATE_PROFILE,
     NEW_PROFILE,

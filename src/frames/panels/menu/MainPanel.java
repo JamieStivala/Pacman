@@ -24,10 +24,16 @@ public class MainPanel extends BasePanel {
     private JLabel exitLabel;
     private ImageIcon exitTextures[];
 
+    /**
+     * @param mainMenu The object of the MainMenu which stores most of the objects regarding the MainMenu
+     */
     public MainPanel(MainMenu mainMenu) {
         super(mainMenu, false);
     }
 
+    /**
+     * This loads all the JLabel and components needed for the frame to work
+     */
     @Override
     void loadComponents() {
         super.loadComponents();
@@ -67,6 +73,9 @@ public class MainPanel extends BasePanel {
         super.add(exitLabel);
     }
 
+    /**
+     * This loads all the textures for the JLabel
+     */
     @Override
     void loadTextures() {
         super.loadTextures();

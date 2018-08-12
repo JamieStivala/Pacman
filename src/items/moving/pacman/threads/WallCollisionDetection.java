@@ -8,16 +8,33 @@ import map.BlockType;
 
 import java.util.ArrayList;
 
+/**
+ * Checks if the pacman has collided with the wall.
+ * This is done is a separate thread for efficiency
+ */
 public class WallCollisionDetection extends Thread {
     private PacmanFrame frame;
     private Pacman pacman;
     private volatile boolean keyPressedSinceCollision = false;
 
+    /**
+     * @param frame The pacman frame that has almost all the objects of the Pacman
+     */
     public WallCollisionDetection(PacmanFrame frame) {
         this.frame = frame;
         this.pacman = frame.getPacman();
     }
 
+    /**
+     * The thread that consistently checks if the pacman is collided with the wall
+     *
+     * Since the pacman moves at 6 pixels I couldn't just use the area.isCollidedWith since this would check the whole block.  When checking
+     * the whole block it sometimes found that the pacman is inside the block and when pressing the next button it would still be "collided" and the Pacman wouldn't move.
+     *
+     * The solution to this was creating custom lines for each block and on the x and y plane and checking if the Pacman collides with them.
+     *
+     * The lines are slightly cut in length and also have a they are slightly suspended outwards.
+     */
     @Override
     public void run() {
         while (frame.isRunning()) {
@@ -45,6 +62,11 @@ public class WallCollisionDetection extends Thread {
         }
     }
 
+    /**
+     * A sleep method so that the code looks nicer without try{} catch() in the middle of the run
+     *
+     * This sleep was implemented since the Pacman moves at intervals of 105 milliseconds
+     */
     private void sleep() {
         try {
             Thread.sleep(10);
@@ -53,6 +75,10 @@ public class WallCollisionDetection extends Thread {
         }
     }
 
+    /**
+     * When collided with the wall, it doesn't keep on checking if it's collided until the user presses a button
+     * This is the trigger to that variable
+     */
     public void keyPressed() {
         this.keyPressedSinceCollision = true;
     }

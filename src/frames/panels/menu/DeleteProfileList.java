@@ -16,10 +16,16 @@ public class DeleteProfileList extends BasePanel {
 
     private JList<String> profilesList;
 
+    /**
+     * @param mainMenu The object of the MainMenu which stores most of the objects regarding the MainMenu
+     */
     public DeleteProfileList(MainMenu mainMenu) {
         super(mainMenu, true);
     }
 
+    /**
+     * This loads all the JLabel and components needed for the frame to work
+     */
     @Override
     void loadComponents() {
         super.loadComponents();
@@ -54,6 +60,9 @@ public class DeleteProfileList extends BasePanel {
         super.add(deleteLabel);
     }
 
+    /**
+     * This loads all the textures for the JLabel
+     */
     @Override
     void loadTextures() {
         super.loadTextures();
@@ -70,10 +79,6 @@ public class DeleteProfileList extends BasePanel {
         return this.deleteLabel;
     }
 
-    public ImageIcon[] getDeleteTextures() {
-        return this.deleteTextures;
-    }
-
     public JList<String> getProfilesList() {
         return this.profilesList;
     }
@@ -82,6 +87,9 @@ public class DeleteProfileList extends BasePanel {
         this.deleteLabel.setVisible(true);
     }
 
+    /**
+     * Reloads all the components of the frame due to updates to the frame
+     */
     public void reloadComponents() {
         this.removeAll();
         this.loadComponents();

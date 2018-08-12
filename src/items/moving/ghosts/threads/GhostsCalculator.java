@@ -8,12 +8,18 @@ import items.moving.ghosts.Ghosts;
 import items.moving.pacman.Pacman;
 import items.moving.pacman.threads.CoinCollisionDetection;
 
+/**
+ * This thread will calculate the path of all the ghosts
+ */
 public class GhostsCalculator extends Thread {
     private Ghosts ghosts;
     private Pacman pacman;
     private CoinCollisionDetection coinCollisionDetection;
     private int wallArray[][];
 
+    /**
+     * @param pacmanFrame he pacman frame that has almost all the objects of the Pacman game
+     */
     public GhostsCalculator(PacmanFrame pacmanFrame) {
         this.pacman = pacmanFrame.getPacman();
         this.ghosts = pacmanFrame.getGhosts();
@@ -21,6 +27,16 @@ public class GhostsCalculator extends Thread {
         this.coinCollisionDetection = pacmanFrame.getCoinCollisionDetection();
     }
 
+    /**
+     * Calculates the path depending on the score.
+     *
+     * On running this thread it first checks the amount of score the pacman has.  If it has >2 (meaning that the pacman picked one coin)
+     * the red ghosts path is calculated.
+     *
+     * If >20 the turquoise ghost starts to move and the amountOfGhosts is set to 2
+     * If >100 the yellow ghost starts to move and the amountOfGhosts is set to 3
+     * If >200 the pink ghost starts to move and the amountOfGhosts is set to 4
+     */
     @Override
     public void run() {
         AStar aStar;
@@ -53,6 +69,10 @@ public class GhostsCalculator extends Thread {
         }
     }
 
+    /**
+     * @param blob The coordinates of the blob
+     * @return The converted x and y into the horizontal and vertical positions in grid
+     */
     private Node getPositionFromCoordinates(Blob blob) {
         int horizontal = blob.getX() / 36; //X
         int vertical = ((blob.getY() - 20) / 39); //Y

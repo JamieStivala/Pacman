@@ -7,10 +7,16 @@ import items.moving.pacman.PacmanRotation;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * This represent the Pacman Key Listener
+ */
 public class PacmanKeyListener implements KeyListener {
     private Pacman pacman;
     private PacmanFrame pacmanFrame;
 
+    /**
+     * @param pacmanFrame The object of the pacmanFrame which stores most of the objects regarding the game
+     */
     public PacmanKeyListener(PacmanFrame pacmanFrame) {
         this.pacmanFrame = pacmanFrame;
         this.pacman = pacmanFrame.getPacman();
@@ -21,6 +27,11 @@ public class PacmanKeyListener implements KeyListener {
 
     }
 
+    /**
+     * When the key pressed it checks which key is pressed and updates the setNextRotation
+     * It also triggers the key pressed in getWallCollisionDetection
+     * @param e The key event
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == 37 || e.getKeyCode() == 65) pacman.setNextRotation(PacmanRotation.LEFT);

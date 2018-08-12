@@ -1,5 +1,8 @@
 package map;
 
+/**
+ * Due to the lack of line class in java this was created.  This will be used to store lines used in graphics.drawLine()
+ */
 public class Line {
     private int x;
     private int y;

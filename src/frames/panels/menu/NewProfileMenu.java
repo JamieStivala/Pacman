@@ -16,10 +16,16 @@ public class NewProfileMenu extends BasePanel {
 
     private BufferedImage noSaveFound;
 
+    /**
+     * @param mainMenu The object of the MainMenu which stores most of the objects regarding the MainMenu
+     */
     public NewProfileMenu(MainMenu mainMenu) {
         super(mainMenu, false);
     }
 
+    /**
+     * This loads all the JLabel and components needed for the frame to work
+     */
     @Override
     void loadComponents() {
         super.loadComponents();
@@ -31,6 +37,9 @@ public class NewProfileMenu extends BasePanel {
         super.add(newProfileLabel);
     }
 
+    /**
+     * This loads all the textures for the JLabel
+     */
     @Override
     void loadTextures() {
         super.loadTextures();
@@ -44,6 +53,10 @@ public class NewProfileMenu extends BasePanel {
         }
     }
 
+    /**
+     * Loads the no save found text
+     * @param g The java.awt Graphics
+     */
     @Override
     public void paint(Graphics g) {
         super.paint(g);

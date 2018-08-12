@@ -28,6 +28,9 @@ public class SeedViewerList extends BasePanel {
         super(mainMenu, true);
     }
 
+    /**
+     * This loads all the JLabel and components needed for the frame to work
+     */
     @Override
     void loadComponents() {
         super.loadComponents();
@@ -70,6 +73,9 @@ public class SeedViewerList extends BasePanel {
         super.add(selectLabel);
     }
 
+    /**
+     * This loads all the textures for the JLabel
+     */
     @Override
     void loadTextures() {
         super.loadTextures();
@@ -88,12 +94,20 @@ public class SeedViewerList extends BasePanel {
         }
     }
 
+    /**
+     * Paints the list of seeds text
+     * @param g The java.awt Graphics
+     */
     @Override
     public void paint(Graphics g) {
         super.paint(g);
         g.drawImage(listOfSeeds, 408, 250, null);
     }
 
+    /**
+     * This is used so that the back button doesn't take you back to the new panel and then there would be no way of accessing the main menu
+     * @param e MouseEvent
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         if (e.getComponent() instanceof JLabel) new ClickSound().start();
@@ -123,11 +137,17 @@ public class SeedViewerList extends BasePanel {
         return selectTexture;
     }
 
+    /*
+    Shows the back and select buttons
+     */
     public void triggerButtons() {
         this.deleteLabel.setVisible(true);
         this.selectLabel.setVisible(true);
     }
 
+    /**
+     * Reloads the components for when things change during runtime
+     */
     public void reloadComponents() {
         this.removeAll();
         this.loadComponents();

@@ -5,6 +5,10 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.io.File;
 
+/**
+ * This class represents a thread where the clicking sound (similar to the one in Minecraft) will be heard when clicking a Button/JLabel
+ * Sounds used where Royalty Free unlicensed sounds
+ */
 public class ClickSound extends Thread {
     public void run() {
         try {

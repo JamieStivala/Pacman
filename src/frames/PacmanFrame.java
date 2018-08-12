@@ -16,6 +16,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+/**
+ * The pacman frame is what will store everything regarding the Pacman including the Ghosts, Map, Pacman and user playing and all the threads
+ * such as the generalMover, wallCollisionDetection, coinCollisionDetection, overlappingDetection, ghostsCollisionDetection and chompSoundThread
+ *
+ * This also represents the frame which means that rendering is done here
+ */
 public class PacmanFrame extends JFrame {
     private PacmanMap map;
     private Pacman pacman;
@@ -31,10 +37,27 @@ public class PacmanFrame extends JFrame {
     private BufferedImage screen;
     private volatile boolean stopped;
 
+    /**
+     * This sets the seed to random and calls PacmanFrame(User user, long seed)
+     * @param user The user of game
+     */
     public PacmanFrame(User user) {
         this(user, (long) (Math.random() * 1000000000));
     }
 
+    /**
+     * This is the main constructor of the whole game.
+     *
+     * Here an instance of the map is created
+     * It updates everything in the profile such as adding the seed and increment the amount of games played
+     * Creates an instance of the Pacman
+     * Creates the screen that will act as the rendering canvas
+     * Sets all the frame settings such as the frame size etc
+     * Starts all the threads needed for the game to work
+     *
+     * @param user The user playing the game
+     * @param seed The seed of the map
+     */
     PacmanFrame(User user, long seed) {
         this.map = new PacmanMap(seed);
         this.user = user;
@@ -49,6 +72,11 @@ public class PacmanFrame extends JFrame {
         startThreads();
     }
 
+    /**
+     * Adds the seed and increments the amount of games played
+     * If the seed is found it doesn't add it again
+     * @param seed The seed of the map
+     */
     private void profileFlags(long seed) {
         boolean found = false;
         for (int i = 0; i != user.getSeedsPlayed().size(); i++) {
@@ -58,6 +86,16 @@ public class PacmanFrame extends JFrame {
         user.incrementTotalPlayedGamed();
     }
 
+    /**
+     * Sets all the settings of the frame
+     * Title to Pacman
+     * Size to 1440, 799
+     * Resizable to false
+     * Adds the key listener
+     * Sets the layout to null
+     * Sets it visible
+     * Requests focus
+     */
     private void setFrameSettings() {
         super.setTitle("Pacman");
         super.setSize(1440, 799);
@@ -68,6 +106,15 @@ public class PacmanFrame extends JFrame {
         super.requestFocus();
     }
 
+    /**
+     * Starts all the threads that the game needs
+     * coinCollisionDetection
+     * generalMover
+     * wallCollisionDetection
+     * overlappingDetection
+     * ghostsCollisionDetection
+     * chompSoundThread
+     */
     private void startThreads() {
         this.coinCollisionDetection = new CoinCollisionDetection(this);
         this.coinCollisionDetection.start();
@@ -88,6 +135,9 @@ public class PacmanFrame extends JFrame {
         this.chompSoundThread.start();
     }
 
+    /**
+     * This renders the pacman, the ghosts and also gets the map from that was pre-rendered.  It also adds the background
+     */
     public void render() {
         Graphics g = screen.getGraphics();
         g.setColor(new Color(5, 19, 28));
@@ -97,49 +147,83 @@ public class PacmanFrame extends JFrame {
         ghosts.paint(g);
     }
 
+    /**
+     * Paints the screen
+     * @param g The graphics from java.awt
+     */
     @Override
     public void paint(Graphics g) {
         if (screen == null) return;
         g.drawImage(screen, 1, 1, null);
     }
 
+    /**
+     *  The update calls the paint()
+     * @param g the graphics from java.awt
+     */
     @Override
     public void update(Graphics g) {
         paint(g);
     }
 
+    /**
+     * @return The moving Pacman
+     */
     public Pacman getPacman() {
         return pacman;
     }
 
+    /**
+     * @return If the game is running
+     */
     public boolean isRunning() {
         return !stopped;
     }
 
+    /**
+     * @param stopped Sets if the game is stopped
+     */
     public void setStopped(boolean stopped) {
         this.stopped = stopped;
     }
 
+    /**
+     * @return The generated map object
+     */
     public PacmanMap getMap() {
         return map;
     }
 
+    /**
+     * @return The WallCollisionDetection thread
+     */
     public WallCollisionDetection getWallCollisionDetection() {
         return wallCollisionDetection;
     }
-
+    /**
+     * @return The CoinCollisionDetection thread
+     */
     public CoinCollisionDetection getCoinCollisionDetection() {
         return coinCollisionDetection;
     }
 
+    /**
+     * @return The playing user
+     */
     public User getUser() {
         return user;
     }
 
+    /**
+     * @return The Object of ghosts
+     */
     public Ghosts getGhosts() {
         return ghosts;
     }
 
+    /**
+     * @return The ChompSoundThread thread
+     */
     public ChompSoundThread getChompSoundThread() {
         return chompSoundThread;
     }

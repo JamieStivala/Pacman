@@ -10,6 +10,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+/**
+ * This represent the CreateProfileMenu
+ */
 public class CreateProfileMenu extends BasePanel {
     private BufferedImage enterProfileNameTexture;
 
@@ -18,10 +21,16 @@ public class CreateProfileMenu extends BasePanel {
 
     private JTextField enterProfileNameTextField;
 
+    /**
+     * @param mainMenu The object of the MainMenu which stores most of the objects regarding the MainMenu
+     */
     public CreateProfileMenu(MainMenu mainMenu) {
         super(mainMenu, true);
     }
 
+    /**
+     * This loads all the JLabel and components needed for the frame to work
+     */
     @Override
     void loadComponents() {
         super.loadComponents();
@@ -41,6 +50,9 @@ public class CreateProfileMenu extends BasePanel {
         super.add(createProfileLabel);
     }
 
+    /**
+     * This loads all the textures for the JLabel
+     */
     @Override
     void loadTextures() {
         super.loadTextures();
@@ -67,6 +79,10 @@ public class CreateProfileMenu extends BasePanel {
         return this.createProfileTextures;
     }
 
+    /**
+     * This paints the enterProfileName text
+     * @param g The java.awt Graphics
+     */
     @Override
     public void paint(Graphics g) {
         super.paint(g);

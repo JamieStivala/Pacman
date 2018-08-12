@@ -11,6 +11,9 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * This class extends the seed class. Here the building and rendering of the map is done
+ */
 public class PacmanMap extends Seed {
     private Blob gameTextures[][];
     private HashMap<BlockType, ArrayList<Blob>> organizedBlocks;
@@ -33,6 +36,9 @@ public class PacmanMap extends Seed {
         this.paint();
     }
 
+    /**
+    * This is called the represent the spawnBox all the ghosts are going to be inside of
+     */
     private void addSpawnBox() {
         //Top & Bottom walls
         super.getSeed(7)[19] = BlockType.WALL;
@@ -76,6 +82,11 @@ public class PacmanMap extends Seed {
         //Empty the inside box
     }
 
+    /**
+     * This will make if there is a wall at one end it will generate another wall at the other end.
+     *
+     * This was done to fix a bug where the pacman would go at one side of the map, teleport to the other side and be stuck in the wall.
+     */
     private void addReflectiveWalls() {
         for (int vertical = 0; vertical != super.getSeed().length; vertical++) {
             BlockType current[] = super.getSeed(vertical);
@@ -94,6 +105,12 @@ public class PacmanMap extends Seed {
         }
     }
 
+    /**
+     * Draws the map with all the textures (Coin, Wall, Empty) and adds it to the 2D array called game textures.
+     * To fill up the screen of 1440 * 799, an x increment of 36 was used and a y increment of 39 was used.
+     *
+     * This also fills up a HashMap with all the blocks organized (so that they can be used in collision systems)
+     */
     private void drawMap() {
         int x = 0;
         int y = 20;
@@ -120,6 +137,11 @@ public class PacmanMap extends Seed {
         }
     }
 
+    /**
+     * The A* algorithm uses an array to represent where the ghosts can go.  This is filled up at this stage.
+     *
+     * This method will also fill up "verticalWallLines" and "horizontalWallLines" array of lines.  This is used in the Overlapping detector
+     */
     private void aStartWallArrayFiller() {
         this.wallArray = new int[this.getOrganizedBlocks().get(BlockType.WALL).size()][2];
         for (int vertical = 0, wallCounter = 0; vertical != super.getSeed().length; vertical++) {
@@ -137,6 +159,10 @@ public class PacmanMap extends Seed {
         }
     }
 
+    /**
+     * This will paint the map in a BufferedMap beforehand so it doesn't render on request causing lag.
+     * The map also requires this so when coins are picked everything is rendered again
+     */
     public void paint() {
         this.bufferedMap = new BufferedImage(1440, 799, BufferedImage.TYPE_INT_ARGB);
         Graphics g = bufferedMap.getGraphics();
@@ -148,27 +174,53 @@ public class PacmanMap extends Seed {
         }
     }
 
+    /**
+     * This is a getter for the pre-rendered buffered map
+     * @return BufferedMap with all the aspects of the world loaded in
+     */
     public BufferedImage getBufferedMap() {
         return this.bufferedMap;
     }
 
+    /**
+     * Adds the specified BlockType to the ArrayList of blocks of that BlockType.
+     *
+     * This method starts of by using Lambda expressions to check if an ArrayList of the BlockType exists. If it doesn't an ArrayList is created.
+     * It then adds the block type to the ArrayList.
+     *
+     * This was implemented as a safe way of adding things to the HashMap and reducing the chance of an error
+     * @param blockType The BlockType that is to be added
+     * @param blob The loaded texture that is to be used
+     */
     private void addToOrganizedBlocks(BlockType blockType, Blob blob) {
         this.organizedBlocks.computeIfAbsent(blockType, h -> new ArrayList<>());
         this.organizedBlocks.get(blockType).add(blob);
     }
 
+    /**
+     * @return The HashMap named organizedBlocks
+     */
     public HashMap<BlockType, ArrayList<Blob>> getOrganizedBlocks() {
         return organizedBlocks;
     }
 
+    /**
+     * @return The 2D wall array for the A*
+     */
     public int[][] getWallArray() {
         return wallArray;
     }
 
+    /**
+     * @return The vertical lines used for Overlapping Detector
+     */
     public Line[] getVerticalWallLines() {
         return verticalWallLines;
     }
 
+    /**
+     * @return The horizontal lines used for the Overlapping Detector
+     */
     public Line[] getHorizontalWallLines() {
         return horizontalWallLines;
     }

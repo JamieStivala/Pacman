@@ -3,6 +3,9 @@ package frames.panels.menu.custom;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * A custom SelectedListCellRenderer that overrides the DefaultListCellRenderer for the different colored text
+ */
 public class SelectedListCellRenderer extends DefaultListCellRenderer {
     public SelectedListCellRenderer() {
         super.setHorizontalAlignment(SwingConstants.CENTER);

@@ -9,9 +9,15 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * This is the main MenuMouseListener that handles all the button clicks
+ */
 public class MenuMouseListener implements MouseListener {
     private MainMenu mainMenu;
 
+    /**
+     * @param mainMenu The object of the MainMenu which stores most of the objects regarding the MainMenu
+     */
     public MenuMouseListener(MainMenu mainMenu) {
         this.mainMenu = mainMenu;
     }
@@ -21,6 +27,10 @@ public class MenuMouseListener implements MouseListener {
 
     }
 
+    /**
+     * This handles what each button in all the different frames do
+     * @param e The MouseEvent
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         if (e.getComponent() == this.mainMenu.getNewProfileMenu().getNewProfileLabel() || e.getComponent() == this.mainMenu.getProfileCreateOrSelectMenu().getNewProfileLbl() || e.getComponent() == this.mainMenu.getLoadProfileList().getCreateLabel()) {

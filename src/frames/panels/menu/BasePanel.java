@@ -12,6 +12,9 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+/**
+ * A base class for every panel
+ */
 abstract class BasePanel extends JPanel implements MouseListener {
     private MainMenu mainMenu;
     private Font pacFont;
@@ -25,6 +28,18 @@ abstract class BasePanel extends JPanel implements MouseListener {
 
     private boolean showBack;
 
+    /**
+     * This sets all the default things of the panel
+     * This also loads all the fonts
+     *
+     * It also has methods such as loadTextures() and loadComponents() and paint() that are meant to be overwritten and called via super.methodName(g);
+     * In these the back button and the consistent logo are loaded.
+     *
+     * After the loadTextures and loadComponents that are overwritten are called the frame is repainted
+     *
+     * @param mainMenu The object of the MainMenu which stores most of the objects regarding the MainMenu
+     * @param showBack Represents whether to show the back button or not
+     */
     BasePanel(MainMenu mainMenu, boolean showBack) {
         this.mainMenu = mainMenu;
         this.showBack = showBack;
@@ -36,6 +51,9 @@ abstract class BasePanel extends JPanel implements MouseListener {
         super.repaint();
     }
 
+    /**
+     * Loads the back button
+     */
     void loadComponents() {
         if (showBack) {
             backLabel = new JLabel();
@@ -47,6 +65,9 @@ abstract class BasePanel extends JPanel implements MouseListener {
         }
     }
 
+    /**
+     * Loads the backTextures and the numbers and letters
+     */
     void loadTextures() {
         if (showBack) {
             backTextures = new ImageIcon[2];
@@ -62,6 +83,9 @@ abstract class BasePanel extends JPanel implements MouseListener {
         }
     }
 
+    /**
+     * Since the numbers are colored and not as a font, they are loaded as separate images
+     */
     private void loadNumbers() throws Exception {
         this.numbers = new BufferedImage[10];
         for (int i = 0; i != numbers.length; i++) {
@@ -69,6 +93,9 @@ abstract class BasePanel extends JPanel implements MouseListener {
         }
     }
 
+    /**
+     * Since the letters are colored and not as a font, they are loaded as separate images
+     */
     private void loadLetters() throws Exception {
         this.letters = new BufferedImage[26];
         for (int i = 0; i != letters.length; i++) {
@@ -76,12 +103,19 @@ abstract class BasePanel extends JPanel implements MouseListener {
         }
     }
 
+    /**
+     * Draws the consistent logo throughout the layout
+     * @param g The java.awt Graphics
+     */
     @Override
     public void paint(Graphics g) {
         super.paint(g);
         if (mainMenu.getLogo() != null) g.drawImage(mainMenu.getLogo(), 208, 0, 1024, 242, null);
     }
 
+    /**
+     * Loads the PacFont and PixelMiner font
+     */
     private void loadFonts() {
         try {
             this.pacFont = Font.createFont(Font.TRUETYPE_FONT, new File("resources/fonts/PacFont.ttf")).deriveFont(Font.PLAIN, 60);
@@ -94,8 +128,17 @@ abstract class BasePanel extends JPanel implements MouseListener {
         }
     }
 
+    /**
+     * The numbers are drawn on the buffered image.
+     *
+     * This is done by creating a buffered image of the amount of numbers * 32 since on x and 32 in height since the numbers are 32 x 32
+     * It then splits each number into characters and draws then one by one
+     *
+     * @param number The numbers to be drawn
+     * @return The buffered image with the numbers drawn
+     */
     BufferedImage drawNumber(int number) {
-        BufferedImage image = new BufferedImage((((number + "").length()) * 32), 30, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage image = new BufferedImage((((number + "").length()) * 32), 32, BufferedImage.TYPE_INT_ARGB);
         Graphics g = image.getGraphics();
         char splitNumber[] = (number + "").toCharArray();
 
@@ -105,6 +148,18 @@ abstract class BasePanel extends JPanel implements MouseListener {
         return image;
     }
 
+    /**
+     * The text is draw on the buffered image
+     *
+     * This works very similar to drawNumber it converts the characters into numbers to prevent a bunch of if's
+     * This is done by doing the
+     * char - 'A' and getting a number of the letter from 0 - 25 (A - Z)
+     *
+     * An exception has been made for when the character is -33 which is a space
+     *
+     * @param text The text to be draw
+     * @return The buffered image with the text drawn
+     */
     BufferedImage drawText(String text) {
         BufferedImage image = new BufferedImage(text.length() * 32, 32, BufferedImage.TYPE_INT_ARGB);
         Graphics g = image.getGraphics();
@@ -118,18 +173,30 @@ abstract class BasePanel extends JPanel implements MouseListener {
         return image;
     }
 
+    /**
+     * @return The main menu
+     */
     MainMenu getMainMenu() {
         return this.mainMenu;
     }
 
+    /**
+     * @return The pacFont
+     */
     Font getPacFont() {
         return this.pacFont;
     }
 
+    /**
+     * @return The pixelMiner font
+     */
     Font getPixelMinerFont() {
         return pixelMiner;
     }
 
+    /**
+     * @return The back label
+     */
     JLabel getBackLabel() {
         return backLabel;
     }
@@ -139,6 +206,10 @@ abstract class BasePanel extends JPanel implements MouseListener {
 
     }
 
+    /**
+     * This handles what happens to the back button when it is pressed
+     * @param e MouseEvent
+     */
     @Override
     public void mousePressed(MouseEvent e) {
         if (e.getComponent() instanceof JLabel) new ClickSound().start();

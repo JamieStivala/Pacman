@@ -6,11 +6,19 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.regex.Pattern;
 
+/**
+ * The MenuKeyListener that will handles the inputs and outputs of the program
+ */
 public class MenuKeyListener implements KeyListener {
     private MainMenu mainMenu;
     private Pattern textPattern;
     private Pattern numberPattern;
 
+    /**
+     * In here a textPattern is used to check if the things entered are letters
+     * Another numberPatter is used to check if the things entered are numbers
+     * @param mainMenu The object of the MainMenu which stores most of the objects regarding the MainMenu
+     */
     public MenuKeyListener(MainMenu mainMenu) {
         this.textPattern = Pattern.compile("[^ a-z]", Pattern.CASE_INSENSITIVE);
         this.numberPattern = Pattern.compile("[^1-9]");
@@ -26,6 +34,11 @@ public class MenuKeyListener implements KeyListener {
     public void keyPressed(KeyEvent e) {
 
     }
+
+    /**
+     * When a key is types it checks if it is compliant with the pattern given or if it an action key or keys such as the ctrl key etc
+     * @param e The KeyEvent
+     */
 
     @Override
     public void keyReleased(KeyEvent e) {

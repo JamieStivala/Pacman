@@ -4,19 +4,37 @@ import items.Sprite;
 
 import java.awt.image.BufferedImage;
 
+/**
+ * Represents the moving Pacman
+ */
 public class Pacman extends Sprite {
     private volatile boolean collidedWithWall;
     private PacmanRotation currentRotation;
     private PacmanRotation nextRotation;
 
+    /**
+     * Spawns the object with the same texture with and height every time
+     * Since the width and height of the objects are constants and even the file name this class is used for ease
+     *
+     * @param x-coordinate to spawn in
+     * @param y-coordinate to spawn in
+     */
     public Pacman(int x, int y) {
         super("pacman.png", x, y, 32, 32);
     }
 
+    /**
+     * @return The current rotation of the Pacman
+     */
     public PacmanRotation getCurrentRotation() {
         return currentRotation;
     }
 
+    /**
+     * Rotates the texture of the Pacman
+     * Since the rotate method only rotates at 90 degrees it has to be called more then once for the rotation to be done at 90, 180 and 240 rotations
+     * @param currentRotation
+     */
     public void setCurrentRotation(PacmanRotation currentRotation) {
         PacmanRotation oldRotation = this.getCurrentRotation();
         this.currentRotation = currentRotation;
@@ -36,14 +54,23 @@ public class Pacman extends Sprite {
         }
     }
 
+    /**
+     * @return The next rotation of the pacman when it is not overlapping
+     */
     public PacmanRotation getNextRotation() {
         return nextRotation;
     }
 
+    /**
+     * Sets the next rotation of the pacman when it is not overlapping
+     */
     public void setNextRotation(PacmanRotation nextRotation) {
         this.nextRotation = nextRotation;
     }
 
+    /**
+     * This method rotates the BufferedImage by 90 degrees
+     */
     private void rotate() {
         int flipHeight = super.getImage().getWidth();
         int flipWidth = super.getImage().getHeight();
@@ -58,10 +85,16 @@ public class Pacman extends Sprite {
         super.image = newImage;
     }
 
+    /**
+     * @return A boolean that represents if the pacman is collided with the wall
+     */
     public boolean isCollidedWithWall() {
         return collidedWithWall;
     }
 
+    /**
+     * Sets a boolean that represents if the pacman is collided with the wall
+     */
     public void setCollidedWithWall(boolean collidedWithWall) {
         this.collidedWithWall = collidedWithWall;
     }

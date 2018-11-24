@@ -12,7 +12,7 @@ public class User implements Serializable {
     private int totalGamesPlayed;
     private int highestScore;
     private int lastGameScore;
-    private ArrayList<Long> seedsPlayed; //Seeds are all the generated map
+    private ArrayList<Long> seedsPlayed; //Seeds are all the generated pacman.map
 
     /**
      * @param characterName The class can only be initiated if the user has a character name

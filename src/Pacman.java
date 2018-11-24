@@ -1,4 +1,4 @@
-import frames.MainMenu;
+import shared.frames.MainMenu;
 
 public class Pacman {
     /**
@@ -8,5 +8,4 @@ public class Pacman {
         new MainMenu();
     }
 }
-
 

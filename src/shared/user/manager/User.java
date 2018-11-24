@@ -1,10 +1,10 @@
-package user.manager;
+package shared.user.manager;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * This class will represent the user class
+ * This class will represent the shared.user class
  */
 public class User implements Serializable {
     private String characterName;
@@ -15,7 +15,7 @@ public class User implements Serializable {
     private ArrayList<Long> seedsPlayed; //Seeds are all the generated pacman.map
 
     /**
-     * @param characterName The class can only be initiated if the user has a character name
+     * @param characterName The class can only be initiated if the shared.user has a character name
      */
     public User(String characterName) {
         this.characterName = characterName;

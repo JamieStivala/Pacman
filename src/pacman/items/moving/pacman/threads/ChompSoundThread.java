@@ -1,6 +1,6 @@
 package pacman.items.moving.pacman.threads;
 
-import pacman.frame.PacmanFrame;
+import pacman.PacmanFrame;
 import pacman.sounds.pacman.Chomp;
 import pacman.sounds.pacman.GameStart;
 

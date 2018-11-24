@@ -1,6 +1,6 @@
 package pacman.listener;
 
-import pacman.frame.PacmanFrame;
+import pacman.PacmanFrame;
 import pacman.items.moving.pacman.Pacman;
 import pacman.items.moving.pacman.PacmanRotation;
 

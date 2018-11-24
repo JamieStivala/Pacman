@@ -1,13 +1,13 @@
 package menu.listeners;
 
 import shared.frames.MainMenu;
-import user.manager.UserHandler;
+import shared.user.manager.UserHandler;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 /**
- * This is the menu window listener that when the window is closing it saves the user
+ * This is the menu window listener that when the window is closing it saves the shared.user
  */
 public class MenuWindowListener implements WindowListener {
     private MainMenu mainMenu;
@@ -25,7 +25,7 @@ public class MenuWindowListener implements WindowListener {
     }
 
     /**
-     * Saves the user on exit
+     * Saves the shared.user on exit
      * @param e The WindowEvent
      */
     @Override

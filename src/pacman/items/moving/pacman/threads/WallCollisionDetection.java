@@ -1,6 +1,6 @@
 package pacman.items.moving.pacman.threads;
 
-import pacman.frame.PacmanFrame;
+import pacman.PacmanFrame;
 import pacman.items.Blob;
 import pacman.items.moving.pacman.Pacman;
 import pacman.items.moving.pacman.PacmanRotation;
@@ -76,7 +76,7 @@ public class WallCollisionDetection extends Thread {
     }
 
     /**
-     * When collided with the wall, it doesn't keep on checking if it's collided until the user presses a button
+     * When collided with the wall, it doesn't keep on checking if it's collided until the shared.user presses a button
      * This is the trigger to that variable
      */
     public void keyPressed() {

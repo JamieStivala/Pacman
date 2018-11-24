@@ -1,6 +1,6 @@
 package pacman.items.moving.pacman.threads;
 
-import pacman.frame.PacmanFrame;
+import pacman.PacmanFrame;
 import pacman.items.moving.pacman.Pacman;
 import pacman.map.Line;
 

@@ -1,7 +1,7 @@
 package menu.listeners;
 
 import shared.frames.MainMenu;
-import pacman.frame.PacmanFrame;
+import pacman.PacmanFrame;
 import menu.panels.Panel;
 
 import java.awt.event.WindowEvent;

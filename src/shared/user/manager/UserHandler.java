@@ -1,4 +1,4 @@
-package user.manager;
+package shared.user.manager;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -38,10 +38,10 @@ public class UserHandler {
     }
 
     /**
-     * This will be used with the UI so that the user doesn't create a profile with the same name
+     * This will be used with the UI so that the shared.user doesn't create a profile with the same name
      * @param users The ArrayList of users to be checked
      * @param name The new name to be inserted into the ArrayList
-     * @return A boolean that checks if a user with that name already exists
+     * @return A boolean that checks if a shared.user with that name already exists
      */
     public static boolean nameExists(ArrayList<User> users, String name) {
         for (User user : users) {

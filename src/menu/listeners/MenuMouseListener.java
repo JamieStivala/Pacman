@@ -2,8 +2,8 @@ package menu.listeners;
 
 import shared.frames.MainMenu;
 import menu.panels.Panel;
-import user.manager.User;
-import user.manager.UserHandler;
+import shared.user.manager.User;
+import shared.user.manager.UserHandler;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;

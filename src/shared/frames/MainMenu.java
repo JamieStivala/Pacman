@@ -5,9 +5,9 @@ import menu.listeners.MenuMouseListener;
 import menu.listeners.MenuWindowListener;
 import menu.panels.*;
 import menu.panels.Panel;
-import pacman.frame.PacmanFrame;
-import user.manager.User;
-import user.manager.UserHandler;
+import pacman.PacmanFrame;
+import shared.user.manager.User;
+import shared.user.manager.UserHandler;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * This class is the entry point of the MainMenu and of the whole game
  *
- * In this class there are all the JPanels, the card layout used, all the users and the current user being played
+ * In this class there are all the JPanels, the card layout used, all the users and the current shared.user being played
  */
 public class MainMenu extends JFrame {
     private ArrayList<User> users;
@@ -137,14 +137,14 @@ public class MainMenu extends JFrame {
     }
 
     /**
-     * @return The current user being used
+     * @return The current shared.user being used
      */
     public User getCurrentUser() {
         return this.currentUser;
     }
 
     /**
-     * @param currentUser The user to be set as the current user
+     * @param currentUser The shared.user to be set as the current shared.user
      */
     public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
@@ -238,7 +238,7 @@ public class MainMenu extends JFrame {
     }
 
     /**
-     * This is used when the user is not expecting the previous frame to prevent looping in the menu
+     * This is used when the shared.user is not expecting the previous frame to prevent looping in the menu
      * @param previousFrame The previous panel to switch to
      */
     public void setPreviousFrame(Panel previousFrame) {

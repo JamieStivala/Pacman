@@ -2,7 +2,7 @@ package pacman.items.moving.ghosts.threads;
 
 import pacman.astar.AStar;
 import pacman.astar.Node;
-import pacman.frame.PacmanFrame;
+import pacman.PacmanFrame;
 import pacman.items.Blob;
 import pacman.items.moving.ghosts.Ghosts;
 import pacman.items.moving.pacman.Pacman;

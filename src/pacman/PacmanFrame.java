@@ -1,4 +1,4 @@
-package pacman.frame;
+package pacman;
 
 import pacman.listener.PacmanKeyListener;
 import pacman.items.moving.GeneralMover;
@@ -10,14 +10,14 @@ import pacman.items.moving.pacman.threads.CoinCollisionDetection;
 import pacman.items.moving.pacman.threads.OverlappingDetection;
 import pacman.items.moving.pacman.threads.WallCollisionDetection;
 import pacman.map.PacmanMap;
-import user.manager.User;
+import shared.user.manager.User;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
- * The pacman frame is what will store everything regarding the Pacman including the Ghosts, Map, Pacman and user playing and all the threads
+ * The pacman frame is what will store everything regarding the Pacman including the Ghosts, Map, Pacman and shared.user playing and all the threads
  * such as the generalMover, wallCollisionDetection, coinCollisionDetection, overlappingDetection, ghostsCollisionDetection and chompSoundThread
  *
  * This also represents the frame which means that rendering is done here
@@ -38,8 +38,8 @@ public class PacmanFrame extends JFrame {
     private volatile boolean stopped;
 
     /**
-     * This sets the seed to random and calls PacmanFrame(User user, long seed)
-     * @param user The user of game
+     * This sets the seed to random and calls PacmanFrame(User shared.user, long seed)
+     * @param user The shared.user of game
      */
     public PacmanFrame(User user) {
         this(user, (long) (Math.random() * 1000000000));
@@ -55,7 +55,7 @@ public class PacmanFrame extends JFrame {
      * Sets all the frame settings such as the frame size etc
      * Starts all the threads needed for the game to work
      *
-     * @param user The user playing the game
+     * @param user The shared.user playing the game
      * @param seed The seed of the pacman.map
      */
     public PacmanFrame(User user, long seed) {
@@ -208,7 +208,7 @@ public class PacmanFrame extends JFrame {
     }
 
     /**
-     * @return The playing user
+     * @return The playing shared.user
      */
     public User getUser() {
         return user;

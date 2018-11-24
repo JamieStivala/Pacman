@@ -1,6 +1,6 @@
 package pacman.items.moving.ghosts.threads;
 
-import pacman.frame.PacmanFrame;
+import pacman.PacmanFrame;
 import pacman.items.moving.ghosts.Ghost;
 import pacman.items.moving.ghosts.Ghosts;
 import pacman.items.moving.pacman.Pacman;

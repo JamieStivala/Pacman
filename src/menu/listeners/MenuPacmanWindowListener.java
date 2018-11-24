@@ -1,7 +1,7 @@
 package menu.listeners;
 
 import shared.frames.MainMenu;
-import pacman.PacmanFrame;
+import game.PacmanFrame;
 import menu.panels.Panel;
 
 import java.awt.event.WindowEvent;
@@ -25,7 +25,7 @@ public class MenuPacmanWindowListener implements WindowListener {
     }
 
     /**
-     * This handles what happens when the pacman frame does when is starts
+     * This handles what happens when the game frame does when is starts
      * It sets the main menu to visible and also switches the layout of the MainMenu panel
      * @param e WindowEvent
      */
@@ -36,7 +36,7 @@ public class MenuPacmanWindowListener implements WindowListener {
     }
 
     /**
-     * This handles what happens when the pacman frame when it is closed
+     * This handles what happens when the game frame when it is closed
      * @param e WindowEvent
      */
     @Override

@@ -5,7 +5,7 @@ import menu.listeners.MenuMouseListener;
 import menu.listeners.MenuWindowListener;
 import menu.panels.*;
 import menu.panels.Panel;
-import pacman.PacmanFrame;
+import game.PacmanFrame;
 import shared.user.manager.User;
 import shared.user.manager.UserHandler;
 
@@ -122,7 +122,7 @@ public class MainMenu extends JFrame {
 
 
     /**
-     * @return The pacman logo
+     * @return The game logo
      */
     public BufferedImage getLogo() {
         return this.logo;

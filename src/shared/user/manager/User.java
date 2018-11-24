@@ -12,7 +12,7 @@ public class User implements Serializable {
     private int totalGamesPlayed;
     private int highestScore;
     private int lastGameScore;
-    private ArrayList<Long> seedsPlayed; //Seeds are all the generated pacman.map
+    private ArrayList<Long> seedsPlayed; //Seeds are all the generated game.map
 
     /**
      * @param characterName The class can only be initiated if the shared.user has a character name

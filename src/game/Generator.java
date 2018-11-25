@@ -16,7 +16,7 @@ public class Generator {
         this.pseudoRandomGenerator = new Random(seed);
     }
 
-    private static String correctLenghtBinaryNumber(int number){
+    private static String correctLengthBinaryNumber(int number){
         String binaryNumber = Integer.toBinaryString(number);
         binaryNumber =  binaryNumber.substring(0, Math.min(binaryNumber.length(), 20));
         return binaryNumber;
@@ -30,7 +30,7 @@ public class Generator {
             binary[i] = binaryStringC[i] != '0';
         }
 
-        return binary;
+        return blockTypes;
     }
 
 

@@ -39,6 +39,8 @@ public class Generator {
      *      If there is no fruits that one will be a fruit
      *      If there is a fruit the rest will become a Power Pellet
      *
+     * After it is done it makes sure that the amount of preferred block is more than the other block and if not it switches them
+     *
      * @param binaryNumber The Binary Number that will be converted into the correct format of Block Types
      * @param preferredBlock The preferred block will the main generated block
      * @return An array of BlockType of length 20

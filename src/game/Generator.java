@@ -3,7 +3,7 @@ package game;
 import java.util.Random;
 
 public class Generator {
-    private boolean builtMap[][];
+    private BlockType builtMap[][];
     private Random pseudoRandomGenerator;
 
     public Generator(int width, int height){
@@ -12,7 +12,7 @@ public class Generator {
 
     public Generator(int seed, int width, int height){
         System.out.println(seed);
-        this.builtMap  = new boolean[width][height];
+        this.builtMap  = new BlockType[width][height];
         this.pseudoRandomGenerator = new Random(seed);
     }
 

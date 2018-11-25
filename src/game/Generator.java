@@ -21,6 +21,10 @@ public class Generator {
         }
     }
 
+    /**
+     * @param number The number to be converted into binary format
+     * @return The binary number with length 20
+     */
     private static String correctLengthBinaryNumber(int number){
         String binaryNumber = Integer.toBinaryString(number);
         binaryNumber =  binaryNumber.substring(0, Math.min(binaryNumber.length(), 20));

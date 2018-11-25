@@ -1,7 +1,6 @@
-package menu.listeners;
+package shared.listeners;
 
 import shared.frames.MainMenu;
-import game.PacmanFrame;
 import menu.panels.Panel;
 
 import java.awt.event.WindowEvent;
@@ -13,15 +12,15 @@ import java.awt.event.WindowListener;
  */
 public class MenuPacmanWindowListener implements WindowListener {
     private MainMenu mainMenu;
-    private PacmanFrame pacmanFrame;
+    //private PacmanFrame pacmanFrame;
 
     /**
      * @param mainMenu The object of the MainMenu which stores most of the objects regarding the MainMenu
-     * @param pacmanFrame The object of the pacmanFrame which stores most of the objects regarding the game
+     * //@param pacmanFrame The object of the pacmanFrame which stores most of the objects regarding the game
      */
-    public MenuPacmanWindowListener(MainMenu mainMenu, PacmanFrame pacmanFrame) {
+    public MenuPacmanWindowListener(MainMenu mainMenu){//, PacmanFrame pacmanFrame) {
         this.mainMenu = mainMenu;
-        this.pacmanFrame = pacmanFrame;
+        //this.pacmanFrame = pacmanFrame;
     }
 
     /**
@@ -41,8 +40,8 @@ public class MenuPacmanWindowListener implements WindowListener {
      */
     @Override
     public void windowClosing(WindowEvent e) {
-        this.pacmanFrame.setStopped(true);
-        this.pacmanFrame.dispose();
+        //this.pacmanFrame.setStopped(true);
+        //this.pacmanFrame.dispose();
         this.mainMenu.setVisible(true);
         this.mainMenu.getSeedViewerList().reloadComponents();
         this.mainMenu.handleScore();

@@ -1,11 +1,9 @@
 package shared.frames;
 
-import menu.listeners.MenuPacmanWindowListener;
 import menu.listeners.MenuMouseListener;
 import menu.listeners.MenuWindowListener;
 import menu.panels.*;
 import menu.panels.Panel;
-import game.PacmanFrame;
 import shared.user.manager.User;
 import shared.user.manager.UserHandler;
 
@@ -244,21 +242,20 @@ public class MainMenu extends JFrame {
     public void setPreviousFrame(Panel previousFrame) {
         this.previousFrame = previousFrame;
     }
-
     /**
      * This starts the PacmanFrame with a random seed
      */
     public void startGame() {
-        PacmanFrame pacmanFrame = new PacmanFrame(this.currentUser);
-        pacmanFrame.addWindowListener(new MenuPacmanWindowListener(this, pacmanFrame));
+        //PacmanFrame pacmanFrame = new PacmanFrame(this.currentUser);
+        //pacmanFrame.addWindowListener(new MenuPacmanWindowListener(this, pacmanFrame));
     }
 
     /**
      * This starts the PacmanFrame with the specified seed
      */
     public void startGame(long seed) {
-        PacmanFrame pacmanFrame = new PacmanFrame(this.currentUser, seed);
-        pacmanFrame.addWindowListener(new MenuPacmanWindowListener(this, pacmanFrame));
+        //PacmanFrame pacmanFrame = new PacmanFrame(this.currentUser, seed);
+        //pacmanFrame.addWindowListener(new MenuPacmanWindowListener(this, pacmanFrame));
     }
 
     /**

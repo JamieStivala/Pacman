@@ -46,17 +46,22 @@ public class Generator {
     private static BlockType[] stringToBinary(String binaryNumber, BlockType preferredBlock){
         char[] binaryStringC = binaryNumber.toCharArray();
         BlockType[] blockTypes = new BlockType[binaryStringC.length/2];
+
         int specialBlockCounter = 0;
+        int preferredBlockCounter = 0;
+        int otherBlockCounter = 0;
 
         BlockType otherBlock = preferredBlock == BlockType.PAC_DOT ? BlockType.WALL : BlockType.PAC_DOT;
 
         for (int binaryStringCounter = 0, blockTypeArrayPositionCounter = 0; blockTypeArrayPositionCounter != blockTypes.length ; binaryStringCounter++) {
             int binaryStringCounterIncremented = binaryStringCounter++;
 
-            if(binaryStringC[binaryStringCounter] == '0' && binaryStringC[binaryStringCounterIncremented] == '0' || binaryStringC[binaryStringCounter] == '0' && binaryStringC[binaryStringCounterIncremented] == '1'){
+            if(binaryStringC[binaryStringCounter] == '0' && binaryStringC[binaryStringCounterIncremented] == '0' || binaryStringC[binaryStringCounter] == '0' && binaryStringC[binaryStringCounterIncremented] == '1' || specialBlockCounter > 2){
                 blockTypes[blockTypeArrayPositionCounter] = preferredBlock;
+                preferredBlockCounter++;
             }else if(binaryStringC[binaryStringCounter] == '1' && binaryStringC[binaryStringCounterIncremented] == '0'){
                 blockTypes[blockTypeArrayPositionCounter] = otherBlock;
+                otherBlockCounter++;
             }else if(binaryStringC[binaryStringCounter] == '1' && binaryStringC[binaryStringCounterIncremented] == '1' ){
                 if(specialBlockCounter == 0) {
                     blockTypes[blockTypeArrayPositionCounter] = BlockType.FRUIT;
@@ -66,6 +71,16 @@ public class Generator {
                 specialBlockCounter ++;
             }
             blockTypeArrayPositionCounter++;
+        }
+
+        if(preferredBlockCounter > otherBlockCounter) return blockTypes;
+
+        for (int i = 0; i != blockTypes.length ; i++) {
+            if(blockTypes[i] == preferredBlock){
+                blockTypes[i] = otherBlock;
+            }else if(blockTypes[i] == otherBlock){
+                blockTypes[i] = preferredBlock;
+            }
         }
         return blockTypes;
     }

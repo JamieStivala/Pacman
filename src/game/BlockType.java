@@ -2,6 +2,7 @@ package game;
 
 public enum BlockType {
     WALL,
-    COIN,
-    CHERRY
+    PAC_DOT,
+    POWER_PELLET,
+    FRUIT
 }

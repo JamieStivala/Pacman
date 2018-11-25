@@ -16,10 +16,23 @@ public class Generator {
         this.pseudoRandomGenerator = new Random(seed);
     }
 
-    private String correctLenghtBinaryNumber(int number){
+    private static String correctLenghtBinaryNumber(int number){
         String binaryNumber = Integer.toBinaryString(number);
         binaryNumber =  binaryNumber.substring(0, Math.min(binaryNumber.length(), 20));
         return binaryNumber;
     }
+
+    private static boolean[] stringToBinary(String binaryNumber){
+        char[] binaryStringC = binaryNumber.toCharArray();
+        boolean[] binary = new boolean[binaryStringC.length];
+
+        for (int i = 0; i != binaryStringC.length ; i++) {
+            binary[i] = binaryStringC[i] != '0';
+        }
+
+        return binary;
+    }
+
+
 
 }

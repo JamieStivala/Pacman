@@ -27,17 +27,24 @@ public class Generator {
         return binaryNumber;
     }
 
-    //00 -> PAC_DOT
-    //01 -> PAC_DOT
-    //10 -> FRUIT/PAC_DOT
-    //11 -> PAC_DOT
+    /**
+     * This algorithm works by getting a binary number and converting it to the following way;
+     * When it is '0 0' and '1 0' it is converted to preferredBlock
+     * When it is '1 0' it is converted into the opposite of preferredBlock
+     * When it is '1 1' it is converted into either a cherry or fruit;
+     *      If there is no fruits that one will be a fruit
+     *      If there is a fruit the rest will become a Power Pellet
+     *
+     * @param binaryNumber The Binary Number that will be converted into the correct format of Block Types
+     * @param preferredBlock The preferred block will the main generated block
+     * @return An array of BlockType of length 20
+     */
     private static BlockType[] stringToBinary(String binaryNumber, BlockType preferredBlock){
         char[] binaryStringC = binaryNumber.toCharArray();
         BlockType[] blockTypes = new BlockType[binaryStringC.length/2];
         int specialBlockCounter = 0;
 
-        BlockType otherBlock;
-        otherBlock = preferredBlock == BlockType.PAC_DOT ? BlockType.WALL : BlockType.PAC_DOT;
+        BlockType otherBlock = preferredBlock == BlockType.PAC_DOT ? BlockType.WALL : BlockType.PAC_DOT;
 
         for (int binaryStringCounter = 0, blockTypeArrayPositionCounter = 0; blockTypeArrayPositionCounter != blockTypes.length ; binaryStringCounter++) {
             int binaryStringCounterIncremented = binaryStringCounter++;
@@ -56,7 +63,6 @@ public class Generator {
             }
             blockTypeArrayPositionCounter++;
         }
-
         return blockTypes;
     }
 

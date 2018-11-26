@@ -6,13 +6,17 @@ public class Generator {
     private BlockType builtMap[][];
     private Random pseudoRandomGenerator;
 
+    private int width, height;
+
     public Generator(int width, int height){
         this((int)(Math.random() * 10000), width, height);
     }
 
     public Generator(int seed, int width, int height){
         System.out.println(seed);
-        this.builtMap  = new BlockType[width][height];
+        this.width = width;
+        this.height = height;
+
         this.pseudoRandomGenerator = new Random(seed);
 
         System.out.println(buildOneVerticalLine(BlockType.WALL).length);

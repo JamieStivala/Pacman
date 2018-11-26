@@ -3,7 +3,7 @@ package game.map;
 import java.util.Random;
 
 public class Generator {
-    private BlockType builtMap[][];
+    private BlockType[][] builtMap;
     private Random pseudoRandomGenerator;
 
     private int width, height;
@@ -87,6 +87,16 @@ public class Generator {
         return blockTypes;
     }
 
+    /**
+     * The algorithm starts by doing (lengthOfString * 2) - since one call to stringToBinary returns the lengthOfString/2
+     * Afterwards it enters a loop that builds a string by calling {@link #correctLengthBinaryNumber(int)} and as parameters the Pseudo Random number
+     * It loops until the length of the built string is more than the length of the required string
+     * Afterwards the built string is trimmed down to the actual required length
+     * Finally {@link #stringToBinary(String, BlockType)} is called with the generated string and the preferred block
+     *
+     * @param preferredBlock The most common block in that line
+     * @return An array of type BlockType with the returned result of {@link #stringToBinary(String, BlockType)}
+     */
     private BlockType[] buildOneVerticalLine(BlockType preferredBlock) {
         int lengthOfString = width * 2;
         StringBuilder generatedNumber = new StringBuilder();
@@ -100,6 +110,19 @@ public class Generator {
         return stringToBinary(finalGeneratedNumber, preferredBlock);
     }
 
+    /**
+     * The algorithm starts by creating a 2D array called inverted map with [{@link #height}][{@link #width}]
+     * The default preferredBlock is by default {@link BlockType#PAC_DOT}
+     * The program enters a loop where it fills the 2D array by calling {@link #buildOneVerticalLine(BlockType)} constantly alternating the preferred block between {@link BlockType#PAC_DOT} and {@link BlockType#WALL}
+     *
+     * After the 2D inverted array is filled a new array called built map is created with [{@link #width}] [{@link #height}]
+     * A loop is then ran "rotate by 90 degrees" the invertedMap and fill in the built map array correctly
+     *
+     * Finally a loop is ran to make sure that there are is a maximum of 2 fruits per line.  If more than 2 are found, the rest are changed to {@link BlockType#PAC_DOT} or {@link BlockType#WALL} depending on the preferredBlock of that line
+     *
+     *
+     * @return The final built map for the whole pacman game
+     */
     private BlockType[][] buildMap() {
         BlockType[][] invertedMap = new BlockType[height][width];
         BlockType preferredBlock = BlockType.PAC_DOT;
@@ -118,21 +141,32 @@ public class Generator {
             }
         }
 
+        preferredBlock = BlockType.PAC_DOT;
         for (int i = 0; i != builtMap.length; i++) {
             int fruitCounter = 0;
             for (int j = 0; j != builtMap[i].length; j++) {
                 if (builtMap[i][j] == BlockType.FRUIT) fruitCounter++;
                 if (fruitCounter > 1) builtMap[i][j] = preferredBlock;
             }
+
+            if (preferredBlock == BlockType.PAC_DOT) preferredBlock = BlockType.WALL;
+            else preferredBlock = BlockType.PAC_DOT;
         }
 
         return builtMap;
     }
 
+    /**
+     * @return The 2D Array {@link #builtMap}
+     */
     public BlockType[][] getBuiltMap() {
         return builtMap;
     }
 
+    /**
+     * @param index The location of the "first" 2D Array
+     * @return The array given by {@link #builtMap}[index]
+     */
     public BlockType[] getBuiltMap(int index) {
         return builtMap[index];
     }

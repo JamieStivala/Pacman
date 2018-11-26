@@ -128,4 +128,12 @@ public class Generator {
 
         return builtMap;
     }
+
+    public BlockType[][] getBuiltMap() {
+        return builtMap;
+    }
+
+    public BlockType[] getBuiltMap(int index) {
+        return builtMap[index];
+    }
 }

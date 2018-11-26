@@ -15,10 +15,7 @@ public class Generator {
         this.builtMap  = new BlockType[width][height];
         this.pseudoRandomGenerator = new Random(seed);
 
-        BlockType[] blockTypes = stringToBinary(correctLengthBinaryNumber(pseudoRandomGenerator.nextInt(1000000000)), BlockType.WALL);
-        for (BlockType b : blockTypes) {
-            System.out.println(b);
-        }
+        System.out.println(buildOneVerticalLine(BlockType.WALL).length);
     }
 
     /**
@@ -87,6 +84,16 @@ public class Generator {
         return blockTypes;
     }
 
+    private BlockType[] buildOneVerticalLine(BlockType preferredBlock) {
+        int lengthOfString = this.builtMap.length * 2;
+        StringBuilder generatedNumber = new StringBuilder();
+        do {
+            generatedNumber.append(correctLengthBinaryNumber(pseudoRandomGenerator.nextInt(1000000000)));
+        } while (generatedNumber.length() < lengthOfString);
 
+        String finalGeneratedNumber = generatedNumber.toString();
+        finalGeneratedNumber = finalGeneratedNumber.substring(0, Math.min(finalGeneratedNumber.length(), lengthOfString));
 
+        return stringToBinary(finalGeneratedNumber, preferredBlock);
+    }
 }

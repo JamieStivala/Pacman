@@ -100,4 +100,33 @@ public class Generator {
 
         return stringToBinary(finalGeneratedNumber, preferredBlock);
     }
+
+    private BlockType[][] buildMap() {
+        BlockType[][] invertedMap = new BlockType[height][width];
+        BlockType preferredBlock = BlockType.PAC_DOT;
+        for (int i = 0; i != height; i++) {
+            invertedMap[i] = buildOneVerticalLine(preferredBlock);
+            if (preferredBlock == BlockType.PAC_DOT) preferredBlock = BlockType.WALL;
+            else preferredBlock = BlockType.PAC_DOT;
+        }
+
+
+        BlockType[][] builtMap = new BlockType[width][height];
+
+        for (int i = 0; i != width; i++) {
+            for (int j = 0; j != height; j++) {
+                builtMap[i][j] = invertedMap[j][i];
+            }
+        }
+
+        for (int i = 0; i != builtMap.length; i++) {
+            int fruitCounter = 0;
+            for (int j = 0; j != builtMap[i].length; j++) {
+                if (builtMap[i][j] == BlockType.FRUIT) fruitCounter++;
+                if (fruitCounter > 1) builtMap[i][j] = preferredBlock;
+            }
+        }
+
+        return builtMap;
+    }
 }

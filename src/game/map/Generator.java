@@ -9,7 +9,7 @@ public class Generator {
     private int width, height;
 
     public Generator(int width, int height){
-        this((int)(Math.random() * 10000), width, height);
+        this((int) (Math.random() * 1000000000), width, height);
     }
 
     public Generator(int seed, int width, int height){

@@ -8,10 +8,21 @@ public class Generator {
 
     private int width, height;
 
+    /**
+     * The same function as {@link #Generator(int, int, int)} but with the seed generated randomly
+     *
+     * @param width  The given width of the map
+     * @param height The given height of the map
+     */
     public Generator(int width, int height){
         this((int) (Math.random() * 1000000000), width, height);
     }
 
+    /**
+     * @param seed The seed for the map to be generated
+     * @param width The given width of the map
+     * @param height The given height of the map
+     */
     public Generator(int seed, int width, int height){
         System.out.println(seed);
         this.width = width;

@@ -89,7 +89,7 @@ public class Generator {
     }
 
     private BlockType[] buildOneVerticalLine(BlockType preferredBlock) {
-        int lengthOfString = this.builtMap.length * 2;
+        int lengthOfString = width * 2;
         StringBuilder generatedNumber = new StringBuilder();
         do {
             generatedNumber.append(correctLengthBinaryNumber(pseudoRandomGenerator.nextInt(1000000000)));

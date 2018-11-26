@@ -18,8 +18,7 @@ public class Generator {
         this.height = height;
 
         this.pseudoRandomGenerator = new Random(seed);
-
-        System.out.println(buildOneVerticalLine(BlockType.WALL).length);
+        this.builtMap = this.buildMap();
     }
 
     /**

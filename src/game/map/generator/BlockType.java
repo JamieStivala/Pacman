@@ -1,4 +1,4 @@
-package game.map;
+package game.map.generator;
 
 public enum BlockType {
     WALL,

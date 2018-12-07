@@ -2,6 +2,8 @@ package game.items.stationery;
 
 import game.items.Blob;
 
+import java.awt.*;
+
 public class PacDot extends Blob {
     /**
      * Spawns the object with the same texture with and height every time
@@ -12,5 +14,11 @@ public class PacDot extends Blob {
      */
     public PacDot(int x, int y) {
         super("coin.png", x, y, 10, 10);
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        if (!this.isVisible()) return;
+        g.drawImage(getImage(), getBlockMiddle()[0], getBlockMiddle()[1], (int) getArea().getWidth(), (int) getArea().getHeight(), null);
     }
 }

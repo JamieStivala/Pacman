@@ -99,4 +99,7 @@ public class Blob {
         g.drawImage(getImage(), (int) area.getX(), (int) area.getY(), (int) area.getWidth(), (int) area.getHeight(), null);
     }
 
+    public int[] getBlockMiddle() {
+        return new int[]{(this.getX() + (this.getArea().width / 2)), (this.getY() + (this.getArea().height / 2))};
+    }
 }

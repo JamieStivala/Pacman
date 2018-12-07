@@ -2,6 +2,8 @@ package game.items.stationery;
 
 import game.items.Blob;
 
+import java.awt.*;
+
 public class Wall extends Blob {
     /**
      * Spawns the object with the same texture with and height every time
@@ -12,5 +14,11 @@ public class Wall extends Blob {
      */
     public Wall(int x, int y) {
         super("wall.png", x, y, 40, 40);
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        if (!this.isVisible()) return;
+        g.drawImage(getImage(), getBlockMiddle()[0], getBlockMiddle()[1], (int) getArea().getWidth(), (int) getArea().getHeight(), null);
     }
 }

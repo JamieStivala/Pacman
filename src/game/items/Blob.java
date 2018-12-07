@@ -39,7 +39,7 @@ public class Blob {
     /**
      * @return A boolean stating if the object is visible
      */
-    private boolean isVisible() {
+    protected boolean isVisible() {
         return visible;
     }
 

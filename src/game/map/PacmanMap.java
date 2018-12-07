@@ -13,26 +13,26 @@ public class PacmanMap {
     private BufferedImage renderedMap;
     private Generator generator;
     private Blob map[][];
-    private int mapWidth, mapHeight, screenWidth, screenHeight;
+    private int screenWidth, screenHeight, widthOfOneBlock, heightOfOneBlock;
 
-    public PacmanMap(int width, int height, int screenWidth, int screenHeight) {
-        this.generator = new Generator(width, height);
-        this.map = new Blob[width][height];
+    public PacmanMap(int vertical, int horizontal, int screenWidth, int screenHeight) {
+        this.generator = new Generator(vertical, horizontal);
+        this.map = new Blob[vertical][horizontal];
 
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
-        this.mapWidth = width;
-        this.mapHeight = height;
+
+        this.widthOfOneBlock = (screenWidth / horizontal);
+        this.heightOfOneBlock = (screenHeight / vertical);
+
+        Blob.setMaxWidth(widthOfOneBlock);
+        Blob.setMaxHeight(heightOfOneBlock);
 
         buildMapObjects();
         this.renderedMap = renderMap();
     }
 
     private void buildMapObjects() {
-        int widthBetweenBlocks = (this.screenWidth / this.mapWidth) * 2;
-        int heightBetweenBlocks = (this.screenHeight / this.mapHeight) * 2;
-
-        System.out.println(heightBetweenBlocks);
         int x = 0;
         int y = 0;
 
@@ -43,10 +43,10 @@ public class PacmanMap {
                 if (currentBlock == BlockType.PAC_DOT) this.map[i][j] = new PacDot(x, y);
                 if (currentBlock == BlockType.POWER_PELLET || currentBlock == BlockType.FRUIT)
                     this.map[i][j] = new PowerPellet(x, y);
-                x += widthBetweenBlocks;
+                x += widthOfOneBlock;
             }
             x = 0;
-            y += heightBetweenBlocks;
+            y += heightOfOneBlock;
         }
     }
 

@@ -119,6 +119,6 @@ public class Blob {
     }
 
     protected int[] getBlockMiddle() {
-        return new int[]{(this.getX() + (getMaxWidth() / 2)), (this.getY() + (getMaxHeight() / 2))};
+        return new int[]{(this.getX() + (getMaxWidth() / 3)), (this.getY() + (getMaxHeight() / 3))};
     }
 }

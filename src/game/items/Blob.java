@@ -13,6 +13,9 @@ public class Blob {
     private Rectangle area;
     private boolean visible;
 
+    private static int maxWidth;
+    private static int maxHeight;
+
     /*
      * This method starts by creating loading the specified texture (from the resource folder) to the class unless the filename is null.
      * Afterwards it creates a Rectangle that represents the area of the object.  That will be used to check if something is collided with other thing
@@ -99,7 +102,23 @@ public class Blob {
         g.drawImage(getImage(), (int) area.getX(), (int) area.getY(), (int) area.getWidth(), (int) area.getHeight(), null);
     }
 
-    public int[] getBlockMiddle() {
-        return new int[]{(this.getX() + (this.getArea().width / 2)), (this.getY() + (this.getArea().height / 2))};
+    protected static int getMaxWidth() {
+        return maxWidth;
+    }
+
+    public static void setMaxWidth(int maxWidth) {
+        Blob.maxWidth = maxWidth;
+    }
+
+    protected static int getMaxHeight() {
+        return maxHeight;
+    }
+
+    public static void setMaxHeight(int maxHeight) {
+        Blob.maxHeight = maxHeight;
+    }
+
+    protected int[] getBlockMiddle() {
+        return new int[]{(this.getX() + (getMaxWidth() / 2)), (this.getY() + (getMaxHeight() / 2))};
     }
 }

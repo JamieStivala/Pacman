@@ -6,27 +6,27 @@ public class Generator {
     private BlockType[][] builtMap;
     private Random pseudoRandomGenerator;
 
-    private int width, height;
+    private int verticalBlocks, horizontalBlocks;
 
     /**
      * The same function as {@link #Generator(int, int, int)} but with the seed generated randomly
      *
-     * @param width  The given width of the map
-     * @param height The given height of the map
+     * @param verticalBlocks  The given verticalBlocks of the map
+     * @param horizontalBlocks The given horizontalBlocks of the map
      */
-    public Generator(int width, int height){
-        this((int) (Math.random() * 1000000000), width, height);
+    public Generator(int verticalBlocks, int horizontalBlocks) {
+        this((int) (Math.random() * 1000000000), verticalBlocks, horizontalBlocks);
     }
 
     /**
      * @param seed The seed for the map to be generated
-     * @param width The given width of the map
-     * @param height The given height of the map
+     * @param verticalBlocks The given verticalBlocks of the map
+     * @param horizontalBlocks The given horizontalBlocks of the map
      */
-    public Generator(int seed, int width, int height){
+    public Generator(int seed, int verticalBlocks, int horizontalBlocks) {
         System.out.println(seed);
-        this.width = width;
-        this.height = height;
+        this.verticalBlocks = verticalBlocks;
+        this.horizontalBlocks = horizontalBlocks;
 
         this.pseudoRandomGenerator = new Random(seed);
         this.builtMap = this.buildMap();
@@ -109,7 +109,7 @@ public class Generator {
      * @return An array of type BlockType with the returned result of {@link #stringToBinary(String, BlockType)}
      */
     private BlockType[] buildOneVerticalLine(BlockType preferredBlock) {
-        int lengthOfString = width * 2;
+        int lengthOfString = verticalBlocks * 2;
         StringBuilder generatedNumber = new StringBuilder();
         do {
             generatedNumber.append(correctLengthBinaryNumber(pseudoRandomGenerator.nextInt(1000000000)));
@@ -122,11 +122,11 @@ public class Generator {
     }
 
     /**
-     * The algorithm starts by creating a 2D array called inverted map with [{@link #height}][{@link #width}]
+     * The algorithm starts by creating a 2D array called inverted map with [{@link #horizontalBlocks}][{@link #verticalBlocks}]
      * The default preferredBlock is by default {@link BlockType#PAC_DOT}
      * The program enters a loop where it fills the 2D array by calling {@link #buildOneVerticalLine(BlockType)} constantly alternating the preferred block between {@link BlockType#PAC_DOT} and {@link BlockType#WALL}
      *
-     * After the 2D inverted array is filled a new array called built map is created with [{@link #width}] [{@link #height}]
+     * After the 2D inverted array is filled a new array called built map is created with [{@link #verticalBlocks}] [{@link #horizontalBlocks}]
      * A loop is then ran "rotate by 90 degrees" the invertedMap and fill in the built map array correctly
      *
      * Finally a loop is ran to make sure that there are is a maximum of 2 fruits per line.  If more than 2 are found, the rest are changed to {@link BlockType#PAC_DOT} or {@link BlockType#WALL} depending on the preferredBlock of that line
@@ -135,19 +135,19 @@ public class Generator {
      * @return The final built map for the whole pacman game
      */
     private BlockType[][] buildMap() {
-        BlockType[][] invertedMap = new BlockType[height][width];
+        BlockType[][] invertedMap = new BlockType[horizontalBlocks][verticalBlocks];
         BlockType preferredBlock = BlockType.PAC_DOT;
-        for (int i = 0; i != height; i++) {
+        for (int i = 0; i != horizontalBlocks; i++) {
             invertedMap[i] = buildOneVerticalLine(preferredBlock);
             if (preferredBlock == BlockType.PAC_DOT) preferredBlock = BlockType.WALL;
             else preferredBlock = BlockType.PAC_DOT;
         }
 
 
-        BlockType[][] builtMap = new BlockType[width][height];
+        BlockType[][] builtMap = new BlockType[verticalBlocks][horizontalBlocks];
 
-        for (int i = 0; i != width; i++) {
-            for (int j = 0; j != height; j++) {
+        for (int i = 0; i != verticalBlocks; i++) {
+            for (int j = 0; j != horizontalBlocks; j++) {
                 builtMap[i][j] = invertedMap[j][i];
             }
         }

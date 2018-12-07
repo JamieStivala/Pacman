@@ -13,7 +13,7 @@ public class PowerPellet extends Blob {
      * @param y-coordinate to spawn in
      */
     public PowerPellet(int x, int y) {
-        super("coin.png", x, y, 20, 20);
+        super("coin.png", x, y, getMaxWidth() / 2, getMaxHeight() / 2);
     }
 
     @Override

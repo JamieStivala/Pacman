@@ -13,7 +13,7 @@ public class PacDot extends Blob {
      * @param y-coordinate to spawn in
      */
     public PacDot(int x, int y) {
-        super("coin.png", x, y, 10, 10);
+        super("coin.png", x, y, getMaxWidth() / 4, getMaxHeight() / 4);
     }
 
     @Override

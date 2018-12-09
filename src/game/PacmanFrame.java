@@ -32,7 +32,7 @@ public class PacmanFrame extends JFrame {
     public void render() {
         Graphics g = screen.getGraphics();
         g.setColor(new Color(5, 19, 28));
-        g.fillRect(1, 1, screen.getWidth(), screen.getHeight());
+        g.fillRect(0, 0, screen.getWidth(), screen.getHeight());
         g.drawImage(pacmanMap.getRenderedMap(), 1, 1, screen.getWidth(), screen.getHeight(), null);
     }
 

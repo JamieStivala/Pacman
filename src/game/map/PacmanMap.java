@@ -13,7 +13,7 @@ public class PacmanMap {
     private BufferedImage renderedMap;
     private Generator generator;
     private Blob[][] map;
-    private int screenWidth, screenHeight, widthOfOneBlock, heightOfOneBlock, vertical, horizontal;
+    private int screenWidth, screenHeight, widthOfOneBlock, heightOfOneBlock, vertical, horizontal, topDimensions;
 
     public PacmanMap(int vertical, int horizontal, int screenWidth, int screenHeight) {
         this.vertical = vertical;
@@ -25,7 +25,7 @@ public class PacmanMap {
         this.map = new Blob[vertical][horizontal];
 
         this.setScreenWidth(screenWidth);
-        this.setScreenHeight(screenHeight);
+        this.setScreenHeight(screenHeight, 0);
 
         this.widthOfOneBlock = (screenWidth / horizontal);
         this.heightOfOneBlock = (screenHeight / vertical);
@@ -35,7 +35,7 @@ public class PacmanMap {
 
     public void buildMapObjects() {
         int x = 0;
-        int y = 0;
+        int y = topDimensions;
 
         for (int i = 0; i != generator.getBuiltMap().length; i++) {
             for (int j = 0; j != generator.getBuiltMap(i).length; j++) {
@@ -76,9 +76,10 @@ public class PacmanMap {
         Blob.setMaxWidth(widthOfOneBlock);
     }
 
-    public void setScreenHeight(int screenHeight) {
+    public void setScreenHeight(int screenHeight, int topDimensions) {
         this.screenHeight = screenHeight;
-        this.heightOfOneBlock = (screenHeight / vertical);
+        this.heightOfOneBlock = ((screenHeight - topDimensions) / vertical);
         Blob.setMaxHeight(heightOfOneBlock);
+        this.topDimensions = topDimensions;
     }
 }

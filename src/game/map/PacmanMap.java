@@ -12,27 +12,28 @@ import java.awt.image.BufferedImage;
 public class PacmanMap {
     private BufferedImage renderedMap;
     private Generator generator;
-    private Blob map[][];
-    private int screenWidth, screenHeight, widthOfOneBlock, heightOfOneBlock;
+    private Blob[][] map;
+    private int screenWidth, screenHeight, widthOfOneBlock, heightOfOneBlock, vertical, horizontal;
 
     public PacmanMap(int vertical, int horizontal, int screenWidth, int screenHeight) {
+        this.vertical = vertical;
+        this.horizontal = horizontal;
+        this.screenWidth = screenWidth;
+        this.screenHeight = screenHeight;
+
         this.generator = new Generator(vertical, horizontal);
         this.map = new Blob[vertical][horizontal];
 
-        this.screenWidth = screenWidth;
-        this.screenHeight = screenHeight;
+        this.setScreenWidth(screenWidth);
+        this.setScreenHeight(screenHeight);
 
         this.widthOfOneBlock = (screenWidth / horizontal);
         this.heightOfOneBlock = (screenHeight / vertical);
 
-        Blob.setMaxWidth(widthOfOneBlock);
-        Blob.setMaxHeight(heightOfOneBlock);
-
         buildMapObjects();
-        this.renderedMap = renderMap();
     }
 
-    private void buildMapObjects() {
+    public void buildMapObjects() {
         int x = 0;
         int y = 0;
 
@@ -50,17 +51,29 @@ public class PacmanMap {
         }
     }
 
-    public BufferedImage renderMap() {
+    public void renderMap() {
         BufferedImage map = new BufferedImage(screenWidth, screenHeight, BufferedImage.TYPE_INT_ARGB);
         for (int i = 0; i != this.map.length; i++) {
             for (int j = 0; j != this.map[i].length; j++) {
                 this.map[i][j].paint(map.getGraphics());
             }
         }
-        return map;
+        this.renderedMap = map;
     }
 
     public BufferedImage getRenderedMap() {
         return renderedMap;
+    }
+
+    public void setScreenWidth(int screenWidth) {
+        this.screenWidth = screenWidth;
+        this.widthOfOneBlock = (screenWidth / horizontal);
+        Blob.setMaxWidth(widthOfOneBlock);
+    }
+
+    public void setScreenHeight(int screenHeight) {
+        this.screenHeight = screenHeight;
+        this.heightOfOneBlock = (screenHeight / vertical);
+        Blob.setMaxHeight(heightOfOneBlock);
     }
 }

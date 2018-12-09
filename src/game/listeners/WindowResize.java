@@ -1,6 +1,6 @@
 package game.listeners;
 
-import game.PacmanRunner;
+import game.PacmanFrame;
 import game.map.PacmanMap;
 
 import java.awt.event.ComponentEvent;
@@ -9,11 +9,11 @@ import java.awt.image.BufferedImage;
 
 public class WindowResize implements ComponentListener, Runnable {
     private PacmanMap pacmanMap;
-    private PacmanRunner pacmanRunner;
+    private PacmanFrame pacmanFrame;
 
-    public WindowResize(PacmanMap pacmanMap, PacmanRunner pacmanRunner) {
+    public WindowResize(PacmanMap pacmanMap, PacmanFrame pacmanFrame) {
         this.pacmanMap = pacmanMap;
-        this.pacmanRunner = pacmanRunner;
+        this.pacmanFrame = pacmanFrame;
     }
 
     @Override
@@ -38,14 +38,14 @@ public class WindowResize implements ComponentListener, Runnable {
 
     @Override
     public void run() {
-        pacmanRunner.setScreen(new BufferedImage(pacmanRunner.getWidth(), pacmanRunner.getHeight(), BufferedImage.TYPE_INT_ARGB));
+        pacmanFrame.setScreen(new BufferedImage(pacmanFrame.getWidth(), pacmanFrame.getHeight(), BufferedImage.TYPE_INT_ARGB));
 
-        pacmanMap.setScreenWidth(pacmanRunner.getWidth());
-        pacmanMap.setScreenHeight(pacmanRunner.getHeight());
+        pacmanMap.setScreenWidth(pacmanFrame.getWidth());
+        pacmanMap.setScreenHeight(pacmanFrame.getHeight());
         pacmanMap.buildMapObjects();
         pacmanMap.renderMap();
 
-        pacmanRunner.render();
-        pacmanRunner.paint(this.pacmanRunner.getGraphics());
+        pacmanFrame.render();
+        pacmanFrame.paint(this.pacmanFrame.getGraphics());
     }
 }

@@ -3,11 +3,12 @@ package game;
 import game.map.PacmanMap;
 
 public class MapUpdater extends Thread {
-    private PacmanRunner pacmanRunner;
+    private PacmanFrame pacmanFrame;
     private PacmanMap pacmanMap;
 
-    MapUpdater() {
-
+    MapUpdater(PacmanFrame pacmanFrame, PacmanMap pacmanMap) {
+        this.pacmanFrame = pacmanFrame;
+        this.pacmanMap = pacmanMap;
     }
 
     @Override

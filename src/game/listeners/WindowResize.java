@@ -48,6 +48,6 @@ public class WindowResize implements ComponentListener, Runnable {
         pacmanMap.renderMap();
 
         pacmanFrame.render();
-        pacmanFrame.paint(this.pacmanFrame.getGraphics());
+        pacmanFrame.repaint();
     }
 }

@@ -10,17 +10,24 @@ import java.awt.image.BufferedImage;
 public class PacmanFrame extends JFrame {
     private PacmanMap pacmanMap;
     private BufferedImage screen;
+    private boolean isRunning;
 
     public PacmanFrame() {
-        this.setLayout(null);
         this.pacmanMap = new PacmanMap(20, 40, 1440, 900);
         this.screen = new BufferedImage(1440, 900, BufferedImage.TYPE_INT_ARGB);
+        setFrameFlags();
+    }
+
+    private void setFrameFlags() {
+        this.setLayout(null);
+
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         this.addComponentListener(new WindowResize(pacmanMap, this));
-        this.setSize(1440, 900);
         this.repaint();
         this.setVisible(true);
     }
+
 
     public void render() {
         Graphics g = screen.getGraphics();

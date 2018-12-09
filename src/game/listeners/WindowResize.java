@@ -3,6 +3,7 @@ package game.listeners;
 import game.PacmanFrame;
 import game.map.PacmanMap;
 
+import java.awt.*;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.image.BufferedImage;
@@ -39,9 +40,10 @@ public class WindowResize implements ComponentListener, Runnable {
     @Override
     public void run() {
         pacmanFrame.setScreen(new BufferedImage(pacmanFrame.getWidth(), pacmanFrame.getHeight(), BufferedImage.TYPE_INT_ARGB));
+        Insets dimension = pacmanFrame.getInsets();
 
         pacmanMap.setScreenWidth(pacmanFrame.getWidth());
-        pacmanMap.setScreenHeight(pacmanFrame.getHeight());
+        pacmanMap.setScreenHeight(pacmanFrame.getHeight(), dimension.top);
         pacmanMap.buildMapObjects();
         pacmanMap.renderMap();
 

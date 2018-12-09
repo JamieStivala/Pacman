@@ -7,18 +7,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class PacmanRunner extends JFrame {
+public class PacmanFrame extends JFrame {
     private PacmanMap pacmanMap;
     private BufferedImage screen;
 
-    public PacmanRunner() {
-        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+    public PacmanFrame() {
         this.setLayout(null);
         this.pacmanMap = new PacmanMap(20, 40, 1440, 900);
         this.screen = new BufferedImage(1440, 900, BufferedImage.TYPE_INT_ARGB);
 
         this.addComponentListener(new WindowResize(pacmanMap, this));
-        this.setSize(900, 900);
+        this.setSize(1440, 900);
         this.repaint();
         this.setVisible(true);
     }

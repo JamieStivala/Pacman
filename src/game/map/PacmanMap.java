@@ -40,10 +40,15 @@ public class PacmanMap {
         for (int i = 0; i != generator.getBuiltMap().length; i++) {
             for (int j = 0; j != generator.getBuiltMap(i).length; j++) {
                 BlockType currentBlock = generator.getBuiltMap(i)[j];
+                boolean isVisible = true;
+                if (this.map[i][j] != null) isVisible = this.map[i][j].isVisible();
+
                 if (currentBlock == BlockType.WALL) this.map[i][j] = new Wall(x, y);
                 if (currentBlock == BlockType.PAC_DOT) this.map[i][j] = new PacDot(x, y);
                 if (currentBlock == BlockType.POWER_PELLET || currentBlock == BlockType.FRUIT)
                     this.map[i][j] = new PowerPellet(x, y);
+
+                if (this.map[i][j] != null) this.map[i][j].setVisible(isVisible);
                 x += widthOfOneBlock;
             }
             x = 0;

@@ -20,7 +20,7 @@ public class PacmanFrame extends JFrame {
 
     private void setFrameFlags() {
         this.setLayout(null);
-
+        this.setSize(100, 100);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         this.addComponentListener(new WindowResize(pacmanMap, this));

@@ -1,6 +1,7 @@
 package game.items.stationery;
 
 import game.items.Blob;
+import java.awt.image.BufferedImage;
 
 public class Wall extends Blob {
     /**
@@ -10,7 +11,7 @@ public class Wall extends Blob {
      * @param x-coordinate to spawn in
      * @param y-coordinate to spawn in
      */
-    public Wall(int x, int y) {
-        super("wall.png", x, y, getMaxWidth(), getMaxHeight());
+    public Wall(BufferedImage wall, int x, int y) {
+        super(wall, x, y, getMaxWidth(), getMaxHeight());
     }
 }

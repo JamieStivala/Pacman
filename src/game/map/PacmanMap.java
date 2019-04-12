@@ -7,6 +7,7 @@ import game.items.stationery.Wall;
 import game.map.generator.BlockType;
 import game.map.generator.Generator;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class PacmanMap {
@@ -43,7 +44,7 @@ public class PacmanMap {
                 boolean isVisible = true;
                 if (this.map[i][j] != null) isVisible = this.map[i][j].isVisible();
 
-                if (currentBlock == BlockType.WALL) this.map[i][j] = new Wall(x, y);
+                if (currentBlock == BlockType.WALL) this.map[i][j] = new Wall(getWallTexture(generator.getBuiltMap(), i, j), x, y);
                 if (currentBlock == BlockType.PAC_DOT) this.map[i][j] = new PacDot(x, y);
                 if (currentBlock == BlockType.POWER_PELLET || currentBlock == BlockType.FRUIT)
                     this.map[i][j] = new PowerPellet(x, y);
@@ -64,6 +65,28 @@ public class PacmanMap {
             }
         }
         this.renderedMap = map;
+    }
+
+    private BufferedImage getWallTexture(BlockType [][] array, int verticalPosition, int horizontalPosition){
+        //If the block is not a wall it is null-ed
+        BlockType westBlock = horizontalPosition != 0 ? (array [verticalPosition] [horizontalPosition -1] == BlockType.WALL ? BlockType.WALL : null) : null;
+        BlockType eastBlock = horizontalPosition != array[verticalPosition].length-1 ? (array [verticalPosition] [horizontalPosition + 1] == BlockType.WALL ? BlockType.WALL : null) : null;
+        BlockType northBlock = verticalPosition != 0 ? (array [verticalPosition - 1] [horizontalPosition] == BlockType.WALL ? BlockType.WALL : null) : null;
+        BlockType southBlock = verticalPosition != array.length-1 ? (array [verticalPosition + 1] [horizontalPosition] == BlockType.WALL ? BlockType.WALL : null) : null;
+        //If the block is not a wall it is null-ed
+
+        BufferedImage wall = new BufferedImage(widthOfOneBlock, heightOfOneBlock, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D wallGraphic = wall.createGraphics();
+
+        wallGraphic.setColor(Color.white);
+        if(westBlock != null) wallGraphic.drawLine(0, heightOfOneBlock/2, widthOfOneBlock/2, heightOfOneBlock/2);
+        if(eastBlock != null) wallGraphic.drawLine(widthOfOneBlock/2, heightOfOneBlock/2, widthOfOneBlock, heightOfOneBlock/2);
+        if(northBlock != null) wallGraphic.drawLine(widthOfOneBlock/2, 0, widthOfOneBlock/2, heightOfOneBlock/2);
+        if(southBlock != null) wallGraphic.drawLine(widthOfOneBlock/2, heightOfOneBlock/2, widthOfOneBlock/2, heightOfOneBlock);
+
+        wallGraphic.dispose();
+
+        return wall;
     }
 
     public BufferedImage getRenderedMap() {

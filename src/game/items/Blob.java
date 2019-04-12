@@ -39,6 +39,12 @@ public class Blob {
         visible = true;
     }
 
+    public Blob(BufferedImage image, int x, int y, int width, int height) {
+        this.image = image;
+        area = new Rectangle(x, y, width, height);
+        visible = true;
+    }
+
     /**
      * @return A boolean stating if the object is visible
      */
